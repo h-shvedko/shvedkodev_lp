@@ -1,0 +1,155 @@
+// forms
+form,
+fieldset {
+    margin: 0;
+    padding: 0;
+    border-style: none;
+}
+
+input[type='text'],
+input[type='tel'],
+input[type='email'],
+input[type='search'],
+input[type='password'],
+//input[type='url'],
+// input[type='date'],
+textarea,
+select {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    box-sizing: border-box;
+    border: 2px solid $primary-color; // border color changed
+    padding: 10px 15px; // padding changed
+    border-radius: 5px; // border radius changed
+    height: auto; // fixed height removed
+    margin-bottom: 20px;
+    display: block;
+    width: 100%;
+    outline: none;
+    background-color: #f0f0f0; // background color changed
+    font-size: 16px; // font size changed
+    color: #666; // text color changed
+    &:focus {
+        border-color: #3e5a9a; // focus border color changed
+    }
+    &::placeholder {
+        color: #666; // placeholder color changed
+    }
+}
+
+select {
+    color: #666; // text color changed
+}
+
+textarea {
+    resize: vertical;
+    vertical-align: top;
+    height: 100px;
+    min-height: 100px;
+}
+
+button,
+input[type='button'],
+input[type='reset'],
+input[type='file'],
+input[type='submit'] {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    cursor: pointer;
+    background-color: #3e5a9a; // background color changed
+    color: #fff; // text color changed
+    border: none;
+    padding: 10px 20px; // padding changed
+    border-radius: 5px; // border radius changed
+    font-size: 16px; // font size changed
+}
+
+.form {
+    input:invalid {
+        border: 1px solid #f00;
+    }
+    input:valid {
+        border: 2px solid black;
+    }
+}
+
+.light-form {
+    input[type='text'],
+    input[type='tel'],
+    input[type='email'],
+    input[type='search'],
+    input[type='password'], //input[type='url'],
+    // input[type='date'],
+    textarea {
+        background: #fff;
+        border-color: #ccc;
+        color: #666;
+        &::placeholder {
+            color: #666;
+        }
+    }
+    .inputs-area {
+        margin-bottom: 40px;
+    }
+}
+
+.custom-select {
+    position: relative;
+    &:before {
+        position: absolute;
+        right: 20px;
+        content: '';
+        width: 8px;
+        height: 8px;
+        position: absolute;
+        top: 50%;
+        border: 3px solid #3e5a9a;
+        border-width: 0 0 3px 3px;
+        transform: rotate(-45deg);
+        margin-top: -6px;
+        line-height: 0;
+        z-index: 1;
+    }
+    select {
+        appearance: none;
+        padding-right: 25px;
+        background-color: #fff;
+    }
+}
+
+.booking-form {
+    max-width: 494px;
+    &.small {
+        max-width: 310px;
+    }
+    [class^="col-"] {
+        padding: 0 7px;
+        margin: 0;
+    }
+    .row-holder {
+        margin: 0 -7px;
+    }
+    h3 {
+        margin-bottom: 28px;
+    }
+    fieldset {
+        // margin-bottom: 30px;
+    }
+}
+
+.date-picker {
+    position: relative;
+    input {
+        padding-right: 40px;
+    }
+    &:after {
+        content: "\e909";
+        font-family: "icomoon";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 20px;
+        color: #3e5a9a;
+        pointer-events: none;
+    }
+}

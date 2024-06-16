@@ -1,0 +1,138 @@
+[id="header"] {
+    padding: 19px 0 17px;
+    box-shadow: 0 0 20px rgba(#000, 0.1);
+    box-shadow: 1px 5px 20px rgba(#000, .1);
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 101;
+    transition: transform 0.3s ease, padding 0.3s ease;
+    background: $header-bg;
+    .container {
+        display: flex;
+        align-items: center;
+        gap: 34px;
+    }
+}
+
+header.shrink {
+    padding: 10px;
+}
+
+.logo {
+    flex-grow: 1;
+    img {
+        max-width: 200px;
+    }
+}
+
+.menu-holder {
+    position: fixed;
+    top: 81px;
+    right: 0;
+    height: calc(100vh - 81px);
+    width: 200px;
+    background: $white;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+    transform: translateX(100%);
+    transition: transform $animation-speed ease-in-out;
+    overflow: auto;
+    @include media(">desktop") {
+        transform: translateX(0);
+        flex-grow: 1;
+        max-width: 664px;
+        margin-left: auto;
+        position: static;
+        box-shadow: none;
+        background: none;
+        width: auto;
+        height: auto
+    }
+    .burger-trigger:checked~& {
+        transform: translateX(0);
+    }
+}
+
+#nav {
+    @extend %listreset;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-transform: uppercase;
+    flex-grow: 1;
+    font-weight: 500;
+    gap: 20px;
+    padding: 20px;
+    @include media(">desktop") {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    a:not(.button) {
+        color: $header-color;
+        text-decoration: none;
+        transition: border-color $animation-speed ease-in-out;
+        border-bottom: 2px solid transparent;
+    }
+    a:not(.button).active {
+        color: $primary-color;
+        border-bottom: 2px solid $base-text-color;
+    }
+    a:not(.button):hover {
+        border-bottom: 2px solid $base-text-color;
+    }
+    .button {
+        text-transform: none;
+    }
+}
+
+.nav-opener {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    float: right;
+    overflow: hidden;
+    text-indent: -9999px;
+    order: 1;
+    cursor: pointer;
+    @include media(">desktop") {
+        display: none;
+    }
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 4px;
+        transition: all .2s linear;
+        background: $primary-color;
+        border-radius: 3px;
+    }
+    &:before {
+        bottom: 23px;
+        box-shadow: 0 10px 0 $primary-color;
+    }
+    &:after {
+        bottom: 3px;
+    }
+    .burger-trigger:checked~& {
+        &:before,
+        &:after {
+            bottom: 50%;
+        }
+        &:before {
+            transform: translateY(50%) rotate(-45deg);
+            box-shadow: none;
+        }
+        &:after {
+            transform: translateY(50%) rotate(-135deg);
+        }
+    }
+}
+
+.burger-trigger {
+    position: fixed;
+    top: -9999px;
+    left: -9999px;
+    opacity: 0;
+}

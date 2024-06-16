@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    //= layout/head.html
+    <style>
+        .list {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+        }
+        
+        .list.show {
+            max-height: 500px;
+            /* Adjust based on the content height */
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+        //= layout/header.html
+        <main role="main" id="main">
+            <section class="section">
+                <div class="container">
+                    <div class="services-tabs">
+                        <ul class="services-tabset d-none servicesTabset animate-on-scroll">
+                            <li><a href="#tab2-1" class="active">Custom Solutions</a></li>
+                        </ul>
+                        <div class="services-content">
+                            <div id="tab2-1" class="row-holder">
+                                <div class="col-6 animate-on-scroll">
+                                    <div class="text-holder">
+                                        <h1>Custom Solutions</h1>
+                                        <h3 class="button toggle" onclick="toggleList(this)">Software Development <i class=".icon icon-arrow_drop_down"></i></h3>
+                                        <ul class="list">
+                                            <li>Bespoke software to solve your specific business challenges.</li>
+                                            <li>Developed using the latest technologies for optimal performance.</li>
+                                            <li>Scalable solutions designed to grow with your business.</li>
+                                        </ul>
+                                        <h3 class="button toggle" onclick="toggleList(this)">System Integration <i class=".icon icon-arrow_drop_down"></i></h3>
+                                        <ul class="list">
+                                            <li>Ensuring seamless operation across all your business systems.</li>
+                                            <li>Integration with existing and new software platforms.</li>
+                                            <li>Streamlined processes to improve efficiency.</li>
+                                        </ul>
+                                        <h3 class="button toggle" onclick="toggleList(this)">Consulting Services <i class=".icon icon-arrow_drop_down"></i></h3>
+                                        <ul class="list">
+                                            <li>Expert advice to help you leverage technology for growth.</li>
+                                            <li>Customized strategies to meet your business goals.</li>
+                                            <li>Support for digital transformation initiatives.</li>
+                                        </ul>
+                                        <h3 class="button toggle" onclick="toggleList(this)">Ongoing Support <i class=".icon icon-arrow_drop_down"></i></h3>
+                                        <ul class="list">
+                                            <li>Continuous improvement and support to keep your solutions effective.</li>
+                                            <li>Proactive maintenance to prevent issues.</li>
+                                            <li>24/7 support to ensure business continuity.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-6 bounce-in-right">
+                                    <div class="img-holder">
+                                        <img src="/images/custom.png" alt="Custom Solutions">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+        //= layout/footer.html
+    </div>
+
+    <script>
+        function toggleList(element) {
+            const list = element.nextElementSibling;
+            if (list.classList.contains('show')) {
+                list.classList.remove('show');
+            } else {
+                list.classList.add('show');
+            }
+        }
+    </script>
+</body>
+
+</html>

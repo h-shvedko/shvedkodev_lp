@@ -1,0 +1,79 @@
+.loader {
+    background-image: url('../../images/ShvedkoDev.png');
+    /* Ссылка на ваше изображение */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 200px;
+    height: 64px;
+    position: relative;
+    animation: pulseBlur 2s infinite ease-in-out, gradientBackground 4s infinite ease-in-out;
+}
+
+.loader::before,
+.loader::after {
+    content: '';
+    position: absolute;
+    height: 3px;
+    background-color: #333;
+    animation: underlineInitial 1s forwards, underlineFinal 3s 1s forwards;
+}
+
+.loader::before {
+    top: 10px;
+    /* Положение верхней линии */
+    right: 0;
+}
+
+.loader::after {
+    bottom: 10px;
+    /* Положение нижней линии */
+    right: 0;
+}
+
+@keyframes underlineInitial {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes underlineFinal {
+    0% {
+        width: 100%;
+    }
+    100% {
+        width: 60px;
+        /* Фиксированная ширина, как на картинке */
+    }
+}
+
+@keyframes pulseBlur {
+    0% {
+        transform: scale(1);
+        filter: blur(0px);
+    }
+    50% {
+        transform: scale(1.1);
+        filter: blur(0px);
+    }
+    100% {
+        transform: scale(1);
+        filter: blur(0px);
+    }
+}
+
+@keyframes gradientBackground {
+    0% {
+        background-color: $white;
+    }
+    50% {
+        // background-color: #007bff;
+        /* Замените $primary-color на конкретный цвет */
+    }
+    100% {
+        background-color: $white;
+    }
+}

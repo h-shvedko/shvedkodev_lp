@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    //= layout/head.html
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+        //= layout/header.html
+        <main role="main" id="main">
+            <div class="container">
+                <div class="section contact">
+                    <div class="content">
+                        <div class="row-holder">
+                            <div class="col-6 animate-on-scroll slide-in-left">
+                                <div class="content-holder">
+                                    <h1> Have Questions?</h1>
+                                    <p>Please feel free to call or email us, or use our contact form to get in touch with us. We look forward to hearing from you!
+                                    </p>
+                                    <p>Send Us Mail</p>
+                                    <a href="mailto:">hennadii.shvedko@gmail.com</a>
+                                </div>
+                                <div id="map" style="width: 100%; height: 300px;"></div>
+                            </div>
+                            <div class="col-6 animate-on-scroll slide-in-right">
+                                <div class="form-contact">
+                                    <form action="">
+                                        <div class="form-control">
+                                            <input type="text" placeholder="Name">
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="text" placeholder="E-mail">
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="text" placeholder="Subject">
+                                        </div>
+                                        <div class="form-control">
+                                            <textarea placeholder="Your Massage"></textarea>
+                                        </div>
+                                        <button class="button">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        // Initialize and add the map
+                        function initMap() {
+                            // The location of Max-Born-Ring 59, 37077 Göttingen
+                            var location = {
+                                lat: 51.538560,
+                                lng: 9.936345
+                            };
+                            // The map, centered at location
+                            var map = new google.maps.Map(
+                                document.getElementById('map'), {
+                                    zoom: 17,
+                                    center: location
+                                });
+                            // The marker, positioned at location
+                            var marker = new google.maps.Marker({
+                                position: location,
+                                map: map
+                            });
+                        }
+                    </script>
+                    <!-- Load the Google Maps JavaScript API asynchronously -->
+                    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+                    </script>
+                </div>
+        </main>
+        //= layout/footer.html
+        </div>
+</body>
+
+</html>
