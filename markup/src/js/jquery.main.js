@@ -10,7 +10,7 @@ jQuery(window).on('load', function() {
     initMainAnimation();
     animateOnScroll();
     initHeader();
-
+    initActiveNav()
 });
 
 
@@ -35,6 +35,20 @@ $(window).load(function() {
     $("html").addClass("loaded");
 })
 
+function initActiveNav() {
+    var navLinks = $(".nav li a");
+    var currentUrl = window.location.pathname.split("/").pop();
+
+    navLinks.each(function() {
+        var linkUrl = $(this).attr("href");
+        var listItem = $(this).parent();
+
+        if (linkUrl === currentUrl) {
+            $(".nav .active").removeClass("active");
+            listItem.addClass("active");
+        }
+    });
+}
 
 function initHeader() {
     window.addEventListener('scroll', function() {
