@@ -20,19 +20,6 @@
     
     <link href="//fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500;700&family=Saira+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>ShvedkoDev</title>
-    <style>
-        .list {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
-        }
-        
-        .list.show {
-            max-height: 500px;
-            /* Adjust based on the content height */
-            padding: 10px;
-        }
-    </style>
 </head>
 
 <body>
@@ -62,73 +49,21 @@
             </div>
         </header>
         <main role="main" id="main">
-            <section class="section">
-                <div class="container">
-                    <div class="services-tabs pb-6">
-                        <ul class="services-tabset  d-none servicesTabset animate-on-scroll">
-                            <li><a href="#tab2-1" class="active">Web Design</a></li>
-                        </ul>
-                        <div class="services-content">
-                            <div id="tab2-1" class="row-holder">
-                                <div class="col-6  animate-on-scroll">
-                                    <div class="text-holder">
-                                        <h1>Web Design</h1>
-                                        <h3 class="button toggle" onclick="toggleList(this)">Custom Design <i class=".icon icon-arrow_drop_down"></i></h3>
-                                        <ul class="list">
-                                            <li>Unique designs tailored to your brand identity.</li>
-                                            <li>Professional graphics to enhance your website’s appeal.</li>
-                                            <li>Ensuring your site is accessible on all devices.</li>
-                                        </ul>
-
-                                        <h3 class="button toggle" onclick="toggleList(this)">User Experience (UX) <i class=".icon icon-arrow_drop_down"></i></h3>
-                                        <ul class="list">
-                                            <li>Focused on creating intuitive and engaging user experiences.</li>
-                                            <li>Conducting user research and testing for optimal design.</li>
-                                            <li>Ensuring accessibility and usability for all users.</li>
-                                        </ul>
-                                        <h3 class="button toggle" onclick="toggleList(this)">Custom Design <i class=".icon icon-arrow_drop_down"></i></h3>
-                                        <ul class="list">
-                                            <li>Unique designs tailored to your brand identity.</li>
-                                            <li>Professional graphics to enhance your website’s appeal.</li>
-                                            <li>Ensuring your site is accessible on all devices.</li>
-                                        </ul>
-
-                                        <h3 class="button toggle" onclick="toggleList(this)">User Experience (UX) <i class=".icon icon-arrow_drop_down"></i></h3>
-                                        <ul class="list">
-                                            <li>Focused on creating intuitive and engaging user experiences.</li>
-                                            <li>Conducting user research and testing for optimal design.</li>
-                                            <li>Ensuring accessibility and usability for all users.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-6 bounce-in-right">
-                                    <div class="img-holder">
-                                        <img src="/images/web.jpg" alt="Web Design">
-                                    </div>
+            <div class="container">
+                <div class="section contact">
+                    <div class="content">
+                        <div class="row-holder">
+                            <div class="col-6 animate-on-scroll slide-in-left">
+                                <div class="content-holder">
+                                    <h1>Imprint</h1>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="web-design">
-                        <div class="row-holder">
-                            <div class="col-6  animate-on-scroll">
-                                <h3 class="button toggle" onclick="toggleList(this)">Graphic Design <i class=".icon icon-arrow_drop_down"></i></h3>
-                                <ul class="list">
-                                    <li>Professional graphics to enhance your website’s appeal.</li>
-                                    <li>Creating visually stunning and cohesive designs.</li>
-                                    <li>Ensuring designs align with your brand identity.</li>
-                                </ul>
-                                <h3 class="button toggle" onclick="toggleList(this)">Responsive Design <i class=".icon icon-arrow_drop_down"></i></h3>
-                                <ul class="list">
-                                    <li>Ensuring your site is accessible on all devices.</li>
-                                    <li>Adaptive layouts that provide a consistent experience across different screen sizes.</li>
-                                    <li>Mobile-first approach to cater to the growing number of mobile users.</li>
-                                </ul>
+                            <div class="col-6 animate-on-scroll slide-in-right">
+                                imprint content TBD
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
         </main>
         <div id="footer">
             <div class="container">
@@ -188,18 +123,7 @@
                 <p>&copy; ShvedkoDev 2025. All Rights Reserved.</p>
             </div>
         </footer>
-    </div>
-
-    <script>
-        function toggleList(element) {
-            const list = element.nextElementSibling;
-            if (list.classList.contains('show')) {
-                list.classList.remove('show');
-            } else {
-                list.classList.add('show');
-            }
-        }
-    </script>
+        </div>
 </body>
 
 </html>
