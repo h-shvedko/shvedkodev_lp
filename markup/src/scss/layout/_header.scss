@@ -85,6 +85,10 @@ header.shrink {
     }
 }
 
+.menu-holder .active a {
+    border-bottom: 2px solid $base-text-color !important;
+}
+
 .nav-opener {
     width: 30px;
     height: 30px;
