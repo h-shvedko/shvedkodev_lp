@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/main.min.css">
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet">
+    
+    <script src="js/jquery.main.js?v=1.0" defer></script>
+    <!-- <script src="js/libs.js"></script> -->
+    
+    <title>Title</title>
+    <script src="js/users.js"></script>
+</head>
+
+<body class="side-menu-closed">
+    <!-- HEADER -->
+    <header class="header fixed-top">
+        <div class="container-fluid">
+            <div class="row align-items-center gx-8 gx-xs-16">
+                <div class="col-auto">
+                    <div class="row align-items-center gx-8 gx-xs-12 gx-lg-20 gy-4">
+                        <div class="col-auto">
+                            <a class="header__logo" href="#">
+                                <img src="images/logo.png" alt="Logo">
+                            </a>
+                        </div>
+                        <div class="col-auto">
+                            <h5 class="mb-0">Administrations</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="search-input form-control searchMain visible" id="">
+                    <button type="submit"><i class="icomoon-search1"></i></button>
+                    <input type="text" placeholder="Search" class="search custom-input">
+                </div>
+                <div class="col">
+                    <div class="row align-items-center justify-content-end gx-4 gx-xs-16 gx-lg-40 gy-8">
+                        <div class="col-auto d-none d-lg-block">
+                            <div class="row gx-40 gy-4">
+                                <div class="col-auto">
+                                    <a class="link-secondary text-sm" href="#">How-To Video</a>
+                                </div>
+                                <div class="col-auto">
+                                    <a class="link-secondary text-sm" href="#">System Checker</a>
+                                </div>
+                                <div class="col-auto">
+                                    <a class="link-secondary text-sm" href="#">Help</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto d-none d-lg-block">
+                            <div class="dropdown">
+                                <button class="dropdown-toggle btn-account" id="accountButton">
+                                    <span class="btn-account__photo">
+                                        <img class="of-cover" src="images/avatar.svg" alt="Photo">
+                                    </span>
+                                    <span class="btn-account__text">ovsadmin</span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end" id="accountDropdownMenu">
+                                    <li>
+                                        <a class="dropdown-item" href="#">My Account</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">Change Password</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item text-danger" href="#">
+                                            <span class="icomoon-log-out"></span>
+                                            <span>Log Out</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-auto d-md-none">
+                            <button class="btn-action" type="button" id="openSearch">
+                                <span class="icomoon-search"></span>
+                            </button>
+                        </div>
+                        <div class="col-auto d-lg-none">
+                            <button class="btn-action" type="button" aria-label="Toggle menu" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-side-menu" aria-controls="offcanvas-side-menu">
+                                <span class="hamburger-menu ">
+                                    <span class="hamburger-menu__wrap ">
+                                        <span class="hamburger-menu__bars "></span>
+                                    </span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <aside class="side-menu offcanvas-lg offcanvas-start js-side-menu" id="offcanvas-side-menu" tabindex="-1">
+            <button class="side-menu__toggle first-level js-toggle-side-menu" type="button">
+                <span class="icomoon-arrow-back-circle"></span>
+            </button>
+            <div class="side-menu__body offcanvas-body w-100">
+                <div id="side-menu">
+                    <div class="side-menu__first-level-menu remove-last-child-margin overflow-hidden">
+                        <div class="mb-10">
+                            <a class="btn-side-menu with-icon" href="index.html">
+                                <span class="icomoon-home"></span>
+                                <span class="btn-side-menu__text">Home</span>
+                            </a>
+                        </div>
+                        <div class="mb-10">
+                            <button class="btn-side-menu with-icon active" type="button" data-bs-toggle="collapse" data-bs-target=".js-collapse-users" aria-expanded="false">
+                                <span class="icomoon-people"></span>
+                                <span class="btn-side-menu__text">Users</span>
+                            </button>
+                            <div class="js-collapse-courses collapse d-lg-none js-sub-menu-collapse show" data-bs-parent="#side-menu">
+                                <div class="px-24 py-16 remove-last-child-margin">
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu active" href="overview.html">Overview</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Create User Account</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Instructors</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Email Users</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Student LMS Notification</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Ontario Student Records (OSR)</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Incomplete Orders</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Potential Full-time Students</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Potential Reach Ahead Students</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Students On Hold</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Student Support</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Missing Prerequisites</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Proctors</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Administrators</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Current Active Students</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-10">
+                            <button class="btn-side-menu with-icon " type="button" data-bs-toggle="collapse" data-bs-target=".js-collapse-courses" aria-expanded="true" style="background-color: transparent;">
+                                <span class="icomoon-school"></span>
+                                <span class="btn-side-menu__text">Courses</span>
+                            </button>
+                            <div class="js-collapse-courses collapse d-lg-none js-sub-menu-collapse show" data-bs-parent="#side-menu">
+                                <div class="px-24 py-16 remove-last-child-margin">
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu " href="#">Overview</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Create Course</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Forum Manager</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Enrollment</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Prerequisites</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Scheduled Exams</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Categories</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Clone Course</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Test Centre</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">List Of Courses (Brochure)</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Course Resources</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Ratings</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Challenge Quizzes</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Academic Integrity Scans</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-10">
+                            <button class="btn-side-menu with-icon collapsed" type="button" data-bs-toggle="collapse" data-bs-target=".js-collapse-gamification" aria-expanded="false">
+                                <span class="icomoon-dice"></span>
+                                <span class="btn-side-menu__text">Gamification</span>
+                            </button>
+                            <div class="js-collapse-gamification collapse d-lg-none js-sub-menu-collapse" data-bs-parent="#side-menu">
+                                <div class="px-24 py-16 remove-last-child-margin">
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Overview</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Manage Avatar Store</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-10">
+                            <a class="btn-side-menu with-icon" href="#">
+                                <span class="icomoon-toggle"></span>
+                                <span class="btn-side-menu__text">Login Slider</span>
+                            </a>
+                        </div>
+                        <div class="mb-10">
+                            <button class="btn-side-menu with-icon collapsed" type="button" data-bs-toggle="collapse" data-bs-target=".js-collapse-partners" aria-expanded="false">
+                                <span class="icomoon-partners"></span>
+                                <span class="btn-side-menu__text">Partners</span>
+                            </button>
+                            <div class="js-collapse-partners collapse d-lg-none js-sub-menu-collapse" data-bs-parent="#side-menu">
+                                <div class="px-24 py-16 remove-last-child-margin">
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Dashboard</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">API Keys</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Partner Commission Report</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">School Commission Report</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Prerequisite Exemption</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Bypass Proctor</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Emails</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Discount Codes</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-10">
+                            <button class="btn-side-menu with-icon collapsed" type="button" data-bs-toggle="collapse" data-bs-target=".js-collapse-statistics" aria-expanded="false">
+                                <span class="icomoon-statistics"></span>
+                                <span class="btn-side-menu__text">Statistics</span>
+                            </button>
+                            <div class="js-collapse-statistics collapse d-lg-none js-sub-menu-collapse" data-bs-parent="#side-menu">
+                                <div class="px-24 py-16 remove-last-child-margin">
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Daily Report</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">All-Time</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Yearly Stats</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Course Stats</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Compare Historical Stats</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Transition Students</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Referral Cheques</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Referral Form Submissions</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Late Teacher Marking</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Partner Commission Report</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-10">
+                            <button class="btn-side-menu with-icon collapsed" type="button" data-bs-toggle="collapse" data-bs-target=".js-collapse-payroll" aria-expanded="false">
+                                <span class="icomoon-cash"></span>
+                                <span class="btn-side-menu__text">Payroll</span>
+                            </button>
+                            <div class="js-collapse-payroll collapse d-lg-none js-sub-menu-collapse" data-bs-parent="#side-menu">
+                                <div class="px-24 py-16 remove-last-child-margin">
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Payroll</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Email Settings</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Work Anniversary</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Office Staff</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-10">
+                            <button class="btn-side-menu with-icon collapsed" type="button" data-bs-toggle="collapse" data-bs-target=".js-collapse-reporting" aria-expanded="false">
+                                <span class="icomoon-bar-chart"></span>
+                                <span class="btn-side-menu__text">Reporting</span>
+                            </button>
+                            <div class="js-collapse-reporting collapse d-lg-none js-sub-menu-collapse" data-bs-parent="#side-menu">
+                                <div class="px-24 py-16 remove-last-child-margin">
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Overview</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Final Report Cards</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Midterm Report Cards</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Graduates</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Transcripts</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Report Cards On-Hold</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-10">
+                            <a class="btn-side-menu with-icon" href="#">
+                                <span class="icomoon-ribbon"></span>
+                                <span class="btn-side-menu__text">OEN</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="d-none d-lg-block">
+                        <div class="js-collapse-users collapse js-sub-menu-collapse" data-bs-parent="#side-menu">
+                            <div class="side-menu__second-level-menu js-second-level-menu">
+                                <button class="side-menu__toggle second-level js-toggle-second-level-menu" type="button">
+                                    <span class="icomoon-arrow-back-circle"></span>
+                                </button>
+                                <h5>Users</h5>
+                                <div class="remove-last-child-margin">
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="overview.html">Overview</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Create User Account</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Instructors</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Email Users</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Student LMS Notification</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Ontario Student Records (OSR)</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Incomplete Orders</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Potential Full-time Students</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Potential Reach Ahead Students</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Students On Hold</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Student Support</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Missing Prerequisites</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Proctors</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Administrators</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Current Active Students</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="js-collapse-courses collapse js-sub-menu-collapse" data-bs-parent="#side-menu">
+                            <div class="side-menu__second-level-menu js-second-level-menu">
+                                <button class="side-menu__toggle second-level js-toggle-second-level-menu" type="button">
+                                    <span class="icomoon-arrow-back-circle"></span>
+                                </button>
+                                <h5>Courses</h5>
+                                <div class="remove-last-child-margin">
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Overview</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Create Course</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Forum Manager</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Enrollment</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Prerequisites</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Scheduled Exams</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Categories</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Clone Course</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Test Centre</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">List Of Courses (Brochure)</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Course Resources</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Ratings</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Challenge Quizzes</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Academic Integrity Scans</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="js-collapse-gamification collapse js-sub-menu-collapse" data-bs-parent="#side-menu">
+                            <div class="side-menu__second-level-menu js-second-level-menu">
+                                <button class="side-menu__toggle second-level js-toggle-second-level-menu" type="button">
+                                    <span class="icomoon-arrow-back-circle"></span>
+                                </button>
+                                <h5>Gamification</h5>
+                                <div class="remove-last-child-margin">
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Overview</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Manage Avatar Store</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="js-collapse-partners collapse js-sub-menu-collapse" data-bs-parent="#side-menu">
+                            <div class="side-menu__second-level-menu js-second-level-menu">
+                                <button class="side-menu__toggle second-level js-toggle-second-level-menu" type="button">
+                                    <span class="icomoon-arrow-back-circle"></span>
+                                </button>
+                                <h5>Partners</h5>
+                                <div class="remove-last-child-margin">
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Dashboard</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">API Keys</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Partner Commission Report</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">School Commission Report</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Prerequisite Exemption</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Bypass Proctor</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Emails</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Discount Codes</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="js-collapse-statistics collapse js-sub-menu-collapse" data-bs-parent="#side-menu">
+                            <div class="side-menu__second-level-menu js-second-level-menu">
+                                <button class="side-menu__toggle second-level js-toggle-second-level-menu" type="button">
+                                    <span class="icomoon-arrow-back-circle"></span>
+                                </button>
+                                <h5>Statistics</h5>
+                                <div class="remove-last-child-margin">
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Daily Report</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">All-Time</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Yearly Stats</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Course Stats</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Compare Historical Stats</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Transition Students</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Referral Cheques</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Referral Form Submissions</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Late Teacher Marking</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Partner Commission Report</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="js-collapse-payroll collapse js-sub-menu-collapse" data-bs-parent="#side-menu">
+                            <div class="side-menu__second-level-menu js-second-level-menu">
+                                <button class="side-menu__toggle second-level js-toggle-second-level-menu" type="button">
+                                    <span class="icomoon-arrow-back-circle"></span>
+                                </button>
+                                <h5>Payroll</h5>
+                                <div class="remove-last-child-margin">
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Payroll</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Email Settings</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Work Anniversary</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Office Staff</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="js-collapse-reporting collapse js-sub-menu-collapse" data-bs-parent="#side-menu">
+                            <div class="side-menu__second-level-menu js-second-level-menu">
+                                <button class="side-menu__toggle second-level js-toggle-second-level-menu" type="button">
+                                    <span class="icomoon-arrow-back-circle"></span>
+                                </button>
+                                <h5>Reporting</h5>
+                                <div class="remove-last-child-margin">
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Overview</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Final Report Cards</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Midterm Report Cards</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Graduates</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Transcripts</a>
+                                    </div>
+                                    <div class="mb-8">
+                                        <a class="btn-side-menu" href="#">Report Cards On-Hold</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <hr class="side-menu__divider d-none d-lg-block">
+                    <div class="side-menu__first-level-menu remove-last-child-margin overflow-hidden">
+                        <div class="mb-10">
+                            <a class="btn-side-menu with-icon" href="#">
+                                <span class="icomoon-call"></span>
+                                <span class="btn-side-menu__text">Call Logs</span>
+                            </a>
+                        </div>
+                        <div class="mb-10">
+                            <a class="btn-side-menu with-icon" href="#">
+                                <span class="icomoon-book"></span>
+                                <span class="btn-side-menu__text">Schools</span>
+                            </a>
+                        </div>
+                        <div class="mb-10">
+                            <a class="btn-side-menu with-icon" href="#">
+                                <span class="icomoon-library"></span>
+                                <span class="btn-side-menu__text">Teacher Resources</span>
+                            </a>
+                        </div>
+                        <div class="mb-10">
+                            <a class="btn-side-menu with-icon" href="#">
+                                <span class="icomoon-chatbubbles"></span>
+                                <span class="btn-side-menu__text">Staff Chat Room</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="d-lg-none">
+                        <hr class="side-menu__divider">
+                        <div class="remove-last-child-margin overflow-hidden">
+                            <div class="mb-12">
+                                <a class="btn-account w-100" href="#">
+                                    <span class="btn-account__photo">
+                                        <img class="of-cover" src="img/avatar.svg" alt="Photo">
+                                    </span>
+                                    <span class="btn-account__text">ovsadmin</span>
+                                </a>
+                            </div>
+                            <div class="mb-12">
+                                <a class="btn-side-menu with-icon" href="#">
+                                    <span class="icomoon-settings"></span>
+                                    <span class="btn-side-menu__text">Account Settings</span>
+                                </a>
+                            </div>
+                        </div>
+                        <hr class="side-menu__divider">
+                        <div class="remove-last-child-margin mb-28">
+                            <div class="mb-12">
+                                <a class="link-secondary text-sm" href="#">How-To Video</a>
+                            </div>
+                            <div class="mb-12">
+                                <a class="link-secondary text-sm" href="#">System Checker</a>
+                            </div>
+                            <div class="mb-12">
+                                <a class="link-secondary text-sm" href="#">Help</a>
+                            </div>
+                        </div>
+                        <a class="link-danger text-sm" href="#">
+                            <span class="icomoon-log-out"></span>
+                            <span>Log Out</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <div class="container-fluid users-main" id="mainContent">
+            <div class=" ">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group-toggle custom-radio-group" data-toggle="buttons">
+                        <label class="btn custom-btn active">
+                            <input type="radio" name="options" id="option1" autocomplete="off" checked> All users
+                        </label>
+                        <label class="btn custom-btn">
+                            <input type="radio" name="options" id="option2" autocomplete="off"> Admin pinned
+                        </label>
+                        <label class="btn custom-btn">
+                            <input type="radio" name="options" id="option3" autocomplete="off"> Pinned for me
+                        </label>
+                    </div>
+                    <div class="custom-grid-item col-md-2 col-xl-2 ">
+                        <div class="btn-row">
+                            <div class="col  custom-grid-item  fullscreen-col pr-0">
+                                <button class="btn btn-secondary" onclick="toggleFullScreen(document.body)">
+                                    <div class="holder">
+                                        <i class="icon icomoon-fullscreen"></i>
+                                        <span>Full Screen</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="custom-grid-item col-12 pall-0"><a href="#" class="filterOpen"><i class="icomoon-equalizer"></i> Filter <span><i class="icon icomoon-keyboard_arrow_down"></i></span></a> </div>
+                <div class="custom-grid row dropdown-container filter-container">
+                    <div class="custom-grid-item col-12 col-lg-6 col-xl-6 pb-0">
+                        <div class="custom-grid">
+                            <div class="custom-grid-item col-12 col-xl-6 mobile-hide">
+                                <div class="search-input form-control">
+                                    <input type="text" class="custom-input" id="users-search" placeholder="Email, name, number">
+                                </div>
+                            </div>
+                            <div class="custom-grid-item col-12 col-xl-6 pb-0">
+                                <div class="dropdown searchEnable" data-control="checkbox-dropdown">
+                                    <label class="dropdown-label">All types </label>
+                                    <div class="dropdown-list">
+                                        <div class="mobile-block">
+                                            <div class="title">Type</div>
+                                            <button class="closeDropdown"><i class="icomoon-x"></i></button>
+                                        </div>
+                                        <div class="search-input form-control">
+                                            <input type="text" id="search-input" placeholder="Search">
+                                        </div>
+                                        <div id="no-results" style="display: none; padding: 8px; text-align: center; color: #888;">
+                                            No results found
+                                        </div>
+                                        <a href="#" data-toggle="check-all" class="select-all">Check All</a>
+                                        <label class="custom-checkbox dropdown-option">
+                                            <input type="checkbox" name="dropdown-group" value="true">
+                                            <span class="checkmark"></span>
+                                            <div class="title">Enabled </div>
+                                        </label>
+                                        <label class="custom-checkbox dropdown-option">
+                                            <input type="checkbox" name="dropdown-group" value="false">
+                                            <span class="checkmark"></span>
+                                            <div class="title">Disabled</div>
+                                        </label>
+                                        <div class="mobile-block button-block">
+                                            <button class="btn btn-transparent">Reset</button>
+                                            <button class="btn btn-transparent">Confirm</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="custom-grid-item dropdown-container col-12 col-lg-6 col-xl-6">
+                        <div class="custom-grid">
+                            <div class="custom-grid-item col-12 col-xl-6">
+                                <div class="dropdown searchEnable" id="user-status" data-control="checkbox-dropdown">
+                                    <label class="dropdown-label">All statuses </label>
+                                    <div class="dropdown-list">
+                                        <div class="mobile-block">
+                                            <div class="title">Status</div>
+                                            <button class="closeDropdown"><i class="icomoon-x"></i></button>
+                                        </div>
+                                        <div class="search-input form-control">
+                                            <input type="text" id="search-input" placeholder="Search">
+                                        </div>
+                                        <div id="no-results" style="display: none; padding: 8px; text-align: center; color: #888;">
+                                            No results found
+                                        </div>
+                                        <a href="#" data-toggle="check-all" class="select-all">Check All</a>
+                                        <label class="custom-checkbox dropdown-option">
+                                            <input type="checkbox" name="dropdown-group" value="18+">
+                                            <span class="checkmark"></span>
+                                            <div class="title">18+</div>
+                                        </label>
+                                        <label class="custom-checkbox dropdown-option">
+                                            <input type="checkbox" name="dropdown-group" value="Business">
+                                            <span class="checkmark"></span>
+                                            <div class="title">Business</div>
+                                        </label>
+                                        <label class="custom-checkbox dropdown-option">
+                                            <input type="checkbox" name="dropdown-group" value="Red Flag">
+                                            <span class="checkmark"></span>
+                                            <div class="title"> Red Flag</div>
+                                        </label>
+                                        <label class="custom-checkbox dropdown-option">
+                                            <input type="checkbox" name="dropdown-group" value="Adult">
+                                            <span class="checkmark"></span>
+                                            <div class="title">Adult</div>
+                                        </label>
+                                        <div class="mobile-block button-block">
+                                            <button class="btn btn-transparent">Reset</button>
+                                            <button class="btn btn-transparent">Confirm</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="custom-grid-item col-12 col-xl-6">
+                                <div class="dropdown searchEnable" id="user-courses" data-control="checkbox-dropdown">
+                                    <label class="dropdown-label">Any courses </label>
+                                    <div class="dropdown-list">
+                                        <div class="mobile-block">
+                                            <div class="title">Type</div>
+                                            <button class="closeDropdown"><i class="icomoon-x"></i></button>
+                                        </div>
+                                        <div class="search-input form-control">
+                                            <input type="text" id="search-input" placeholder="Search">
+                                        </div>
+                                        <div id="no-results" style="display: none; padding: 8px; text-align: center; color: #888;">
+                                            No results found
+                                        </div>
+                                        <a href="#" data-toggle="check-all" class="select-all">Check All</a>
+                                        <label class="custom-checkbox dropdown-option">
+                                            <input type="checkbox" name="dropdown-group" value="ENG4U-03">
+                                            <span class="checkmark"></span>
+                                            <div class="title"> ENG4U-03</div>
+                                        </label>
+                                        <label class="custom-checkbox dropdown-option">
+                                            <input type="checkbox" name="dropdown-group" value="TYIOF-03">
+                                            <span class="checkmark"></span>
+                                            <div class="title">TYIOF-03</div>
+                                        </label>
+                                        <div class="mobile-block button-block">
+                                            <button class="btn btn-transparent">Reset</button>
+                                            <button class="btn btn-transparent">Confirm</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mobile-buttons-holder">
+                            <div class="custom-grid row ">
+                                <div class="custom-grid-item col-md-6 ">
+                                    <button class="btn btn-transparent">
+                                        <div class="holder">
+                                            <span>Reset Filter</span>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div class="custom-grid-item col-md-6">
+                                    <button class="btn btn-primary">
+                                        <div class="holder">
+                                        <span>Filter</span>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="search-input form-control input-control">
+                <input type="text" class="custom-input" id="users-search-1" placeholder="Email, name, number">
+            </div>
+            <div class="total-count">Total Count: <span id="total-count-users"></span></div>
+            <table class="responsive-table users">
+                <thead class="responsive-table__head">
+                    <tr class="responsive-table__row">
+                        <th class="responsive-table__head__title responsive-table__head__title--name">
+                            <div class="d-flex align-items-center">
+                                <label class="custom-checkbox select-all">
+                                    <input type="checkbox" id="select-all">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="title mobile-hide">Name</div>
+                                <div class="title mobile-show">Select All</div>
+                            </div>
+                        </th>
+                        <th class="responsive-table__head__title responsive-table__head__title--department tablet-hide">
+                            <div class="title">Contact info</div>
+                        </th>
+                        <th class="responsive-table__head__title responsive-table__head__title--instructor tablet-hide">
+                            <div class="title">Status</div>
+                        </th>
+                        <th class="responsive-table__head__title responsive-table__head__title--office tablet-hide">
+                            <div class="title">
+                                Creation Date/ Last Login
+                            </div>
+                        </th>
+                        <th class="responsive-table__head__title responsive-table__head__title--average tablet-hide">
+                            <div class="title">
+                                Courses
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="responsive-table__body">
+                </tbody>
+            </table>
+            <div class="error">
+                <img src="images/sad.jpg" alt="icon">
+                <h3>Sorry! We didn't find anything</h3>
+                <p>Please clear your previous search query and try again</p>
+                <button class="btn btn-secondary">
+                    <div class="holder">
+                        <i class="icon icomoon-spinner11"></i>
+                        <span>Refresh</span>
+                    </div>
+                </button>
+            </div>
+            <div class="button-edit-row">
+                <div class="row-holder-button">
+                    <div class="col-custom none-2">
+                        <button class="btn btn-transparent"><div class="holder"><i class="icon icomoon-key"></i><span> Password</span></div></button>
+                    </div>
+                    <div class="col-custom none-2">
+                        <button class="btn btn-transparent"><div class="holder"><i class="icon icomoon-graduation-cap"></i><span> Enrollment</span></div></button>
+                    </div>
+                    <div class="col-custom checkboxControl">
+                        <div class="title">Enable:</div>
+                        <div class="check-box">
+                            <input type="checkbox">
+                        </div>
+                    </div>
+                    <div class="col-custom delete">
+                        <button class="btn btn-primary"><div class="holder"><i class="icon icomoon-trashcan"></i><span> Delete</span></div></button>
+                    </div>
+                </div>
+            </div>
+            <div class="control-page">
+                <div class="item-per-page">
+                    <div class="title">Item Per Page:</div>
+                    <select name="" id="">
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                    </select>
+                </div>
+                <div class="pagination-container">
+                    <div class="pagination-controls">
+                        <button class="page-btn disabled" id="prev-page"><i class="icomoon-caret-left"></i></button>
+                        <input type="number" class="page-input" id="current-page" value="1" />
+                        <button class="page-btn" id="next-page"><i class="icomoon-caret-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid" id="formContent">
+            <a href="/" class="back-button"> <i class="icon icomoon-keyboard_arrow_left"></i> <span>Back</span></a>
+            <h2 class="form-h">New Course</h2>
+            <form action="#" method="POST" class="form-new-item">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" class="custom-input" placeholder="Write a title" required>
+                </div>
+                <div class="form-group">
+                    <label for="instructor">Instructor</label>
+                    <div class="dropdown" data-control="checkbox-dropdown">
+                        <div class="dropdown" data-control="checkbox-dropdown">
+                            <select name="" id="" class="custum-select dropdown-label">
+                                <option value="">Select an instructor</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <div class="dropdown" data-control="checkbox-dropdown">
+                        <div class="dropdown" data-control="checkbox-dropdown">
+                            <select name="" id="" class="custum-select dropdown-label">
+                                <option value="">Select a category</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="icon">Icon</label>
+                    <div class="dropdown" data-control="checkbox-dropdown">
+                        <div class="dropdown" data-control="checkbox-dropdown">
+                            <select name="" id="" class="custum-select dropdown-label">
+                                <option value="">Select an icon</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="language">Original Language</label>
+                    <div class="dropdown" data-control="checkbox-dropdown">
+                        <div class="dropdown" data-control="checkbox-dropdown">
+                            <select name="" id="" class="custum-select dropdown-label">
+                                <option value="">Select a language</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="custom-checkbox dropdown-option">
+                        <input type="checkbox" name="instructor" value="Instructor 1">
+                        <span class="checkmark"></span>
+                        <div class="title">Ignore Prerequisite Information</div>
+                    </label>
+                </div>
+                <div class="form-group checkbox">
+                    <label class="custom-checkbox dropdown-option">
+                        <input type="checkbox" name="instructor" value="Instructor 1">
+                        <span class="checkmark"></span>
+                        <div class="title">Non-OVS Course</div>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" class="custom-input" placeholder="Write a description for the course"></textarea>
+                </div>
+                <div class="form-group">
+                    <h3>Export Content</h3>
+                    <input type="radio" id="notAvailable" name="exportContent" value="notAvailable" checked>
+                    <label class="custom-radio" for="notAvailable"><span></span>Not available on any of the pages</label>
+                </div>
+                <div class="form-group">
+                    <input type="radio" id="topLevelPages" name="exportContent" value="topLevelPages">
+                    <label class="custom-radio" for="topLevelPages"><span></span>Available only for top level pages</label>
+                </div>
+                <div class="form-group">
+                    <input type="radio" id="everyPage" name="exportContent" value="everyPage">
+                    <label class="custom-radio" for="everyPage"><span></span>Available on every page</label>
+                </div>
+                <div class="form-group">
+                    <h3>Syndicate Announcements</h3>
+                    <input type="radio" id="enableRss" name="syndicateAnnouncements" value="enableRss" checked>
+                    <label class="custom-radio" for="enableRss"><span></span>Enable Announcements syndication via <a href="#">RSS</a></label>
+                </div>
+                <div class="form-group">
+                    <input type="radio" id="disableRss" name="syndicateAnnouncements" value="disableRss">
+                    <label class="custom-radio" for="disableRss"><span></span>Disable Announcements syndication</label>
+                </div>
+                <div class="form-group">
+                    <h3>Access</h3>
+                    <input type="radio" id="public" name="access" value="public" checked>
+                    <label class="custom-radio" for="public"><span></span>Public</label>
+                </div>
+                <div class="form-group">
+                    <input type="radio" id="protected" name="access" value="protected">
+                    <label class="custom-radio" for="protected"><span></span>Protected</label>
+                </div>
+                <div class="form-group">
+                    <input type="radio" id="private" name="access" value="private">
+                    <label class="custom-radio" for="private"><span></span>Private</label>
+                </div>
+                <div class="form-group">
+                    <label class="custom-checkbox dropdown-option">
+                        <input type="checkbox" name="instructor" value="Instructor 1">
+                        <span class="checkmark"></span>
+                        <div class="title">Email me when new enrollments require approval</div>
+                        </label>
+                </div>
+                <div class="form-group">
+                    <label class="custom-checkbox dropdown-option">
+                        <input type="checkbox" name="instructor" value="Instructor 1">
+                        <span class="checkmark"></span>
+                        <div class="title">Hide this course from the Browse Courses list</div>
+                        </label>
+                </div>
+                <div class="form-group">
+                    <h3>Course Quota</h3>
+                    <input type="radio" id="defaultQuota" name="courseQuota" value="default" checked>
+                    <label class="custom-radio" for="defaultQuota"><span></span>Default (1853/467 MB)</label>
+                </div>
+                <div class="form-group">
+                    <input type="radio" id="unlimitedQuota" name="courseQuota" value="unlimited">
+                    <label class="custom-radio" for="unlimitedQuota"><span></span>Unlimited</label>
+                </div>
+
+                <div class="form-group">
+                    <h3>Max File Size</h3>
+                    <label for="maxFileSize">Default (1000 MB)</label>
+                    <input type="text" id="maxFileSize" name="maxFileSize" class="custom-input" placeholder="Maximum system allows 12 MB">
+                </div>
+                <div class="form-group button">
+                    <label for="notice">Notice</label>
+                    <textarea id="notice" name="notice" class="custom-input" placeholder="Write a notice for the course"></textarea>
+                </div>
+                <div class="form-actions">
+                    <a type="reset" class="btn btn-transparent" href="/"> <i class="icomoon-cancel-1"></i> <span>Cancel</span></a>
+                    <button type="submit" class="btn btn-primary"> <i class="icomoon-checkmark-1"></i> <span>Save</span></button>
+                </div>
+            </form>
+        </div>
+        <div class="modal fade" id="newCourse" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="body">
+                            <h4>To create a preset, you need to specify its name</h4>
+                            <p>Please write the name of the preset</p>
+                        </div>
+                        <span>Preset name  </span>
+                        <input type="text" placeholder="Write the name of the preset">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Censel</button>
+                        <button type="button" class="btn btn-primary" type="button" data-toggle="modal" data-target="#newPreset">Create</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="newPreset" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="body">
+                            <h4>To create a preset, you need to specify its name 1</h4>
+                            <p>Please write the name of the preset</p>
+                        </div>
+                        <span>Preset name  </span>
+                        <input type="text" placeholder="Write the name of the preset">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Censel</button>
+                        <button type="button" class="btn btn-primary" type="button" data-toggle="modal" data-target="#nextStep">Create</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="nextStep" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="body">
+                            <i class="icomoon-checkmark-1"></i>
+                            <h4>Congratulations! You have created a new preset</h4>
+                            <p>Now it's available to you on the courses page</p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="success" data-dismiss="modal">Continue viewing</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="js/libs.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

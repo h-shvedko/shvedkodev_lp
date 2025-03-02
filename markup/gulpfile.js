@@ -18,7 +18,7 @@ var path = {
         js: 'src/js/**/*.js',
         css: 'src/scss/**/*.scss',
         img: 'src/sourceimages/**/*.*',
-        fonts: 'src/fonts/**/*.*'
+        fonts: 'srs/fonts/**/*.*'
     }, clean: './dist/*'
 };
 
@@ -35,18 +35,15 @@ var gulp = require('gulp'), webserver = require('browser-sync'), plumber = requi
     sass = require('gulp-sass')(require('sass')), autoprefixer = require('gulp-autoprefixer'),
     cleanCSS = require('gulp-clean-css'), uglify = require('gulp-uglify'), cache = require('gulp-cache'),
     imagemin = require('gulp-imagemin'), jpegrecompress = require('imagemin-jpeg-recompress'),
-    pngquant = require('imagemin-pngquant'), rimraf = require('gulp-rimraf'), rename = require('gulp-rename'),
-    server = require('gulp-webserver');
+    pngquant = require('imagemin-pngquant'), rimraf = require('gulp-rimraf'), rename = require('gulp-rename');
 
 const mozjpeg = require('imagemin-mozjpeg');
 
 
-gulp.task('webserver', () => {
-    gulp.src('dist')
-        .pipe(server({
-            open: true, port: 9001, host: 'localhost', livereload: true
-        }));
+gulp.task('webserver', function () {
+    webserver(config);
 });
+
 
 gulp.task('html:build', function () {
     return gulp.src(path.src.html)
@@ -119,6 +116,13 @@ gulp.task('fonts:build', function () {
 
 gulp.task('image:build', function () {
     return gulp.src(path.src.img)
+        .pipe(cache(imagemin([imagemin.gifsicle({interlaced: true}), mozjpeg({
+            progressive: true, quality: 80 // Adjust as needed
+        }), pngquant({quality: [0.8, 0.9], speed: 1}), imagemin.svgo({
+            plugins: [{removeViewBox: false}, // Keep viewBox for proper scaling
+                {cleanupIDs: false} // Avoid removing IDs needed for references
+            ]
+        })])))
         .pipe(gulp.dest(path.build.img));
 });
 
