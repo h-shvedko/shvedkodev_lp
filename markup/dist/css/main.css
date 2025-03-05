@@ -3674,17 +3674,6 @@ ul.social-network {
   position: relative;
   border-radius: 20px;
 }
-.form-contact::before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  z-index: -1;
-  border-radius: 40px;
-  left: 0;
-  background-color: var(--footer-bg);
-}
 
 .d-none {
   display: none !important;
@@ -4027,6 +4016,36 @@ p-6 .list li::before {
 }
 .feature-box .feature-content h4 {
   margin-bottom: 10px;
+}
+
+.background-image.custom {
+  background-repeat: no-repeat;
+  background-position: 50% 20%;
+  background-size: cover;
+  position: relative;
+  border-radius: 32px 32px 0 0;
+}
+.background-image.contact {
+  border-radius: 32px !important;
+}
+.background-image.contact::before {
+  border-radius: 32px !important;
+}
+.background-image::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(13, 13, 14, 0.5);
+  border-radius: 32px 32px 0 0;
+  z-index: 0;
+}
+.background-image .home-form {
+  z-index: 100;
+  position: relative;
+  color: #f8f8f8;
 }
 
 [id=footer] {
@@ -4415,7 +4434,6 @@ p-6 .list li::before {
 }
 
 .home-form {
-  background-color: #d1d9e6;
   padding: 40px 20px;
   border-radius: 15px 15px 0 0;
   text-align: center;
@@ -4506,20 +4524,40 @@ p-6 .list li::before {
 }
 
 .active .bounce-in-right {
-  animation: bounce-in-right 0.9s ease;
+  animation: bounce-in-right 1.2s ease;
 }
 
 @keyframes bounce-in-right {
   0% {
     opacity: 0;
-    transform: translateX(2000px);
+    transform: translateX(1000px);
   }
   60% {
     opacity: 1;
-    transform: translateX(-30px);
+    transform: translateX(-4px);
   }
   80% {
-    transform: translateX(10px);
+    transform: translateX(2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.active .bounce-in-left {
+  animation: bounce-in-left 1.2s ease;
+}
+
+@keyframes bounce-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-1000px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(4px);
+  }
+  80% {
+    transform: translateX(-2px);
   }
   100% {
     transform: translateX(0);

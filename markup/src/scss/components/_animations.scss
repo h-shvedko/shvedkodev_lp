@@ -8,20 +8,41 @@
 }
 
 .active .bounce-in-right {
-    animation: bounce-in-right 0.9s ease;
+    animation: bounce-in-right 1.2s ease;
 }
 
 @keyframes bounce-in-right {
     0% {
         opacity: 0;
-        transform: translateX(2000px);
+        transform: translateX(1000px);
     }
     60% {
         opacity: 1;
-        transform: translateX(-30px);
+        transform: translateX(-4px);
     }
     80% {
-        transform: translateX(10px);
+        transform: translateX(2px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.active .bounce-in-left {
+    animation: bounce-in-left 1.2s ease;
+}
+
+@keyframes bounce-in-left {
+    0% {
+        opacity: 0;
+        transform: translateX(-1000px);
+    }
+    60% {
+        opacity: 1;
+        transform: translateX(4px);
+    }
+    80% {
+        transform: translateX(-2px);
     }
     100% {
         transform: translateX(0);
