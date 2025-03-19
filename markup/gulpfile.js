@@ -66,11 +66,10 @@ gulp.task('webserver', function() {
     });
 });
 
-
 gulp.task('html:build', function() {
-    return gulp.src(path.src.html)
+    return gulp.src('src/html/**/*.html') // Ensure correct source
         .pipe(plumber())
-        .pipe(rigger())
+        .pipe(rigger()) // Process includes
         .pipe(gulp.dest(path.build.html))
         .pipe(browserSync.reload({ stream: true }));
 });
