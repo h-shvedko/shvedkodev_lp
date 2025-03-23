@@ -37,18 +37,19 @@ $(window).load(function() {
 
 function initActiveNav() {
     var navLinks = $(".nav li a");
-    var currentUrl = window.location.pathname.split("/").pop();
+    var currentUrl = window.location.pathname;
 
     navLinks.each(function() {
         var linkUrl = $(this).attr("href");
         var listItem = $(this).parent();
 
-        if (linkUrl === currentUrl) {
+        if (currentUrl.startsWith(linkUrl)) {
             $(".nav .active").removeClass("active");
             listItem.addClass("active");
         }
     });
 }
+
 
 function initHeader() {
     window.addEventListener('scroll', function() {
