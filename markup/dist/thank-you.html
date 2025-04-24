@@ -123,6 +123,43 @@
                 <p>&copy; ShvedkoDev 2025. All Rights Reserved.</p>
             </div>
         </footer>
+        <!-- Cookie Banner -->
+        <div id="cookie-banner" style="
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: #222;
+          color: #fff;
+          padding: 16px;
+          text-align: center;
+          font-size: 14px;
+          z-index: 1000;">
+            This website uses cookies to ensure you get the best experience.
+            <a href="/data_protection" style="color: #4caf50; text-decoration: underline; margin-left: 8px;" target="_blank">
+                Learn more
+            </a>
+            <button id="cookie-ok" style="
+            margin-left: 16px;
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 4px;">
+                OK
+            </button>
+        </div>
+        
+        <script>
+            if (localStorage.getItem('cookieAccepted')) {
+                document.getElementById('cookie-banner').style.display = 'none';
+            }
+            document.getElementById('cookie-ok').addEventListener('click', function () {
+                localStorage.setItem('cookieAccepted', 'true');
+                document.getElementById('cookie-banner').style.display = 'none';
+            });
+        </script>
     </div>
 </body>
 
