@@ -50,7 +50,7 @@ $breakpoint-tablet: 768px;
     }
 }
 
-// 
+//
 $breakpoint-tablet: 768px;
 .home-form {
     // background-color: #d1d9e6;
@@ -77,7 +77,7 @@ $breakpoint-tablet: 768px;
         .form-contol {
             padding-bottom: 20px;
         }
-        input[type="text"] {
+        input[type="text"], input[type="email"] {
             padding: 10px 15px;
             font-size: 16px;
             border: 2px solid $primary-color;

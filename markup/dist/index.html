@@ -4,6 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="ShvedkoDev" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
     <link href="//fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
     <link href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
     
@@ -210,12 +218,14 @@
                     <div class="home-form">
                         <h2>SUBSCRIBE TO NEWSLETTER</h2>
                         <p>Join our community and be the first to know about our news</p>
-                        <form action="">
+                        <form action="https://formspree.io/f/mrbqworr"
+                              method="POST">
                             <div class="form-contol">
-                                <input type="text" placeholder="Email">
+                                <input type="email" name="email" placeholder="Email">
                             </div>
                             <button type="submit" class="button">Send</button>
                         </form>
+                        <small>By subscribing, you agree to receive our newsletter. You can unsubscribe anytime.</small>
                     </div>
                 </div>
             </section>

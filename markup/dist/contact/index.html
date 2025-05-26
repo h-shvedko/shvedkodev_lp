@@ -4,6 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="ShvedkoDev" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
     <link href="//fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
     <link href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
     
@@ -73,20 +81,20 @@
                             <div class="col-6 animate-on-scroll slide-in-right">
                                 <div class=" background-image custom contact" style="background-image:url(/images/contact.jpg);">
                                     <div class="form-contact">
-                                        <form action="">
+                                        <form action="https://formspree.io/f/mwpodwqy" method="POST">
                                             <div class="form-control">
-                                                <input type="text" placeholder="Name">
+                                                <input type="text" name="fullname" placeholder="Name">
                                             </div>
                                             <div class="form-control">
-                                                <input type="text" placeholder="E-mail">
+                                                <input type="email" name="email" placeholder="E-mail">
                                             </div>
                                             <div class="form-control">
-                                                <input type="text" placeholder="Subject">
+                                                <input type="text" name="subject" placeholder="Subject">
                                             </div>
                                             <div class="form-control">
-                                                <textarea placeholder="Your Message"></textarea>
+                                                <textarea name="message" placeholder="Your Message"></textarea>
                                             </div>
-                                            <button class="button">Submit</button>
+                                            <button class="submit">Send</button>
                                         </form>
                                     </div>
                                 </div>

@@ -4461,7 +4461,7 @@ p-6 .list li::before {
 .home-form form .form-contol {
   padding-bottom: 20px;
 }
-.home-form form input[type=text] {
+.home-form form input[type=text], .home-form form input[type=email] {
   padding: 10px 15px;
   font-size: 16px;
   border: 2px solid var(--primary-color);
@@ -4470,7 +4470,7 @@ p-6 .list li::before {
   width: 100%;
 }
 @media (min-width: 768px) {
-  .home-form form input[type=text] {
+  .home-form form input[type=text], .home-form form input[type=email] {
     margin-bottom: 0;
     margin-right: 10px;
     width: 670px;
