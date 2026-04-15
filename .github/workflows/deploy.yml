@@ -25,17 +25,8 @@ jobs:
         run: npx gulp dist
 
       - name: Deploy via SFTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          protocol: sftp
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          port: 22
-          local-dir: ./dist/
-          server-dir: ${{ secrets.FTP_REMOTE_DIR }}
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            **/.ftp-deploy-sync-state.json
+        run: |
+          sudo apt-get install -y lftp
+          lftp -u "${{ secrets.SFTP_USERNAME }},${{ secrets.SFTP_PASSWORD }}" \
+            sftp://${{ secrets.SFTP_SERVER }} \
+            -e "set sftp:auto-confirm yes; mirror --reverse --delete --verbose ./dist/ ${{ secrets.SFTP_REMOTE_DIR }}; quit"
