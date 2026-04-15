@@ -8,21 +8,24 @@ var path = {
         js: 'dist/js/',
         css: 'dist/css/',
         img: 'dist/images/',
-        fonts: 'dist/fonts/'
+        fonts: 'dist/fonts/',
+        craftly: 'dist/craftly/'
     },
     src: {
         html: 'src/*.html',
         js: 'src/js/*.js',
         style: 'src/scss/main.scss',
         img: 'src/sourceimages/**/*.*',
-        fonts: 'src/fonts/**/*.*'
+        fonts: 'src/fonts/**/*.*',
+        craftly: 'src/craftly/**/*'
     },
     watch: {
         html: 'src/**/*.html',
         js: 'src/js/**/*.js',
         css: 'src/scss/**/*.scss',
         img: 'src/sourceimages/**/*.*',
-        fonts: 'src/fonts/**/*.*'
+        fonts: 'src/fonts/**/*.*',
+        craftly: 'src/craftly/**/*'
     },
     clean: './dist/*'
 };
@@ -141,6 +144,16 @@ gulp.task('image:build', function() {
         .pipe(gulp.dest(path.build.img));
 });
 
+gulp.task('craftly:build', function() {
+    return gulp.src(path.src.craftly, { encoding: false })
+        .pipe(gulp.dest(path.build.craftly));
+});
+
+gulp.task('htaccess:build', function() {
+    return gulp.src('src/html/.htaccess')
+        .pipe(gulp.dest(path.build.html));
+});
+
 gulp.task('clean:build', function() {
     return gulp.src(path.clean, { read: false })
         .pipe(rimraf());
@@ -150,10 +163,10 @@ gulp.task('cache:clear', function(done) {
     return cache.clearAll(done);
 });
 
-gulp.task('build', gulp.series('clean:build', gulp.parallel('html:build', 'css:build', 'js:build', 'fonts:build', 'image:build')));
+gulp.task('build', gulp.series('clean:build', gulp.parallel('html:build', 'css:build', 'js:build', 'fonts:build', 'image:build', 'craftly:build', 'htaccess:build')));
 
 
-gulp.task('dist', gulp.series('clean:build', gulp.parallel('html:build', 'css:dist', 'js:dist', 'fonts:build', 'image:build')));
+gulp.task('dist', gulp.series('clean:build', gulp.parallel('html:build', 'css:dist', 'js:dist', 'fonts:build', 'image:build', 'craftly:build', 'htaccess:build')));
 
 gulp.task('watch', function() {
     gulp.watch(path.watch.html, gulp.series('html:build'));
@@ -161,6 +174,7 @@ gulp.task('watch', function() {
     gulp.watch(path.watch.js, gulp.series('js:build'));
     gulp.watch(path.watch.img, gulp.series('image:build'));
     gulp.watch(path.watch.fonts, gulp.series('fonts:build'));
+    gulp.watch(path.watch.craftly, gulp.series('craftly:build'));
 });
 
 gulp.task('default', gulp.series('build', gulp.parallel('webserver', 'watch')));

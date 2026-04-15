@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    //= layout/head.html
+    <title>Case Study: FSM Digital Library — Laravel Livewire Education Platform · ShvedkoDev Blog</title>
+    <meta name="description" content="How we built a full-stack digital library with Laravel 12, Livewire 3 and FilamentPHP delivering 2,000+ books to Micronesian schools.">
+    <link rel="canonical" href="https://shvedko.dev/blog/posts/fsm-bildungsplattform-laravel/">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+        //= layout/header.html
+        <main role="main" id="main">
+            <div class="container">
+                <article class="blog-post">
+                    <header class="blog-post__header animate-on-scroll fade-in">
+                        <div class="blog-post__meta">
+                            <a href="/blog/" class="blog-post__back">← Blog</a>
+                            <time datetime="2026-03-15">March 15, 2026</time>
+                        </div>
+                        <h1>Case Study: FSM Digital Library — 2,000 Books for Pacific Island Schools</h1>
+                        <div class="blog-post__tags">
+                            <span class="tag">Laravel</span>
+                            <span class="tag">Livewire</span>
+                            <span class="tag">FilamentPHP</span>
+                            <span class="tag">Case Study</span>
+                            <span class="tag">Docker</span>
+                        </div>
+                    </header>
+
+                    <div class="blog-post__body animate-on-scroll fade-in">
+                        <p>The Federated States of Micronesia spans more than 600 islands in the western Pacific. Teaching children in their native language — Chuukese, Pohnpeian, Kosraean, or Yapese — is critical for cultural preservation. The problem: almost no digital educational materials exist in those languages, and distribution to remote islands is difficult.</p>
+
+                        <p>The FSM VLA Curriculum project set out to fix that with a digital library platform. I designed and built the full-stack system from September 2025 to January 2026.</p>
+
+                        <h2>The Requirements</h2>
+                        <p>The platform needed to:</p>
+                        <ul>
+                            <li>Host and serve 2,000+ educational books (PDFs + metadata)</li>
+                            <li>Support multi-language filtering (Subject, Grade, Language, Type, Year) with real-time search</li>
+                            <li>Provide an admin dashboard for content managers with no technical background</li>
+                            <li>Track analytics — views, downloads, search queries, filter usage</li>
+                            <li>Run on modest hosting, accessible from slow internet connections</li>
+                            <li>Be maintainable by a small team long-term</li>
+                        </ul>
+
+                        <h2>Tech Stack</h2>
+                        <p>The choices were driven by the team's existing PHP familiarity and the need for a rich admin experience without building one from scratch:</p>
+                        <ul>
+                            <li><strong>Laravel 12.x</strong> — primary framework, routing, authentication, Eloquent ORM</li>
+                            <li><strong>Livewire 3.x</strong> — real-time search and filtering without writing JavaScript APIs</li>
+                            <li><strong>Alpine.js</strong> — lightweight interactivity for UI components</li>
+                            <li><strong>FilamentPHP</strong> — full-featured admin panel for 2,000+ book records, metadata, and user management</li>
+                            <li><strong>Tailwind CSS</strong> — utility-first styling across three distinct UI templates</li>
+                            <li><strong>MySQL</strong> — relational storage for books, categories, user interactions</li>
+                            <li><strong>Docker</strong> — containerised local development and deployment</li>
+                        </ul>
+
+                        <h2>Key Technical Decisions</h2>
+
+                        <h3>Livewire for search</h3>
+                        <p>Rather than a separate Vue or React SPA, I used Livewire 3's reactive components to handle the multi-filter search. Each filter updates the Livewire component's state and re-renders the book list without a full page reload. This kept the architecture monolithic and made it much easier to deploy and maintain on shared hosting.</p>
+
+                        <h3>FilamentPHP for the admin</h3>
+                        <p>The admin dashboard needed to support content managers uploading PDFs, editing metadata, managing user reviews, and viewing analytics — all without developer involvement. FilamentPHP's resource system handled this with minimal custom code. The content team was onboarded in a single afternoon.</p>
+
+                        <h3>Three UI templates</h3>
+                        <p>The client wanted the library to feel appropriately serious for an educational context. I built three responsive templates — Academic, Material, and Modern — that could be switched at the admin level. Each template adapts the same underlying data to a different visual language.</p>
+
+                        <h2>Impact</h2>
+                        <p>The platform successfully delivered digital access to 2,000+ educational resources for teachers across remote Pacific island communities. For many schools this was the first time native-language teaching materials were available in a searchable digital format.</p>
+
+                        <p>The project is live at <a href="https://micronesian.school" target="_blank" rel="noopener">micronesian.school</a>.</p>
+                    </div>
+
+                    <footer class="blog-post__footer animate-on-scroll fade-in">
+                        <p>Written by <a href="/about/">Hennadii Shvedko</a>, Founder at ShvedkoDev · <a href="/contact/">Get in touch</a></p>
+                        <a href="/blog/" class="button outline">← Back to Blog</a>
+                    </footer>
+                </article>
+            </div>
+        </main>
+        //= layout/footer.html
+    </div>
+</body>
+
+</html>

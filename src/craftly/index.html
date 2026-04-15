@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Craftly – Webanwendungen in 5 Minuten statt Wochen · ShvedkoDev</title>
+  <meta name="description" content="Craftly ist die weltweit erste KI-Agentenplattform, die aus einer kurzen Beschreibung produktionsreife Laravel- und WordPress-Webanwendungen in unter 5 Minuten erstellt.">
+  <meta name="author" content="ShvedkoDev Göttingen">
+
+  <!-- Canonical & hreflang -->
+  <link rel="canonical" href="https://shvedko.dev/craftly/">
+  <link rel="alternate" hreflang="de" href="https://shvedko.dev/craftly/">
+  <link rel="alternate" hreflang="en" href="https://shvedko.dev/craftly/index-en.html">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="Craftly – Webanwendungen in 5 Minuten">
+  <meta property="og:description" content="Die weltweit erste KI-Agentenplattform für Laravel und WordPress. Produktionsreife Webanwendungen in unter 5 Minuten.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shvedko.dev/craftly/">
+  <meta property="og:image" content="https://shvedko.dev/craftly/assets/img/screenshot1.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://shvedko.dev/craftly/assets/img/screenshot1.png">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Craftly",
+    "url": "https://craftly.build",
+    "description": "Die weltweit erste KI-Agentenplattform für Laravel und WordPress. Produktionsreife Webanwendungen in unter 5 Minuten.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Web",
+    "author": {
+      "@type": "Person",
+      "name": "Hennadii Shvedko",
+      "url": "https://shvedko.dev"
+    },
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/ComingSoon"
+    }
+  }
+  </script>
+
+  <!-- Favicon — Sparkles icon matching the app logo -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='url(%23g)'/><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%234F46E5'/><stop offset='1' stop-color='%237C3AED'/></linearGradient></defs><g transform='translate(6,6) scale(0.833)' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'><path d='m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z'/><path d='M5 3v4'/><path d='M19 17v4'/><path d='M3 5h4'/><path d='M17 19h4'/></g></svg>" type="image/svg+xml">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .gradient-bg {
+      background: linear-gradient(135deg, #1E1B4B 0%, #312E81 50%, #4C1D95 100%);
+    }
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -10px rgba(79, 70, 229, 0.2);
+    }
+    html { scroll-behavior: smooth; }
+
+    /* ── Scroll entrance animations ── */
+    .scroll-animate {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s ease-out, transform 0.55s ease-out;
+    }
+    .scroll-animate.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .scroll-delay-1 { transition-delay: 0.10s; }
+    .scroll-delay-2 { transition-delay: 0.20s; }
+    .scroll-delay-3 { transition-delay: 0.30s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .scroll-animate {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .animate-pulse, [class*="animate-"] { animation: none !important; }
+    }
+
+    /* ── Mobile hamburger nav ── */
+    #mobile-menu {
+      display: none;
+      flex-direction: column;
+      border-top: 1px solid #e2e8f0;
+      background: rgba(255,255,255,0.97);
+    }
+    #mobile-menu.open { display: flex; }
+    #mobile-menu a {
+      padding: 13px 24px;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: #475569;
+      border-bottom: 1px solid #f1f5f9;
+      transition: background 0.15s, color 0.15s;
+    }
+    #mobile-menu a:hover { background: #f8fafc; color: #1e293b; }
+
+    .hamburger-line {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #334155;
+      border-radius: 2px;
+      transition: transform 0.25s ease, opacity 0.2s ease;
+    }
+    #hamburger-btn.open .line-1 { transform: translateY(7px) rotate(45deg); }
+    #hamburger-btn.open .line-2 { opacity: 0; }
+    #hamburger-btn.open .line-3 { transform: translateY(-7px) rotate(-45deg); }
+  </style>
+</head>
+
+<body class="bg-white text-slate-900">
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       NAVIGATION
+       ══════════════════════════════════════════════════════════════════ -->
+  <nav class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-slate-200 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <!-- Logo -->
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-lg gradient-bg flex items-center justify-center shadow-lg flex-shrink-0">
+          <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+            <path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/>
+          </svg>
+        </div>
+        <div class="flex items-baseline gap-2">
+          <span class="font-extrabold text-lg tracking-tight">Craftly</span>
+          <span class="text-slate-400 text-xs hidden sm:inline">von ShvedkoDev</span>
+        </div>
+      </div>
+
+      <!-- Desktop nav links -->
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+        <a href="#problem" class="hover:text-slate-900 transition">Problem</a>
+        <a href="#loesung" class="hover:text-slate-900 transition">Lösung</a>
+        <a href="#zahlen" class="hover:text-slate-900 transition">Zahlen</a>
+        <a href="#demo" class="hover:text-slate-900 transition">Demo</a>
+        <a href="#waitlist" class="text-indigo-600 font-semibold hover:text-indigo-700 transition">Beta ↗</a>
+        <a href="index-en.html" class="text-slate-400 text-xs hover:text-slate-600 transition" title="Switch to English">EN</a>
+        <a href="https://shvedko.dev" class="text-slate-400 text-xs hover:text-slate-600 transition" title="ShvedkoDev Website">← shvedko.dev</a>
+      </div>
+
+      <!-- Right side: lang switcher + CTA + hamburger -->
+      <div class="flex items-center gap-2">
+        <div class="hidden md:flex items-center gap-1 bg-slate-100 rounded-lg p-1">
+          <span class="text-xs font-semibold px-2.5 py-1.5 rounded-md bg-white text-indigo-600 shadow-sm select-none cursor-default">🇩🇪 DE</span>
+          <a href="./index-en.html" class="text-xs font-semibold px-2.5 py-1.5 rounded-md text-slate-500 hover:text-slate-800 hover:bg-slate-200 transition">🇬🇧 EN</a>
+        </div>
+        <a href="mailto:info@shvedko.dev"
+           class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold px-5 py-2 rounded-lg transition shadow-sm">
+          Kontakt
+        </a>
+        <button
+          id="hamburger-btn"
+          class="md:hidden flex flex-col justify-center gap-[5px] p-2 -mr-1 rounded-lg hover:bg-slate-100 transition"
+          aria-label="Menü öffnen"
+          aria-expanded="false"
+          aria-controls="mobile-menu">
+          <span class="hamburger-line line-1"></span>
+          <span class="hamburger-line line-2"></span>
+          <span class="hamburger-line line-3"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile dropdown menu -->
+    <div id="mobile-menu" role="navigation" aria-label="Mobile Navigation">
+      <div style="display:flex;gap:6px;padding:12px 20px;background:#f8fafc;border-bottom:1px solid #e2e8f0;">
+        <span style="flex:1;text-align:center;padding:8px;border-radius:8px;background:white;color:#4F46E5;font-size:0.8rem;font-weight:700;border:1px solid #e0e7ff;cursor:default;">🇩🇪 Deutsch</span>
+        <a href="./index-en.html" style="flex:1;text-align:center;padding:8px;border-radius:8px;font-size:0.8rem;font-weight:600;color:#64748b;text-decoration:none;border:1px solid #e2e8f0;" onclick="closeMobileMenu()">🇬🇧 English</a>
+      </div>
+      <a href="#problem" onclick="closeMobileMenu()">Problem</a>
+      <a href="#loesung" onclick="closeMobileMenu()">Lösung</a>
+      <a href="#zahlen" onclick="closeMobileMenu()">Zahlen</a>
+      <a href="#demo" onclick="closeMobileMenu()">Demo</a>
+      <a href="#waitlist" onclick="closeMobileMenu()" style="color:#4F46E5;font-weight:700;">Beta-Warteliste ↗</a>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       HERO
+       ══════════════════════════════════════════════════════════════════ -->
+  <section class="pt-32 pb-20 px-6 gradient-bg text-white relative overflow-hidden">
+    <div class="max-w-5xl mx-auto text-center relative z-10">
+      <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.05] mb-6">
+        Webanwendungen in<br>
+        <span class="text-indigo-300">5 Minuten</span> statt<br>
+        in 6 Wochen.
+      </h1>
+      <p class="text-xl md:text-2xl text-indigo-100 max-w-3xl mx-auto mb-10 leading-relaxed">
+        Craftly ist die <strong class="text-white">weltweit erste KI-Agentenplattform</strong>, die aus einer kurzen Beschreibung produktionsreife Laravel- und WordPress-Anwendungen erzeugt – live vor den Augen des Kunden.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+        <a href="#demo" class="bg-white text-indigo-900 hover:bg-indigo-50 font-semibold px-8 py-4 rounded-lg transition shadow-lg">
+          Demo ansehen →
+        </a>
+        <a href="mailto:info@shvedko.dev" class="border-2 border-white/30 hover:bg-white/10 font-semibold px-8 py-4 rounded-lg transition">
+          Gespräch vereinbaren
+        </a>
+      </div>
+
+      <!-- Hero screenshot -->
+      <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+        <img
+          src="./assets/img/screenshot1.png"
+          alt="Craftly Hauptansicht — Chat-Panel links, generierter Code und Live-Preview rechts"
+          class="w-full">
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       METRIKEN
+       ══════════════════════════════════════════════════════════════════ -->
+  <section id="zahlen" class="py-20 px-6 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-center text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-3 scroll-animate">Messbare Ergebnisse</p>
+      <h2 class="text-center text-3xl md:text-4xl font-extrabold mb-12 scroll-animate scroll-delay-1">Keine Behauptungen. Nur Zahlen.</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div class="card-hover p-8 rounded-2xl bg-gradient-to-br from-indigo-50 to-white border border-slate-200 scroll-animate scroll-delay-1">
+          <div class="text-6xl md:text-7xl font-extrabold gradient-text mb-2">4:11</div>
+          <p class="font-semibold text-slate-900 mb-1">Minuten bis zur fertigen App</p>
+          <p class="text-sm text-slate-500">Gemessen an einer vollständigen Laravel-CRUD-Anwendung inkl. Auth</p>
+        </div>
+        <div class="card-hover p-8 rounded-2xl bg-gradient-to-br from-indigo-50 to-white border border-slate-200 scroll-animate scroll-delay-2">
+          <div class="text-6xl md:text-7xl font-extrabold gradient-text mb-2">0,19 €</div>
+          <p class="font-semibold text-slate-900 mb-1">Gesamtkosten pro Generierung</p>
+          <p class="text-sm text-slate-500">Ca. 1000× günstiger als klassische Agenturarbeit</p>
+        </div>
+        <div class="card-hover p-8 rounded-2xl bg-gradient-to-br from-indigo-50 to-white border border-slate-200 scroll-animate scroll-delay-3">
+          <div class="text-6xl md:text-7xl font-extrabold gradient-text mb-2">~27 s</div>
+          <p class="font-semibold text-slate-900 mb-1">Schnellere Live-Vorschau</p>
+          <p class="text-sm text-slate-500">Durch patentwürdige Parallelisierung (ADR-0026)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       PROBLEM
+       ══════════════════════════════════════════════════════════════════ -->
+  <section id="problem" class="py-24 px-6 bg-slate-50">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <p class="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-3 scroll-animate">Das Problem</p>
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight scroll-animate scroll-delay-1">
+          Der deutsche Mittelstand<br>wird digital abgehängt.
+        </h2>
+        <p class="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed scroll-animate scroll-delay-2">
+          3,5 Millionen KMU in Deutschland brauchen dringend individuelle Webanwendungen – und können sie sich nicht leisten.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card-hover bg-white p-8 rounded-xl border border-slate-200 scroll-animate scroll-delay-1">
+          <div class="text-4xl mb-4">⏱️</div>
+          <h3 class="font-bold text-xl mb-3">6–12 Wochen Wartezeit</h3>
+          <p class="text-slate-600 leading-relaxed">Klassische Agenturen brauchen Monate. Bis dahin ist das Geschäft oft weitergezogen oder der Markt verändert.</p>
+        </div>
+        <div class="card-hover bg-white p-8 rounded-xl border border-slate-200 scroll-animate scroll-delay-2">
+          <div class="text-4xl mb-4">💰</div>
+          <h3 class="font-bold text-xl mb-3">10 000–50 000 €</h3>
+          <p class="text-slate-600 leading-relaxed">Individuelle Entwicklung sprengt das IT-Budget von Handwerk, Vereinen und Solo-Unternehmern.</p>
+        </div>
+        <div class="card-hover bg-white p-8 rounded-xl border border-slate-200 scroll-animate scroll-delay-3">
+          <div class="text-4xl mb-4">🌐</div>
+          <h3 class="font-bold text-xl mb-3">Fehlende PHP-Lösung</h3>
+          <p class="text-slate-600 leading-relaxed">Bestehende KI-Tools (Lovable, v0, Base44) erzeugen nur React – unbrauchbar für 75 % der Websites weltweit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SO FUNKTIONIERT CRAFTLY
+       ══════════════════════════════════════════════════════════════════ -->
+  <section id="loesung" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-20">
+        <p class="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-3 scroll-animate">Die Lösung</p>
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-6 scroll-animate scroll-delay-1">So einfach wie eine E-Mail schreiben.</h2>
+        <p class="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed scroll-animate scroll-delay-2">
+          Beschreiben Sie Ihre Idee in eigenen Worten. Craftly baut die fertige Anwendung — Sie sehen live zu.
+        </p>
+      </div>
+
+      <!-- Schritt 1 -->
+      <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
+        <div class="scroll-animate">
+          <div class="inline-block bg-indigo-100 text-indigo-700 font-bold text-sm px-3 py-1 rounded-full mb-4">Schritt 1</div>
+          <h3 class="text-3xl font-extrabold mb-4 leading-tight">Idee in eigenen Worten eingeben</h3>
+          <p class="text-lg text-slate-600 leading-relaxed mb-4 italic">
+            „Ich brauche eine Buchungsplattform für meine Yogaschule. Kunden sollen Kurse sehen und buchen können, ich brauche ein Admin-Panel."
+          </p>
+          <p class="text-lg text-slate-600 leading-relaxed">
+            Kein Fachjargon nötig. Keine Vorkenntnisse. Keine Flowcharts. Einfach die Idee formulieren wie eine E-Mail an einen Bekannten.
+          </p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-slate-200 shadow-xl scroll-animate scroll-delay-1">
+          <img
+            src="./assets/img/screenshot2.png"
+            alt="Craftly Eingabefeld — Projektbeschreibung im natürlicher Sprache"
+            class="w-full">
+        </div>
+      </div>
+
+      <!-- Schritt 2 -->
+      <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
+        <div class="md:order-2 scroll-animate">
+          <div class="inline-block bg-indigo-100 text-indigo-700 font-bold text-sm px-3 py-1 rounded-full mb-4">Schritt 2</div>
+          <h3 class="text-3xl font-extrabold mb-4 leading-tight">9 KI-Agenten arbeiten parallel</h3>
+          <p class="text-lg text-slate-600 leading-relaxed mb-4">
+            Spezialisierte KI-Agenten planen die Struktur, entwerfen das Design, generieren den Code, prüfen auf Fehler und bereiten die Live-Vorschau vor – alles in Echtzeit.
+          </p>
+          <p class="text-lg text-slate-600 leading-relaxed">
+            <strong class="text-slate-900">Das Einzigartige:</strong> Sie sehen jede einzelne Datei entstehen. Der Bildschirm ist nicht länger eine Blackbox.
+          </p>
+        </div>
+        <!-- screenshot3 is a narrow crop — dark bg prevents letterboxing -->
+        <div class="md:order-1 rounded-xl overflow-hidden border border-slate-200 shadow-xl bg-slate-50 scroll-animate scroll-delay-1">
+          <img
+            src="./assets/img/screenshot3.png"
+            alt="Craftly Live-Analyse — KI-Pipeline mit Fortschrittsanzeige und Dateibaum"
+            class="w-full">
+        </div>
+      </div>
+
+      <!-- Schritt 3 -->
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="scroll-animate">
+          <div class="inline-block bg-indigo-100 text-indigo-700 font-bold text-sm px-3 py-1 rounded-full mb-4">Schritt 3</div>
+          <h3 class="text-3xl font-extrabold mb-4 leading-tight">Fertig. Funktioniert.</h3>
+          <p class="text-lg text-slate-600 leading-relaxed mb-4">
+            Nach unter 5 Minuten öffnet sich die vollständige, funktionierende Anwendung in einer Live-Vorschau — mit Login, Datenbank, CRUD-Masken und Admin-Panel.
+          </p>
+          <p class="text-lg text-slate-600 leading-relaxed">
+            Einsatzbereit. Erweiterbar. Herunterladbar. <strong class="text-slate-900">Kein Lock-in</strong> — der Code gehört Ihnen.
+          </p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-slate-200 shadow-xl scroll-animate scroll-delay-1">
+          <img
+            src="./assets/img/screenshot4.png"
+            alt="Craftly Live-Preview — fertig generierte WordPress-Anwendung DentalNova"
+            class="w-full">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       ARCHITEKTUR / 9 AGENTEN
+       ══════════════════════════════════════════════════════════════════ -->
+  <section class="py-24 px-6 gradient-bg text-white">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <p class="text-sm font-semibold text-indigo-300 uppercase tracking-wider mb-3 scroll-animate">Die Architektur</p>
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight scroll-animate scroll-delay-1">
+          9 spezialisierte KI-Agenten<br>in Orchestrierung.
+        </h2>
+        <p class="text-xl text-indigo-100 max-w-3xl mx-auto leading-relaxed scroll-animate scroll-delay-2">
+          Jeder Agent ist ein Experte für genau eine Aufgabe. Zusammen bauen sie, was sonst ein ganzes Entwicklerteam braucht.
+        </p>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-white/10 bg-white/5 p-6 mb-12 shadow-2xl scroll-animate">
+        <img
+          src="./assets/img/_-%20visual%20selection.svg"
+          alt="Architektur-Diagramm der 9 KI-Agenten-Pipeline"
+          class="w-full h-auto">
+      </div>
+
+      <!-- Agent cards with icons -->
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-lg p-5 card-hover scroll-animate scroll-delay-1">
+          <div class="text-2xl mb-2">🏛️</div>
+          <div class="text-xs font-semibold text-indigo-300 uppercase tracking-wide mb-1">Orchestrierung</div>
+          <div class="font-bold text-white">Master Architect</div>
+          <div class="text-xs text-indigo-200 mt-1 leading-relaxed">Koordiniert alle Agenten, plant die Gesamtstruktur</div>
+        </div>
+        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-lg p-5 card-hover scroll-animate scroll-delay-1">
+          <div class="text-2xl mb-2">📋</div>
+          <div class="text-xs font-semibold text-indigo-300 uppercase tracking-wide mb-1">Anforderungen</div>
+          <div class="font-bold text-white">Requirements Engineer</div>
+          <div class="text-xs text-indigo-200 mt-1 leading-relaxed">Übersetzt die Idee in ein strukturiertes Blueprint</div>
+        </div>
+        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-lg p-5 card-hover scroll-animate scroll-delay-1">
+          <div class="text-2xl mb-2">🔀</div>
+          <div class="text-xs font-semibold text-indigo-300 uppercase tracking-wide mb-1">Smart Routing</div>
+          <div class="font-bold text-white">Router Agent</div>
+          <div class="text-xs text-indigo-200 mt-1 leading-relaxed">Wählt Laravel oder WordPress basierend auf dem Projekt</div>
+        </div>
+        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-lg p-5 card-hover scroll-animate scroll-delay-2">
+          <div class="text-2xl mb-2">🔵</div>
+          <div class="text-xs font-semibold text-indigo-300 uppercase tracking-wide mb-1">WordPress</div>
+          <div class="font-bold text-white">WordPress Forge</div>
+          <div class="text-xs text-indigo-200 mt-1 leading-relaxed">Generiert Themes, Plugins und WP-Konfiguration</div>
+        </div>
+        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-lg p-5 card-hover scroll-animate scroll-delay-2">
+          <div class="text-2xl mb-2">🔴</div>
+          <div class="text-xs font-semibold text-indigo-300 uppercase tracking-wide mb-1">Laravel</div>
+          <div class="font-bold text-white">Laravel Forge</div>
+          <div class="text-xs text-indigo-200 mt-1 leading-relaxed">Erstellt Controller, Models, Views und Migrations</div>
+        </div>
+        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-lg p-5 card-hover scroll-animate scroll-delay-2">
+          <div class="text-2xl mb-2">🔄</div>
+          <div class="text-xs font-semibold text-indigo-300 uppercase tracking-wide mb-1">Iteration</div>
+          <div class="font-bold text-white">Iteration Agent</div>
+          <div class="text-xs text-indigo-200 mt-1 leading-relaxed">Wendet Änderungswünsche gezielt auf den Code an</div>
+        </div>
+        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-lg p-5 card-hover scroll-animate scroll-delay-3">
+          <div class="text-2xl mb-2">🎨</div>
+          <div class="text-xs font-semibold text-indigo-300 uppercase tracking-wide mb-1">Design</div>
+          <div class="font-bold text-white">Style Worker</div>
+          <div class="text-xs text-indigo-200 mt-1 leading-relaxed">Passt CSS, Farben und visuelle Gestaltung an</div>
+        </div>
+        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-lg p-5 card-hover scroll-animate scroll-delay-3">
+          <div class="text-2xl mb-2">✍️</div>
+          <div class="text-xs font-semibold text-indigo-300 uppercase tracking-wide mb-1">Inhalt</div>
+          <div class="font-bold text-white">Content Worker</div>
+          <div class="text-xs text-indigo-200 mt-1 leading-relaxed">Schreibt und optimiert Texte und Inhalte</div>
+        </div>
+        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-lg p-5 card-hover scroll-animate scroll-delay-3">
+          <div class="text-2xl mb-2">✅</div>
+          <div class="text-xs font-semibold text-indigo-300 uppercase tracking-wide mb-1">Qualitätssicherung</div>
+          <div class="font-bold text-white">Validation Fix</div>
+          <div class="text-xs text-indigo-200 mt-1 leading-relaxed">Erkennt und behebt automatisch Fehler im Code</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       DEMO VIDEO
+       ══════════════════════════════════════════════════════════════════ -->
+  <section id="demo" class="py-24 px-6 bg-slate-900 text-white">
+    <div class="max-w-5xl mx-auto text-center">
+      <p class="text-sm font-semibold text-indigo-400 uppercase tracking-wider mb-3 scroll-animate">Live-Demo</p>
+      <h2 class="text-4xl md:text-5xl font-extrabold mb-6 scroll-animate scroll-delay-1">Sehen Sie es mit eigenen Augen.</h2>
+      <p class="text-xl text-slate-300 max-w-3xl mx-auto mb-12 leading-relaxed scroll-animate scroll-delay-2">
+        90 Sekunden. Eine Idee. Eine fertige, funktionsfähige Webanwendung.
+      </p>
+
+      <div class="aspect-video rounded-xl overflow-hidden border border-white/10 shadow-2xl scroll-animate">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/FMN-LkQFgGQ?si=do2wHkicvKLztmy7"
+          title="Craftly Demo — Webanwendung in 5 Minuten statt Wochen"
+          class="w-full h-full"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       TECH STRIP
+       ══════════════════════════════════════════════════════════════════ -->
+  <section class="py-12 px-6 border-b border-slate-100">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-center text-xs font-semibold text-slate-400 uppercase tracking-widest mb-8 scroll-animate">
+        Gebaut auf bewährten Technologien
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-5 scroll-animate scroll-delay-1">
+
+        <!-- Laravel -->
+        <div class="flex items-center gap-2 text-slate-500 hover:text-red-600 transition-colors duration-200">
+          <svg class="w-6 h-6" viewBox="0 0 50 52" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M49.626 11.564a.809.809 0 0 1 .028.209v10.972a.8.8 0 0 1-.402.694l-9.209 5.302V39.25c0 .286-.152.55-.4.694L20.42 51.01a.7.7 0 0 1-.114.05c-.042.013-.084.025-.128.033a.809.809 0 0 1-.292-.033L.402 39.944A.802.802 0 0 1 0 39.25V6.334c0-.072.01-.143.028-.21.006-.024.017-.047.024-.07.016-.045.03-.09.053-.131.011-.02.027-.035.04-.054.022-.03.043-.063.069-.09.019-.02.044-.036.067-.054.025-.02.05-.042.077-.059L9.936.274a.802.802 0 0 1 .8 0l9.6 5.542a.8.8 0 0 1 .397.690V16.41l8.005-4.617V6.334a.8.8 0 0 1 .028-.21c.007-.024.017-.047.025-.07.016-.044.03-.09.052-.131.012-.02.028-.035.041-.054.022-.03.042-.063.069-.09.019-.02.044-.036.067-.054.025-.02.05-.042.077-.059L39.226.274a.802.802 0 0 1 .8 0l9.6 5.542a.8.8 0 0 1 .402.694v4.965c0 .018-.004.034-.006.052z"/>
+          </svg>
+          <span class="font-semibold text-sm">Laravel</span>
+        </div>
+
+        <!-- WordPress -->
+        <div class="flex items-center gap-2 text-slate-500 hover:text-blue-600 transition-colors duration-200">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zM3.08 12c0-1.293.28-2.52.776-3.625L6.897 17.5A8.934 8.934 0 0 1 3.08 12zm8.92 8.92a8.9 8.9 0 0 1-2.52-.364l2.68-7.79 2.742 7.516a8.93 8.93 0 0 1-2.902.638zm1.24-13.26c.54-.028 1.027-.084 1.027-.084.483-.057.426-.767-.057-.74 0 0-1.452.114-2.39.114-.883 0-2.363-.114-2.363-.114-.483-.027-.54.71-.057.74 0 0 .458.056.942.084l1.4 3.84-1.964 5.895-3.27-9.735c.54-.028 1.027-.084 1.027-.084.483-.057.426-.767-.057-.74 0 0-1.453.114-2.39.114a16.5 16.5 0 0 1-.576-.01A8.94 8.94 0 0 1 12 3.08c2.332 0 4.459.844 6.094 2.231a3.66 3.66 0 0 0-.116-.007c-.883 0-1.51.768-1.51 1.592 0 .74.428 1.367.883 2.106.342.597.74 1.367.74 2.475 0 .77-.296 1.66-.683 2.91l-.894 2.991zm3.1 12.203-3.27-9.736c.54-.028 1.028-.084 1.028-.084.483-.057.427-.767-.057-.74 0 0-1.452.114-2.39.114a8.97 8.97 0 0 1-.578-.01l3.256 9.69a8.94 8.94 0 0 0 2.011-8.178z"/>
+          </svg>
+          <span class="font-semibold text-sm">WordPress</span>
+        </div>
+
+        <!-- PHP -->
+        <div class="flex items-center gap-2 text-slate-500 hover:text-indigo-600 transition-colors duration-200">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-1.25 5.893h2.5l-.63 2.856h1.618c1.064 0 1.8.208 2.21.624.41.416.524 1.066.34 1.95l-.77 3.527H13.5l.72-3.3c.09-.41.065-.698-.075-.863-.14-.166-.43-.25-.87-.25H11.8l-.963 4.413H8.37l2.38-8.957zM5.3 8.75h4.21l-.31 1.44H7.63l-.18.836h1.485l-.29 1.38H7.16l-.546 2.46H4.8l1.5-6.116z"/>
+          </svg>
+          <span class="font-semibold text-sm">PHP 8.4</span>
+        </div>
+
+        <!-- PostgreSQL -->
+        <div class="flex items-center gap-2 text-slate-500 hover:text-sky-600 transition-colors duration-200">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M13.212 0c-.96.01-1.854.147-2.608.397C8.376.047 6.142.26 4.792 1.703 3.46 3.128 3.006 5.374 3.468 8.205c.19 1.114.489 2.17.773 2.88l.042.1c.413 1.047 1.039 1.81 1.95 1.92.434.05.925-.065 1.337-.436.146.258.313.47.514.623.72.55 1.533.512 2.146.274.18-.07.345-.164.496-.278.053.528.132 1.068.236 1.607.234 1.261.644 2.408 1.584 3.18.963.793 2.33 1.097 4.173.803 1.22-.198 2.228-.598 2.998-1.274.756-.663 1.13-1.542 1.305-2.491.109-.6.148-1.22.156-1.874.427-.22.84-.52 1.196-.922.757-.854 1.208-2.12 1.063-3.878-.14-1.725-.895-2.763-1.789-3.38a4.14 4.14 0 0 0-.812-.437c.007-.34-.001-.686-.024-1.033C20.478 1.22 18.8.03 16.69 0c-.566-.007-1.12.04-1.615.13A5.66 5.66 0 0 0 13.212 0zm3.42 1.43c1.726-.029 2.854.383 3.484 1.232.597.805.596 2.009.025 2.696a1.44 1.44 0 0 1-.243.249 3.77 3.77 0 0 0-1.241-.703 5.17 5.17 0 0 0-1.638-.39c.126-.258.198-.537.198-.838a2.37 2.37 0 0 0-.435-1.337 3.26 3.26 0 0 0-.411-.455c.434-.15.893-.245 1.26-.454zm-5.253.09c.57 0 1.118.067 1.584.222.783.259 1.302.77 1.302 1.714 0 .41-.112.797-.317 1.088a1.966 1.966 0 0 1-1.532.836c-.197.017-.4.026-.605.026-.347 0-.684-.03-.998-.086l-.111-.022a6.78 6.78 0 0 1-.546-.129 2.67 2.67 0 0 1-1.017-.46 1.882 1.882 0 0 1-.706-1.47c0-.495.146-.94.432-1.278.56-.665 1.52-.974 2.514-.441zm-5.14.842c.152 0 .298.012.433.033a2.36 2.36 0 0 0-.422 1.425c0 .505.158 1.012.442 1.425.271.394.62.71.838.848.294.213.62.386.968.517.323.118.663.208 1.015.259.244.037.5.058.762.058.232 0 .458-.016.679-.047a4.45 4.45 0 0 0 1.456-.487c-.074.276-.109.554-.109.84l-.002.076c-.007.327.012.652.059.96a5.82 5.82 0 0 0-.762-.043c-1.133 0-2.09.327-2.666 1.014l-.043.057a2.62 2.62 0 0 0-.43.877 4.26 4.26 0 0 1-1.377-1.245 4.63 4.63 0 0 1-.603-2.308c0-1.397.42-2.594 1.088-3.406a2.48 2.48 0 0 1-.337.167z"/>
+          </svg>
+          <span class="font-semibold text-sm">PostgreSQL</span>
+        </div>
+
+        <!-- Claude AI -->
+        <div class="flex items-center gap-2 text-slate-500 hover:text-orange-500 transition-colors duration-200">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M17.304 1.33a.63.63 0 0 0-.585.077c-.156.117-.253.29-.272.478l-.617 6.058-1.8-5.766a.646.646 0 0 0-.817-.415.643.643 0 0 0-.43.804l1.67 5.354-4.327-4.32a.643.643 0 0 0-.91 0 .643.643 0 0 0 0 .91l4.32 4.328-5.354-1.67a.645.645 0 0 0-.804.43.643.643 0 0 0 .415.818l5.766 1.8-6.058.617a.643.643 0 0 0-.555.71.645.645 0 0 0 .71.555l6.058-.617-5.08 3.293a.643.643 0 0 0 .695 1.082l5.08-3.294-3.293 5.08a.643.643 0 0 0 1.083.696l3.292-5.08-.617 6.058a.643.643 0 0 0 1.265.128l.617-6.058 1.8 5.766a.643.643 0 0 0 1.221-.39l-1.67-5.354 4.327 4.321a.643.643 0 0 0 .91-.91l-4.32-4.328 5.355 1.671a.643.643 0 0 0 .39-1.221l-5.766-1.8 6.058-.618a.643.643 0 0 0-.129-1.264l-6.058.617 5.08-3.293a.643.643 0 0 0-.695-1.082l-5.08 3.294 3.293-5.08a.643.643 0 0 0-.226-.878.63.63 0 0 0-.333-.077z"/>
+          </svg>
+          <span class="font-semibold text-sm">Claude AI</span>
+        </div>
+
+        <!-- React -->
+        <div class="flex items-center gap-2 text-slate-500 hover:text-cyan-500 transition-colors duration-200">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 13.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-12.47c4.44 0 8.06 4.46 8.06 9.97 0 5.5-3.62 9.97-8.06 9.97S3.94 16.5 3.94 11c0-5.51 3.62-9.97 8.06-9.97zm0-1.03C5.96 0 1 4.93 1 11s4.96 11 11 11 11-4.93 11-11S18.04 0 12 0zm-7.78 11c0-1.85.42-3.59 1.13-5.1-.71-1.5-1.13-3.25-1.13-5.1 0-.37.03-.73.07-1.09C2.98 1.36 1.5 4.34 1.5 7.66c0 1.75.42 3.4 1.15 4.86-.73 1.45-1.15 3.1-1.15 4.84 0 3.32 1.48 6.3 3.79 7.85-.04-.36-.07-.72-.07-1.09 0-1.85.42-3.6 1.13-5.11-.71-1.51-1.13-3.26-1.13-5.11z"/>
+          </svg>
+          <span class="font-semibold text-sm">React</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       ÜBER SHVEDKODEV
+       ══════════════════════════════════════════════════════════════════ -->
+  <section class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div class="scroll-animate">
+          <p class="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-3">Wer dahinter steht</p>
+          <h2 class="text-4xl font-extrabold mb-6 leading-tight">ShvedkoDev — Regionale Digitalisierung aus Göttingen.</h2>
+          <p class="text-lg text-slate-600 leading-relaxed mb-4">
+            Seit <strong class="text-slate-900">2022</strong> entwickeln wir individuelle Webanwendungen für den deutschen Mittelstand. <strong class="text-slate-900">24 erfolgreich umgesetzte Kundenprojekte</strong> zeigen: Wir wissen, was KMU wirklich brauchen.
+          </p>
+          <p class="text-lg text-slate-600 leading-relaxed mb-6">
+            Craftly ist der logische nächste Schritt — von Auftragsgeschäft zu skalierbarer Software, die unser Agenturwissen in ein Produkt gießt. Made in Göttingen, für den deutschen Mittelstand.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <span class="bg-slate-100 px-4 py-2 rounded-lg text-sm font-semibold">Laravel</span>
+            <span class="bg-slate-100 px-4 py-2 rounded-lg text-sm font-semibold">WordPress</span>
+            <span class="bg-slate-100 px-4 py-2 rounded-lg text-sm font-semibold">KI-Integration</span>
+            <span class="bg-slate-100 px-4 py-2 rounded-lg text-sm font-semibold">PostgreSQL</span>
+            <span class="bg-slate-100 px-4 py-2 rounded-lg text-sm font-semibold">Individuelle Software</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4 scroll-animate scroll-delay-1">
+          <div class="bg-gradient-to-br from-indigo-50 to-white p-6 rounded-xl border border-slate-200 text-center card-hover">
+            <div class="text-5xl font-extrabold gradient-text">2022</div>
+            <p class="text-slate-600 mt-2 font-medium text-sm">Gründungsjahr</p>
+          </div>
+          <div class="bg-gradient-to-br from-indigo-50 to-white p-6 rounded-xl border border-slate-200 text-center card-hover">
+            <div class="text-5xl font-extrabold gradient-text">24</div>
+            <p class="text-slate-600 mt-2 font-medium text-sm">Kundenprojekte</p>
+          </div>
+          <div class="bg-gradient-to-br from-indigo-50 to-white p-6 rounded-xl border border-slate-200 text-center card-hover">
+            <div class="text-5xl font-extrabold gradient-text">9</div>
+            <p class="text-slate-600 mt-2 font-medium text-sm">KI-Agenten</p>
+          </div>
+          <div class="bg-gradient-to-br from-indigo-50 to-white p-6 rounded-xl border border-slate-200 text-center card-hover">
+            <div class="text-5xl font-extrabold">🇩🇪</div>
+            <p class="text-slate-600 mt-2 font-medium text-sm">Made in Göttingen</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       CTA
+       ══════════════════════════════════════════════════════════════════ -->
+  <section class="py-24 px-6 gradient-bg text-white">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight scroll-animate">
+        Bereit für Ihre erste Webanwendung in 5 Minuten?
+      </h2>
+      <p class="text-xl text-indigo-100 mb-10 leading-relaxed scroll-animate scroll-delay-1">
+        Ob Sie ShvedkoDev für Ihr nächstes individuelles Projekt beauftragen möchten oder Craftly als Plattform testen wollen — wir freuen uns auf Ihre Nachricht.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center scroll-animate scroll-delay-2">
+        <a href="mailto:info@shvedko.dev" class="bg-white text-indigo-900 hover:bg-indigo-50 font-semibold px-8 py-4 rounded-lg transition shadow-lg">
+          E-Mail senden
+        </a>
+        <a href="https://shvedko.dev" class="border-2 border-white/30 hover:bg-white/10 font-semibold px-8 py-4 rounded-lg transition">
+          shvedko.dev besuchen
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       BETA WAITLIST
+       ══════════════════════════════════════════════════════════════════ -->
+  <section id="waitlist" class="py-20 px-6 bg-white border-t border-slate-100">
+    <div class="max-w-2xl mx-auto text-center">
+
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6 scroll-animate">
+        <span class="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
+        Beta — Limitierte Plätze
+      </div>
+
+      <h2 class="text-3xl md:text-4xl font-extrabold mb-4 leading-tight scroll-animate scroll-delay-1">
+        Seien Sie dabei,<br>wenn Craftly startet.
+      </h2>
+      <p class="text-lg text-slate-600 mb-10 leading-relaxed scroll-animate scroll-delay-2">
+        Tragen Sie sich in die Beta-Warteliste ein — Sie erhalten als Erste Zugang zur Plattform und einen exklusiven Early-Access-Rabatt.
+      </p>
+
+      <!-- CTA button to Google Form -->
+      <a
+        href="https://forms.gle/a3dbjUteGJUonTc1A"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="scroll-animate scroll-delay-2 inline-flex items-center gap-3 bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white font-bold text-lg px-10 py-5 rounded-xl shadow-xl hover:shadow-indigo-200 transition-all duration-200 hover:-translate-y-0.5 group">
+        <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        Zur Beta-Warteliste anmelden
+        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+
+      <p class="mt-5 text-sm text-slate-400 scroll-animate scroll-delay-3">
+        Kostenlos · Kein Spam · Jederzeit abmeldbar
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════════════════════════════════ -->
+  <footer class="py-10 px-6 bg-slate-900 text-slate-400 text-sm">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="text-center md:text-left">
+        © 2026 ShvedkoDev · Göttingen
+      </div>
+      <div class="flex gap-6">
+        <a href="https://shvedko.dev" class="hover:text-white transition">← ShvedkoDev</a>
+        <a href="https://shvedko.dev/portfolio/" class="hover:text-white transition">Portfolio</a>
+        <a href="mailto:info@shvedko.dev" class="hover:text-white transition">Kontakt</a>
+        <a href="https://shvedko.dev/imprint/" class="hover:text-white transition">Impressum</a>
+        <a href="https://shvedko.dev/data-protection/" class="hover:text-white transition">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       JAVASCRIPT
+       ══════════════════════════════════════════════════════════════════ -->
+  <script>
+    // ── Mobile hamburger menu ──────────────────────────────────────────
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileMenu   = document.getElementById('mobile-menu');
+
+    hamburgerBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburgerBtn.classList.toggle('open', isOpen);
+      hamburgerBtn.setAttribute('aria-expanded', isOpen);
+    });
+
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+      hamburgerBtn.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    // ── Scroll entrance animations ────────────────────────────────────
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target); // fire once
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

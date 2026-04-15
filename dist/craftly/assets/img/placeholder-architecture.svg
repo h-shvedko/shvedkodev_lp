@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bgGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <pattern id="grid5" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#334155" stroke-width="1" opacity="0.4"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="700" fill="url(#bgGrad5)"/>
+  <rect width="1600" height="700" fill="url(#grid5)"/>
+  <rect x="30" y="30" width="1540" height="640" fill="none" stroke="#818cf8" stroke-width="4" stroke-dasharray="20,10" rx="20"/>
+  <g font-family="system-ui, -apple-system, sans-serif" text-anchor="middle">
+    <text x="800" y="260" font-size="56" font-weight="800" fill="#e2e8f0">SCREENSHOT PLATZHALTER</text>
+    <text x="800" y="310" font-size="34" font-weight="600" fill="#a5b4fc">Architektur-Diagramm der KI-Agenten</text>
+    <text x="800" y="390" font-size="22" fill="#94a3b8">Empfohlener Inhalt:</text>
+    <text x="800" y="425" font-size="22" fill="#cbd5e1">Visuelle Pipeline: Master Architect → Router →</text>
+    <text x="800" y="460" font-size="22" fill="#cbd5e1">Forge Agents → Validation → Preview Packager</text>
+    <text x="800" y="495" font-size="22" fill="#cbd5e1">mit Datenflüssen und Technologie-Logos</text>
+    <text x="800" y="575" font-size="18" fill="#64748b">Alternative: In Figma, Excalidraw oder tldraw zeichnen</text>
+    <text x="800" y="605" font-size="18" fill="#64748b">Dateiname: architecture.png · Empfohlen: 1600 × 700 px</text>
+  </g>
+</svg>

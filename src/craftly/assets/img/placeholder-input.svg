@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f1f5f9"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <pattern id="grid2" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#cbd5e1" stroke-width="1" opacity="0.4"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bgGrad2)"/>
+  <rect width="1200" height="800" fill="url(#grid2)"/>
+  <rect x="30" y="30" width="1140" height="740" fill="none" stroke="#4f46e5" stroke-width="4" stroke-dasharray="16,8" rx="16"/>
+  <g font-family="system-ui, -apple-system, sans-serif" text-anchor="middle">
+    <text x="600" y="340" font-size="52" font-weight="800" fill="#334155">SCREENSHOT PLATZHALTER</text>
+    <text x="600" y="390" font-size="32" font-weight="600" fill="#4f46e5">Projekt-Eingabe / Chat-Panel</text>
+    <text x="600" y="460" font-size="22" fill="#64748b">Empfohlener Inhalt:</text>
+    <text x="600" y="495" font-size="22" fill="#475569">Eingabefeld mit einem echten Beispiel-Text, z.B.:</text>
+    <text x="600" y="530" font-size="22" fill="#475569">„Buchungsplattform für meine Yogaschule..."</text>
+    <text x="600" y="565" font-size="22" fill="#475569">inkl. Framework-Auswahl (WordPress / Laravel)</text>
+    <text x="600" y="640" font-size="18" fill="#94a3b8">Dateiname: input.png (ersetze diese SVG-Datei)</text>
+    <text x="600" y="670" font-size="18" fill="#94a3b8">Empfohlene Größe: 1200 × 800 px</text>
+  </g>
+</svg>

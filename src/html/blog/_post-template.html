@@ -1,0 +1,63 @@
+<!doctype html>
+<!--
+  BLOG POST TEMPLATE — copy this file to src/html/blog/posts/YYYY-MM-slug/index.html
+  Fill in every field marked with ← before publishing.
+  After writing the post, add a card to src/html/blog/index.html and update
+  the "From the Blog" teaser in src/html/index.html if needed.
+
+  title:       ← Post title
+  date:        ← YYYY-MM-DD
+  description: ← One-sentence meta description (max 155 chars)
+  tags:        ← comma-separated
+  canonical:   ← https://shvedko.dev/blog/posts/your-slug/
+-->
+<html lang="en">
+
+<head>
+    //= layout/head.html
+    <title>← Post Title · ShvedkoDev Blog</title>
+    <meta name="description" content="← One-sentence description, max 155 chars.">
+    <link rel="canonical" href="← https://shvedko.dev/blog/posts/your-slug/">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+        //= layout/header.html
+        <main role="main" id="main">
+            <div class="container">
+                <article class="blog-post">
+                    <header class="blog-post__header animate-on-scroll fade-in">
+                        <div class="blog-post__meta">
+                            <a href="/blog/" class="blog-post__back">← Blog</a>
+                            <time datetime="← YYYY-MM-DD">← Month DD, YYYY</time>
+                        </div>
+                        <h1>← Post Title</h1>
+                        <div class="blog-post__tags">
+                            <span class="tag">← Tag 1</span>
+                            <span class="tag">← Tag 2</span>
+                        </div>
+                    </header>
+
+                    <div class="blog-post__body animate-on-scroll fade-in">
+                        <!-- Write your post content here using standard HTML -->
+                        <p>← Introduction paragraph.</p>
+
+                        <h2>← Section heading</h2>
+                        <p>← Section body.</p>
+                    </div>
+
+                    <footer class="blog-post__footer animate-on-scroll fade-in">
+                        <p>Written by <a href="/about/">Hennadii Shvedko</a> · <a href="/contact/">Get in touch</a></p>
+                        <a href="/blog/" class="button outline">← Back to Blog</a>
+                    </footer>
+                </article>
+            </div>
+        </main>
+        //= layout/footer.html
+    </div>
+</body>
+
+</html>

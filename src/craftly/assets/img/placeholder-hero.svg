@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#334155" stroke-width="1" opacity="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bgGrad)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <rect x="40" y="40" width="1520" height="820" fill="none" stroke="#818cf8" stroke-width="4" stroke-dasharray="20,10" rx="20"/>
+  <g font-family="system-ui, -apple-system, sans-serif" text-anchor="middle">
+    <text x="800" y="380" font-size="72" font-weight="800" fill="#e2e8f0">SCREENSHOT PLATZHALTER</text>
+    <text x="800" y="440" font-size="40" font-weight="600" fill="#a5b4fc">Craftly Hauptansicht</text>
+    <text x="800" y="520" font-size="26" fill="#94a3b8">Empfohlener Inhalt:</text>
+    <text x="800" y="560" font-size="24" fill="#cbd5e1">Vollbild-Screenshot der Craftly-App</text>
+    <text x="800" y="595" font-size="24" fill="#cbd5e1">Chat-Panel links · Live-Preview oder File-Tree rechts</text>
+    <text x="800" y="680" font-size="20" fill="#64748b">Dateiname: hero.png (ersetze diese SVG-Datei)</text>
+    <text x="800" y="715" font-size="20" fill="#64748b">Empfohlene Größe: 1600 × 900 px</text>
+  </g>
+</svg>

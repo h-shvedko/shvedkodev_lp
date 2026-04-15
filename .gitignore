@@ -27,3 +27,7 @@ Thumbs.db
 node_modules
 add-files
 
+# Deploy sync state
+.ftp-deploy-sync-state.json
+.sftp-deploy-sync-state.json
+

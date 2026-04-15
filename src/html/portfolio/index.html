@@ -13,11 +13,137 @@
         //= layout/header.html
         <main role="main" id="main">
             <div class="container">
+                <!-- Page intro for direct-link visitors -->
+                <div class="page-intro animate-on-scroll fade-in">
+                    <h1>Portfolio</h1>
+                    <p>Selected projects — from AI platforms to education systems and enterprise web applications. <a href="/contact/">Let's build something together →</a></p>
+                </div>
+
+                <!-- Featured Projects (case studies) -->
+                <section class="case-studies-section section" id="case-studies">
+                    <div class="h-underline">
+                        <h2 class="animate-on-scroll zoom-in">Featured Projects</h2>
+                        <div class="line"></div>
+                    </div>
+
+                    <!-- Craftly -->
+                    <div class="case-study-card animate-on-scroll fade-in">
+                        <div class="case-study-card__badge own-product">Own Product</div>
+                        <div class="case-study-card__body">
+                            <div class="case-study-card__tags">
+                                <span class="tag">AI</span>
+                                <span class="tag">Laravel</span>
+                                <span class="tag">WordPress</span>
+                                <span class="tag">SaaS</span>
+                                <span class="tag">PHP</span>
+                            </div>
+                            <h3>Craftly — AI Agent Platform for Laravel &amp; WordPress</h3>
+                            <p>The world's first AI agent platform that generates production-ready Laravel and WordPress web applications from a short description in under 5 minutes. Built from the ground up at ShvedkoDev in Göttingen for the DACH SMB market.</p>
+                            <ul class="case-study-card__highlights">
+                                <li>Agentic AI pipeline generating full application structure, routes, models, and views</li>
+                                <li>Live preview rendered during generation — customers see the app being built in real time</li>
+                                <li>Targets the 77% of the web running PHP where mainstream AI tools underinvest</li>
+                            </ul>
+                            <a href="/craftly/" class="button" target="_blank" rel="noopener">View Landing Page →</a>
+                        </div>
+                    </div>
+
+                    <!-- FSM VLA Curriculum -->
+                    <div class="case-study-card animate-on-scroll fade-in">
+                        <div class="case-study-card__badge client">Client Project</div>
+                        <div class="case-study-card__body">
+                            <div class="case-study-card__tags">
+                                <span class="tag">Laravel 12</span>
+                                <span class="tag">Livewire 3</span>
+                                <span class="tag">FilamentPHP</span>
+                                <span class="tag">Alpine.js</span>
+                                <span class="tag">Tailwind</span>
+                                <span class="tag">Docker</span>
+                            </div>
+                            <h3>FSM VLA Curriculum — Digital Library for Micronesian Schools</h3>
+                            <p>Designed and built a full-stack digital library platform delivering 2,000+ educational books in native Micronesian languages to teachers across the Federated States of Micronesia. Enabled cultural preservation through accessible, searchable digital resources for remote Pacific island communities.</p>
+                            <ul class="case-study-card__highlights">
+                                <li>Advanced search &amp; filtering across 2,000+ books (Subject, Grade, Language, Type, Year)</li>
+                                <li>Admin dashboard via FilamentPHP managing all content, metadata, PDFs, and user-generated content</li>
+                                <li>Analytics system tracking book views, downloads, search queries, and filter usage</li>
+                                <li>Multiple responsive UI templates (Academic, Material, Modern) with mobile-first approach</li>
+                                <li>Role-based access control, ratings, reviews, and favourites</li>
+                            </ul>
+                            <a href="https://micronesian.school" class="button" target="_blank" rel="noopener">Visit micronesian.school →</a>
+                        </div>
+                    </div>
+
+                    <!-- Helmsauer Gruppe -->
+                    <div class="case-study-card animate-on-scroll fade-in">
+                        <div class="case-study-card__badge client">Client Project</div>
+                        <div class="case-study-card__body">
+                            <div class="case-study-card__tags">
+                                <span class="tag">Laravel</span>
+                                <span class="tag">React</span>
+                                <span class="tag">Tailwind CSS</span>
+                                <span class="tag">MSSQL</span>
+                                <span class="tag">REST API</span>
+                            </div>
+                            <h3>Enterprise Insurance Platform — Frontend &amp; Laravel Backend</h3>
+                            <p>Ongoing frontend and backend development for a German insurance-sector enterprise. Built a React frontend with Laravel REST API backend, integrating with enterprise MSSQL databases and existing business logic.</p>
+                            <ul class="case-study-card__highlights">
+                                <li>React component library with Tailwind CSS for consistent design language</li>
+                                <li>Laravel REST API layer bridging frontend with legacy MSSQL data systems</li>
+                                <li>Git-based CI workflow with GitHub integration</li>
+                            </ul>
+                            <p class="case-study-card__nda"><em>NDA — client details confidential</em></p>
+                        </div>
+                    </div>
+
+                    <!-- Webmaster Akademie -->
+                    <div class="case-study-card animate-on-scroll fade-in">
+                        <div class="case-study-card__badge client">Education</div>
+                        <div class="case-study-card__body">
+                            <div class="case-study-card__tags">
+                                <span class="tag">Laravel</span>
+                                <span class="tag">PHP</span>
+                                <span class="tag">Curriculum Dev</span>
+                            </div>
+                            <h3>Laravel Course — Webmaster Akademie Nürnberg</h3>
+                            <p>Developed and continuously updated a comprehensive Laravel course for remote students at Webmaster Akademie Nürnberg GmbH. Provided hands-on support, guided students through complex topics, and collaborated with fellow course developers to improve learning outcomes.</p>
+                            <ul class="case-study-card__highlights">
+                                <li>Full-curriculum Laravel course covering fundamentals through advanced topics</li>
+                                <li>Student support and code reviews for remote learners</li>
+                                <li>Collaborative curriculum improvement with the course development team</li>
+                            </ul>
+                            <a href="https://webmaster-akademie.de" class="button outline" target="_blank" rel="noopener">Webmaster Akademie →</a>
+                        </div>
+                    </div>
+
+                    <!-- Copernicus GmbH -->
+                    <div class="case-study-card animate-on-scroll fade-in">
+                        <div class="case-study-card__badge client">Long-term</div>
+                        <div class="case-study-card__body">
+                            <div class="case-study-card__tags">
+                                <span class="tag">PHP</span>
+                                <span class="tag">Angular</span>
+                                <span class="tag">jQuery</span>
+                                <span class="tag">MySQL</span>
+                                <span class="tag">REST API</span>
+                            </div>
+                            <h3>Copernicus GmbH — 9-Year Full-Stack Engagement</h3>
+                            <p>Long-running full-stack developer role at Copernicus GmbH in Göttingen, delivering backend PHP development, Angular and jQuery frontends, REST API design, and SQL optimisation across internal enterprise systems.</p>
+                            <ul class="case-study-card__highlights">
+                                <li>PHP backend development as primary responsibility</li>
+                                <li>Angular 9 and jQuery frontend development</li>
+                                <li>RESTful API design and integration</li>
+                                <li>MySQL performance tuning and complex query optimisation</li>
+                            </ul>
+                            <p class="case-study-card__nda"><em>Internal systems — no public URL</em></p>
+                        </div>
+                    </div>
+                </section>
+
                 <section class="portfolio-section" id="portfolio">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-lg-12 text-center">
-                                <h2 class="animate-on-scroll slide-in-top ">Project Gallery</h2>
+                                <h2 class="animate-on-scroll slide-in-top">Design &amp; Template Gallery</h2>
                             </div>
                         </div>
                         <div class="portfolio-menu mt-2 mb-4 animate-on-scroll slide-in-top">

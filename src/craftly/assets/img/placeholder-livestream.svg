@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eef2ff"/>
+      <stop offset="100%" stop-color="#e0e7ff"/>
+    </linearGradient>
+    <pattern id="grid3" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#c7d2fe" stroke-width="1" opacity="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bgGrad3)"/>
+  <rect width="1200" height="800" fill="url(#grid3)"/>
+  <rect x="30" y="30" width="1140" height="740" fill="none" stroke="#4f46e5" stroke-width="4" stroke-dasharray="16,8" rx="16"/>
+  <g font-family="system-ui, -apple-system, sans-serif" text-anchor="middle">
+    <text x="600" y="280" font-size="52" font-weight="800" fill="#312e81">SCREENSHOT PLATZHALTER</text>
+    <text x="600" y="330" font-size="32" font-weight="600" fill="#4f46e5">⭐ Live File Stream (USP!)</text>
+    <text x="600" y="410" font-size="22" fill="#64748b">Empfohlener Inhalt:</text>
+    <text x="600" y="445" font-size="22" fill="#475569">ProgressPanel während einer laufenden Generierung</text>
+    <text x="600" y="480" font-size="22" fill="#475569">mit sichtbarer Liste rollender Dateinamen,</text>
+    <text x="600" y="515" font-size="22" fill="#475569">Phase-Breadcrumb (Analysieren → Generieren → ...)</text>
+    <text x="600" y="550" font-size="22" fill="#475569">und Timer (z.B. „02:34")</text>
+    <text x="600" y="625" font-size="20" fill="#4f46e5" font-weight="600">⚠ Das ist das wichtigste Bild der ganzen Seite!</text>
+    <text x="600" y="680" font-size="18" fill="#94a3b8">Dateiname: livestream.png (ersetze diese SVG-Datei)</text>
+  </g>
+</svg>

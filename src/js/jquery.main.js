@@ -10,7 +10,8 @@ jQuery(window).on('load', function() {
     initMainAnimation();
     animateOnScroll();
     initHeader();
-    initActiveNav()
+    initActiveNav();
+    initGA4Tracking();
 });
 
 
@@ -613,5 +614,55 @@ function initCookies() {
 
 
 
+
+function initGA4Tracking() {
+    if (typeof gtag !== 'function') return;
+
+    // Contact form submission
+    $(document).on('submit', 'form[action*="formspree.io"]', function() {
+        var formAction = $(this).attr('action') || '';
+        var isNewsletter = formAction.indexOf('mrbqworr') !== -1;
+        gtag('event', isNewsletter ? 'newsletter_signup' : 'contact_form_submit', {
+            event_category: 'engagement',
+            event_label: isNewsletter ? 'newsletter' : 'contact'
+        });
+    });
+
+    // Email link clicks
+    $(document).on('click', 'a[href^="mailto:"]', function() {
+        var email = $(this).attr('href').replace('mailto:', '');
+        gtag('event', 'click_email', {
+            event_category: 'contact',
+            event_label: email
+        });
+    });
+
+    // Phone link clicks
+    $(document).on('click', 'a[href^="tel:"]', function() {
+        gtag('event', 'click_phone', {
+            event_category: 'contact',
+            event_label: $(this).attr('href')
+        });
+    });
+
+    // Portfolio / Craftly CTA clicks
+    $(document).on('click', 'a[href*="/craftly"]', function() {
+        gtag('event', 'craftly_cta_click', {
+            event_category: 'product',
+            event_label: $(this).attr('href')
+        });
+    });
+
+    // Outbound link tracking
+    $(document).on('click', 'a[href^="http"]', function() {
+        var href = $(this).attr('href');
+        if (href && href.indexOf('shvedko.dev') === -1) {
+            gtag('event', 'outbound_link', {
+                event_category: 'outbound',
+                event_label: href
+            });
+        }
+    });
+}
 
 //= plugins.js
