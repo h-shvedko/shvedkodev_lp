@@ -35,7 +35,7 @@
                     <div class="blog-post__body animate-on-scroll fade-in">
                         <p>The Federated States of Micronesia spans more than 600 islands in the western Pacific. Teaching children in their native language — Chuukese, Pohnpeian, Kosraean, or Yapese — is critical for cultural preservation. The problem: almost no digital educational materials exist in those languages, and distribution to remote islands is difficult.</p>
 
-                        <p>The FSM VLA Curriculum project set out to fix that with a digital library platform. I designed and built the full-stack system from September 2025 to January 2026.</p>
+                        <p>The FSM VLA Curriculum project set out to fix that with a digital library platform. We designed and built the full-stack system from September 2025 to January 2026.</p>
 
                         <h2>The Requirements</h2>
                         <p>The platform needed to:</p>
@@ -63,13 +63,13 @@
                         <h2>Key Technical Decisions</h2>
 
                         <h3>Livewire for search</h3>
-                        <p>Rather than a separate Vue or React SPA, I used Livewire 3's reactive components to handle the multi-filter search. Each filter updates the Livewire component's state and re-renders the book list without a full page reload. This kept the architecture monolithic and made it much easier to deploy and maintain on shared hosting.</p>
+                        <p>Rather than a separate Vue or React SPA, we used Livewire 3's reactive components to handle the multi-filter search. Each filter updates the Livewire component's state and re-renders the book list without a full page reload. This kept the architecture monolithic and made it much easier to deploy and maintain on shared hosting.</p>
 
                         <h3>FilamentPHP for the admin</h3>
                         <p>The admin dashboard needed to support content managers uploading PDFs, editing metadata, managing user reviews, and viewing analytics — all without developer involvement. FilamentPHP's resource system handled this with minimal custom code. The content team was onboarded in a single afternoon.</p>
 
                         <h3>Three UI templates</h3>
-                        <p>The client wanted the library to feel appropriately serious for an educational context. I built three responsive templates — Academic, Material, and Modern — that could be switched at the admin level. Each template adapts the same underlying data to a different visual language.</p>
+                        <p>The client wanted the library to feel appropriately serious for an educational context. We built three responsive templates — Academic, Material, and Modern — that could be switched at the admin level. Each template adapts the same underlying data to a different visual language.</p>
 
                         <h2>Impact</h2>
                         <p>The platform successfully delivered digital access to 2,000+ educational resources for teachers across remote Pacific island communities. For many schools this was the first time native-language teaching materials were available in a searchable digital format.</p>
@@ -78,7 +78,7 @@
                     </div>
 
                     <footer class="blog-post__footer animate-on-scroll fade-in">
-                        <p>Written by <a href="/about/">Hennadii Shvedko</a>, Founder at ShvedkoDev · <a href="/contact/">Get in touch</a></p>
+                        <p>Written by <a href="/about/">ShvedkoDev</a> · <a href="/contact/">Get in touch</a></p>
                         <a href="/blog/" class="button outline">← Back to Blog</a>
                     </footer>
                 </article>
