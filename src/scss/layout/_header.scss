@@ -76,7 +76,6 @@ header.shrink {
     a:not(.button).active {
         color: $primary-color;
         border-bottom: 2px solid $primary-color;
-        text-decoration: underline;
     }
     a:not(.button):hover {
         border-bottom: 2px solid $base-text-color;
@@ -89,7 +88,6 @@ header.shrink {
 .menu-holder .active a {
     color: $primary-color !important;
     border-bottom: 2px solid $primary-color !important;
-    text-decoration: underline !important;
 }
 
 .nav-opener {
