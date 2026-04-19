@@ -154,6 +154,11 @@ gulp.task('htaccess:build', function() {
         .pipe(gulp.dest(path.build.html));
 });
 
+gulp.task('seo:build', function() {
+    return gulp.src(['src/sitemap.xml', 'src/robots.txt'])
+        .pipe(gulp.dest(path.build.html));
+});
+
 gulp.task('clean:build', function() {
     return gulp.src(path.clean, { read: false })
         .pipe(rimraf());
@@ -163,10 +168,10 @@ gulp.task('cache:clear', function(done) {
     return cache.clearAll(done);
 });
 
-gulp.task('build', gulp.series('clean:build', gulp.parallel('html:build', 'css:build', 'js:build', 'fonts:build', 'image:build', 'craftly:build', 'htaccess:build')));
+gulp.task('build', gulp.series('clean:build', gulp.parallel('html:build', 'css:build', 'js:build', 'fonts:build', 'image:build', 'craftly:build', 'htaccess:build', 'seo:build')));
 
 
-gulp.task('dist', gulp.series('clean:build', gulp.parallel('html:build', 'css:dist', 'js:dist', 'fonts:build', 'image:build', 'craftly:build', 'htaccess:build')));
+gulp.task('dist', gulp.series('clean:build', gulp.parallel('html:build', 'css:dist', 'js:dist', 'fonts:build', 'image:build', 'craftly:build', 'htaccess:build', 'seo:build')));
 
 gulp.task('watch', function() {
     gulp.watch(path.watch.html, gulp.series('html:build'));
