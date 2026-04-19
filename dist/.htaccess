@@ -1,6 +1,10 @@
 Options -Indexes
 RewriteEngine On
 
+# Force non-www canonical host
+RewriteCond %{HTTP_HOST} ^www\.shvedko\.dev$ [NC]
+RewriteRule ^ https://shvedko.dev%{REQUEST_URI} [L,R=301]
+
 # Force HTTPS
 RewriteCond %{HTTPS} off
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
