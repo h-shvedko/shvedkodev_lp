@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    //= layout/head.html
+    <title>From Prompt to Production: How Craftly Generates a Full Laravel App in Under 2 Minutes · ShvedkoDev Blog</title>
+    <meta name="description" content="A walkthrough of Craftly's Laravel generation pipeline — from a natural-language prompt to a running Laravel Sail app with 56 files and 15 CRUD views.">
+    <link rel="canonical" href="https://shvedko.dev/blog/posts/craftly-prompt-to-production-laravel/">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+        //= layout/header.html
+        <main role="main" id="main">
+            <div class="container">
+                <article class="blog-post">
+                    <header class="blog-post__header animate-on-scroll fade-in">
+                        <div class="blog-post__meta">
+                            <a href="/blog/" class="blog-post__back">← Blog</a>
+                            <time datetime="2026-04-19">April 19, 2026</time>
+                        </div>
+                        <h1>From Prompt to Production: How Craftly Generates a Full Laravel App in Under 2 Minutes</h1>
+                        <div class="blog-post__tags">
+                            <span class="tag">AI</span>
+                            <span class="tag">Laravel</span>
+                            <span class="tag">Product</span>
+                            <span class="tag">PHP</span>
+                            <span class="tag">Demo</span>
+                        </div>
+                    </header>
+
+                    <div class="blog-post__body animate-on-scroll fade-in">
+                        <p>Most AI coding demos stop at a single file or a function. Craftly goes further: from one plain-language prompt, it produces a complete, runnable Laravel application — routes, models, migrations, controllers, views — and serves a live preview in Laravel Sail. In under two minutes. For about 19 cents.</p>
+
+                        <p>Here is how a single generation actually unfolds.</p>
+
+                        <h2>Step 1 — The Prompt</h2>
+                        <p>A customer types something like:</p>
+
+                        <p><em>"A small event-booking app for a yoga studio. Instructors can add classes, students can sign up, the admin can see bookings per class."</em></p>
+
+                        <p>That is the entire input. No schema, no wireframes, no framework flags. The prompt hits Craftly's <strong>RequirementsEngineer</strong> agent, which expands it into a structured specification: entities (Instructor, Class, Booking, Student), relationships, roles, and the minimum set of pages needed to cover the described flows.</p>
+
+                        <h2>Step 2 — Architecture</h2>
+                        <p>The structured spec is handed to the <strong>MasterArchitect</strong>, which plans the application: Laravel 12 on PHP 8.4, Breeze for auth, Eloquent models with the right relationships, and a route map that matches the user stories. This stage runs on Sonnet 4.6 — the reasoning matters here more than the raw output speed.</p>
+
+                        <h2>Step 3 — The Forge</h2>
+                        <p>The plan flows into the <strong>LaravelForge</strong> worker, which emits files one by one. A typical small app produces around 56 files: migrations, models, factories, seeders, controllers, form requests, Blade views (15 CRUD screens is common), route files, and config adjustments. Each file streams to the browser as it is written, so the customer sees the codebase take shape in real time instead of waiting for a final bundle.</p>
+
+                        <p>This phase runs on Haiku 4.5 — small, fast, cheap — because at this stage the hard thinking is already done. The worker just has to follow the architecture precisely.</p>
+
+                        <h2>Step 4 — Live Preview</h2>
+                        <p>The generated codebase boots inside Laravel Sail. The customer can click around the actual app, log in, add a class, book it, and see real data flowing through real migrations. If anything looks off — colours, copy, a missing field — the <strong>Iteration</strong> agent accepts a follow-up prompt and produces precise patches rather than regenerating the whole app.</p>
+
+                        <h2>The Numbers</h2>
+                        <p>On average a small-to-medium Laravel generation comes out to:</p>
+                        <ul>
+                            <li>~56 files written</li>
+                            <li>~15 CRUD views rendered</li>
+                            <li>Under 2 minutes wall-clock time</li>
+                            <li>~$0.19 in model-provider costs per full generation</li>
+                        </ul>
+
+                        <p>The cost number is what surprises most people. Mixing Sonnet for architecture with Haiku for the bulk of file-level work keeps the bill low while preserving quality where it actually matters.</p>
+
+                        <h2>Why This Matters for Laravel Teams</h2>
+                        <p>For a freelance developer or a small agency, the interesting part is not "AI wrote the code." It is that the generated app is a sensible Laravel 12 starting point — conventions respected, migrations clean, no exotic packages — so you can clone it, open it in your editor, and keep working. Craftly is a forge, not a black box.</p>
+
+                        <p>We built the pipeline specifically for the PHP ecosystem because the 77% of the web running on PHP deserves the same quality of AI tooling the JavaScript world has been enjoying for two years.</p>
+
+                        <h2>Try It</h2>
+                        <p>Craftly's Laravel pipeline is live and we're onboarding early users now. If you want to see your own prompt turn into a running app, the waitlist is open.</p>
+
+                        <p><a href="/craftly/">Try a live demo →</a></p>
+                    </div>
+
+                    <footer class="blog-post__footer animate-on-scroll fade-in">
+                        <p>Written by <a href="/about/">ShvedkoDev</a> · <a href="/contact/">Get in touch</a></p>
+                        <a href="/blog/" class="button outline">← Back to Blog</a>
+                    </footer>
+                </article>
+            </div>
+        </main>
+        //= layout/footer.html
+    </div>
+</body>
+
+</html>

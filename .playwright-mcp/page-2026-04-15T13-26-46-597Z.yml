@@ -1,0 +1,101 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e5]:
+      - generic [ref=e6]:
+        - link [ref=e8] [cursor=pointer]:
+          - /url: /
+        - checkbox "Menu" [ref=e9]
+        - generic [ref=e10] [cursor=pointer]: Menu
+        - navigation [ref=e12]:
+          - list [ref=e13]:
+            - listitem [ref=e14]:
+              - link "Home" [ref=e15] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e16]:
+              - link "About us" [ref=e17] [cursor=pointer]:
+                - /url: /about/
+            - listitem [ref=e18]:
+              - link "Services" [ref=e19] [cursor=pointer]:
+                - /url: /services/
+            - listitem [ref=e20]:
+              - link "Portfolio" [ref=e21] [cursor=pointer]:
+                - /url: /portfolio/
+            - listitem [ref=e22]:
+              - link "Blog" [ref=e23] [cursor=pointer]:
+                - /url: /blog/
+            - listitem [ref=e24]:
+              - link "Contact" [ref=e25] [cursor=pointer]:
+                - /url: /contact/
+    - main [ref=e26]:
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - heading "Get in Touch" [level=1] [ref=e29]
+          - paragraph [ref=e30]: Looking for a PHP developer in Göttingen or a remote Laravel engineer? Send a message and we'll reply within one business day.
+        - generic [ref=e33]:
+          - generic [ref=e34]:
+            - generic [ref=e35]:
+              - heading "Have Questions?" [level=1] [ref=e36]
+              - paragraph [ref=e37]: Please feel free to call or email us, or use our contact form to get in touch with us. We look forward to hearing from you!
+              - paragraph [ref=e38]: Send Us Mail
+              - link "hennadii.shvedko@gmail.com" [ref=e39] [cursor=pointer]:
+                - /url: "mailto:"
+            - generic [ref=e43]:
+              - generic [ref=e45]: Oops! Something went wrong.
+              - generic [ref=e46]: This page didn't load Google Maps correctly. See the JavaScript console for technical details.
+          - generic [ref=e50]:
+            - textbox "Name" [ref=e52]
+            - textbox "E-mail" [ref=e54]
+            - textbox "Subject" [ref=e56]
+            - textbox "Your Message" [ref=e58]
+            - button "Send" [ref=e59] [cursor=pointer]
+    - generic [ref=e62]:
+      - generic [ref=e63]:
+        - link [ref=e65] [cursor=pointer]:
+          - /url: /
+        - list [ref=e66]:
+          - listitem [ref=e67]:
+            - link "Imprint" [ref=e68] [cursor=pointer]:
+              - /url: /imprint
+          - listitem [ref=e69]:
+            - link "Data Protection" [ref=e70] [cursor=pointer]:
+              - /url: /data-protection
+      - generic [ref=e71]:
+        - heading "Contact" [level=3] [ref=e72]
+        - list [ref=e73]:
+          - listitem [ref=e74]:
+            - generic [ref=e75]: 
+            - generic [ref=e76]: Göttingen, Germany
+          - listitem [ref=e77]:
+            - generic [ref=e78]: 
+            - link "info@shvedko.dev" [ref=e79] [cursor=pointer]:
+              - /url: mailto:info@shvedko.dev
+      - generic [ref=e80]:
+        - heading "Follow us:" [level=3] [ref=e81]
+        - list [ref=e82]:
+          - listitem [ref=e83]:
+            - link "" [ref=e84] [cursor=pointer]:
+              - /url: https://www.facebook.com/people/ShvedkoDev/61574820107319/
+              - generic [ref=e85]: 
+          - listitem [ref=e86]:
+            - link "" [ref=e87] [cursor=pointer]:
+              - /url: https://x.com/ShvedkoDev
+              - generic [ref=e88]: 
+          - listitem [ref=e89]:
+            - link "" [ref=e90] [cursor=pointer]:
+              - /url: https://www.upwork.com/agencies/1749148191404584960/
+              - generic [ref=e91]: 
+          - listitem [ref=e92]:
+            - link "" [ref=e93] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/shvedkodev/
+              - generic [ref=e94]: 
+          - listitem [ref=e95]:
+            - link "" [ref=e96] [cursor=pointer]:
+              - /url: https://www.instagram.com/shvedkodev/
+              - generic [ref=e97]: 
+  - contentinfo [ref=e98]:
+    - paragraph [ref=e100]: © ShvedkoDev 2026. All Rights Reserved.
+  - generic [ref=e101]:
+    - text: This website uses cookies to ensure you get the best experience.
+    - link "Learn more" [ref=e102] [cursor=pointer]:
+      - /url: /data_protection
+    - button "OK" [ref=e103] [cursor=pointer]

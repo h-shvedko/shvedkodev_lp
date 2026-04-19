@@ -35,10 +35,9 @@
         gtag('js', new Date());
         gtag('config', 'G-FY5NWV7102');
     </script>
-
-    <title>Blog — ShvedkoDev | PHP, Laravel &amp; Web Development Insights</title>
-    <meta name="description" content="Articles on PHP, Laravel, full-stack web development, and building products from Göttingen, Germany. By Hennadii Shvedko.">
-    <link rel="canonical" href="https://shvedko.dev/blog/">
+    <title>From Prompt to Production: How Craftly Generates a Full Laravel App in Under 2 Minutes · ShvedkoDev Blog</title>
+    <meta name="description" content="A walkthrough of Craftly's Laravel generation pipeline — from a natural-language prompt to a running Laravel Sail app with 56 files and 15 CRUD views.">
+    <link rel="canonical" href="https://shvedko.dev/blog/posts/craftly-prompt-to-production-laravel/">
 </head>
 
 <body>
@@ -67,79 +66,74 @@
                 </div>
             </div>
         </header>
-
         <main role="main" id="main">
             <div class="container">
-                <div class="page-intro animate-on-scroll fade-in">
-                    <h1>Blog</h1>
-                    <p>Thoughts on PHP, Laravel, full-stack development, and building products from Göttingen.</p>
-                </div>
+                <article class="blog-post">
+                    <header class="blog-post__header animate-on-scroll fade-in">
+                        <div class="blog-post__meta">
+                            <a href="/blog/" class="blog-post__back">← Blog</a>
+                            <time datetime="2026-04-19">April 19, 2026</time>
+                        </div>
+                        <h1>From Prompt to Production: How Craftly Generates a Full Laravel App in Under 2 Minutes</h1>
+                        <div class="blog-post__tags">
+                            <span class="tag">AI</span>
+                            <span class="tag">Laravel</span>
+                            <span class="tag">Product</span>
+                            <span class="tag">PHP</span>
+                            <span class="tag">Demo</span>
+                        </div>
+                    </header>
 
-                <section class="blog-listing section">
-                    <div class="blog-post-list">
+                    <div class="blog-post__body animate-on-scroll fade-in">
+                        <p>Most AI coding demos stop at a single file or a function. Craftly goes further: from one plain-language prompt, it produces a complete, runnable Laravel application — routes, models, migrations, controllers, views — and serves a live preview in Laravel Sail. In under two minutes. For about 19 cents.</p>
 
-                        <!-- Post: Craftly Demo -->
-                        <article class="blog-list-item animate-on-scroll fade-in">
-                            <div class="blog-list-item__meta">
-                                <time datetime="2026-04-19">April 19, 2026</time>
-                                <span class="blog-list-item__tags">
-                                    <span class="tag">AI</span>
-                                    <span class="tag">Laravel</span>
-                                    <span class="tag">Demo</span>
-                                </span>
-                            </div>
-                            <h2><a href="/blog/posts/craftly-prompt-to-production-laravel/">From Prompt to Production: How Craftly Generates a Full Laravel App in Under 2 Minutes</a></h2>
-                            <p>A walkthrough of Craftly's Laravel pipeline — from a plain-language prompt to a running Sail app with 56 files and 15 CRUD views, for roughly 19 cents per generation.</p>
-                            <a href="/blog/posts/craftly-prompt-to-production-laravel/" class="blog-list-item__read-more">Read article →</a>
-                        </article>
+                        <p>Here is how a single generation actually unfolds.</p>
 
-                        <!-- Post: Craftly -->
-                        <article class="blog-list-item animate-on-scroll fade-in">
-                            <div class="blog-list-item__meta">
-                                <time datetime="2026-04-10">April 10, 2026</time>
-                                <span class="blog-list-item__tags">
-                                    <span class="tag">AI</span>
-                                    <span class="tag">Laravel</span>
-                                    <span class="tag">Product</span>
-                                </span>
-                            </div>
-                            <h2><a href="/blog/posts/craftly-ki-plattform-laravel/">Craftly: Building the AI Forge for PHP</a></h2>
-                            <p>Why we're building an AI agent platform for Laravel and WordPress — and why the PHP ecosystem deserves better AI tooling than it gets.</p>
-                            <a href="/blog/posts/craftly-ki-plattform-laravel/" class="blog-list-item__read-more">Read article →</a>
-                        </article>
+                        <h2>Step 1 — The Prompt</h2>
+                        <p>A customer types something like:</p>
 
-                        <!-- Post: FSM Case Study -->
-                        <article class="blog-list-item animate-on-scroll fade-in">
-                            <div class="blog-list-item__meta">
-                                <time datetime="2026-03-15">March 15, 2026</time>
-                                <span class="blog-list-item__tags">
-                                    <span class="tag">Laravel</span>
-                                    <span class="tag">Livewire</span>
-                                    <span class="tag">Case Study</span>
-                                </span>
-                            </div>
-                            <h2><a href="/blog/posts/fsm-bildungsplattform-laravel/">Case Study: FSM Digital Library — 2,000 Books for Pacific Island Schools</a></h2>
-                            <p>How we designed and built a full-stack education platform with Laravel 12, Livewire 3, and FilamentPHP for teachers across the Federated States of Micronesia.</p>
-                            <a href="/blog/posts/fsm-bildungsplattform-laravel/" class="blog-list-item__read-more">Read article →</a>
-                        </article>
+                        <p><em>"A small event-booking app for a yoga studio. Instructors can add classes, students can sign up, the admin can see bookings per class."</em></p>
 
-                        <!-- Post: Local SEO -->
-                        <article class="blog-list-item animate-on-scroll fade-in">
-                            <div class="blog-list-item__meta">
-                                <time datetime="2026-02-20">February 20, 2026</time>
-                                <span class="blog-list-item__tags">
-                                    <span class="tag">PHP</span>
-                                    <span class="tag">Freelance</span>
-                                    <span class="tag">Göttingen</span>
-                                </span>
-                            </div>
-                            <h2><a href="/blog/posts/freelance-php-entwickler-goettingen/">PHP Developer in Göttingen — Who I Am &amp; What I Build</a></h2>
-                            <p>A quick introduction to ShvedkoDev, the kind of work we take on, and why Göttingen is a great base for DACH-focused web development.</p>
-                            <a href="/blog/posts/freelance-php-entwickler-goettingen/" class="blog-list-item__read-more">Read article →</a>
-                        </article>
+                        <p>That is the entire input. No schema, no wireframes, no framework flags. The prompt hits Craftly's <strong>RequirementsEngineer</strong> agent, which expands it into a structured specification: entities (Instructor, Class, Booking, Student), relationships, roles, and the minimum set of pages needed to cover the described flows.</p>
 
+                        <h2>Step 2 — Architecture</h2>
+                        <p>The structured spec is handed to the <strong>MasterArchitect</strong>, which plans the application: Laravel 12 on PHP 8.4, Breeze for auth, Eloquent models with the right relationships, and a route map that matches the user stories. This stage runs on Sonnet 4.6 — the reasoning matters here more than the raw output speed.</p>
+
+                        <h2>Step 3 — The Forge</h2>
+                        <p>The plan flows into the <strong>LaravelForge</strong> worker, which emits files one by one. A typical small app produces around 56 files: migrations, models, factories, seeders, controllers, form requests, Blade views (15 CRUD screens is common), route files, and config adjustments. Each file streams to the browser as it is written, so the customer sees the codebase take shape in real time instead of waiting for a final bundle.</p>
+
+                        <p>This phase runs on Haiku 4.5 — small, fast, cheap — because at this stage the hard thinking is already done. The worker just has to follow the architecture precisely.</p>
+
+                        <h2>Step 4 — Live Preview</h2>
+                        <p>The generated codebase boots inside Laravel Sail. The customer can click around the actual app, log in, add a class, book it, and see real data flowing through real migrations. If anything looks off — colours, copy, a missing field — the <strong>Iteration</strong> agent accepts a follow-up prompt and produces precise patches rather than regenerating the whole app.</p>
+
+                        <h2>The Numbers</h2>
+                        <p>On average a small-to-medium Laravel generation comes out to:</p>
+                        <ul>
+                            <li>~56 files written</li>
+                            <li>~15 CRUD views rendered</li>
+                            <li>Under 2 minutes wall-clock time</li>
+                            <li>~$0.19 in model-provider costs per full generation</li>
+                        </ul>
+
+                        <p>The cost number is what surprises most people. Mixing Sonnet for architecture with Haiku for the bulk of file-level work keeps the bill low while preserving quality where it actually matters.</p>
+
+                        <h2>Why This Matters for Laravel Teams</h2>
+                        <p>For a freelance developer or a small agency, the interesting part is not "AI wrote the code." It is that the generated app is a sensible Laravel 12 starting point — conventions respected, migrations clean, no exotic packages — so you can clone it, open it in your editor, and keep working. Craftly is a forge, not a black box.</p>
+
+                        <p>We built the pipeline specifically for the PHP ecosystem because the 77% of the web running on PHP deserves the same quality of AI tooling the JavaScript world has been enjoying for two years.</p>
+
+                        <h2>Try It</h2>
+                        <p>Craftly's Laravel pipeline is live and we're onboarding early users now. If you want to see your own prompt turn into a running app, the waitlist is open.</p>
+
+                        <p><a href="/craftly/">Try a live demo →</a></p>
                     </div>
-                </section>
+
+                    <footer class="blog-post__footer animate-on-scroll fade-in">
+                        <p>Written by <a href="/about/">ShvedkoDev</a> · <a href="/contact/">Get in touch</a></p>
+                        <a href="/blog/" class="button outline">← Back to Blog</a>
+                    </footer>
+                </article>
             </div>
         </main>
         <div id="footer">
