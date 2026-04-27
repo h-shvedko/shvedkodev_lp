@@ -35,10 +35,9 @@
         gtag('js', new Date());
         gtag('config', 'G-FY5NWV7102');
     </script>
-
-    <title>Blog — ShvedkoDev | PHP, Laravel &amp; Web Development Insights</title>
-    <meta name="description" content="Articles on PHP, Laravel, full-stack web development, and building products from Göttingen, Germany. By Hennadii Shvedko.">
-    <link rel="canonical" href="https://shvedko.dev/blog/">
+    <title>Stop Billing for Boilerplate: Recovering 40 Unbillable Hours with AI · ShvedkoDev Blog</title>
+    <meta name="description" content="Every new web project carries a hidden Boilerplate Tax — roughly $2,000 and 20–40 senior dev hours lost on auth, CRUD, and migrations before any business logic gets written. Here is how a 9-agent AI pipeline reclaims that time.">
+    <link rel="canonical" href="https://shvedko.dev/blog/posts/stop-billing-boilerplate-ai-agency/">
 </head>
 
 <body>
@@ -67,94 +66,77 @@
                 </div>
             </div>
         </header>
-
         <main role="main" id="main">
             <div class="container">
-                <div class="page-intro animate-on-scroll fade-in">
-                    <h1>Blog</h1>
-                    <p>Thoughts on PHP, Laravel, full-stack development, and building products from Göttingen.</p>
-                </div>
+                <article class="blog-post">
+                    <header class="blog-post__header animate-on-scroll fade-in">
+                        <div class="blog-post__meta">
+                            <a href="/blog/" class="blog-post__back">← Blog</a>
+                            <time datetime="2026-04-19">April 19, 2026</time>
+                        </div>
+                        <h1>Stop Billing for Boilerplate: Recovering 40 Unbillable Hours with AI</h1>
+                        <div class="blog-post__tags">
+                            <span class="tag">Agency</span>
+                            <span class="tag">Laravel</span>
+                            <span class="tag">PHP</span>
+                            <span class="tag">AI</span>
+                            <span class="tag">Productivity</span>
+                        </div>
+                    </header>
 
-                <section class="blog-listing section">
-                    <div class="blog-post-list">
+                    <div class="blog-post__body animate-on-scroll fade-in">
+                        <p><strong>TL;DR:</strong> Every new web project carries a hidden "Boilerplate Tax." Agencies lose roughly <strong>$2,000 — about 20 to 40 senior developer hours</strong> — on manual setup (auth, CRUD controllers, database migrations, initial Blade structures) before writing a single line of business logic. We're testing a 9-agent AI pipeline that handles that infrastructure heavy lifting so senior engineers can focus on the work clients actually pay for.</p>
 
-                        <!-- Post: Boilerplate Tax -->
-                        <article class="blog-list-item animate-on-scroll fade-in">
-                            <div class="blog-list-item__meta">
-                                <time datetime="2026-04-19">April 19, 2026</time>
-                                <span class="blog-list-item__tags">
-                                    <span class="tag">Agency</span>
-                                    <span class="tag">Laravel</span>
-                                    <span class="tag">AI</span>
-                                </span>
-                            </div>
-                            <h2><a href="/blog/posts/stop-billing-boilerplate-ai-agency/">Stop Billing for Boilerplate: Recovering 40 Unbillable Hours with AI</a></h2>
-                            <p>Every web project carries a hidden Boilerplate Tax — roughly $2,000 and 20–40 senior dev hours lost on auth, CRUD, and migrations before any business logic gets written. Here is how a 9-agent AI pipeline reclaims that time.</p>
-                            <a href="/blog/posts/stop-billing-boilerplate-ai-agency/" class="blog-list-item__read-more">Read article →</a>
-                        </article>
+                        <h2>The Boilerplate Tax</h2>
+                        <p>Look at any agency's first invoice on a new build. A meaningful slice of those hours is not feature work. It is plumbing — the same plumbing every project needs, written from scratch every time:</p>
+                        <ul>
+                            <li>Authentication and password resets</li>
+                            <li>Role-based access control</li>
+                            <li>CRUD controllers, requests, and resource routes</li>
+                            <li>Database migrations, factories, seeders</li>
+                            <li>Initial Blade layouts, navigation, form scaffolding</li>
+                            <li>API resource serialisation</li>
+                        </ul>
+                        <p>Twenty to forty senior hours is a conservative estimate. On a €100/hr rate that is €2,000–€4,000 of capacity per project, spent on work that is identical across most Laravel applications. Multiply that by a portfolio of 10 active projects per year and the number stops being a rounding error — it becomes a real margin problem.</p>
 
-                        <!-- Post: Craftly Demo -->
-                        <article class="blog-list-item animate-on-scroll fade-in">
-                            <div class="blog-list-item__meta">
-                                <time datetime="2026-04-19">April 19, 2026</time>
-                                <span class="blog-list-item__tags">
-                                    <span class="tag">AI</span>
-                                    <span class="tag">Laravel</span>
-                                    <span class="tag">Demo</span>
-                                </span>
-                            </div>
-                            <h2><a href="/blog/posts/craftly-prompt-to-production-laravel/">From Prompt to Production: How Craftly Generates a Full Laravel App in Under 2 Minutes</a></h2>
-                            <p>A walkthrough of Craftly's Laravel pipeline — from a plain-language prompt to a running Sail app with 56 files and 15 CRUD views, for roughly 19 cents per generation.</p>
-                            <a href="/blog/posts/craftly-prompt-to-production-laravel/" class="blog-list-item__read-more">Read article →</a>
-                        </article>
+                        <h2>The 9-Agent Pipeline</h2>
+                        <p>We are testing a pipeline of nine specialised AI agents that take a plain-language project brief and emit a runnable Laravel application before a developer ever opens an editor. The agents are role-specialised because a generalist prompt produces generalist code:</p>
 
-                        <!-- Post: Craftly -->
-                        <article class="blog-list-item animate-on-scroll fade-in">
-                            <div class="blog-list-item__meta">
-                                <time datetime="2026-04-10">April 10, 2026</time>
-                                <span class="blog-list-item__tags">
-                                    <span class="tag">AI</span>
-                                    <span class="tag">Laravel</span>
-                                    <span class="tag">Product</span>
-                                </span>
-                            </div>
-                            <h2><a href="/blog/posts/craftly-ki-plattform-laravel/">Craftly: Building the AI Forge for PHP</a></h2>
-                            <p>Why we're building an AI agent platform for Laravel and WordPress — and why the PHP ecosystem deserves better AI tooling than it gets.</p>
-                            <a href="/blog/posts/craftly-ki-plattform-laravel/" class="blog-list-item__read-more">Read article →</a>
-                        </article>
+                        <h3>Master Architect</h3>
+                        <p>Reads the project brief, decides on entities and relationships, picks the framework conventions to follow, and commits to a schema. This is the only stage where the model needs strong reasoning — it runs on Sonnet 4.6.</p>
 
-                        <!-- Post: FSM Case Study -->
-                        <article class="blog-list-item animate-on-scroll fade-in">
-                            <div class="blog-list-item__meta">
-                                <time datetime="2026-03-15">March 15, 2026</time>
-                                <span class="blog-list-item__tags">
-                                    <span class="tag">Laravel</span>
-                                    <span class="tag">Livewire</span>
-                                    <span class="tag">Case Study</span>
-                                </span>
-                            </div>
-                            <h2><a href="/blog/posts/fsm-bildungsplattform-laravel/">Case Study: FSM Digital Library — 2,000 Books for Pacific Island Schools</a></h2>
-                            <p>How we designed and built a full-stack education platform with Laravel 12, Livewire 3, and FilamentPHP for teachers across the Federated States of Micronesia.</p>
-                            <a href="/blog/posts/fsm-bildungsplattform-laravel/" class="blog-list-item__read-more">Read article →</a>
-                        </article>
+                        <h3>Forge Workers</h3>
+                        <p>Receive the architecture and emit files: migrations, models, factories, seeders, controllers, form requests, Blade views, route files, and config adjustments. A typical small-to-medium app produces <strong>56+ files</strong>. The workers run on Haiku 4.5 because at this stage the hard thinking is already done — they just have to follow the architecture precisely. This is where the cost savings show up.</p>
 
-                        <!-- Post: Local SEO -->
-                        <article class="blog-list-item animate-on-scroll fade-in">
-                            <div class="blog-list-item__meta">
-                                <time datetime="2026-02-20">February 20, 2026</time>
-                                <span class="blog-list-item__tags">
-                                    <span class="tag">PHP</span>
-                                    <span class="tag">Freelance</span>
-                                    <span class="tag">Göttingen</span>
-                                </span>
-                            </div>
-                            <h2><a href="/blog/posts/freelance-php-entwickler-goettingen/">PHP Developer in Göttingen — Who I Am &amp; What I Build</a></h2>
-                            <p>A quick introduction to ShvedkoDev, the kind of work we take on, and why Göttingen is a great base for DACH-focused web development.</p>
-                            <a href="/blog/posts/freelance-php-entwickler-goettingen/" class="blog-list-item__read-more">Read article →</a>
-                        </article>
+                        <h3>Validator</h3>
+                        <p>Verifies the output: does the generated code compile, do the relationships line up with the schema, do routes resolve, does the auth scaffold actually work? Catches the ~5% of edge cases the workers get wrong and triggers targeted patches instead of full regenerations.</p>
 
+                        <h2>The Strategic Point</h2>
+                        <p>The goal is not "AI writes the code." Plenty of tools do that already. The goal is moving senior engineering talent off repetitive setup and onto the features that actually differentiate a client's product. The infrastructure matters to the framework. The features matter to the client. Pricing those two the same way is what is broken.</p>
+
+                        <p>For a small agency or a freelance team, the impact compounds:</p>
+                        <ul>
+                            <li><strong>Faster project starts</strong> — a runnable scaffold ready on day one instead of week one</li>
+                            <li><strong>Higher utilisation</strong> — billable hours go to feature work rather than plumbing</li>
+                            <li><strong>Scale output, not headcount</strong> — the team can take on more work without hiring</li>
+                            <li><strong>Better quality baseline</strong> — every project starts from the same vetted, validated foundation rather than whatever the lead dev remembered to wire up that morning</li>
+                        </ul>
+
+                        <h2>Where We Are</h2>
+                        <p>The pipeline is live for Laravel 12 / PHP 8.4 today, with the WordPress generator close behind. Early generations come in around <strong>under 2 minutes wall-clock and roughly $0.19 in model costs per full app</strong>. Compared to 20–40 hours of senior time, the unit economics speak for themselves.</p>
+
+                        <p>If you run an agency or a small dev shop and the boilerplate-tax problem sounds familiar, we'd love to talk. The full breakdown and a longer case study live on the Craftly blog.</p>
+
+                        <p><a href="https://craftly.build/blog/agency-margin-crisis" target="_blank" rel="noopener">Full Breakdown &amp; Case Study →</a></p>
+
+                        <p><a href="/craftly/">Learn more about Craftly →</a></p>
                     </div>
-                </section>
+
+                    <footer class="blog-post__footer animate-on-scroll fade-in">
+                        <p>Written by <a href="/about/">ShvedkoDev</a> · <a href="/contact/">Get in touch</a></p>
+                        <a href="/blog/" class="button outline">← Back to Blog</a>
+                    </footer>
+                </article>
             </div>
         </main>
         <div id="footer">

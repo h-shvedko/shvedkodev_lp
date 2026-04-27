@@ -43,6 +43,12 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://shvedko.dev/blog/posts/stop-billing-boilerplate-ai-agency/</loc>
+        <lastmod>2026-04-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://shvedko.dev/blog/posts/craftly-prompt-to-production-laravel/</loc>
         <lastmod>2026-04-19</lastmod>
         <changefreq>monthly</changefreq>
