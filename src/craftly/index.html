@@ -1,707 +1,866 @@
-<!DOCTYPE html>
-<html lang="de">
+<!doctype html>
+<html lang="de" data-lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Craftly – Webanwendungen in 5 Minuten statt Wochen · ShvedkoDev</title>
-  <meta name="description" content="Craftly ist die weltweit erste KI-Agentenplattform, die aus einer kurzen Beschreibung produktionsreife Laravel- und WordPress-Webanwendungen in unter 5 Minuten erstellt.">
-  <meta name="author" content="ShvedkoDev Göttingen">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Craftly — Webanwendungen in 5 Minuten statt Wochen · ShvedkoDev</title>
+<meta name="description" content="Die erste KI-Plattform, die echte Laravel- und WordPress-Codebases liefert — keine React-Klone. Idee beschreiben, neun Agenten bauen live, Code herunterladen. 4:11 min · €0.19 pro Generierung.">
+<meta name="author" content="ShvedkoDev Göttingen">
 
-  <!-- Canonical & hreflang -->
-  <link rel="canonical" href="https://shvedko.dev/craftly/">
-  <link rel="alternate" hreflang="de" href="https://shvedko.dev/craftly/">
-  <link rel="alternate" hreflang="en" href="https://shvedko.dev/craftly/index-en.html">
+<!-- Canonical & hreflang -->
+<link rel="canonical" href="https://shvedko.dev/craftly/">
+<link rel="alternate" hreflang="de" href="https://shvedko.dev/craftly/">
+<link rel="alternate" hreflang="en" href="https://shvedko.dev/craftly/index-en.html">
 
-  <!-- Open Graph / Social Sharing -->
-  <meta property="og:title" content="Craftly – Webanwendungen in 5 Minuten">
-  <meta property="og:description" content="Die weltweit erste KI-Agentenplattform für Laravel und WordPress. Produktionsreife Webanwendungen in unter 5 Minuten.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://shvedko.dev/craftly/">
-  <meta property="og:image" content="https://shvedko.dev/craftly/assets/img/screenshot1.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://shvedko.dev/craftly/assets/img/screenshot1.png">
+<!-- Open Graph / Social -->
+<meta property="og:title" content="Craftly – Webanwendungen in 5 Minuten statt Wochen">
+<meta property="og:description" content="Die erste KI-Plattform für echte Laravel- und WordPress-Codebases. Produktionsreife Webanwendungen in unter 5 Minuten.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shvedko.dev/craftly/">
+<meta property="og:image" content="https://shvedko.dev/craftly/assets/img/screenshot1.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://shvedko.dev/craftly/assets/img/screenshot1.png">
 
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Craftly",
-    "url": "https://craftly.build",
-    "description": "Die weltweit erste KI-Agentenplattform für Laravel und WordPress. Produktionsreife Webanwendungen in unter 5 Minuten.",
-    "applicationCategory": "DeveloperApplication",
-    "operatingSystem": "Web",
-    "author": {
-      "@type": "Person",
-      "name": "Hennadii Shvedko",
-      "url": "https://shvedko.dev"
-    },
-    "offers": {
-      "@type": "Offer",
-      "availability": "https://schema.org/ComingSoon"
-    }
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Craftly",
+  "url": "https://shvedko.dev/craftly/",
+  "description": "Die weltweit erste KI-Agentenplattform für Laravel und WordPress. Produktionsreife Webanwendungen in unter 5 Minuten.",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Web",
+  "author": {
+    "@type": "Person",
+    "name": "Hennadii Shvedko",
+    "url": "https://shvedko.dev"
+  },
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/ComingSoon"
   }
-  </script>
+}
+</script>
 
-  <!-- Favicon — Sparkles icon matching the app logo -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='url(%23g)'/><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%234F46E5'/><stop offset='1' stop-color='%237C3AED'/></linearGradient></defs><g transform='translate(6,6) scale(0.833)' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'><path d='m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z'/><path d='M5 3v4'/><path d='M19 17v4'/><path d='M3 5h4'/><path d='M17 19h4'/></g></svg>" type="image/svg+xml">
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='url(%23g)'/><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%234F46E5'/><stop offset='1' stop-color='%237C3AED'/></linearGradient></defs><g transform='translate(6,6) scale(0.833)' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'><path d='m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z'/><path d='M5 3v4'/><path d='M19 17v4'/><path d='M3 5h4'/><path d='M17 19h4'/></g></svg>" type="image/svg+xml">
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FY5NWV7102"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FY5NWV7102');
+</script>
 
-  <style>
-    body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      -webkit-font-smoothing: antialiased;
-    }
-    .gradient-text {
-      background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .gradient-bg {
-      background: linear-gradient(135deg, #1E1B4B 0%, #312E81 50%, #4C1D95 100%);
-    }
-    .card-hover {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card-hover:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px -10px rgba(79, 70, 229, 0.2);
-    }
-    html { scroll-behavior: smooth; }
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    /* ── Scroll entrance animations ── */
-    .scroll-animate {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 0.55s ease-out, transform 0.55s ease-out;
-    }
-    .scroll-animate.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .scroll-delay-1 { transition-delay: 0.10s; }
-    .scroll-delay-2 { transition-delay: 0.20s; }
-    .scroll-delay-3 { transition-delay: 0.30s; }
+<style>
+  :root {
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+    --font-display: 'Inter', system-ui, sans-serif;
+    --ink: #FAFAF9;
+    --ink-soft: #E4E4E7;
+    --ink-muted: #A1A1AA;
+    --ink-dim: #71717A;
+    --bg: #09090B;
+    --bg-soft: #0F0F11;
+    --line: #1C1C1F;
+    --line-hi: #27272A;
+    --indigo: #6366F1;
+    --indigo-hi: #818CF8;
+    --indigo-mid: #4F46E5;
+    --cyan: #06B6D4;
+    --green: #10B981;
+    --amber: #F59E0B;
+    --red: #EF4444;
+  }
 
-    @media (prefers-reduced-motion: reduce) {
-      .scroll-animate {
-        opacity: 1;
-        transform: none;
-        transition: none;
-      }
-      .animate-pulse, [class*="animate-"] { animation: none !important; }
-    }
+  html, body { background: var(--bg); color: var(--ink); margin: 0; font-family: var(--font-sans); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; }
+  ::selection { background: rgba(99,102,241,0.40); }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
 
-    /* ── Mobile hamburger nav ── */
-    #mobile-menu {
-      display: none;
-      flex-direction: column;
-      border-top: 1px solid #e2e8f0;
-      background: rgba(255,255,255,0.97);
-    }
-    #mobile-menu.open { display: flex; }
-    #mobile-menu a {
-      padding: 13px 24px;
-      font-size: 0.9375rem;
-      font-weight: 500;
-      color: #475569;
-      border-bottom: 1px solid #f1f5f9;
-      transition: background 0.15s, color 0.15s;
-    }
-    #mobile-menu a:hover { background: #f8fafc; color: #1e293b; }
+  nav.top { position: sticky; top: 0; z-index: 40; background: rgba(9,9,11,0.78); backdrop-filter: saturate(150%) blur(12px); border-bottom: 1px solid var(--line); }
+  nav.top .row { display: flex; align-items: center; gap: 28px; padding: 14px 0; }
+  .brand { display: inline-flex; align-items: center; gap: 9px; font-weight: 600; letter-spacing: -0.012em; font-size: 15.5px; }
+  .brand .mk { width: 26px; height: 26px; border-radius: 7px; background: var(--indigo); display: grid; place-items: center; }
+  nav.top ul { list-style: none; display: flex; gap: 22px; padding: 0; margin: 0; font-size: 13.5px; color: var(--ink-muted); }
+  nav.top ul a:hover { color: var(--ink); }
+  nav.top .grow { flex: 1; }
+  .lang-toggle { display: inline-flex; border: 1px solid var(--line-hi); border-radius: 7px; overflow: hidden; font-family: var(--font-mono); font-size: 11px; }
+  .lang-toggle button { padding: 4px 9px; border: 0; background: transparent; color: var(--ink-muted); }
+  .lang-toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 8px; font-size: 13.5px; font-weight: 500; border: 1px solid transparent; transition: background 120ms, border-color 120ms, transform 80ms; }
+  .btn-ghost { color: var(--ink-soft); }
+  .btn-ghost:hover { background: var(--bg-soft); }
+  .btn-primary { background: var(--indigo); color: white; border-color: var(--indigo); }
+  .btn-primary:hover { background: var(--indigo-mid); }
+  .btn-primary:active { transform: scale(0.98); }
+  .btn-secondary { background: var(--bg-soft); color: var(--ink); border-color: var(--line-hi); }
+  .btn-secondary:hover { background: var(--line); border-color: #3F3F46; }
+  .btn-lg { padding: 11px 20px; border-radius: 9px; font-size: 14.5px; }
 
-    .hamburger-line {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: #334155;
-      border-radius: 2px;
-      transition: transform 0.25s ease, opacity 0.2s ease;
-    }
-    #hamburger-btn.open .line-1 { transform: translateY(7px) rotate(45deg); }
-    #hamburger-btn.open .line-2 { opacity: 0; }
-    #hamburger-btn.open .line-3 { transform: translateY(-7px) rotate(-45deg); }
-  </style>
+  .hero { position: relative; padding: 84px 0 48px; overflow: hidden; }
+  .hero .bg { position: absolute; inset: 0; pointer-events: none; }
+  .hero .bg::before, .hero .bg::after { content: ""; position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.40; }
+  .hero .bg::before { width: 540px; height: 540px; background: rgba(99,102,241,0.32); top: -180px; left: 40%; }
+  .hero .bg::after { width: 380px; height: 380px; background: rgba(6,182,212,0.18); bottom: -120px; left: -60px; }
+  .hero .grid { position: relative; display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .pill { display: inline-flex; align-items: center; gap: 7px; padding: 4px 11px; border-radius: 9999px; font-size: 11.5px; border: 1px solid; font-family: var(--font-mono); letter-spacing: 0.01em; }
+  .pill .d { width: 6px; height: 6px; border-radius: 50%; }
+  .pill.beta { background: rgba(99,102,241,0.10); color: #C7D2FE; border-color: rgba(99,102,241,0.30); }
+  .pill.beta .d { background: var(--indigo); box-shadow: 0 0 0 4px rgba(99,102,241,0.20); animation: heartbeat 1.6s ease-in-out infinite; }
+  @keyframes heartbeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.5); } }
+  .pill.live { background: rgba(16,185,129,0.10); color: #6EE7B7; border-color: rgba(16,185,129,0.30); }
+  .pill.live .d { background: var(--green); }
+  h1.hero-h { font-size: clamp(40px, 5.4vw, 64px); line-height: 1.02; letter-spacing: -0.030em; font-weight: 600; margin: 0 0 22px; text-wrap: balance; }
+  h1.hero-h em { font-style: normal; color: var(--indigo-hi); }
+  h1.hero-h .strike { color: var(--ink-dim); position: relative; white-space: nowrap; font-weight: 400; }
+  h1.hero-h .strike::after { content: ""; position: absolute; left: -2px; right: -2px; top: 56%; height: 2px; background: currentColor; transform: rotate(-3deg); }
+  .hero p.lede { font-size: 17px; color: var(--ink-muted); max-width: 480px; margin: 0 0 28px; line-height: 1.55; text-wrap: pretty; }
+  .hero p.lede b { color: var(--ink); font-weight: 500; }
+  .hero .ctas { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .hero .reassure { display: flex; gap: 18px; margin-top: 20px; font-size: 12px; color: var(--ink-dim); }
+  .hero .reassure span { display: inline-flex; align-items: center; gap: 6px; }
+  .hero .reassure svg { color: var(--green); }
+
+  .mock { background: #0B0B0E; border: 1px solid var(--line-hi); border-radius: 14px; box-shadow: 0 60px 140px -40px rgba(99,102,241,0.40), 0 0 0 1px rgba(99,102,241,0.10), 0 24px 60px -20px rgba(0,0,0,0.50); overflow: hidden; }
+  .mock .winbar { padding: 9px 12px; background: #08080A; border-bottom: 1px solid var(--line); display: flex; gap: 8px; align-items: center; font-size: 11px; color: var(--ink-dim); font-family: var(--font-mono); }
+  .mock .winbar .dots { display: flex; gap: 5px; }
+  .mock .winbar .dots span { width: 10px; height: 10px; border-radius: 50%; background: var(--line-hi); }
+  .mock .winbar .url { flex: 1; padding: 3px 10px; background: #050507; border: 1px solid var(--line); border-radius: 5px; color: var(--ink-muted); display: flex; align-items: center; gap: 6px; }
+  .mock .winbar .url svg { color: var(--green); }
+  .mock .winbar .url .path { color: var(--ink); }
+  .mock .panes { display: grid; grid-template-columns: 1fr 1.1fr; min-height: 360px; }
+  .mock .chat { padding: 16px 14px; background: #08080A; border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: 9px; font-size: 12.5px; line-height: 1.45; }
+  .mock .chat .u { align-self: flex-end; max-width: 82%; padding: 7px 11px; background: var(--indigo); color: white; border-radius: 12px 12px 4px 12px; }
+  .mock .chat .a { align-self: flex-start; max-width: 92%; padding: 7px 11px; background: var(--bg-soft); border: 1px solid var(--line-hi); color: var(--ink-soft); border-radius: 4px 12px 12px 12px; }
+  .mock .chat .a code { font-family: var(--font-mono); font-size: 11px; color: var(--indigo-hi); }
+  .mock .chat .a .agent-tag { display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-dim); margin-bottom: 4px; }
+  .mock .chat .a .agent-tag .pulse { width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); animation: pulse 1.2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% {opacity: 0.4} 50% {opacity: 1} }
+  .mock .chat .typing { align-self: flex-start; padding: 7px 11px; background: var(--bg-soft); border: 1px solid var(--line-hi); border-radius: 4px 12px 12px 12px; font-size: 11px; color: var(--ink-dim); display: inline-flex; gap: 4px; align-items: center; font-family: var(--font-mono); }
+  .mock .chat .typing .ring { width: 9px; height: 9px; border: 1.5px solid var(--line-hi); border-top-color: var(--indigo-hi); border-radius: 50%; animation: spin 0.8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .mock .preview { background: #FAFAF9; color: #18181B; padding: 22px 22px 16px; position: relative; }
+  .mock .preview .nav { display: flex; align-items: center; gap: 14px; font-size: 11px; color: #71717A; padding-bottom: 14px; border-bottom: 1px solid #E4E4E7; }
+  .mock .preview .nav .b { font-weight: 700; color: #18181B; font-size: 13px; letter-spacing: -0.01em; }
+  .mock .preview .nav .grow { flex: 1; }
+  .mock .preview .nav .cta { background: #18181B; color: white; padding: 4px 10px; border-radius: 5px; font-size: 10px; }
+  .mock .preview h3 { margin: 16px 0 6px; font-size: 18px; font-weight: 600; line-height: 1.15; letter-spacing: -0.012em; color: #09090B; }
+  .mock .preview .meta { font-family: var(--font-mono); font-size: 10px; color: #71717A; }
+  .mock .preview p { font-size: 11.5px; color: #52525B; line-height: 1.55; margin: 8px 0; }
+  .mock .preview .post-row { padding: 10px 0; border-top: 1px solid #F1F5F9; display: flex; gap: 10px; align-items: baseline; }
+  .mock .preview .post-row .when { font-family: var(--font-mono); font-size: 10px; color: #94A3B8; min-width: 56px; }
+  .mock .preview .post-row .ttl { font-size: 11.5px; color: #18181B; font-weight: 500; }
+  .mock .preview .reload-flash { position: absolute; top: 14px; right: 14px; padding: 3px 8px; border-radius: 4px; background: rgba(99,102,241,0.10); border: 1px solid rgba(99,102,241,0.30); color: var(--indigo-mid); font-family: var(--font-mono); font-size: 9.5px; opacity: 0; animation: flash 5s ease-out infinite; }
+  @keyframes flash { 0%, 60% { opacity: 0; transform: translateY(-4px) } 65%, 92% { opacity: 1; transform: translateY(0) } 100% { opacity: 0; transform: translateY(0) } }
+  .mock .pipe { background: #050507; border-top: 1px solid var(--line); padding: 10px 14px; display: flex; gap: 10px; align-items: center; font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-dim); }
+  .mock .pipe .step { display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border-radius: 9999px; border: 1px solid var(--line-hi); }
+  .mock .pipe .step.done { color: var(--green); border-color: rgba(16,185,129,0.30); background: rgba(16,185,129,0.06); }
+  .mock .pipe .step.run { color: var(--cyan); border-color: rgba(6,182,212,0.30); background: rgba(6,182,212,0.06); }
+  .mock .pipe .ck { width: 8px; height: 8px; border-radius: 50%; background: currentColor; opacity: 0.85; }
+  .mock .pipe .grow { flex: 1; }
+
+  .numbers { padding: 60px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #060608; }
+  .numbers .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+  .numbers .cell { padding: 24px 32px; border-right: 1px solid var(--line); }
+  .numbers .cell:last-child { border-right: 0; }
+  .numbers .lbl { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.10em; text-transform: uppercase; color: var(--indigo-hi); margin-bottom: 14px; }
+  .numbers .n { font-size: 56px; font-weight: 600; letter-spacing: -0.030em; line-height: 1; color: var(--ink); }
+  .numbers .n .unit { font-size: 22px; color: var(--ink-muted); font-weight: 400; margin-left: 4px; }
+  .numbers .desc { color: var(--ink-muted); font-size: 13.5px; margin-top: 12px; line-height: 1.5; max-width: 32ch; }
+  .numbers .ftn { font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-dim); margin-top: 10px; }
+
+  .sect { padding: 96px 0 48px; }
+  .sect .eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase; color: var(--indigo-hi); }
+  .sect h2 { margin: 14px 0 10px; font-size: clamp(30px, 3.8vw, 44px); letter-spacing: -0.022em; font-weight: 600; line-height: 1.08; max-width: 22ch; text-wrap: balance; }
+  .sect .lede { color: var(--ink-muted); font-size: 16px; max-width: 56ch; line-height: 1.55; text-wrap: pretty; }
+
+  .problem .grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-top: 48px; }
+  .problem .pcard { padding: 26px 24px 24px; border: 1px solid var(--line-hi); border-radius: 14px; background: var(--bg-soft); position: relative; }
+  .problem .pcard .num { font-family: var(--font-mono); font-size: 11px; color: var(--ink-dim); }
+  .problem .pcard .stat { font-size: 36px; font-weight: 600; letter-spacing: -0.025em; margin: 14px 0 10px; line-height: 1; color: var(--ink); }
+  .problem .pcard h3 { margin: 0 0 8px; font-size: 15.5px; font-weight: 500; color: var(--ink); letter-spacing: -0.005em; }
+  .problem .pcard p { color: var(--ink-muted); font-size: 13.5px; line-height: 1.55; margin: 0; }
+  .problem .verdict { margin-top: 32px; padding: 22px 24px; border: 1px solid rgba(99,102,241,0.30); background: rgba(99,102,241,0.04); border-radius: 12px; display: flex; gap: 18px; align-items: center; }
+  .problem .verdict .icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(99,102,241,0.10); display: grid; place-items: center; color: var(--indigo-hi); flex-shrink: 0; }
+  .problem .verdict p { margin: 0; font-size: 15px; line-height: 1.5; color: var(--ink-soft); }
+  .problem .verdict p b { color: var(--ink); font-weight: 500; }
+
+  .steps .step { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: center; padding: 56px 0; border-top: 1px solid var(--line); }
+  .steps .step:nth-child(even) { grid-template-columns: 1.1fr 1fr; }
+  .steps .step:nth-child(even) .copy { order: 2; }
+  .steps .step:nth-child(even) .visual { order: 1; }
+  .steps .stepnum { font-family: var(--font-mono); font-size: 11px; color: var(--indigo-hi); letter-spacing: 0.10em; text-transform: uppercase; }
+  .steps .copy h3 { margin: 12px 0 12px; font-size: 28px; font-weight: 600; letter-spacing: -0.018em; line-height: 1.15; max-width: 18ch; }
+  .steps .copy p { color: var(--ink-muted); font-size: 15px; line-height: 1.6; margin: 0 0 14px; max-width: 44ch; text-wrap: pretty; }
+  .steps .copy p b { color: var(--ink); font-weight: 500; }
+  .steps .copy .quote { padding: 14px 16px; border-left: 2px solid var(--indigo); background: var(--bg-soft); border-radius: 0 8px 8px 0; color: var(--ink-soft); font-size: 14.5px; line-height: 1.55; margin: 16px 0; font-style: italic; }
+  .steps .copy ul { padding: 0; margin: 12px 0 0; list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; color: var(--ink-muted); }
+  .steps .copy ul li { display: flex; gap: 9px; align-items: flex-start; }
+  .steps .copy ul li svg { color: var(--green); margin-top: 2px; flex-shrink: 0; }
+  .visual { border: 1px solid var(--line-hi); border-radius: 14px; background: var(--bg-soft); overflow: hidden; box-shadow: 0 30px 80px -30px rgba(0,0,0,0.60); }
+  .composer { padding: 22px; }
+  .composer .label { font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-dim); margin-bottom: 10px; letter-spacing: 0.05em; }
+  .composer .field { background: #050507; border: 1px solid var(--line-hi); border-radius: 10px; padding: 14px 16px; min-height: 110px; font-size: 14px; line-height: 1.6; color: var(--ink-soft); }
+  .composer .field .typed { color: var(--ink); }
+  .composer .field .caret { display: inline-block; width: 1px; height: 16px; vertical-align: -3px; background: var(--indigo); margin-left: 1px; animation: caret 1s steps(2) infinite; }
+  @keyframes caret { 50% { opacity: 0; } }
+  .composer .toolbar { margin-top: 12px; display: flex; gap: 8px; align-items: center; }
+  .composer .toolbar .chip { font-family: var(--font-mono); font-size: 11px; padding: 3px 9px; border-radius: 9999px; border: 1px solid var(--line-hi); color: var(--ink-muted); background: var(--bg-soft); }
+  .composer .toolbar .grow { flex: 1; }
+  .composer .toolbar .send { padding: 6px 12px; border-radius: 7px; background: var(--indigo); color: white; border: 0; font-size: 12.5px; font-weight: 500; display: inline-flex; gap: 6px; align-items: center; }
+  .composer .examples { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .composer .examples span { font-size: 11.5px; color: var(--ink-dim); margin-right: 4px; }
+  .composer .examples .ex { font-family: var(--font-mono); font-size: 11px; padding: 3px 9px; border-radius: 9999px; border: 1px dashed var(--line-hi); color: var(--ink-muted); cursor: pointer; }
+  .orchestra { padding: 24px 22px; }
+  .orchestra .top { font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-dim); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; letter-spacing: 0.05em; }
+  .orchestra .top .live { width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); animation: pulse 1.2s infinite; }
+  .orchestra .agents { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .orchestra .ag { padding: 8px 10px; border-radius: 8px; background: #050507; border: 1px solid var(--line-hi); display: flex; gap: 8px; align-items: center; font-size: 11.5px; }
+  .orchestra .ag .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  .orchestra .ag .nm { color: var(--ink-soft); font-weight: 500; flex: 1; }
+  .orchestra .ag .st { font-family: var(--font-mono); font-size: 9.5px; color: var(--ink-dim); }
+  .orchestra .ag.done { background: rgba(16,185,129,0.05); border-color: rgba(16,185,129,0.25); }
+  .orchestra .ag.done .dot { background: var(--green); }
+  .orchestra .ag.done .st { color: var(--green); }
+  .orchestra .ag.run { background: rgba(6,182,212,0.05); border-color: rgba(6,182,212,0.30); }
+  .orchestra .ag.run .dot { background: var(--cyan); animation: pulse 1.2s infinite; }
+  .orchestra .ag.run .st { color: var(--cyan); }
+  .orchestra .ag.queued .dot { background: var(--line-hi); }
+  .orchestra .files { margin-top: 14px; padding: 12px 14px; background: #050507; border: 1px solid var(--line-hi); border-radius: 8px; font-family: var(--font-mono); font-size: 11px; color: var(--ink-muted); display: flex; flex-direction: column; gap: 4px; max-height: 124px; overflow: hidden; }
+  .orchestra .files .f { display: flex; gap: 8px; align-items: center; }
+  .orchestra .files .f .plus { color: var(--green); }
+  .orchestra .files .f .path { color: var(--ink-soft); }
+  .orchestra .files .f.adding { color: var(--cyan); }
+  .orchestra .files .f.adding .plus { color: var(--cyan); animation: blink 0.8s infinite; }
+  @keyframes blink { 50% { opacity: 0.3; } }
+  .running { background: #18181B; padding: 22px; }
+  .running .browser { background: #FAFAF9; border-radius: 8px; overflow: hidden; box-shadow: 0 12px 32px rgba(0,0,0,0.40); }
+  .running .browser .bar { padding: 8px 12px; background: #F4F4F5; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid #E4E4E7; }
+  .running .browser .bar .dots span { width: 9px; height: 9px; border-radius: 50%; display: inline-block; margin-right: 4px; background: #D4D4D8; }
+  .running .browser .bar .url { flex: 1; padding: 3px 9px; background: white; border: 1px solid #E4E4E7; border-radius: 4px; font-family: var(--font-mono); font-size: 10.5px; color: #71717A; }
+  .running .browser .body { padding: 18px; color: #18181B; }
+  .running .browser .body .head { display: flex; align-items: center; gap: 12px; }
+  .running .browser .body .head .logo { width: 26px; height: 26px; border-radius: 6px; background: #18181B; display: grid; place-items: center; color: white; font-weight: 700; font-size: 11px; }
+  .running .browser .body .head .nm { font-weight: 600; font-size: 13px; }
+  .running .browser .body .head .grow { flex: 1; }
+  .running .browser .body .head .pill-x { padding: 2px 7px; background: #ECFDF5; color: #047857; border-radius: 9999px; font-family: var(--font-mono); font-size: 10px; border: 1px solid #A7F3D0; }
+  .running .browser .body h2 { margin: 16px 0 6px; font-size: 18px; font-weight: 600; letter-spacing: -0.012em; color: #09090B; }
+  .running .browser .body p { font-size: 11.5px; color: #52525B; margin: 0 0 10px; line-height: 1.55; }
+  .running .browser .body .table { margin-top: 10px; border: 1px solid #E4E4E7; border-radius: 6px; overflow: hidden; font-size: 11px; }
+  .running .browser .body .table .th { display: grid; grid-template-columns: 50px 1fr 70px 60px; padding: 7px 10px; background: #F4F4F5; font-family: var(--font-mono); font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.05em; color: #71717A; }
+  .running .browser .body .table .tr { display: grid; grid-template-columns: 50px 1fr 70px 60px; padding: 7px 10px; border-top: 1px solid #F1F5F9; align-items: center; }
+  .running .browser .body .table .tr code { font-family: var(--font-mono); font-size: 10.5px; color: #475569; }
+  .running .browser .body .table .tr .pill-y { padding: 1px 6px; background: #FEF3C7; color: #92400E; border-radius: 9999px; font-family: var(--font-mono); font-size: 9px; border: 1px solid #FDE68A; }
+  .running .browser .body .table .tr .pill-g { padding: 1px 6px; background: #D1FAE5; color: #047857; border-radius: 9999px; font-family: var(--font-mono); font-size: 9px; border: 1px solid #A7F3D0; }
+  .running .stamp { margin-top: 14px; padding: 9px 12px; background: rgba(16,185,129,0.10); border: 1px solid rgba(16,185,129,0.30); border-radius: 8px; display: flex; align-items: center; gap: 9px; font-family: var(--font-mono); font-size: 11px; color: #6EE7B7; }
+  .running .stamp .grow { flex: 1; }
+  .running .stamp .dl { color: var(--ink-soft); font-family: var(--font-mono); font-size: 10.5px; }
+
+  .agents-sect { padding: 96px 0; border-top: 1px solid var(--line); position: relative; overflow: hidden; }
+  .agents-sect::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.10), transparent 60%); }
+  .agents-sect .head { position: relative; z-index: 1; }
+  .agents-sect .grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 40px; }
+  .agents-sect .acard { background: var(--bg-soft); border: 1px solid var(--line-hi); border-radius: 12px; padding: 22px; transition: border-color 150ms, transform 150ms; position: relative; }
+  .agents-sect .acard:hover { border-color: rgba(99,102,241,0.50); transform: translateY(-2px); }
+  .agents-sect .acard .role { font-family: var(--font-mono); font-size: 10.5px; color: var(--indigo-hi); letter-spacing: 0.06em; text-transform: uppercase; }
+  .agents-sect .acard h3 { margin: 8px 0 10px; font-size: 17px; font-weight: 500; letter-spacing: -0.008em; color: var(--ink); }
+  .agents-sect .acard p { color: var(--ink-muted); font-size: 13px; line-height: 1.5; margin: 0; }
+  .agents-sect .acard .num { position: absolute; top: 18px; right: 18px; font-family: var(--font-mono); font-size: 10px; color: var(--ink-dim); padding: 2px 7px; border: 1px solid var(--line-hi); border-radius: 4px; }
+  .agents-sect .acard.featured { border-color: rgba(99,102,241,0.40); background: rgba(99,102,241,0.04); }
+
+  .compete { padding: 80px 0; border-top: 1px solid var(--line); }
+  .compete table { width: 100%; border-collapse: collapse; margin-top: 32px; border: 1px solid var(--line-hi); border-radius: 12px; overflow: hidden; background: var(--bg-soft); }
+  .compete th, .compete td { padding: 14px 18px; text-align: left; font-size: 13.5px; border-bottom: 1px solid var(--line); }
+  .compete tbody tr:last-child td { border-bottom: 0; }
+  .compete thead th { background: #050507; font-family: var(--font-mono); font-size: 10.5px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-dim); }
+  .compete td { color: var(--ink-soft); }
+  .compete td.feat { color: var(--ink); font-weight: 500; }
+  .compete td.cv { text-align: center; font-family: var(--font-mono); }
+  .compete td .yes { color: var(--green); font-weight: 700; font-size: 16px; }
+  .compete td .no { color: var(--ink-dim); }
+  .compete .craftly-col { background: rgba(99,102,241,0.04); }
+  .compete th.craftly-col, .compete td.craftly-col { color: var(--indigo-hi); font-weight: 600; }
+  .compete td.craftly-col.feat { color: var(--ink); }
+
+  .demo { padding: 96px 0; border-top: 1px solid var(--line); }
+  .demo .frame { margin-top: 40px; border-radius: 14px; overflow: hidden; border: 1px solid var(--line-hi); aspect-ratio: 16 / 9; background: #000; box-shadow: 0 40px 100px -30px rgba(99,102,241,0.40); position: relative; }
+  .demo .frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+  .demo .frame .placeholder { position: absolute; inset: 0; display: grid; place-items: center; }
+  .demo .frame .placeholder button { display: inline-flex; align-items: center; gap: 12px; padding: 14px 22px; background: white; color: var(--bg); border: 0; border-radius: 9999px; font-weight: 500; font-size: 14.5px; cursor: pointer; box-shadow: 0 12px 24px rgba(0,0,0,0.40); }
+  .demo .frame .placeholder svg { color: var(--indigo); }
+  .demo .meta-row { display: flex; gap: 24px; margin-top: 24px; flex-wrap: wrap; font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-dim); justify-content: center; }
+  .demo .meta-row span b { color: var(--indigo-hi); font-weight: 600; }
+
+  .stack { padding: 60px 0; border-top: 1px solid var(--line); }
+  .stack .row { display: flex; align-items: center; justify-content: center; gap: 56px; flex-wrap: wrap; opacity: 0.65; }
+  .stack .lbl { font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-dim); letter-spacing: 0.10em; text-transform: uppercase; width: 100%; text-align: center; margin-bottom: 8px; }
+  .stack .item { font-weight: 600; font-size: 17px; letter-spacing: -0.01em; color: var(--ink-soft); }
+  .stack .item small { font-family: var(--font-mono); font-size: 10px; color: var(--ink-dim); margin-left: 6px; font-weight: 400; }
+
+  .founder { padding: 96px 0; border-top: 1px solid var(--line); }
+  .founder .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .founder .copy h3 { font-size: 28px; letter-spacing: -0.018em; font-weight: 600; line-height: 1.15; margin: 14px 0 16px; max-width: 18ch; }
+  .founder .copy p { font-size: 15px; color: var(--ink-muted); line-height: 1.6; margin: 0 0 14px; }
+  .founder .copy p b { color: var(--ink); font-weight: 500; }
+  .founder .stats { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 14px; margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--line); }
+  .founder .stats .stat .n { font-family: var(--font-mono); font-size: 22px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; }
+  .founder .stats .stat .l { font-size: 11.5px; color: var(--ink-dim); margin-top: 2px; line-height: 1.3; }
+  .founder .photo { aspect-ratio: 4/5; border-radius: 14px; border: 1px solid var(--line-hi); background: #0B0B0E; padding: 32px 28px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+  .founder .photo::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 30% 20%, rgba(99,102,241,0.20), transparent 50%); pointer-events: none; }
+  .founder .photo .logo { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); position: relative; }
+  .founder .photo .logo small { font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-dim); display: block; margin-top: 4px; font-weight: 400; }
+  .founder .photo .marks { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 16px 0; }
+  .founder .photo .marks .item { padding: 14px; background: var(--bg-soft); border: 1px solid var(--line-hi); border-radius: 10px; }
+  .founder .photo .marks .item .yr { font-family: var(--font-mono); font-size: 10.5px; color: var(--indigo-hi); }
+  .founder .photo .marks .item .lbl-x { font-size: 13px; font-weight: 500; color: var(--ink); margin-top: 2px; }
+  .founder .photo .marks .item .desc-x { font-size: 11.5px; color: var(--ink-muted); margin-top: 4px; line-height: 1.4; }
+  .founder .photo .city { position: relative; font-family: var(--font-mono); font-size: 11px; color: var(--ink-dim); display: flex; align-items: center; gap: 8px; }
+  .founder .photo .city .pin { width: 6px; height: 6px; border-radius: 50%; background: var(--indigo); }
+
+  .faq { padding: 80px 0; border-top: 1px solid var(--line); }
+  .faq .grid { margin-top: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }
+  .faq details { padding: 18px 20px; border: 1px solid var(--line-hi); background: var(--bg-soft); border-radius: 10px; transition: border-color 150ms; }
+  .faq details[open] { border-color: rgba(99,102,241,0.40); }
+  .faq summary { cursor: pointer; list-style: none; font-size: 14.5px; font-weight: 500; color: var(--ink); display: flex; align-items: center; gap: 12px; line-height: 1.4; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: ""; margin-left: auto; width: 12px; height: 12px; border-right: 1.5px solid var(--ink-muted); border-bottom: 1.5px solid var(--ink-muted); transform: rotate(45deg); transition: transform 200ms; }
+  .faq details[open] summary::after { transform: rotate(225deg); margin-top: 4px; }
+  .faq details p { color: var(--ink-muted); font-size: 13.5px; line-height: 1.6; margin: 12px 0 0; }
+  .faq details code { font-family: var(--font-mono); font-size: 12px; background: #050507; padding: 1px 5px; border-radius: 3px; color: var(--indigo-hi); border: 1px solid var(--line); }
+
+  .waitlist { padding: 96px 0; border-top: 1px solid var(--line); position: relative; overflow: hidden; }
+  .waitlist::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(99,102,241,0.16), transparent 60%); pointer-events: none; }
+  .waitlist .inner { position: relative; max-width: 720px; margin: 0 auto; text-align: center; }
+  .waitlist .badge { display: inline-flex; align-items: center; gap: 7px; padding: 4px 11px; border-radius: 9999px; font-family: var(--font-mono); font-size: 11.5px; background: rgba(99,102,241,0.10); border: 1px solid rgba(99,102,241,0.30); color: #C7D2FE; margin-bottom: 22px; }
+  .waitlist .badge .d { width: 6px; height: 6px; border-radius: 50%; background: var(--indigo); animation: heartbeat 1.6s ease-in-out infinite; }
+  .waitlist h2 { font-size: clamp(36px, 4.6vw, 52px); font-weight: 600; letter-spacing: -0.025em; line-height: 1.05; margin: 0 0 16px; }
+  .waitlist h2 em { font-style: normal; color: var(--indigo-hi); }
+  .waitlist p { color: var(--ink-muted); font-size: 17px; max-width: 50ch; margin: 0 auto 28px; line-height: 1.55; text-wrap: pretty; }
+  .waitlist .cta-wrap { display: flex; justify-content: center; margin-bottom: 28px; }
+  .waitlist .reass { margin-top: 16px; display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; font-size: 12px; color: var(--ink-dim); }
+  .waitlist .reass span { display: inline-flex; align-items: center; gap: 6px; }
+  .waitlist .reass svg { color: var(--green); }
+  .waitlist .seats { margin-top: 26px; max-width: 340px; margin-left: auto; margin-right: auto; }
+  .waitlist .seats .hd { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-dim); margin-bottom: 6px; letter-spacing: 0.05em; }
+  .waitlist .seats .hd b { color: var(--indigo-hi); font-weight: 600; }
+  .waitlist .seats .bar { height: 4px; background: var(--line); border-radius: 9999px; overflow: hidden; }
+  .waitlist .seats .bar .fill { height: 100%; width: 73%; background: var(--indigo); border-radius: 9999px; }
+
+  footer.bot { padding: 48px 0 32px; border-top: 1px solid var(--line); color: var(--ink-dim); font-size: 12.5px; }
+  footer.bot .row { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+  footer.bot .row .grow { flex: 1; }
+  footer.bot a:hover { color: var(--ink-soft); }
+
+  [data-de], [data-en] { display: none; }
+  html[data-lang="de"] [data-de] { display: revert; }
+  html[data-lang="en"] [data-en] { display: revert; }
+
+  @media (max-width: 980px) {
+    .hero .grid, .steps .step, .steps .step:nth-child(even), .founder .grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+    .steps .step:nth-child(even) .copy, .steps .step:nth-child(even) .visual { order: initial !important; }
+    .agents-sect .grid, .problem .grid, .numbers .grid, .faq .grid { grid-template-columns: 1fr 1fr !important; }
+    .numbers .cell { border-right: 0; border-bottom: 1px solid var(--line); }
+    nav.top ul { display: none; }
+  }
+  @media (max-width: 600px) {
+    .agents-sect .grid, .problem .grid, .numbers .grid, .faq .grid { grid-template-columns: 1fr !important; }
+    .hero { padding: 56px 0 32px; }
+  }
+</style>
 </head>
+<body>
 
-<body class="bg-white text-slate-900">
+<nav class="top">
+  <div class="wrap row">
+    <a class="brand" href="/craftly/">
+      <span class="mk"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linejoin="round"><path d="M12 3l1.7 4.6 4.6 1.7-4.6 1.7L12 15.6l-1.7-4.6L5.7 9.3l4.6-1.7L12 3z"/></svg></span>
+      Craftly
+    </a>
+    <ul>
+      <li><a href="#problem"><span data-en>Problem</span><span data-de>Problem</span></a></li>
+      <li><a href="#how"><span data-en>How it works</span><span data-de>So funktioniert's</span></a></li>
+      <li><a href="#agents"><span data-en>Agents</span><span data-de>Agenten</span></a></li>
+      <li><a href="#demo"><span data-en>Demo</span><span data-de>Demo</span></a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <span class="grow"></span>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button data-set-lang="en" aria-pressed="false">EN</button>
+      <button data-set-lang="de" aria-pressed="true">DE</button>
+    </div>
+    <a class="btn btn-ghost" href="https://forms.gle/a3dbjUteGJUonTc1A" target="_blank" rel="noopener"><span data-en>Sign in</span><span data-de>Anmelden</span></a>
+    <a class="btn btn-primary" href="https://forms.gle/a3dbjUteGJUonTc1A" target="_blank" rel="noopener"><span data-en>Join the beta</span><span data-de>Beta-Zugang</span></a>
+  </div>
+</nav>
 
-  <!-- ══════════════════════════════════════════════════════════════════
-       NAVIGATION
-       ══════════════════════════════════════════════════════════════════ -->
-  <nav class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-slate-200 z-50">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <!-- Logo -->
-      <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-lg gradient-bg flex items-center justify-center shadow-lg flex-shrink-0">
-          <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
-            <path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/>
-          </svg>
-        </div>
-        <div class="flex items-baseline gap-2">
-          <span class="font-extrabold text-lg tracking-tight">Craftly</span>
-          <span class="text-slate-400 text-xs hidden sm:inline">von ShvedkoDev</span>
-        </div>
+<section class="hero">
+  <div class="bg"></div>
+  <div class="wrap grid">
+    <div>
+      <div class="pill-row">
+        <span class="pill beta"><span class="d"></span><span data-en>Limited beta · 152 / 200 seats</span><span data-de>Limitierte Beta · 152 / 200 Plätze</span></span>
+        <span class="pill live"><span class="d"></span><span data-en>Laravel 12 + WordPress 6.5</span><span data-de>Laravel 12 + WordPress 6.5</span></span>
       </div>
-
-      <!-- Desktop nav links -->
-      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-        <a href="#problem" class="hover:text-slate-900 transition">Problem</a>
-        <a href="#loesung" class="hover:text-slate-900 transition">Lösung</a>
-        <a href="#zahlen" class="hover:text-slate-900 transition">Zahlen</a>
-        <a href="#demo" class="hover:text-slate-900 transition">Demo</a>
-        <a href="#waitlist" class="text-indigo-600 font-semibold hover:text-indigo-700 transition">Beta ↗</a>
-        <a href="index-en.html" class="text-slate-400 text-xs hover:text-slate-600 transition" title="Switch to English">EN</a>
-        <a href="https://shvedko.dev" class="text-slate-400 text-xs hover:text-slate-600 transition" title="ShvedkoDev Website">← shvedko.dev</a>
-      </div>
-
-      <!-- Right side: lang switcher + CTA + hamburger -->
-      <div class="flex items-center gap-2">
-        <div class="hidden md:flex items-center gap-1 bg-slate-100 rounded-lg p-1">
-          <span class="text-xs font-semibold px-2.5 py-1.5 rounded-md bg-white text-indigo-600 shadow-sm select-none cursor-default">🇩🇪 DE</span>
-          <a href="./index-en.html" class="text-xs font-semibold px-2.5 py-1.5 rounded-md text-slate-500 hover:text-slate-800 hover:bg-slate-200 transition">🇬🇧 EN</a>
-        </div>
-        <a href="mailto:info@shvedko.dev"
-           class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold px-5 py-2 rounded-lg transition shadow-sm">
-          Kontakt
+      <h1 class="hero-h">
+        <span data-en>Production PHP apps in <em>5 minutes</em><br><span class="strike">not 6 weeks.</span></span>
+        <span data-de>Webanwendungen in <em>5 Minuten</em><br><span class="strike">statt 6 Wochen.</span></span>
+      </h1>
+      <p class="lede">
+        <span data-en>The first AI platform that ships <b>real Laravel & WordPress codebases</b> — not React clones. Describe your idea, watch nine specialised agents build it live, and download the code. <b>Yours to keep, no lock-in.</b></span>
+        <span data-de>Die erste KI-Plattform, die <b>echte Laravel- und WordPress-Codebases</b> ausliefert — keine React-Klone. Beschreiben Sie Ihre Idee, neun spezialisierte Agenten bauen sie live, und der Code gehört Ihnen. <b>Kein Lock-in.</b></span>
+      </p>
+      <div class="ctas">
+        <a class="btn btn-primary btn-lg" href="https://forms.gle/a3dbjUteGJUonTc1A" target="_blank" rel="noopener">
+          <span data-en>Join the beta — free</span><span data-de>Beta beitreten — kostenlos</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
-        <button
-          id="hamburger-btn"
-          class="md:hidden flex flex-col justify-center gap-[5px] p-2 -mr-1 rounded-lg hover:bg-slate-100 transition"
-          aria-label="Menü öffnen"
-          aria-expanded="false"
-          aria-controls="mobile-menu">
-          <span class="hamburger-line line-1"></span>
-          <span class="hamburger-line line-2"></span>
-          <span class="hamburger-line line-3"></span>
+        <a class="btn btn-secondary btn-lg" href="#demo">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+          <span data-en>Watch 90s demo</span><span data-de>90-Sek-Demo</span>
+        </a>
+      </div>
+      <div class="reassure">
+        <span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-en>No card</span><span data-de>Keine Kreditkarte</span></span>
+        <span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-en>Code is yours</span><span data-de>Code gehört Ihnen</span></span>
+        <span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-en>Cancel anytime</span><span data-de>Jederzeit kündbar</span></span>
+      </div>
+    </div>
+    <div class="mock">
+      <div class="winbar">
+        <div class="dots"><span></span><span></span><span></span></div>
+        <div class="url">
+          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          localhost:8765/preview/<span class="path">a3f7c1d2</span>
+        </div>
+      </div>
+      <div class="panes">
+        <div class="chat">
+          <div class="u" data-en>Build a Laravel blog with markdown posts</div>
+          <div class="u" data-de>Laravel-Blog mit Markdown-Posts</div>
+          <div class="a">
+            <div class="agent-tag"><span class="pulse"></span>Master Architect</div>
+            <span data-en>Routing to <code>Laravel Forge</code> · Blade + Tailwind + SQLite</span>
+            <span data-de>Routing zu <code>Laravel Forge</code> · Blade + Tailwind + SQLite</span>
+          </div>
+          <div class="a">
+            <div class="agent-tag"><span class="pulse"></span>Laravel Forge</div>
+            <span data-en>Wrote <code>PostController.php</code>, <code>welcome.blade.php</code> + 6 more</span>
+            <span data-de>Erstellt <code>PostController.php</code>, <code>welcome.blade.php</code> + 6 weitere</span>
+          </div>
+          <div class="u" data-en>Make the hero darker and add an RSS link</div>
+          <div class="u" data-de>Hero dunkler, RSS-Link hinzufügen</div>
+          <div class="typing"><span class="ring"></span><span data-en>Iteration agent · editing 2 files</span><span data-de>Iteration · 2 Dateien</span></div>
+        </div>
+        <div class="preview">
+          <div class="reload-flash">⟳ <span data-en>preview updated</span><span data-de>Preview aktualisiert</span></div>
+          <div class="nav">
+            <span class="b">acme blog</span>
+            <a>posts</a><a>about</a><a>rss</a>
+            <span class="grow"></span>
+            <span class="cta" data-en>Subscribe</span><span class="cta" data-de>Abo</span>
+          </div>
+          <h3 data-en>Why we still write PHP in 2026.</h3>
+          <h3 data-de>Warum wir 2026 immer noch PHP schreiben.</h3>
+          <div class="meta">04.18.2026 · maria · 8 min</div>
+          <p data-en>A meditation on craft and the frameworks that age well.</p>
+          <p data-de>Eine Meditation über Handwerk und Frameworks, die gut altern.</p>
+          <div class="post-row"><span class="when">04.11</span><span class="ttl" data-en>The case against ORMs</span><span class="ttl" data-de>Gegen ORMs (manchmal)</span></div>
+          <div class="post-row"><span class="when">04.04</span><span class="ttl" data-en>Queue workers we trust</span><span class="ttl" data-de>Queue-Worker, denen wir trauen</span></div>
+        </div>
+      </div>
+      <div class="pipe">
+        <span class="step done"><span class="ck"></span>Plan</span>
+        <span class="step done"><span class="ck"></span>Generate</span>
+        <span class="step done"><span class="ck"></span>Validate</span>
+        <span class="step run"><span class="ck"></span><span data-en>Build &amp; reload</span><span data-de>Build &amp; reload</span></span>
+        <span class="grow"></span>
+        <span>Run #14 · 0:23</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="numbers">
+  <div class="wrap grid">
+    <div class="cell">
+      <div class="lbl"><span data-en>Time to working app</span><span data-de>Zeit bis zur App</span></div>
+      <div class="n">4:11<span class="unit">min</span></div>
+      <div class="desc" data-en>Median for a full Laravel CRUD app with auth, measured across our private beta.</div>
+      <div class="desc" data-de>Median für eine vollständige Laravel-CRUD-App mit Auth, gemessen in der privaten Beta.</div>
+      <div class="ftn">n = 412 generations · Apr 2026</div>
+    </div>
+    <div class="cell">
+      <div class="lbl"><span data-en>Cost per generation</span><span data-de>Kosten pro Generierung</span></div>
+      <div class="n">€0.19</div>
+      <div class="desc" data-en>Roughly <b style="color:var(--ink)">1,000× cheaper</b> than briefing an agency. Credits start at €5.</div>
+      <div class="desc" data-de>Rund <b style="color:var(--ink)">1.000× günstiger</b> als eine Agentur. Credits ab 5&nbsp;€.</div>
+      <div class="ftn"><span data-en>Includes Claude tokens, sandbox runtime, storage</span><span data-de>Inkl. Claude, Sandbox, Storage</span></div>
+    </div>
+    <div class="cell">
+      <div class="lbl"><span data-en>Faster live previews</span><span data-de>Schnellere Previews</span></div>
+      <div class="n">~27<span class="unit">s</span></div>
+      <div class="desc" data-en>Saved per build via parallel agent execution. Watch every file appear as it's written.</div>
+      <div class="desc" data-de>Pro Build durch parallele Agent-Ausführung. Sehen Sie jede Datei entstehen.</div>
+      <div class="ftn"><span data-en>vs. sequential pipeline · p50</span><span data-de>vs. sequenzielle Pipeline · p50</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sect problem" id="problem">
+  <div class="wrap">
+    <div class="eyebrow"><span data-en>The problem</span><span data-de>Das Problem</span></div>
+    <h2 data-en>3.5M German SMBs need software they can't afford.</h2>
+    <h2 data-de>3,5 Mio. deutsche KMU brauchen Software, die sie sich nicht leisten können.</h2>
+    <p class="lede" data-en>Bookings for the yoga studio. A scheduler for the dentist. A members area for the football club. Standard problems. Sky-high quotes. The market moves on while everyone waits.</p>
+    <p class="lede" data-de>Buchungen für die Yogaschule. Termine für den Zahnarzt. Mitgliederbereich für den Fußballverein. Standardprobleme. Astronomische Angebote. Der Markt zieht weiter, während alle warten.</p>
+    <div class="grid">
+      <div class="pcard">
+        <div class="num">01</div>
+        <div class="stat">6–12 <span style="font-size:18px;color:var(--ink-muted);font-weight:400"><span data-en>weeks</span><span data-de>Wochen</span></span></div>
+        <h3><span data-en>Wait time at agencies</span><span data-de>Wartezeit bei Agenturen</span></h3>
+        <p data-en>Discovery, quoting, sprints, QA. By the time you ship, the requirements have moved twice.</p>
+        <p data-de>Discovery, Angebot, Sprints, QA. Bis zum Launch haben sich die Anforderungen zweimal verschoben.</p>
+      </div>
+      <div class="pcard">
+        <div class="num">02</div>
+        <div class="stat">€10k–50k</div>
+        <h3><span data-en>Custom-build budget</span><span data-de>Custom-Build-Budget</span></h3>
+        <p data-en>Out of reach for craft, clubs, solo founders. Off-the-shelf SaaS doesn't fit; bespoke costs more than the business case.</p>
+        <p data-de>Unerreichbar für Handwerk, Vereine, Solo-Gründer. Standard-SaaS passt nicht; Custom kostet mehr als der Business-Case.</p>
+      </div>
+      <div class="pcard">
+        <div class="num">03</div>
+        <div class="stat" style="font-size:28px"><span data-en>React only</span><span data-de>Nur React</span></div>
+        <h3><span data-en>Existing AI tools miss 75% of the web</span><span data-de>Existierende KI-Tools verfehlen 75% des Webs</span></h3>
+        <p data-en>Lovable, v0, Base44 ship JS apps. Most agencies, hosters, and SMBs run PHP. The mismatch is total.</p>
+        <p data-de>Lovable, v0, Base44 liefern JS-Apps. Agenturen, Hoster und KMU laufen auf PHP. Das passt nicht.</p>
+      </div>
+    </div>
+    <div class="verdict">
+      <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+      <p data-en><b>Craftly closes the gap.</b> Production PHP apps from a sentence — written in the same Laravel and WordPress your hosting already runs. Same craft, 1,000× the throughput.</p>
+      <p data-de><b>Craftly schließt die Lücke.</b> Produktions-PHP-Apps aus einem Satz — im gleichen Laravel und WordPress, das Ihr Hosting ohnehin spricht. Gleiches Handwerk, 1.000× Durchsatz.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sect steps" id="how">
+  <div class="wrap">
+    <div class="eyebrow"><span data-en>How it works</span><span data-de>So funktioniert's</span></div>
+    <h2 data-en>Three steps. About four minutes.</h2>
+    <h2 data-de>Drei Schritte. Ungefähr vier Minuten.</h2>
+    <p class="lede" data-en>No flowcharts. No DSL. Just describe what you want — like emailing a colleague.</p>
+    <p class="lede" data-de>Keine Flowcharts. Keine DSL. Beschreiben Sie einfach, was Sie wollen — wie eine E-Mail an einen Kollegen.</p>
+  </div>
+  <div class="wrap">
+    <div class="step">
+      <div class="copy">
+        <div class="stepnum"><span data-en>Step 01</span><span data-de>Schritt 01</span></div>
+        <h3 data-en>Describe it in your own words</h3>
+        <h3 data-de>In eigenen Worten beschreiben</h3>
+        <p data-en>No jargon, no flowcharts, no prior knowledge. Type the way you'd brief a developer over coffee.</p>
+        <p data-de>Kein Fachjargon, keine Flowcharts, kein Vorwissen. Schreiben Sie wie bei einem Briefing am Kaffeetisch.</p>
+        <div class="quote" data-en>"I need a booking platform for my yoga studio. Customers should browse and book classes, I need an admin panel."</div>
+        <div class="quote" data-de>„Ich brauche eine Buchungsplattform für meine Yogaschule. Kunden sollen Kurse sehen und buchen, ich brauche ein Admin-Panel."</div>
+        <ul>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-en>Examples library to remix from</span><span data-de>Beispiel-Bibliothek zum Remixen</span></li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-en>Ask follow-ups: "make it bilingual", "add Stripe"</span><span data-de>Nachfragen: „mehrsprachig", „Stripe hinzufügen"</span></li>
+        </ul>
+      </div>
+      <div class="visual">
+        <div class="composer">
+          <div class="label"><span data-en>NEW PROJECT · IDEA</span><span data-de>NEUES PROJEKT · IDEE</span></div>
+          <div class="field">
+            <span class="typed" data-en>I need a booking platform for my yoga studio. Customers should browse and book classes, I need an admin panel<span class="caret"></span></span>
+            <span class="typed" data-de>Ich brauche eine Buchungsplattform für meine Yogaschule. Kunden sollen Kurse sehen und buchen, ich brauche ein Admin-Panel<span class="caret"></span></span>
+          </div>
+          <div class="toolbar">
+            <span class="chip">Laravel 12</span><span class="chip">PostgreSQL</span><span class="chip">+ Stripe</span>
+            <span class="grow"></span>
+            <button class="send"><span data-en>Generate</span><span data-de>Erzeugen</span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
+          </div>
+          <div class="examples">
+            <span data-en>Try:</span><span data-de>Beispiele:</span>
+            <span class="ex" data-en>dental practice scheduler</span><span class="ex" data-de>Zahnarzt-Termine</span>
+            <span class="ex" data-en>recipe blog with markdown</span><span class="ex" data-de>Rezepte-Blog</span>
+            <span class="ex" data-en>HOA member portal</span><span class="ex" data-de>Vereinsportal</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="copy">
+        <div class="stepnum"><span data-en>Step 02</span><span data-de>Schritt 02</span></div>
+        <h3 data-en>Nine agents work in parallel</h3>
+        <h3 data-de>Neun Agenten arbeiten parallel</h3>
+        <p data-en><b>The unique part:</b> you watch every file appear in real time. The screen is no longer a black box — it's a workshop.</p>
+        <p data-de><b>Das Einzigartige:</b> Sie sehen jede Datei in Echtzeit entstehen. Der Bildschirm ist keine Blackbox — er ist eine Werkstatt.</p>
+        <p data-en>Specialised agents plan the architecture, generate code, run validation, and prep the live preview — concurrently. Parallel execution cuts ~27 seconds per build.</p>
+        <p data-de>Spezialisierte Agenten planen die Architektur, generieren Code, prüfen und bereiten die Live-Preview vor — parallel. Parallelisierung spart ~27 Sekunden pro Build.</p>
+      </div>
+      <div class="visual">
+        <div class="orchestra">
+          <div class="top"><span class="live"></span><span data-en>Pipeline · run #14 · 00:23 elapsed</span><span data-de>Pipeline · run #14 · 00:23</span></div>
+          <div class="agents">
+            <div class="ag done"><span class="dot"></span><span class="nm">Architect</span><span class="st">done</span></div>
+            <div class="ag done"><span class="dot"></span><span class="nm">Requirements</span><span class="st">done</span></div>
+            <div class="ag done"><span class="dot"></span><span class="nm">Router</span><span class="st">→ Laravel</span></div>
+            <div class="ag run"><span class="dot"></span><span class="nm">Laravel Forge</span><span class="st">writing</span></div>
+            <div class="ag run"><span class="dot"></span><span class="nm">Style Worker</span><span class="st">tailwind</span></div>
+            <div class="ag queued"><span class="dot"></span><span class="nm">Content</span><span class="st">queued</span></div>
+            <div class="ag queued"><span class="dot"></span><span class="nm">Iteration</span><span class="st">idle</span></div>
+            <div class="ag queued"><span class="dot"></span><span class="nm">Validator</span><span class="st">idle</span></div>
+            <div class="ag queued"><span class="dot"></span><span class="nm">WP Forge</span><span class="st">—</span></div>
+          </div>
+          <div class="files">
+            <div class="f"><span class="plus">+</span><span class="path">app/Models/Booking.php</span></div>
+            <div class="f"><span class="plus">+</span><span class="path">app/Http/Controllers/ClassController.php</span></div>
+            <div class="f"><span class="plus">+</span><span class="path">database/migrations/2026_05_05_create_classes.php</span></div>
+            <div class="f"><span class="plus">+</span><span class="path">resources/views/classes/index.blade.php</span></div>
+            <div class="f"><span class="plus">+</span><span class="path">routes/web.php</span></div>
+            <div class="f adding"><span class="plus">+</span><span class="path">resources/views/admin/dashboard.blade.php</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="copy">
+        <div class="stepnum"><span data-en>Step 03</span><span data-de>Schritt 03</span></div>
+        <h3 data-en>Done. Working. Yours.</h3>
+        <h3 data-de>Fertig. Funktioniert. Gehört Ihnen.</h3>
+        <p data-en>The full app opens in a live preview — login, database, CRUD, admin panel. Iterate by chat or download the code and open it in your editor.</p>
+        <p data-de>Die fertige App öffnet sich in der Live-Preview — Login, Datenbank, CRUD, Admin-Panel. Iterieren Sie per Chat oder laden Sie den Code herunter.</p>
+        <ul>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-en>Push to your own GitHub repo</span><span data-de>Push in eigenes GitHub-Repo</span></li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-en><code style="font-family:var(--font-mono);font-size:12px;color:var(--indigo-hi);background:#050507;padding:1px 5px;border-radius:3px;border:1px solid var(--line)">composer install</code> works</span><span data-de><code style="font-family:var(--font-mono);font-size:12px;color:var(--indigo-hi);background:#050507;padding:1px 5px;border-radius:3px;border:1px solid var(--line)">composer install</code> funktioniert</span></li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-en>Deploy to any PHP host — Hetzner, Forge, Hostinger</span><span data-de>Deploy zu jedem PHP-Host — Hetzner, Forge, Hostinger</span></li>
+        </ul>
+      </div>
+      <div class="visual">
+        <div class="running">
+          <div class="browser">
+            <div class="bar"><div class="dots"><span></span><span></span><span></span></div><div class="url">localhost:8765/admin/classes</div></div>
+            <div class="body">
+              <div class="head">
+                <div class="logo">Y</div>
+                <div class="nm" data-en>Yogastudio · Admin</div>
+                <div class="nm" data-de>Yogastudio · Admin</div>
+                <div class="grow"></div>
+                <span class="pill-x">● live</span>
+              </div>
+              <h2 data-en>Classes</h2><h2 data-de>Kurse</h2>
+              <p data-en>4 active · next session in 12 minutes</p>
+              <p data-de>4 aktiv · nächste Stunde in 12 Min</p>
+              <div class="table">
+                <div class="th"><span>ID</span><span>Class</span><span data-en>Booked</span><span data-de>Belegt</span><span data-en>Status</span><span data-de>Status</span></div>
+                <div class="tr"><code>#41</code><span data-en>Vinyasa Flow · Tue 18:00</span><span data-de>Vinyasa · Di 18:00</span><code>14/16</code><span class="pill-g" data-en>open</span><span class="pill-g" data-de>offen</span></div>
+                <div class="tr"><code>#42</code><span data-en>Yin Yoga · Thu 19:30</span><span data-de>Yin · Do 19:30</span><code>16/16</code><span class="pill-y" data-en>full</span><span class="pill-y" data-de>voll</span></div>
+                <div class="tr"><code>#43</code><span data-en>Power · Sat 09:00</span><span data-de>Power · Sa 09:00</span><code>9/14</code><span class="pill-g" data-en>open</span><span class="pill-g" data-de>offen</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="stamp">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-en>Built in 4:11 · 47 files</span><span data-de>Gebaut in 4:11 · 47 Dateien</span>
+            <span class="grow"></span>
+            <span class="dl"><span data-en>Download .zip</span><span data-de>.zip laden</span> ↓</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="agents-sect" id="agents">
+  <div class="wrap head">
+    <div class="eyebrow"><span data-en>The orchestra</span><span data-de>Das Orchester</span></div>
+    <h2 data-en>Nine agents. One conductor. Your codebase.</h2>
+    <h2 data-de>Neun Agenten. Ein Dirigent. Ihre Codebase.</h2>
+    <p class="lede" data-en>Each agent owns one craft. Together they replace what used to take a team of five — and beat them on speed, every time.</p>
+    <p class="lede" data-de>Jeder Agent beherrscht ein Handwerk. Zusammen ersetzen sie ein Fünfer-Team — und sind jedes Mal schneller.</p>
+  </div>
+  <div class="wrap grid">
+    <div class="acard featured"><div class="num">00</div><div class="role"><span data-en>Conductor</span><span data-de>Dirigent</span></div><h3>Master Architect</h3><p data-en>Coordinates the orchestra, plans overall structure, decides what runs in parallel.</p><p data-de>Koordiniert das Orchester, plant die Struktur, entscheidet, was parallel läuft.</p></div>
+    <div class="acard"><div class="num">01</div><div class="role"><span data-en>Requirements</span><span data-de>Anforderungen</span></div><h3>Requirements Engineer</h3><p data-en>Translates the idea into a structured blueprint. Asks follow-ups when something's ambiguous.</p><p data-de>Übersetzt die Idee in ein strukturiertes Blueprint. Fragt nach, wenn etwas unklar ist.</p></div>
+    <div class="acard"><div class="num">02</div><div class="role"><span data-en>Smart routing</span><span data-de>Smart Routing</span></div><h3>Router Agent</h3><p data-en>Picks Laravel or WordPress based on the project's actual shape — not a coin flip.</p><p data-de>Wählt Laravel oder WordPress basierend auf dem Projekt — kein Münzwurf.</p></div>
+    <div class="acard"><div class="num">03</div><div class="role">Laravel</div><h3>Laravel Forge</h3><p data-en>Models, controllers, Blade views, migrations, tests. Idiomatic Laravel 12.</p><p data-de>Models, Controllers, Blade-Views, Migrations, Tests. Idiomatisches Laravel 12.</p></div>
+    <div class="acard"><div class="num">04</div><div class="role">WordPress</div><h3>WordPress Forge</h3><p data-en>Themes, custom plugins, ACF blocks, WP-CLI config. Real WordPress 6.5.</p><p data-de>Themes, Plugins, ACF-Blöcke, WP-CLI-Config. Echtes WordPress 6.5.</p></div>
+    <div class="acard"><div class="num">05</div><div class="role"><span data-en>Iteration</span><span data-de>Iteration</span></div><h3>Iteration Agent</h3><p data-en>Surgical edits. "Make the hero darker" touches one Blade file, not the whole app.</p><p data-de>Chirurgische Edits. „Hero dunkler" ändert eine Blade-Datei, nicht die ganze App.</p></div>
+    <div class="acard"><div class="num">06</div><div class="role"><span data-en>Design</span><span data-de>Design</span></div><h3>Style Worker</h3><p data-en>Tailwind tokens, CSS, brand colour systems, component layout, dark-mode parity.</p><p data-de>Tailwind-Tokens, CSS, Markenfarben, Komponenten-Layout, Dark-Mode-Parität.</p></div>
+    <div class="acard"><div class="num">07</div><div class="role"><span data-en>Content</span><span data-de>Inhalt</span></div><h3>Content Worker</h3><p data-en>Copy that doesn't sound like a robot. Localised. Honest. Skips the platitudes.</p><p data-de>Texte, die nicht roboterhaft klingen. Lokalisiert. Ehrlich. Ohne Floskeln.</p></div>
+    <div class="acard"><div class="num">08</div><div class="role">QA</div><h3>Validation Fix</h3><p data-en>Catches and auto-repairs broken syntax, missing imports, busted routes — before you see them.</p><p data-de>Findet und behebt Syntaxfehler, fehlende Imports, kaputte Routen — bevor Sie sie sehen.</p></div>
+  </div>
+</section>
+
+<section class="compete">
+  <div class="wrap">
+    <div class="eyebrow"><span data-en>Why us</span><span data-de>Warum wir</span></div>
+    <h2 data-en>The other tools ship JavaScript. We ship PHP.</h2>
+    <h2 data-de>Andere Tools liefern JavaScript. Wir liefern PHP.</h2>
+    <p class="lede" data-en>If your hosting, your agency, or your team already speaks PHP — these are not the same product.</p>
+    <p class="lede" data-de>Wenn Ihr Hosting, Ihre Agentur oder Ihr Team PHP spricht — das sind nicht dieselben Produkte.</p>
+    <table>
+      <thead><tr><th></th><th class="cv">Lovable</th><th class="cv">v0</th><th class="cv">Base44</th><th class="cv craftly-col">Craftly</th></tr></thead>
+      <tbody>
+        <tr><td class="feat" data-en>Real Laravel codebase</td><td class="feat" data-de>Echte Laravel-Codebase</td><td class="cv"><span class="no">—</span></td><td class="cv"><span class="no">—</span></td><td class="cv"><span class="no">—</span></td><td class="cv craftly-col"><span class="yes">✓</span></td></tr>
+        <tr><td class="feat" data-en>Real WordPress site</td><td class="feat" data-de>Echte WordPress-Seite</td><td class="cv"><span class="no">—</span></td><td class="cv"><span class="no">—</span></td><td class="cv"><span class="no">—</span></td><td class="cv craftly-col"><span class="yes">✓</span></td></tr>
+        <tr><td class="feat" data-en>Watch every file as it's written</td><td class="feat" data-de>Jede Datei live mitsehen</td><td class="cv"><span class="no">—</span></td><td class="cv"><span class="no">—</span></td><td class="cv"><span class="no">—</span></td><td class="cv craftly-col"><span class="yes">✓</span></td></tr>
+        <tr><td class="feat" data-en>Download &amp; self-host</td><td class="feat" data-de>Download &amp; selbst hosten</td><td class="cv"><span class="no">—</span></td><td class="cv">partial</td><td class="cv"><span class="no">—</span></td><td class="cv craftly-col"><span class="yes">✓</span></td></tr>
+        <tr><td class="feat" data-en>Push to your GitHub</td><td class="feat" data-de>Push in Ihr GitHub</td><td class="cv"><span class="yes">✓</span></td><td class="cv"><span class="yes">✓</span></td><td class="cv"><span class="no">—</span></td><td class="cv craftly-col"><span class="yes">✓</span></td></tr>
+        <tr><td class="feat" data-en>Cost per generation</td><td class="feat" data-de>Kosten pro Generierung</td><td class="cv">$0.30+</td><td class="cv">$0.40+</td><td class="cv">n/a</td><td class="cv craftly-col">€0.19</td></tr>
+        <tr><td class="feat" data-en>Made in Europe · GDPR</td><td class="feat" data-de>EU · DSGVO</td><td class="cv"><span class="no">—</span></td><td class="cv"><span class="no">—</span></td><td class="cv"><span class="no">—</span></td><td class="cv craftly-col"><span class="yes">✓</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="demo" id="demo">
+  <div class="wrap">
+    <div class="eyebrow"><span data-en>Live demo</span><span data-de>Live-Demo</span></div>
+    <h2 data-en>See it with your own eyes.</h2>
+    <h2 data-de>Sehen Sie es mit eigenen Augen.</h2>
+    <p class="lede" data-en>Ninety seconds. One idea. One full working web app — DentalNova, a WordPress site for a dentist, generated end-to-end.</p>
+    <p class="lede" data-de>Neunzig Sekunden. Eine Idee. Eine vollständige Web-App — DentalNova, eine WordPress-Seite für einen Zahnarzt, end-to-end generiert.</p>
+    <div class="frame" id="demoFrame">
+      <div class="placeholder">
+        <button onclick="loadDemo()">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+          <span data-en>Play 90-second demo</span><span data-de>90-Sek-Demo abspielen</span>
         </button>
       </div>
     </div>
-
-    <!-- Mobile dropdown menu -->
-    <div id="mobile-menu" role="navigation" aria-label="Mobile Navigation">
-      <div style="display:flex;gap:6px;padding:12px 20px;background:#f8fafc;border-bottom:1px solid #e2e8f0;">
-        <span style="flex:1;text-align:center;padding:8px;border-radius:8px;background:white;color:#4F46E5;font-size:0.8rem;font-weight:700;border:1px solid #e0e7ff;cursor:default;">🇩🇪 Deutsch</span>
-        <a href="./index-en.html" style="flex:1;text-align:center;padding:8px;border-radius:8px;font-size:0.8rem;font-weight:600;color:#64748b;text-decoration:none;border:1px solid #e2e8f0;" onclick="closeMobileMenu()">🇬🇧 English</a>
-      </div>
-      <a href="#problem" onclick="closeMobileMenu()">Problem</a>
-      <a href="#loesung" onclick="closeMobileMenu()">Lösung</a>
-      <a href="#zahlen" onclick="closeMobileMenu()">Zahlen</a>
-      <a href="#demo" onclick="closeMobileMenu()">Demo</a>
-      <a href="#waitlist" onclick="closeMobileMenu()" style="color:#4F46E5;font-weight:700;">Beta-Warteliste ↗</a>
+    <div class="meta-row">
+      <span data-en>Recording: <b>WordPress · DentalNova</b></span><span data-de>Aufnahme: <b>WordPress · DentalNova</b></span>
+      <span data-en>Length: <b>1:30</b></span><span data-de>Länge: <b>1:30</b></span>
+      <span data-en>Generation: <b>4:11 actual</b></span><span data-de>Generierung: <b>4:11 real</b></span>
+      <span data-en>No edits, no cuts</span><span data-de>Keine Schnitte, kein Editing</span>
     </div>
-  </nav>
+  </div>
+</section>
 
-  <!-- ══════════════════════════════════════════════════════════════════
-       HERO
-       ══════════════════════════════════════════════════════════════════ -->
-  <section class="pt-32 pb-20 px-6 gradient-bg text-white relative overflow-hidden">
-    <div class="max-w-5xl mx-auto text-center relative z-10">
-      <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.05] mb-6">
-        Webanwendungen in<br>
-        <span class="text-indigo-300">5 Minuten</span> statt<br>
-        in 6 Wochen.
-      </h1>
-      <p class="text-xl md:text-2xl text-indigo-100 max-w-3xl mx-auto mb-10 leading-relaxed">
-        Craftly ist die <strong class="text-white">weltweit erste KI-Agentenplattform</strong>, die aus einer kurzen Beschreibung produktionsreife Laravel- und WordPress-Anwendungen erzeugt – live vor den Augen des Kunden.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-        <a href="#demo" class="bg-white text-indigo-900 hover:bg-indigo-50 font-semibold px-8 py-4 rounded-lg transition shadow-lg">
-          Demo ansehen →
-        </a>
-        <a href="mailto:info@shvedko.dev" class="border-2 border-white/30 hover:bg-white/10 font-semibold px-8 py-4 rounded-lg transition">
-          Gespräch vereinbaren
-        </a>
-      </div>
+<section class="stack">
+  <div class="wrap">
+    <div class="row">
+      <div class="lbl"><span data-en>Built on the boring stack you trust</span><span data-de>Gebaut auf dem soliden Stack, den Sie kennen</span></div>
+      <div class="item">Laravel<small>12</small></div>
+      <div class="item">WordPress<small>6.5</small></div>
+      <div class="item">PHP<small>8.4</small></div>
+      <div class="item">PostgreSQL</div>
+      <div class="item">Claude</div>
+      <div class="item">React<small>UI only</small></div>
+    </div>
+  </div>
+</section>
 
-      <!-- Hero screenshot -->
-      <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-        <img
-          src="./assets/img/screenshot1.png"
-          alt="Craftly Hauptansicht — Chat-Panel links, generierter Code und Live-Preview rechts"
-          class="w-full">
+<section class="founder">
+  <div class="wrap grid">
+    <div class="copy">
+      <div class="eyebrow" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.10em;text-transform:uppercase;color:var(--indigo-hi)"><span data-en>Who's behind this</span><span data-de>Wer dahinter steht</span></div>
+      <h3 data-en>ShvedkoDev. Built in Göttingen, for the German Mittelstand.</h3>
+      <h3 data-de>ShvedkoDev. Gebaut in Göttingen, für den deutschen Mittelstand.</h3>
+      <p data-en>Since <b>2022</b> we've shipped custom web apps for German SMBs. <b>24 client projects</b> taught us exactly what's missing — and what to automate.</p>
+      <p data-de>Seit <b>2022</b> liefern wir individuelle Web-Apps für deutsche KMU. <b>24 Kundenprojekte</b> haben uns gezeigt, was fehlt — und was sich automatisieren lässt.</p>
+      <p data-en>Craftly is the next step: from billable hours to a product. Same craft, productised. Same care, distilled into nine agents.</p>
+      <p data-de>Craftly ist der nächste Schritt: von Stundenarbeit zum Produkt. Gleiches Handwerk, produktisiert. Gleiche Sorgfalt, destilliert in neun Agenten.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">2022</div><div class="l"><span data-en>Founded</span><span data-de>Gegründet</span></div></div>
+        <div class="stat"><div class="n">24</div><div class="l"><span data-en>Client projects</span><span data-de>Projekte</span></div></div>
+        <div class="stat"><div class="n">9</div><div class="l"><span data-en>Agents</span><span data-de>Agenten</span></div></div>
+        <div class="stat"><div class="n">🇩🇪</div><div class="l"><span data-en>Göttingen</span><span data-de>Göttingen</span></div></div>
       </div>
     </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════════
-       METRIKEN
-       ══════════════════════════════════════════════════════════════════ -->
-  <section id="zahlen" class="py-20 px-6 border-b border-slate-200">
-    <div class="max-w-6xl mx-auto">
-      <p class="text-center text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-3 scroll-animate">Messbare Ergebnisse</p>
-      <h2 class="text-center text-3xl md:text-4xl font-extrabold mb-12 scroll-animate scroll-delay-1">Keine Behauptungen. Nur Zahlen.</h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-        <div class="card-hover p-8 rounded-2xl bg-gradient-to-br from-indigo-50 to-white border border-slate-200 scroll-animate scroll-delay-1">
-          <div class="text-6xl md:text-7xl font-extrabold gradient-text mb-2">4:11</div>
-          <p class="font-semibold text-slate-900 mb-1">Minuten bis zur fertigen App</p>
-          <p class="text-sm text-slate-500">Gemessen an einer vollständigen Laravel-CRUD-Anwendung inkl. Auth</p>
-        </div>
-        <div class="card-hover p-8 rounded-2xl bg-gradient-to-br from-indigo-50 to-white border border-slate-200 scroll-animate scroll-delay-2">
-          <div class="text-6xl md:text-7xl font-extrabold gradient-text mb-2">0,19 €</div>
-          <p class="font-semibold text-slate-900 mb-1">Gesamtkosten pro Generierung</p>
-          <p class="text-sm text-slate-500">Ca. 1000× günstiger als klassische Agenturarbeit</p>
-        </div>
-        <div class="card-hover p-8 rounded-2xl bg-gradient-to-br from-indigo-50 to-white border border-slate-200 scroll-animate scroll-delay-3">
-          <div class="text-6xl md:text-7xl font-extrabold gradient-text mb-2">~27 s</div>
-          <p class="font-semibold text-slate-900 mb-1">Schnellere Live-Vorschau</p>
-          <p class="text-sm text-slate-500">Durch patentwürdige Parallelisierung (ADR-0026)</p>
-        </div>
+    <div class="photo">
+      <div class="logo">ShvedkoDev<small>est. 2022 · Göttingen</small></div>
+      <div class="marks">
+        <div class="item"><div class="yr">2022</div><div class="lbl-x" data-en>Founded</div><div class="lbl-x" data-de>Gegründet</div><div class="desc-x" data-en>Custom web for SMBs</div><div class="desc-x" data-de>Custom Web für KMU</div></div>
+        <div class="item"><div class="yr">2024</div><div class="lbl-x" data-en>20th project shipped</div><div class="lbl-x" data-de>20. Projekt geliefert</div><div class="desc-x" data-en>Repeatable patterns emerge</div><div class="desc-x" data-de>Wiederholbare Muster</div></div>
+        <div class="item"><div class="yr">2025</div><div class="lbl-x" data-en>Craftly research</div><div class="lbl-x" data-de>Craftly-Forschung</div><div class="desc-x" data-en>Multi-agent prototypes</div><div class="desc-x" data-de>Multi-Agent-Prototypen</div></div>
+        <div class="item"><div class="yr">2026</div><div class="lbl-x" data-en>Beta opens</div><div class="lbl-x" data-de>Beta startet</div><div class="desc-x" data-en>You're here</div><div class="desc-x" data-de>Sie sind hier</div></div>
       </div>
+      <div class="city"><span class="pin"></span>Göttingen, DE · 51.5413° N, 9.9158° E</div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ══════════════════════════════════════════════════════════════════
-       PROBLEM
-       ══════════════════════════════════════════════════════════════════ -->
-  <section id="problem" class="py-24 px-6 bg-slate-50">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-16">
-        <p class="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-3 scroll-animate">Das Problem</p>
-        <h2 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight scroll-animate scroll-delay-1">
-          Der deutsche Mittelstand<br>wird digital abgehängt.
-        </h2>
-        <p class="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed scroll-animate scroll-delay-2">
-          3,5 Millionen KMU in Deutschland brauchen dringend individuelle Webanwendungen – und können sie sich nicht leisten.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="card-hover bg-white p-8 rounded-xl border border-slate-200 scroll-animate scroll-delay-1">
-          <div class="text-4xl mb-4">⏱️</div>
-          <h3 class="font-bold text-xl mb-3">6–12 Wochen Wartezeit</h3>
-          <p class="text-slate-600 leading-relaxed">Klassische Agenturen brauchen Monate. Bis dahin ist das Geschäft oft weitergezogen oder der Markt verändert.</p>
-        </div>
-        <div class="card-hover bg-white p-8 rounded-xl border border-slate-200 scroll-animate scroll-delay-2">
-          <div class="text-4xl mb-4">💰</div>
-          <h3 class="font-bold text-xl mb-3">10 000–50 000 €</h3>
-          <p class="text-slate-600 leading-relaxed">Individuelle Entwicklung sprengt das IT-Budget von Handwerk, Vereinen und Solo-Unternehmern.</p>
-        </div>
-        <div class="card-hover bg-white p-8 rounded-xl border border-slate-200 scroll-animate scroll-delay-3">
-          <div class="text-4xl mb-4">🌐</div>
-          <h3 class="font-bold text-xl mb-3">Fehlende PHP-Lösung</h3>
-          <p class="text-slate-600 leading-relaxed">Bestehende KI-Tools (Lovable, v0, Base44) erzeugen nur React – unbrauchbar für 75 % der Websites weltweit.</p>
-        </div>
-      </div>
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="eyebrow">FAQ</div>
+    <h2 data-en>Honest answers to the questions you're already asking.</h2>
+    <h2 data-de>Ehrliche Antworten auf Ihre Fragen.</h2>
+    <div class="grid">
+      <details><summary><span data-en>Can I really download and host the code myself?</span><span data-de>Kann ich den Code wirklich selbst hosten?</span></summary><p data-en>Yes. Every project is a real Laravel or WordPress codebase you can <code>git clone</code> and <code>composer install</code>. Deploy to Hetzner, Forge, your own VPS — wherever PHP runs.</p><p data-de>Ja. Jedes Projekt ist eine echte Codebase, die Sie klonen und mit <code>composer install</code> starten können. Hetzner, Forge, eigener VPS — überall, wo PHP läuft.</p></details>
+      <details><summary><span data-en>What happens after the beta?</span><span data-de>Was passiert nach der Beta?</span></summary><p data-en>Beta seats keep their early-access pricing forever (50% off Pro). After GA, plans start at €19/month with credit-based generation top-ups available.</p><p data-de>Beta-Plätze behalten den Early-Access-Preis dauerhaft (50% Rabatt auf Pro). Nach GA starten Pläne ab 19&nbsp;€/Monat.</p></details>
+      <details><summary><span data-en>Why PHP and not React?</span><span data-de>Warum PHP und nicht React?</span></summary><p data-en>PHP runs ~75% of the web. Every shared host speaks it. Your client's agency speaks it. Your CMS speaks it. We meet you where production already lives.</p><p data-de>PHP läuft auf ~75% des Webs. Jedes Shared Hosting spricht es. Wir treffen Sie dort, wo die Produktion schon läuft.</p></details>
+      <details><summary><span data-en>Is the code actually good, or just plausible-looking?</span><span data-de>Ist der Code wirklich gut?</span></summary><p data-en>The Validation Fix agent runs PHPStan, Larastan, and our own conventions before each preview. Generated code passes <code>php artisan test</code>, follows PSR-12, uses Eloquent properly.</p><p data-de>Der Validation-Fix-Agent prüft mit PHPStan, Larastan und eigenen Konventionen vor jeder Preview. Code besteht <code>php artisan test</code>, folgt PSR-12.</p></details>
+      <details><summary><span data-en>GDPR &amp; data residency?</span><span data-de>DSGVO &amp; Data Residency?</span></summary><p data-en>Built in Germany. Data processed in EU regions. AVV (DPA) on request. We don't train on your prompts or code.</p><p data-de>Gebaut in Deutschland. Datenverarbeitung in EU-Regionen. AVV auf Anfrage. Kein Training auf Ihren Daten.</p></details>
+      <details><summary><span data-en>What about more complex apps — multi-tenant, payment, integrations?</span><span data-de>Komplexere Apps — Multi-Tenant, Payment, Integrationen?</span></summary><p data-en>Stripe, OAuth, multi-tenant scaffolds, queue workers — supported. Beyond that, the codebase is yours; bring it to your team or back to ShvedkoDev for a follow-on engagement.</p><p data-de>Stripe, OAuth, Multi-Tenant-Scaffolds, Queue-Worker — unterstützt. Darüber hinaus gehört der Code Ihnen.</p></details>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ══════════════════════════════════════════════════════════════════
-       SO FUNKTIONIERT CRAFTLY
-       ══════════════════════════════════════════════════════════════════ -->
-  <section id="loesung" class="py-24 px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-20">
-        <p class="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-3 scroll-animate">Die Lösung</p>
-        <h2 class="text-4xl md:text-5xl font-extrabold mb-6 scroll-animate scroll-delay-1">So einfach wie eine E-Mail schreiben.</h2>
-        <p class="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed scroll-animate scroll-delay-2">
-          Beschreiben Sie Ihre Idee in eigenen Worten. Craftly baut die fertige Anwendung — Sie sehen live zu.
-        </p>
-      </div>
-
-      <!-- Schritt 1 -->
-      <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
-        <div class="scroll-animate">
-          <div class="inline-block bg-indigo-100 text-indigo-700 font-bold text-sm px-3 py-1 rounded-full mb-4">Schritt 1</div>
-          <h3 class="text-3xl font-extrabold mb-4 leading-tight">Idee in eigenen Worten eingeben</h3>
-          <p class="text-lg text-slate-600 leading-relaxed mb-4 italic">
-            „Ich brauche eine Buchungsplattform für meine Yogaschule. Kunden sollen Kurse sehen und buchen können, ich brauche ein Admin-Panel."
-          </p>
-          <p class="text-lg text-slate-600 leading-relaxed">
-            Kein Fachjargon nötig. Keine Vorkenntnisse. Keine Flowcharts. Einfach die Idee formulieren wie eine E-Mail an einen Bekannten.
-          </p>
-        </div>
-        <div class="rounded-xl overflow-hidden border border-slate-200 shadow-xl scroll-animate scroll-delay-1">
-          <img
-            src="./assets/img/screenshot2.png"
-            alt="Craftly Eingabefeld — Projektbeschreibung im natürlicher Sprache"
-            class="w-full">
-        </div>
-      </div>
-
-      <!-- Schritt 2 -->
-      <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
-        <div class="md:order-2 scroll-animate">
-          <div class="inline-block bg-indigo-100 text-indigo-700 font-bold text-sm px-3 py-1 rounded-full mb-4">Schritt 2</div>
-          <h3 class="text-3xl font-extrabold mb-4 leading-tight">9 KI-Agenten arbeiten parallel</h3>
-          <p class="text-lg text-slate-600 leading-relaxed mb-4">
-            Spezialisierte KI-Agenten planen die Struktur, entwerfen das Design, generieren den Code, prüfen auf Fehler und bereiten die Live-Vorschau vor – alles in Echtzeit.
-          </p>
-          <p class="text-lg text-slate-600 leading-relaxed">
-            <strong class="text-slate-900">Das Einzigartige:</strong> Sie sehen jede einzelne Datei entstehen. Der Bildschirm ist nicht länger eine Blackbox.
-          </p>
-        </div>
-        <!-- screenshot3 is a narrow crop — dark bg prevents letterboxing -->
-        <div class="md:order-1 rounded-xl overflow-hidden border border-slate-200 shadow-xl bg-slate-50 scroll-animate scroll-delay-1">
-          <img
-            src="./assets/img/screenshot3.png"
-            alt="Craftly Live-Analyse — KI-Pipeline mit Fortschrittsanzeige und Dateibaum"
-            class="w-full">
-        </div>
-      </div>
-
-      <!-- Schritt 3 -->
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div class="scroll-animate">
-          <div class="inline-block bg-indigo-100 text-indigo-700 font-bold text-sm px-3 py-1 rounded-full mb-4">Schritt 3</div>
-          <h3 class="text-3xl font-extrabold mb-4 leading-tight">Fertig. Funktioniert.</h3>
-          <p class="text-lg text-slate-600 leading-relaxed mb-4">
-            Nach unter 5 Minuten öffnet sich die vollständige, funktionierende Anwendung in einer Live-Vorschau — mit Login, Datenbank, CRUD-Masken und Admin-Panel.
-          </p>
-          <p class="text-lg text-slate-600 leading-relaxed">
-            Einsatzbereit. Erweiterbar. Herunterladbar. <strong class="text-slate-900">Kein Lock-in</strong> — der Code gehört Ihnen.
-          </p>
-        </div>
-        <div class="rounded-xl overflow-hidden border border-slate-200 shadow-xl scroll-animate scroll-delay-1">
-          <img
-            src="./assets/img/screenshot4.png"
-            alt="Craftly Live-Preview — fertig generierte WordPress-Anwendung DentalNova"
-            class="w-full">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════════
-       ARCHITEKTUR / 9 AGENTEN
-       ══════════════════════════════════════════════════════════════════ -->
-  <section class="py-24 px-6 gradient-bg text-white">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-16">
-        <p class="text-sm font-semibold text-indigo-300 uppercase tracking-wider mb-3 scroll-animate">Die Architektur</p>
-        <h2 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight scroll-animate scroll-delay-1">
-          9 spezialisierte KI-Agenten<br>in Orchestrierung.
-        </h2>
-        <p class="text-xl text-indigo-100 max-w-3xl mx-auto leading-relaxed scroll-animate scroll-delay-2">
-          Jeder Agent ist ein Experte für genau eine Aufgabe. Zusammen bauen sie, was sonst ein ganzes Entwicklerteam braucht.
-        </p>
-      </div>
-
-      <div class="rounded-xl overflow-hidden border border-white/10 bg-white/5 p-6 mb-12 shadow-2xl scroll-animate">
-        <img
-          src="./assets/img/_-%20visual%20selection.svg"
-          alt="Architektur-Diagramm der 9 KI-Agenten-Pipeline"
-          class="w-full h-auto">
-      </div>
-
-      <!-- Agent cards with icons -->
-      <div class="grid md:grid-cols-3 gap-4">
-        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-lg p-5 card-hover scroll-animate scroll-delay-1">
-          <div class="text-2xl mb-2">🏛️</div>
-          <div class="text-xs font-semibold text-indigo-300 uppercase tracking-wide mb-1">Orchestrierung</div>
-          <div class="font-bold text-white">Master Architect</div>
-          <div class="text-xs text-indigo-200 mt-1 leading-relaxed">Koordiniert alle Agenten, plant die Gesamtstruktur</div>
-        </div>
-        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-lg p-5 card-hover scroll-animate scroll-delay-1">
-          <div class="text-2xl mb-2">📋</div>
-          <div class="text-xs font-semibold text-indigo-300 uppercase tracking-wide mb-1">Anforderungen</div>
-          <div class="font-bold text-white">Requirements Engineer</div>
-          <div class="text-xs text-indigo-200 mt-1 leading-relaxed">Übersetzt die Idee in ein strukturiertes Blueprint</div>
-        </div>
-        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-lg p-5 card-hover scroll-animate scroll-delay-1">
-          <div class="text-2xl mb-2">🔀</div>
-          <div class="text-xs font-semibold text-indigo-300 uppercase tracking-wide mb-1">Smart Routing</div>
-          <div class="font-bold text-white">Router Agent</div>
-          <div class="text-xs text-indigo-200 mt-1 leading-relaxed">Wählt Laravel oder WordPress basierend auf dem Projekt</div>
-        </div>
-        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-lg p-5 card-hover scroll-animate scroll-delay-2">
-          <div class="text-2xl mb-2">🔵</div>
-          <div class="text-xs font-semibold text-indigo-300 uppercase tracking-wide mb-1">WordPress</div>
-          <div class="font-bold text-white">WordPress Forge</div>
-          <div class="text-xs text-indigo-200 mt-1 leading-relaxed">Generiert Themes, Plugins und WP-Konfiguration</div>
-        </div>
-        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-lg p-5 card-hover scroll-animate scroll-delay-2">
-          <div class="text-2xl mb-2">🔴</div>
-          <div class="text-xs font-semibold text-indigo-300 uppercase tracking-wide mb-1">Laravel</div>
-          <div class="font-bold text-white">Laravel Forge</div>
-          <div class="text-xs text-indigo-200 mt-1 leading-relaxed">Erstellt Controller, Models, Views und Migrations</div>
-        </div>
-        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-lg p-5 card-hover scroll-animate scroll-delay-2">
-          <div class="text-2xl mb-2">🔄</div>
-          <div class="text-xs font-semibold text-indigo-300 uppercase tracking-wide mb-1">Iteration</div>
-          <div class="font-bold text-white">Iteration Agent</div>
-          <div class="text-xs text-indigo-200 mt-1 leading-relaxed">Wendet Änderungswünsche gezielt auf den Code an</div>
-        </div>
-        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-lg p-5 card-hover scroll-animate scroll-delay-3">
-          <div class="text-2xl mb-2">🎨</div>
-          <div class="text-xs font-semibold text-indigo-300 uppercase tracking-wide mb-1">Design</div>
-          <div class="font-bold text-white">Style Worker</div>
-          <div class="text-xs text-indigo-200 mt-1 leading-relaxed">Passt CSS, Farben und visuelle Gestaltung an</div>
-        </div>
-        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-lg p-5 card-hover scroll-animate scroll-delay-3">
-          <div class="text-2xl mb-2">✍️</div>
-          <div class="text-xs font-semibold text-indigo-300 uppercase tracking-wide mb-1">Inhalt</div>
-          <div class="font-bold text-white">Content Worker</div>
-          <div class="text-xs text-indigo-200 mt-1 leading-relaxed">Schreibt und optimiert Texte und Inhalte</div>
-        </div>
-        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-lg p-5 card-hover scroll-animate scroll-delay-3">
-          <div class="text-2xl mb-2">✅</div>
-          <div class="text-xs font-semibold text-indigo-300 uppercase tracking-wide mb-1">Qualitätssicherung</div>
-          <div class="font-bold text-white">Validation Fix</div>
-          <div class="text-xs text-indigo-200 mt-1 leading-relaxed">Erkennt und behebt automatisch Fehler im Code</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════════
-       DEMO VIDEO
-       ══════════════════════════════════════════════════════════════════ -->
-  <section id="demo" class="py-24 px-6 bg-slate-900 text-white">
-    <div class="max-w-5xl mx-auto text-center">
-      <p class="text-sm font-semibold text-indigo-400 uppercase tracking-wider mb-3 scroll-animate">Live-Demo</p>
-      <h2 class="text-4xl md:text-5xl font-extrabold mb-6 scroll-animate scroll-delay-1">Sehen Sie es mit eigenen Augen.</h2>
-      <p class="text-xl text-slate-300 max-w-3xl mx-auto mb-12 leading-relaxed scroll-animate scroll-delay-2">
-        90 Sekunden. Eine Idee. Eine fertige, funktionsfähige Webanwendung.
-      </p>
-
-      <div class="aspect-video rounded-xl overflow-hidden border border-white/10 shadow-2xl scroll-animate">
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/FMN-LkQFgGQ?si=do2wHkicvKLztmy7"
-          title="Craftly Demo — Webanwendung in 5 Minuten statt Wochen"
-          class="w-full h-full"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen>
-        </iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════════
-       TECH STRIP
-       ══════════════════════════════════════════════════════════════════ -->
-  <section class="py-12 px-6 border-b border-slate-100">
-    <div class="max-w-5xl mx-auto">
-      <p class="text-center text-xs font-semibold text-slate-400 uppercase tracking-widest mb-8 scroll-animate">
-        Gebaut auf bewährten Technologien
-      </p>
-      <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-5 scroll-animate scroll-delay-1">
-
-        <!-- Laravel -->
-        <div class="flex items-center gap-2 text-slate-500 hover:text-red-600 transition-colors duration-200">
-          <svg class="w-6 h-6" viewBox="0 0 50 52" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M49.626 11.564a.809.809 0 0 1 .028.209v10.972a.8.8 0 0 1-.402.694l-9.209 5.302V39.25c0 .286-.152.55-.4.694L20.42 51.01a.7.7 0 0 1-.114.05c-.042.013-.084.025-.128.033a.809.809 0 0 1-.292-.033L.402 39.944A.802.802 0 0 1 0 39.25V6.334c0-.072.01-.143.028-.21.006-.024.017-.047.024-.07.016-.045.03-.09.053-.131.011-.02.027-.035.04-.054.022-.03.043-.063.069-.09.019-.02.044-.036.067-.054.025-.02.05-.042.077-.059L9.936.274a.802.802 0 0 1 .8 0l9.6 5.542a.8.8 0 0 1 .397.690V16.41l8.005-4.617V6.334a.8.8 0 0 1 .028-.21c.007-.024.017-.047.025-.07.016-.044.03-.09.052-.131.012-.02.028-.035.041-.054.022-.03.042-.063.069-.09.019-.02.044-.036.067-.054.025-.02.05-.042.077-.059L39.226.274a.802.802 0 0 1 .8 0l9.6 5.542a.8.8 0 0 1 .402.694v4.965c0 .018-.004.034-.006.052z"/>
-          </svg>
-          <span class="font-semibold text-sm">Laravel</span>
-        </div>
-
-        <!-- WordPress -->
-        <div class="flex items-center gap-2 text-slate-500 hover:text-blue-600 transition-colors duration-200">
-          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zM3.08 12c0-1.293.28-2.52.776-3.625L6.897 17.5A8.934 8.934 0 0 1 3.08 12zm8.92 8.92a8.9 8.9 0 0 1-2.52-.364l2.68-7.79 2.742 7.516a8.93 8.93 0 0 1-2.902.638zm1.24-13.26c.54-.028 1.027-.084 1.027-.084.483-.057.426-.767-.057-.74 0 0-1.452.114-2.39.114-.883 0-2.363-.114-2.363-.114-.483-.027-.54.71-.057.74 0 0 .458.056.942.084l1.4 3.84-1.964 5.895-3.27-9.735c.54-.028 1.027-.084 1.027-.084.483-.057.426-.767-.057-.74 0 0-1.453.114-2.39.114a16.5 16.5 0 0 1-.576-.01A8.94 8.94 0 0 1 12 3.08c2.332 0 4.459.844 6.094 2.231a3.66 3.66 0 0 0-.116-.007c-.883 0-1.51.768-1.51 1.592 0 .74.428 1.367.883 2.106.342.597.74 1.367.74 2.475 0 .77-.296 1.66-.683 2.91l-.894 2.991zm3.1 12.203-3.27-9.736c.54-.028 1.028-.084 1.028-.084.483-.057.427-.767-.057-.74 0 0-1.452.114-2.39.114a8.97 8.97 0 0 1-.578-.01l3.256 9.69a8.94 8.94 0 0 0 2.011-8.178z"/>
-          </svg>
-          <span class="font-semibold text-sm">WordPress</span>
-        </div>
-
-        <!-- PHP -->
-        <div class="flex items-center gap-2 text-slate-500 hover:text-indigo-600 transition-colors duration-200">
-          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-1.25 5.893h2.5l-.63 2.856h1.618c1.064 0 1.8.208 2.21.624.41.416.524 1.066.34 1.95l-.77 3.527H13.5l.72-3.3c.09-.41.065-.698-.075-.863-.14-.166-.43-.25-.87-.25H11.8l-.963 4.413H8.37l2.38-8.957zM5.3 8.75h4.21l-.31 1.44H7.63l-.18.836h1.485l-.29 1.38H7.16l-.546 2.46H4.8l1.5-6.116z"/>
-          </svg>
-          <span class="font-semibold text-sm">PHP 8.4</span>
-        </div>
-
-        <!-- PostgreSQL -->
-        <div class="flex items-center gap-2 text-slate-500 hover:text-sky-600 transition-colors duration-200">
-          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M13.212 0c-.96.01-1.854.147-2.608.397C8.376.047 6.142.26 4.792 1.703 3.46 3.128 3.006 5.374 3.468 8.205c.19 1.114.489 2.17.773 2.88l.042.1c.413 1.047 1.039 1.81 1.95 1.92.434.05.925-.065 1.337-.436.146.258.313.47.514.623.72.55 1.533.512 2.146.274.18-.07.345-.164.496-.278.053.528.132 1.068.236 1.607.234 1.261.644 2.408 1.584 3.18.963.793 2.33 1.097 4.173.803 1.22-.198 2.228-.598 2.998-1.274.756-.663 1.13-1.542 1.305-2.491.109-.6.148-1.22.156-1.874.427-.22.84-.52 1.196-.922.757-.854 1.208-2.12 1.063-3.878-.14-1.725-.895-2.763-1.789-3.38a4.14 4.14 0 0 0-.812-.437c.007-.34-.001-.686-.024-1.033C20.478 1.22 18.8.03 16.69 0c-.566-.007-1.12.04-1.615.13A5.66 5.66 0 0 0 13.212 0zm3.42 1.43c1.726-.029 2.854.383 3.484 1.232.597.805.596 2.009.025 2.696a1.44 1.44 0 0 1-.243.249 3.77 3.77 0 0 0-1.241-.703 5.17 5.17 0 0 0-1.638-.39c.126-.258.198-.537.198-.838a2.37 2.37 0 0 0-.435-1.337 3.26 3.26 0 0 0-.411-.455c.434-.15.893-.245 1.26-.454zm-5.253.09c.57 0 1.118.067 1.584.222.783.259 1.302.77 1.302 1.714 0 .41-.112.797-.317 1.088a1.966 1.966 0 0 1-1.532.836c-.197.017-.4.026-.605.026-.347 0-.684-.03-.998-.086l-.111-.022a6.78 6.78 0 0 1-.546-.129 2.67 2.67 0 0 1-1.017-.46 1.882 1.882 0 0 1-.706-1.47c0-.495.146-.94.432-1.278.56-.665 1.52-.974 2.514-.441zm-5.14.842c.152 0 .298.012.433.033a2.36 2.36 0 0 0-.422 1.425c0 .505.158 1.012.442 1.425.271.394.62.71.838.848.294.213.62.386.968.517.323.118.663.208 1.015.259.244.037.5.058.762.058.232 0 .458-.016.679-.047a4.45 4.45 0 0 0 1.456-.487c-.074.276-.109.554-.109.84l-.002.076c-.007.327.012.652.059.96a5.82 5.82 0 0 0-.762-.043c-1.133 0-2.09.327-2.666 1.014l-.043.057a2.62 2.62 0 0 0-.43.877 4.26 4.26 0 0 1-1.377-1.245 4.63 4.63 0 0 1-.603-2.308c0-1.397.42-2.594 1.088-3.406a2.48 2.48 0 0 1-.337.167z"/>
-          </svg>
-          <span class="font-semibold text-sm">PostgreSQL</span>
-        </div>
-
-        <!-- Claude AI -->
-        <div class="flex items-center gap-2 text-slate-500 hover:text-orange-500 transition-colors duration-200">
-          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M17.304 1.33a.63.63 0 0 0-.585.077c-.156.117-.253.29-.272.478l-.617 6.058-1.8-5.766a.646.646 0 0 0-.817-.415.643.643 0 0 0-.43.804l1.67 5.354-4.327-4.32a.643.643 0 0 0-.91 0 .643.643 0 0 0 0 .91l4.32 4.328-5.354-1.67a.645.645 0 0 0-.804.43.643.643 0 0 0 .415.818l5.766 1.8-6.058.617a.643.643 0 0 0-.555.71.645.645 0 0 0 .71.555l6.058-.617-5.08 3.293a.643.643 0 0 0 .695 1.082l5.08-3.294-3.293 5.08a.643.643 0 0 0 1.083.696l3.292-5.08-.617 6.058a.643.643 0 0 0 1.265.128l.617-6.058 1.8 5.766a.643.643 0 0 0 1.221-.39l-1.67-5.354 4.327 4.321a.643.643 0 0 0 .91-.91l-4.32-4.328 5.355 1.671a.643.643 0 0 0 .39-1.221l-5.766-1.8 6.058-.618a.643.643 0 0 0-.129-1.264l-6.058.617 5.08-3.293a.643.643 0 0 0-.695-1.082l-5.08 3.294 3.293-5.08a.643.643 0 0 0-.226-.878.63.63 0 0 0-.333-.077z"/>
-          </svg>
-          <span class="font-semibold text-sm">Claude AI</span>
-        </div>
-
-        <!-- React -->
-        <div class="flex items-center gap-2 text-slate-500 hover:text-cyan-500 transition-colors duration-200">
-          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M12 13.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-12.47c4.44 0 8.06 4.46 8.06 9.97 0 5.5-3.62 9.97-8.06 9.97S3.94 16.5 3.94 11c0-5.51 3.62-9.97 8.06-9.97zm0-1.03C5.96 0 1 4.93 1 11s4.96 11 11 11 11-4.93 11-11S18.04 0 12 0zm-7.78 11c0-1.85.42-3.59 1.13-5.1-.71-1.5-1.13-3.25-1.13-5.1 0-.37.03-.73.07-1.09C2.98 1.36 1.5 4.34 1.5 7.66c0 1.75.42 3.4 1.15 4.86-.73 1.45-1.15 3.1-1.15 4.84 0 3.32 1.48 6.3 3.79 7.85-.04-.36-.07-.72-.07-1.09 0-1.85.42-3.6 1.13-5.11-.71-1.51-1.13-3.26-1.13-5.11z"/>
-          </svg>
-          <span class="font-semibold text-sm">React</span>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════════
-       ÜBER SHVEDKODEV
-       ══════════════════════════════════════════════════════════════════ -->
-  <section class="py-24 px-6">
-    <div class="max-w-5xl mx-auto">
-      <div class="grid md:grid-cols-2 gap-16 items-center">
-        <div class="scroll-animate">
-          <p class="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-3">Wer dahinter steht</p>
-          <h2 class="text-4xl font-extrabold mb-6 leading-tight">ShvedkoDev — Regionale Digitalisierung aus Göttingen.</h2>
-          <p class="text-lg text-slate-600 leading-relaxed mb-4">
-            Seit <strong class="text-slate-900">2022</strong> entwickeln wir individuelle Webanwendungen für den deutschen Mittelstand. <strong class="text-slate-900">24 erfolgreich umgesetzte Kundenprojekte</strong> zeigen: Wir wissen, was KMU wirklich brauchen.
-          </p>
-          <p class="text-lg text-slate-600 leading-relaxed mb-6">
-            Craftly ist der logische nächste Schritt — von Auftragsgeschäft zu skalierbarer Software, die unser Agenturwissen in ein Produkt gießt. Made in Göttingen, für den deutschen Mittelstand.
-          </p>
-          <div class="flex flex-wrap gap-3">
-            <span class="bg-slate-100 px-4 py-2 rounded-lg text-sm font-semibold">Laravel</span>
-            <span class="bg-slate-100 px-4 py-2 rounded-lg text-sm font-semibold">WordPress</span>
-            <span class="bg-slate-100 px-4 py-2 rounded-lg text-sm font-semibold">KI-Integration</span>
-            <span class="bg-slate-100 px-4 py-2 rounded-lg text-sm font-semibold">PostgreSQL</span>
-            <span class="bg-slate-100 px-4 py-2 rounded-lg text-sm font-semibold">Individuelle Software</span>
-          </div>
-        </div>
-        <div class="grid grid-cols-2 gap-4 scroll-animate scroll-delay-1">
-          <div class="bg-gradient-to-br from-indigo-50 to-white p-6 rounded-xl border border-slate-200 text-center card-hover">
-            <div class="text-5xl font-extrabold gradient-text">2022</div>
-            <p class="text-slate-600 mt-2 font-medium text-sm">Gründungsjahr</p>
-          </div>
-          <div class="bg-gradient-to-br from-indigo-50 to-white p-6 rounded-xl border border-slate-200 text-center card-hover">
-            <div class="text-5xl font-extrabold gradient-text">24</div>
-            <p class="text-slate-600 mt-2 font-medium text-sm">Kundenprojekte</p>
-          </div>
-          <div class="bg-gradient-to-br from-indigo-50 to-white p-6 rounded-xl border border-slate-200 text-center card-hover">
-            <div class="text-5xl font-extrabold gradient-text">9</div>
-            <p class="text-slate-600 mt-2 font-medium text-sm">KI-Agenten</p>
-          </div>
-          <div class="bg-gradient-to-br from-indigo-50 to-white p-6 rounded-xl border border-slate-200 text-center card-hover">
-            <div class="text-5xl font-extrabold">🇩🇪</div>
-            <p class="text-slate-600 mt-2 font-medium text-sm">Made in Göttingen</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════════
-       CTA
-       ══════════════════════════════════════════════════════════════════ -->
-  <section class="py-24 px-6 gradient-bg text-white">
-    <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight scroll-animate">
-        Bereit für Ihre erste Webanwendung in 5 Minuten?
-      </h2>
-      <p class="text-xl text-indigo-100 mb-10 leading-relaxed scroll-animate scroll-delay-1">
-        Ob Sie ShvedkoDev für Ihr nächstes individuelles Projekt beauftragen möchten oder Craftly als Plattform testen wollen — wir freuen uns auf Ihre Nachricht.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center scroll-animate scroll-delay-2">
-        <a href="mailto:info@shvedko.dev" class="bg-white text-indigo-900 hover:bg-indigo-50 font-semibold px-8 py-4 rounded-lg transition shadow-lg">
-          E-Mail senden
-        </a>
-        <a href="https://shvedko.dev" class="border-2 border-white/30 hover:bg-white/10 font-semibold px-8 py-4 rounded-lg transition">
-          shvedko.dev besuchen
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════════
-       BETA WAITLIST
-       ══════════════════════════════════════════════════════════════════ -->
-  <section id="waitlist" class="py-20 px-6 bg-white border-t border-slate-100">
-    <div class="max-w-2xl mx-auto text-center">
-
-      <!-- Badge -->
-      <div class="inline-flex items-center gap-2 bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6 scroll-animate">
-        <span class="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
-        Beta — Limitierte Plätze
-      </div>
-
-      <h2 class="text-3xl md:text-4xl font-extrabold mb-4 leading-tight scroll-animate scroll-delay-1">
-        Seien Sie dabei,<br>wenn Craftly startet.
-      </h2>
-      <p class="text-lg text-slate-600 mb-10 leading-relaxed scroll-animate scroll-delay-2">
-        Tragen Sie sich in die Beta-Warteliste ein — Sie erhalten als Erste Zugang zur Plattform und einen exklusiven Early-Access-Rabatt.
-      </p>
-
-      <!-- CTA button to Google Form -->
-      <a
-        href="https://forms.gle/a3dbjUteGJUonTc1A"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="scroll-animate scroll-delay-2 inline-flex items-center gap-3 bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white font-bold text-lg px-10 py-5 rounded-xl shadow-xl hover:shadow-indigo-200 transition-all duration-200 hover:-translate-y-0.5 group">
-        <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-          <circle cx="9" cy="7" r="4"/>
-          <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
-          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-        </svg>
-        Zur Beta-Warteliste anmelden
-        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
+<section class="waitlist" id="waitlist">
+  <div class="wrap inner">
+    <div class="badge"><span class="d"></span><span data-en>Beta · 152 / 200 seats taken</span><span data-de>Beta · 152 / 200 Plätze belegt</span></div>
+    <h2 data-en>Be there when <em>Craftly</em> opens.</h2>
+    <h2 data-de>Seien Sie dabei, wenn <em>Craftly</em> startet.</h2>
+    <p data-en>Beta seats include lifetime early-access pricing — 50% off Pro, forever. No card required. We email when your seat is ready.</p>
+    <p data-de>Beta-Plätze beinhalten dauerhaften Early-Access-Preis — 50% Rabatt auf Pro, für immer. Keine Karte. Wir mailen, sobald Ihr Platz frei ist.</p>
+    <div class="cta-wrap">
+      <a class="btn btn-primary btn-lg" href="https://forms.gle/a3dbjUteGJUonTc1A" target="_blank" rel="noopener">
+        <span data-en>Reserve your seat — free</span><span data-de>Platz sichern — kostenlos</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
-
-      <p class="mt-5 text-sm text-slate-400 scroll-animate scroll-delay-3">
-        Kostenlos · Kein Spam · Jederzeit abmeldbar
-      </p>
-
     </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════════
-       FOOTER
-       ══════════════════════════════════════════════════════════════════ -->
-  <footer class="py-10 px-6 bg-slate-900 text-slate-400 text-sm">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-      <div class="text-center md:text-left">
-        © 2026 ShvedkoDev · Göttingen
-      </div>
-      <div class="flex gap-6">
-        <a href="https://shvedko.dev" class="hover:text-white transition">← ShvedkoDev</a>
-        <a href="https://shvedko.dev/portfolio/" class="hover:text-white transition">Portfolio</a>
-        <a href="mailto:info@shvedko.dev" class="hover:text-white transition">Kontakt</a>
-        <a href="https://shvedko.dev/imprint/" class="hover:text-white transition">Impressum</a>
-        <a href="https://shvedko.dev/data-protection/" class="hover:text-white transition">Datenschutz</a>
-      </div>
+    <div class="seats">
+      <div class="hd"><span data-en>SEATS FILLED</span><span data-de>PLÄTZE BELEGT</span><b>152 / 200</b></div>
+      <div class="bar"><div class="fill"></div></div>
     </div>
-  </footer>
+    <div class="reass">
+      <span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-en>Free during beta</span><span data-de>Kostenlos in der Beta</span></span>
+      <span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-en>No spam, ever</span><span data-de>Kein Spam</span></span>
+      <span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-en>Unsubscribe one-click</span><span data-de>1-Klick-Abmeldung</span></span>
+    </div>
+  </div>
+</section>
 
-  <!-- ══════════════════════════════════════════════════════════════════
-       JAVASCRIPT
-       ══════════════════════════════════════════════════════════════════ -->
-  <script>
-    // ── Mobile hamburger menu ──────────────────────────────────────────
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const mobileMenu   = document.getElementById('mobile-menu');
+<footer class="bot">
+  <div class="wrap row">
+    <span>© 2026 Craftly · ShvedkoDev</span>
+    <span class="grow"></span>
+    <a href="/imprint/"><span data-en>Imprint</span><span data-de>Impressum</span></a>
+    <a href="/data-protection/"><span data-en>Privacy</span><span data-de>Datenschutz</span></a>
+    <a href="https://shvedko.dev"><span data-en>Made in Göttingen 🇩🇪</span><span data-de>Made in Göttingen 🇩🇪</span></a>
+  </div>
+</footer>
 
-    hamburgerBtn.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('open');
-      hamburgerBtn.classList.toggle('open', isOpen);
-      hamburgerBtn.setAttribute('aria-expanded', isOpen);
-    });
+<script>
+const html = document.documentElement;
+function setLang(l) {
+  html.dataset.lang = l;
+  html.lang = l;
+  document.querySelectorAll('[data-set-lang]').forEach(b => b.setAttribute('aria-pressed', b.dataset.setLang === l));
+  try { localStorage.setItem('craftly-lang', l); } catch(e) {}
+}
+document.querySelectorAll('[data-set-lang]').forEach(b => b.addEventListener('click', () => setLang(b.dataset.setLang)));
+try { const saved = localStorage.getItem('craftly-lang'); if (saved === 'de' || saved === 'en') setLang(saved); } catch(e) {}
 
-    function closeMobileMenu() {
-      mobileMenu.classList.remove('open');
-      hamburgerBtn.classList.remove('open');
-      hamburgerBtn.setAttribute('aria-expanded', 'false');
-    }
-
-    // ── Scroll entrance animations ────────────────────────────────────
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target); // fire once
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-    );
-
-    document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
-  </script>
-
+function loadDemo() {
+  const f = document.getElementById('demoFrame');
+  f.innerHTML = '<iframe src="https://www.youtube.com/embed/FMN-LkQFgGQ?autoplay=1&si=do2wHkicvKLztmy7" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+}
+</script>
 </body>
 </html>
