@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="ShvedkoDev" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/css/main.min.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="/js/jquery.main.js"></script>
+    <link rel="preconnect" href="//fonts.googleapis.com">
+    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+    
+    <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css'>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jQuery-viewport-checker/1.8.8/jquery.viewportchecker.min.js" integrity="sha512-FRX6MYITclzDyyMmSQLgZoZTfE+GLzAQpjs15adVZMY6AqhsrBLx8UZwp4FoqrrRFWY9TiaPwja7EY5fk309vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
+    
+    <link href="//fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500;700&family=Saira+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>ShvedkoDev</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FY5NWV7102"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FY5NWV7102');
+    </script>
+    <title>Why We Chose Prism PHP for Our 9-Agent Orchestration · ShvedkoDev Blog</title>
+    <meta name="description" content="Building an AI-native forge isn't just about sending prompts. Here's why Craftly uses Prism — the Laravel AI SDK — for predictable, provider-agnostic multi-agent orchestration in PHP.">
+    <link rel="canonical" href="https://shvedko.dev/blog/posts/craftly-prism-php-ai-orchestration/">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+        <header id="header">
+            <div class="container">
+                <div class="logo">
+                    <a href="/"><img src="/images/Logo.png" alt=""></a>
+                </div>
+                <input type="checkbox" id="burger-trigger" class="burger-trigger">
+                <label class="nav-opener" for="burger-trigger">Menu</label>
+                <div class="menu-holder">
+                    <nav>
+                        <ul id="nav" class="nav">
+                            <li class="active"><a href="/">Home</a></li>
+                            <li><a href="/about/">About us</a></li>
+                            <li><a href="/services/">Services</a></li>
+                            <li><a href="/portfolio/">Portfolio</a></li>
+                            <li><a href="/blog/">Blog</a></li>
+                            <li><a href="/contact/">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main role="main" id="main">
+            <div class="container">
+                <article class="blog-post">
+                    <header class="blog-post__header animate-on-scroll fade-in">
+                        <div class="blog-post__meta">
+                            <a href="/blog/" class="blog-post__back">← Blog</a>
+                            <time datetime="2026-05-05">May 5, 2026</time>
+                        </div>
+                        <h1>Why We Chose Prism PHP for Our 9-Agent Orchestration</h1>
+                        <div class="blog-post__tags">
+                            <span class="tag">PHP</span>
+                            <span class="tag">Laravel</span>
+                            <span class="tag">AI</span>
+                            <span class="tag">Craftly</span>
+                            <span class="tag">Architecture</span>
+                        </div>
+                    </header>
+
+                    <div class="blog-post__body animate-on-scroll fade-in">
+                        <p><strong>TL;DR:</strong> Building an AI-native forge is not just about sending prompts. It is about predictable orchestration. We integrated <a href="https://prism.echolabs.dev" target="_blank" rel="noopener">Prism</a> — the Laravel AI SDK — into the heart of Craftly, and it has changed how we think about agentic PHP systems.</p>
+
+                        <h2>The Problem with Raw API Calls</h2>
+                        <p>When we started prototyping Craftly's 9-agent pipeline, the obvious first step was to hit the Anthropic API directly. A Guzzle client, a few environment variables, a prompt string — and you have something working in an afternoon. The problem shows up later, when "working" is not enough.</p>
+
+                        <p>Raw API calls tie your code to a single provider's request shape. Every agent in the pipeline needs its own boilerplate for retries, timeouts, and error handling. Structured output becomes a manual JSON-parsing exercise. Tool calling requires hand-rolling the function schema every time. And if you ever want to swap Claude for GPT-4 on a specific agent — or run a local Ollama model in development — you are rewriting rather than configuring.</p>
+
+                        <p>That is the problem Prism solves cleanly.</p>
+
+                        <h2>Provider Agility Without Abstraction Overhead</h2>
+                        <p>Prism wraps Anthropic, OpenAI, Mistral, Gemini, Ollama, and several other providers behind a single fluent interface. In practice, this means our <strong>MasterArchitect agent</strong> runs on <code>claude-sonnet-4-6</code> for its strong reasoning, while the <strong>Forge Workers</strong> run on <code>claude-haiku-4-5</code> to keep generation costs low — and both share identical orchestration code. The model is just a parameter.</p>
+
+                        <pre><code>$response = Prism::text()
+    ->using(Provider::Anthropic, 'claude-haiku-4-5-20251001')
+    ->withSystemPrompt($workerSystemPrompt)
+    ->withPrompt($architectureContext)
+    ->generate();</code></pre>
+
+                        <p>Swapping the Forge Workers to a different provider in a future iteration requires changing one line. No refactoring, no new HTTP client, no updated response parser.</p>
+
+                        <h2>Structured Output as a First-Class Concept</h2>
+                        <p>A multi-agent pipeline lives and dies on the quality of data passed between agents. If the MasterArchitect produces a schema that the Forge Workers cannot reliably parse, you get silent failures — generated files that look plausible but are subtly wrong.</p>
+
+                        <p>Prism's structured output support lets us define PHP value objects and have the model populate them directly, with Prism handling the schema generation and response coercion. The MasterArchitect does not return a blob of JSON for us to decode defensively — it returns a typed <code>ArchitectureSchema</code> object, validated on arrival.</p>
+
+                        <p>This is where we recovered most of the ~5% edge-case failure rate that plagued the earlier raw-API version. Validation failures are now surfaced at the schema boundary, not discovered three agents later when a migration references a column that was never defined.</p>
+
+                        <h2>Tool Calling Without the Boilerplate</h2>
+                        <p>The Validator agent — the final stage of the pipeline — needs to call out to external tools: running <code>php artisan route:list</code>, checking that generated model relationships resolve, verifying that migrations are syntactically valid. Prism's tool calling interface lets us register these as first-class tools with typed inputs and outputs.</p>
+
+                        <p>The agent decides which tools to invoke, Prism handles the function-call loop, and our tool implementations stay clean PHP methods rather than tangled callback arrays. The result is a Validator that reads like a Laravel service class, not a prompt engineering experiment.</p>
+
+                        <h2>PHP as an Agentic Platform</h2>
+                        <p>The broader point is this: the PHP ecosystem does not need to import its AI patterns from the Python world. The agent-as-queue-worker model maps perfectly onto Laravel's job infrastructure. Prism gives us the model abstraction layer. Structured output gives us the inter-agent contract. Tool calling gives us the ability to reach outside the model when ground truth matters.</p>
+
+                        <p>The result is a pipeline where each agent is a Laravel job: testable in isolation, retry-able on failure, observable via Horizon, and deployable on the same infrastructure as the rest of the application. No Python microservices, no separate orchestration layer, no operational complexity that does not already exist in a standard Laravel stack.</p>
+
+                        <h2>Where This Leaves Us</h2>
+                        <p>Craftly's Laravel generator currently runs in under 2 minutes wall-clock and costs roughly <strong>$0.19 in model inference per full application</strong>. The cost breakdown reflects the two-tier model strategy: the MasterArchitect (Sonnet 4.6, heavy reasoning) accounts for the majority of that figure; the Forge Workers (Haiku 4.5, execution at scale) keep the per-file cost negligible.</p>
+
+                        <p>Prism was not the only option. We evaluated calling the Anthropic SDK directly, wrapping it ourselves, and using a Python orchestrator over HTTP. The reason we landed on Prism is simple: it is the right abstraction at the right level for a Laravel-native agentic system. It gives us provider flexibility, structured contracts between agents, and tool calling — without adding a dependency that fights the framework.</p>
+
+                        <p>If you are building AI-powered features in Laravel and reaching for raw HTTP clients, take a look at Prism first. The ergonomics are worth it.</p>
+
+                        <p><a href="/craftly/">Learn more about Craftly →</a> · <a href="/contact/">Get in touch →</a></p>
+                    </div>
+
+                    <footer class="blog-post__footer animate-on-scroll fade-in">
+                        <p>Written by <a href="/about/">ShvedkoDev</a> · <a href="/contact/">Get in touch</a></p>
+                        <a href="/blog/" class="button outline">← Back to Blog</a>
+                    </footer>
+                </article>
+            </div>
+        </main>
+        <div id="footer">
+            <div class="container">
+                <div class="row-holder">
+                    <div class="col-4 m-order-1">
+                        <div class="logotype">
+                            <a href="/"><img src="/images/Logo.png" alt=""></a>
+                        </div>
+                        <ul class="contacts-list">
+                            <li><a href="/imprint" style="width: 100px;display: block;">Imprint</a></li>
+                            <li><a href="/data-protection" style="width: 200px;display: block;"> Data Protection</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-4 m-order-3">
+                        <h3>Contact</h3>
+                        <ul class="contacts-list">
+                            <li>
+                                <i class="icon icon-location2"></i>
+                                <address>Göttingen, Germany</address>
+                            </li>
+                            <li>
+                                <i class="icon icon-mail"></i>
+                                <a href="mailto:info@shvedko.dev">info@shvedko.dev</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-4 m-order-1">
+                        <h3>Follow us:</h3>
+                        <ul class="social-network">
+                            <li class="col">
+                                <a href="https://www.facebook.com/people/ShvedkoDev/61574820107319/" target="_blank" class="link-social-network"> <i class="icon icon-facebook1"></i></a>
+                            </li>
+                            <li class="col">
+                                <a href="https://x.com/ShvedkoDev" target="_blank" class="link-social-network"> <i class="icon icon-xtwitter"></i></a>
+                            </li>
+                            <li class="col">
+                                <a href="https://www.upwork.com/agencies/1749148191404584960/" target="_blank" class="link-social-network"> <i class="icon icon-upwork"></i></a>
+                            </li>
+                            <li class="col">
+                                <a href="https://www.linkedin.com/company/shvedkodev/" target="_blank" class="link-social-network"> <i class="icon icon-linkedin-square"></i></a>
+                            </li>
+                            <li class="col">
+                                <a href="https://www.instagram.com/shvedkodev/" target="_blank" class="link-social-network"> <i class="icon icon-instagram"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <footer class="copy">
+            <div class="container">
+                <p>&copy; ShvedkoDev 2026. All Rights Reserved.</p>
+            </div>
+        </footer>
+        <!-- Cookie Banner -->
+        <div id="cookie-banner" style="
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: #222;
+          color: #fff;
+          padding: 16px;
+          text-align: center;
+          font-size: 14px;
+          z-index: 1000;">
+            This website uses cookies to ensure you get the best experience.
+            <a href="/data_protection" style="color: #4caf50; text-decoration: underline; margin-left: 8px;" target="_blank">
+                Learn more
+            </a>
+            <button id="cookie-ok" style="
+            margin-left: 16px;
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 4px;">
+                OK
+            </button>
+        </div>
+        
+        <script>
+            if (localStorage.getItem('cookieAccepted')) {
+                document.getElementById('cookie-banner').style.display = 'none';
+            }
+            document.getElementById('cookie-ok').addEventListener('click', function () {
+                localStorage.setItem('cookieAccepted', 'true');
+                document.getElementById('cookie-banner').style.display = 'none';
+            });
+        </script>
+    </div>
+</body>
+
+</html>
