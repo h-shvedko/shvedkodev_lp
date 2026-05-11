@@ -10,21 +10,6 @@
         <div class="loader-holder">
             <div class="loader"></div>
         </div>
-        <!-- Award Announcement Bar -->
-        <div class="award-bar">
-            <a href="/blog/posts/craftly-innovationspreis-goettingen-2026/">
-                <img src="/images/ip2026-wir-sind-dabei-badge.png"
-                     alt="Innovationspreis 2026"
-                     class="award-bar__img">
-                <span class="award-bar__badge">
-                    <span class="award-bar__dot"></span>
-                    New
-                </span>
-                <span class="award-bar__text">Craftly.build is an official participant in the 2026 Innovationspreis Göttingen Northeim — 161 projects competing</span>
-                <span class="award-bar__arrow">→</span>
-            </a>
-        </div>
-
         //= layout/header.html
         <main role="main" id="main">
             <section class="about-section section content" id="about">
@@ -51,17 +36,39 @@
                 </div>
             </section>
 
-            <!-- Craftly Featured Banner -->
+            <!-- Craftly + Award Section -->
             <section class="craftly-banner-section">
                 <div class="container">
-                    <a href="/craftly/" class="craftly-banner animate-on-scroll fade-in">
-                        <div class="craftly-banner__badge">New Product</div>
-                        <div class="craftly-banner__body">
-                            <span class="craftly-banner__logo">✦ Craftly</span>
-                            <p class="craftly-banner__text">Web apps in 5 minutes — the world's first AI agent platform for Laravel &amp; WordPress. Built in Göttingen.</p>
-                        </div>
-                        <div class="craftly-banner__cta">Learn more →</div>
-                    </a>
+                    <div class="craftly-award-grid animate-on-scroll fade-in">
+                        <!-- Column 1: Craftly product banner -->
+                        <a href="/craftly/" class="craftly-banner">
+                            <img src="/images/kfw-award-2026-dashboard.png"
+                                 alt="Craftly dashboard"
+                                 class="craftly-banner__screenshot">
+                            <div class="craftly-banner__content">
+                                <div class="craftly-banner__badge">New Product</div>
+                                <div class="craftly-banner__body">
+                                    <span class="craftly-banner__logo">✦ Craftly</span>
+                                    <p class="craftly-banner__text">Web apps in 5 minutes — the world's first AI agent platform for Laravel &amp; WordPress. Built in Göttingen.</p>
+                                </div>
+                                <div class="craftly-banner__cta">Learn more →</div>
+                            </div>
+                        </a>
+                        <!-- Column 2: Award recognition -->
+                        <a href="/blog/posts/craftly-innovationspreis-goettingen-2026/" class="award-column">
+                            <img src="/images/ip2026-wir-sind-dabei-banner.jpg"
+                                 alt="Innovationspreis Göttingen Northeim 2026"
+                                 class="award-column__img">
+                            <div class="award-column__body">
+                                <span class="award-column__badge">
+                                    <span class="award-column__dot"></span>
+                                    Official Participant
+                                </span>
+                                <p class="award-column__text">Craftly.build in the 2026 Innovationspreis Göttingen Northeim — 161 projects competing</p>
+                                <span class="award-column__link">Read more →</span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </section>
             <section>

@@ -150,6 +150,14 @@
             }
         }
 
+        .button {
+            color: $white;
+
+            &:hover {
+                color: $primary-color;
+            }
+        }
+
         strong {
             font-weight: 700;
         }

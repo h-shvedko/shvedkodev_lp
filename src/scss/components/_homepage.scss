@@ -69,33 +69,45 @@
     }
 }
 
-// ── Craftly Banner ──────────────────────────────────────────────────────────
+// ── Craftly + Award 2-column section ────────────────────────────────────────
 .craftly-banner-section {
     padding: 0 0 40px;
 }
 
+.craftly-award-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+
+    @include media(">tablet") {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
 .craftly-banner {
     display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 18px 24px;
+    flex-direction: column;
     border: 2px solid $primary-color;
     border-radius: 12px;
     text-decoration: none;
     color: inherit;
     background: linear-gradient(135deg, #f0f4ff 0%, #f8f0ff 100%);
     transition: box-shadow 0.25s ease, transform 0.25s ease;
-    flex-wrap: wrap;
-
-    @include media(">tablet") {
-        flex-wrap: nowrap;
-    }
+    height: 100%;
+    overflow: hidden;
 
     &:hover {
         box-shadow: 0 6px 24px rgba(13, 73, 153, 0.15);
         transform: translateY(-2px);
         text-decoration: none;
         color: inherit;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 22px 24px 16px;
     }
 
     &__badge {
@@ -109,6 +121,7 @@
         white-space: nowrap;
         text-transform: uppercase;
         letter-spacing: 0.05em;
+        align-self: flex-start;
     }
 
     &__body {
@@ -117,24 +130,107 @@
 
     &__logo {
         font-weight: 700;
-        font-size: 18px;
+        font-size: 20px;
         color: #4F46E5;
         display: block;
-        margin-bottom: 2px;
+        margin-bottom: 6px;
     }
 
     &__text {
         margin: 0;
         font-size: 14px;
         color: #555;
-        line-height: 1.4;
+        line-height: 1.5;
     }
 
     &__cta {
         font-weight: 600;
         color: $primary-color;
-        white-space: nowrap;
         font-size: 14px;
+    }
+
+    &__screenshot {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        object-position: top center;
+        display: block;
+        border-bottom: 1px solid rgba(13, 73, 153, 0.12);
+    }
+}
+
+// ── Award recognition column ─────────────────────────────────────────────────
+.award-column {
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    border: 1px solid #e8edf5;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+    height: 100%;
+    background: #fff;
+
+    &:hover {
+        box-shadow: 0 6px 24px rgba(13, 73, 153, 0.12);
+        transform: translateY(-2px);
+        text-decoration: none;
+        color: inherit;
+    }
+
+    &__img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
+
+    &__body {
+        padding: 16px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        flex: 1;
+    }
+
+    &__badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #f0f9f4;
+        border: 1px solid #d1fae5;
+        border-radius: 9999px;
+        padding: 3px 10px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #065f46;
+        white-space: nowrap;
+        align-self: flex-start;
+    }
+
+    &__dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #10B981;
+        display: inline-block;
+        flex-shrink: 0;
+    }
+
+    &__text {
+        font-size: 14px;
+        color: #444;
+        line-height: 1.5;
+        margin: 0;
+    }
+
+    &__link {
+        font-size: 13px;
+        font-weight: 600;
+        color: $primary-color;
     }
 }
 
