@@ -180,3 +180,120 @@
         }
     }
 }
+
+// ── Award post banner ────────────────────────────────────────────────────────
+.award-post-banner {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 36px;
+
+    &__img {
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
+
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom, rgba(9,9,11,0.10) 0%, rgba(9,9,11,0.70) 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 20px 24px;
+        gap: 8px;
+    }
+
+    &__label {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.10em;
+        color: rgba(255,255,255,0.75);
+        font-weight: 600;
+    }
+
+    &__link {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        &:hover { text-decoration: underline; }
+    }
+}
+
+// ── Award pipeline diagram box ───────────────────────────────────────────────
+.award-pipeline-box {
+    background: #09090B;
+    border: 1px solid #27272A;
+    border-radius: 14px;
+    padding: 24px;
+    margin: 32px 0;
+    color: #FAFAF9;
+
+    &__header {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.10em;
+        color: #818CF8;
+        font-weight: 600;
+        margin-bottom: 16px;
+    }
+
+    &__agents {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+
+        @include media("<=tablet") {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include media("<=phone") {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__agent {
+        background: #0F0F11;
+        border: 1px solid #27272A;
+        border-radius: 8px;
+        padding: 10px 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+
+        strong { font-size: 12.5px; color: #E4E4E7; font-weight: 600; }
+        span { font-size: 11px; color: #71717A; }
+
+        &--featured {
+            border-color: rgba(99,102,241,0.50);
+            background: rgba(99,102,241,0.06);
+            grid-column: span 3;
+
+            @include media("<=tablet") { grid-column: span 2; }
+            @include media("<=phone")  { grid-column: span 1; }
+
+            strong { color: #C7D2FE; }
+        }
+    }
+
+    &__num {
+        font-size: 10px;
+        color: #4F4F58;
+        font-weight: 600;
+        margin-bottom: 2px;
+        display: block;
+    }
+
+    &__footer {
+        margin-top: 16px;
+        padding-top: 14px;
+        border-top: 1px solid #1C1C1F;
+        font-size: 12px;
+        color: #71717A;
+        text-align: center;
+    }
+}

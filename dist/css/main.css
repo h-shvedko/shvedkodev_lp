@@ -4650,6 +4650,64 @@ p-6 .list li::before {
   margin-top: 24px;
 }
 
+.award-bar {
+  background: linear-gradient(90deg, #1a3a7a 0%, #0D4999 60%, #2d1a6e 100%);
+  color: #fff;
+  font-size: 13px;
+  padding: 10px 0;
+  text-align: center;
+  position: relative;
+  z-index: 50;
+}
+.award-bar a {
+  color: #fff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.award-bar a:hover {
+  text-decoration: underline;
+}
+.award-bar__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 9999px;
+  padding: 2px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.award-bar__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10B981;
+  display: inline-block;
+}
+.award-bar__img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  vertical-align: middle;
+}
+.award-bar__text {
+  font-weight: 500;
+}
+.award-bar__arrow {
+  opacity: 0.75;
+}
+
 .craftly-banner-section {
   padding: 0 0 40px;
 }
@@ -5062,4 +5120,129 @@ p-6 .list li::before {
 }
 .blog-post__footer p a:hover {
   text-decoration: underline;
+}
+
+.award-post-banner {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 36px;
+}
+.award-post-banner__img {
+  width: 100%;
+  height: 260px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  display: block;
+}
+.award-post-banner__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(9, 9, 11, 0.1) 0%, rgba(9, 9, 11, 0.7) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px 24px;
+  gap: 8px;
+}
+.award-post-banner__label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 600;
+}
+.award-post-banner__link {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.award-post-banner__link:hover {
+  text-decoration: underline;
+}
+
+.award-pipeline-box {
+  background: #09090B;
+  border: 1px solid #27272A;
+  border-radius: 14px;
+  padding: 24px;
+  margin: 32px 0;
+  color: #FAFAF9;
+}
+.award-pipeline-box__header {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #818CF8;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.award-pipeline-box__agents {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+@media (max-width: 767px) {
+  .award-pipeline-box__agents {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 480px) {
+  .award-pipeline-box__agents {
+    grid-template-columns: 1fr;
+  }
+}
+.award-pipeline-box__agent {
+  background: #0F0F11;
+  border: 1px solid #27272A;
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.award-pipeline-box__agent strong {
+  font-size: 12.5px;
+  color: #E4E4E7;
+  font-weight: 600;
+}
+.award-pipeline-box__agent span {
+  font-size: 11px;
+  color: #71717A;
+}
+.award-pipeline-box__agent--featured {
+  border-color: rgba(99, 102, 241, 0.5);
+  background: rgba(99, 102, 241, 0.06);
+  grid-column: span 3;
+}
+@media (max-width: 767px) {
+  .award-pipeline-box__agent--featured {
+    grid-column: span 2;
+  }
+}
+@media (max-width: 480px) {
+  .award-pipeline-box__agent--featured {
+    grid-column: span 1;
+  }
+}
+.award-pipeline-box__agent--featured strong {
+  color: #C7D2FE;
+}
+.award-pipeline-box__num {
+  font-size: 10px;
+  color: #4F4F58;
+  font-weight: 600;
+  margin-bottom: 2px;
+  display: block;
+}
+.award-pipeline-box__footer {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid #1C1C1F;
+  font-size: 12px;
+  color: #71717A;
+  text-align: center;
 }
