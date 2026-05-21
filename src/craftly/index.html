@@ -374,10 +374,53 @@
     .agents-sect .grid, .problem .grid, .numbers .grid, .faq .grid { grid-template-columns: 1fr 1fr !important; }
     .numbers .cell { border-right: 0; border-bottom: 1px solid var(--line); }
     nav.top ul { display: none; }
+    .mock .panes { grid-template-columns: 1fr !important; }
+    .mock .preview { display: none; }
+    .mock .pipe { overflow-x: auto; }
   }
   @media (max-width: 600px) {
     .agents-sect .grid, .problem .grid, .numbers .grid, .faq .grid { grid-template-columns: 1fr !important; }
     .hero { padding: 56px 0 32px; }
+
+    /* Nav: hide ghost login button, keep primary CTA on one line */
+    nav.top .row { gap: 10px; padding: 10px 0; }
+    nav.top .btn-ghost { display: none; }
+    nav.top .btn-primary { font-size: 12px; padding: 6px 10px; white-space: nowrap; }
+
+    /* Hero trust row: wrap gracefully */
+    .hero .reassure { flex-wrap: wrap; gap: 8px 16px; }
+
+    /* Hero lede: full width */
+    .hero p.lede { max-width: 100%; font-size: 15px; }
+
+    /* Composer toolbar: chips wrap, send button on new row full-width */
+    .composer .toolbar { flex-wrap: wrap; gap: 6px; }
+    .composer .toolbar .grow { display: none; }
+    .composer .toolbar .send { width: 100%; justify-content: center; margin-top: 4px; padding: 8px; }
+
+    /* Orchestra agents grid: 2 columns on small screens */
+    .orchestra .agents { grid-template-columns: 1fr 1fr !important; }
+
+    /* File paths: truncate instead of overflow */
+    .orchestra .files { overflow-x: hidden; }
+    .orchestra .files .f { min-width: 0; }
+    .orchestra .files .f .path { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; min-width: 0; }
+
+    /* Running browser section: reduce padding */
+    .running { padding: 14px; }
+
+    /* Stack section: tighter gap */
+    .stack .row { gap: 24px; }
+
+    /* Steps visual: prevent overflow */
+    .steps .visual { max-width: 100%; overflow: hidden; }
+    .steps .copy h3 { font-size: 22px; }
+
+    /* Waitlist section: full-width button */
+    .waitlist .cta-wrap .btn-lg { width: 100%; justify-content: center; }
+
+    /* Agents section heading font */
+    .agents-sect h2 { font-size: clamp(24px, 6vw, 36px); }
   }
 </style>
 </head>
