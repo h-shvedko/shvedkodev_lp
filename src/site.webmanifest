@@ -1,0 +1,21 @@
+{
+  "name": "ShvedkoDev",
+  "short_name": "ShvedkoDev",
+  "description": "Expert Web Development — Laravel, PHP & Full-Stack Solutions from Göttingen",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#09090b",
+  "theme_color": "#0D4999",
+  "icons": [
+    {
+      "src": "/images/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

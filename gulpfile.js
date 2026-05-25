@@ -155,7 +155,7 @@ gulp.task('htaccess:build', function() {
 });
 
 gulp.task('seo:build', function() {
-    return gulp.src(['src/sitemap.xml', 'src/robots.txt'])
+    return gulp.src(['src/sitemap.xml', 'src/robots.txt', 'src/site.webmanifest'])
         .pipe(gulp.dest(path.build.html));
 });
 
