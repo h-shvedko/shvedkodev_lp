@@ -1,3 +1,22 @@
+// ── Blog post hero image ─────────────────────────────────────────────────────
+.blog-post__hero-img {
+    margin-bottom: 32px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f5f5f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-el {
+        width: 100%;
+        max-width: 480px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
 // ── Blog listing ─────────────────────────────────────────────────────────────
 .blog-listing {
     max-width: 800px;
