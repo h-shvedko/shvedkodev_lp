@@ -58,6 +58,12 @@
 
     <!-- Blog posts -->
     <url>
+        <loc>https://shvedko.dev/blog/posts/figma-to-php-lossy-handoff/</loc>
+        <lastmod>2026-06-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://shvedko.dev/blog/posts/figma-to-wordpress-ai-agent-pipeline/</loc>
         <lastmod>2026-05-25</lastmod>
         <changefreq>monthly</changefreq>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    //= layout/head.html
+    <title>The Lossy Handoff: Rethinking How Figma Becomes Code · ShvedkoDev Blog</title>
+    <meta name="description" content="The transition from design to deployment has always been a game of telephone. We built Craftly's Figma integration to fix that — deterministic extraction, semantic discovery, and a vision-guided refinement loop.">
+    <link rel="canonical" href="https://shvedko.dev/blog/posts/figma-to-php-lossy-handoff/">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+        //= layout/header.html
+        <main role="main" id="main">
+            <div class="container">
+                <article class="blog-post">
+                    <header class="blog-post__header animate-on-scroll fade-in">
+                        <div class="blog-post__meta">
+                            <a href="/blog/" class="blog-post__back">← Blog</a>
+                            <time datetime="2026-06-04">June 4, 2026</time>
+                        </div>
+                        <h1>The Lossy Handoff: Rethinking How Figma Becomes Code</h1>
+                        <div class="blog-post__tags">
+                            <span class="tag">Figma</span>
+                            <span class="tag">PHP</span>
+                            <span class="tag">WordPress</span>
+                            <span class="tag">Craftly</span>
+                            <span class="tag">AI</span>
+                        </div>
+                    </header>
+
+                    <div class="blog-post__body animate-on-scroll fade-in">
+
+                        <div class="blog-post__hero-img">
+                            <img src="/images/figma-to-php-puzzle.png"
+                                 alt="The Figma-to-PHP Puzzle — Feeling overwhelmed? How do you bridge the gap?"
+                                 class="blog-post__hero-img-el">
+                        </div>
+
+                        <p>For as long as modern web development has existed, the transition from design to deployment has been a <strong>game of telephone</strong>. A designer creates a masterpiece. A developer interprets it. In the middle, variables are dropped, layouts are compromised, and hours of unbillable time are spent tweaking paddings in a browser inspector window.</p>
+
+                        <p>We've accepted this friction as a natural law of software creation. But it shouldn't be.</p>
+
+                        <p>When we started architecting the new Figma integration for Craftly.build, we wanted to address this fundamental problem from first principles. A design file shouldn't be a visual suggestion; it should be an <strong>explicit layout configuration</strong>.</p>
+
+                        <h2>Shifting the Paradigm: What Works Today</h2>
+                        <p>We built our integration to treat Figma as the absolute source of truth for your application's presentation layer. It works cleanly, securely, and end-to-end:</p>
+
+                        <ul>
+                            <li><strong>Deterministic Design System Extraction:</strong> We don't guess your branding. Through a secure, per-user OAuth handshake, Craftly extracts exact hex codes, font families (mapping them natively to Google Fonts), line-heights, and layout directions directly from your Auto-Layout parameters.</li>
+                            <li><strong>Semantic Section Discovery:</strong> Instead of spitting out an infinite wall of nested elements, the system reads the structural intent of your canvas. It organises code cleanly into logical blocks — heroes, features, pricing models — following proper component patterns.</li>
+                            <li><strong>Vision-Guided Refinement:</strong> By introducing visual models into the pipeline, the AI "sees" the composition the way a human designer would, ensuring spatial relationships and hierarchy remain native to the code.</li>
+                        </ul>
+
+                        <p>The result is a production-ready WordPress or Laravel environment running a live, interactive preview in seconds.</p>
+
+                        <h2>The Engineering Horizon: Our Roadmap</h2>
+                        <p>While the core extraction engine is fully operational and battle-tested today, our long-term perspective on this problem goes a step further. We are actively designing a <strong>self-correcting visual fidelity loop</strong>.</p>
+
+                        <p>Instead of relying solely on predictive generation, the future of Craftly involves an automated QA agent that screenshots the compiled application, executes a pixel-diff calculation against the Figma canvas, and automatically adjusts the layout, shadows, and spacing variables until it achieves a near-perfect matching index.</p>
+
+                        <h2>What's Your Take?</h2>
+                        <p>Building this tool has made me realise how much time we lose to the "infrastructure" of building layouts rather than engineering deep application logic. By automating the execution of a visual design into clean PHP, we want to give developers their time back.</p>
+
+                        <p>But it opens an interesting philosophical debate for the engineering community: if the translation layer becomes flawless, how does that change the role of the frontend developer? Does it elevate the engineer to a pure system architect, or do we lose something vital when we stop writing the CSS by hand?</p>
+
+                        <p>I'd love to hear your thoughts. If you have a Figma project you want to test against our core engine:</p>
+
+                        <p><a href="/craftly/" class="button">Try Craftly free →</a></p>
+
+                    </div>
+
+                    <footer class="blog-post__footer animate-on-scroll fade-in">
+                        <p>Written by <a href="/about/">ShvedkoDev</a> · <a href="/contact/">Get in touch</a></p>
+                        <a href="/blog/" class="button outline">← Back to Blog</a>
+                    </footer>
+                </article>
+            </div>
+        </main>
+        //= layout/footer.html
+    </div>
+</body>
+
+</html>
