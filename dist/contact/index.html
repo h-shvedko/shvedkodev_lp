@@ -77,10 +77,16 @@
                                     <h1> Have Questions?</h1>
                                     <p>Please feel free to call or email us, or use our contact form to get in touch with us. We look forward to hearing from you!
                                     </p>
-                                    <p>Send Us Mail</p>
-                                    <a href="mailto:">hennadii.shvedko@gmail.com</a>
+                                    <p>Send Us Email</p>
+                                    <a href="mailto:info@shvedko.dev">info@shvedko.dev</a>
                                 </div>
-                                <div id="map" style="width: 100%; height: 300px;"></div>
+                                <div style="width:100%;height:300px;border-radius:8px;overflow:hidden;margin-top:16px;">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19566.4!2d9.9355!3d51.5336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a4d4378e9b2ecb%3A0x4219fd6d3d2e0!2sG%C3%B6ttingen!5e0!3m2!1sen!2sde!4v1"
+                                        width="100%" height="300" style="border:0;display:block;" allowfullscreen=""
+                                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                                        title="ShvedkoDev — Göttingen, Germany"></iframe>
+                                </div>
                             </div>
                             <div class="col-6 animate-on-scroll slide-in-right">
                                 <div class=" background-image custom contact" style="background-image:url(/images/contact.jpg);">
@@ -105,30 +111,6 @@
                             </div>
                         </div>
                     </div>
-                    <script>
-                        // Initialize and add the map
-                        function initMap() {
-                            // The location of Max-Born-Ring 59, 37077 Göttingen
-                            var location = {
-                                lat: 51.538560,
-                                lng: 9.936345
-                            };
-                            // The map, centered at location
-                            var map = new google.maps.Map(
-                                document.getElementById('map'), {
-                                    zoom: 17,
-                                    center: location
-                                });
-                            // The marker, positioned at location
-                            var marker = new google.maps.Marker({
-                                position: location,
-                                map: map
-                            });
-                        }
-                    </script>
-                    <!-- Load the Google Maps JavaScript API asynchronously -->
-                    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQ9n-ubevYI7msKuzyjOP_lkxeZpgkHAo&callback=initMap">
-                    </script>
                 </div>
         </main>
         <div id="footer">
