@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "php-legacy-modernization",
+  "entity_b": "",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "Bring an old PHP or Laravel application up to date in small, safe steps while it keeps running.",
+  "overview": "An old PHP application usually still does its job. The problem is around it: the PHP version no longer receives security fixes, the hosting provider announces an upgrade, nobody dares to change the invoicing module, and every new feature takes longer than the last. The instinct is to rewrite everything. In most cases that is the more expensive and riskier path. Modernisation in steps keeps the business running and delivers improvements along the way.\n\n## Step 1: Audit\n\nBefore anyone changes code, establish what exists. A useful audit answers:\n\n- Which PHP version, framework version and libraries are in use, and which are no longer maintained?\n- Which parts of the application are used daily, which rarely, and which not at all?\n- Where does the system talk to the outside: payment, email, exports, interfaces to other software, scheduled jobs?\n- How is it deployed today, and is there a backup that has actually been restored once?\n- Which knowledge exists only in one person's head?\n\nThe result is a short written list of risks in order of urgency, not a hundred-page report. Unused features found here can be deleted instead of migrated, which is often the cheapest saving in the whole project.\n\n## Step 2: Tests around existing behaviour\n\nOld code rarely has tests, and its behaviour is the only reliable specification. So before changing anything, record what the system does now: for a given input, this page, this invoice total, this export file. These tests do not judge whether the behaviour is good. They only raise an alarm when it changes. Start with the processes that earn money or would cause damage if wrong, and leave the rest for later.\n\n## Step 3: A containerised environment\n\nMany old systems run on exactly one server that nobody can reproduce. Describing the environment in containers, with the exact PHP version, extensions and database, gives every developer the same setup and makes it possible to try a newer PHP version next to the old one without touching production. It also ends the dependence on one hand-configured machine.\n\n## Step 4: Replace step by step\n\nWith tests and a reproducible environment in place, the work becomes routine:\n\n- Raise the PHP and framework versions one release at a time, fixing what the tests report after each step.\n- Replace abandoned libraries one by one.\n- Move one area at a time into clean structure, for example by routing new or rebuilt pages through a modern framework while old pages continue to be served by the old code.\n- Release after every step. Small releases make errors easy to find and easy to undo.\n\nIllustration with invented numbers: an application with forty screens might migrate five per month while regular feature work continues, instead of freezing features for a year.\n\n## When a rewrite is justified\n\n- The business process has changed so much that the old data model no longer fits.\n- The technology has no upgrade path at all, or depends on a platform that is being switched off.\n- The application is small enough that rebuilding costs less than understanding it.\n- The audit shows that most features are unused, so the real scope is a fraction of the old one.\n\n## When it is not\n\n- The code is ugly but works, and the complaint is mainly about how it looks inside.\n- A new team prefers a different framework.\n- Nobody can list what the old system does. In that situation a rewrite will miss requirements, because the list is the first thing a rewrite needs.\n- The business cannot go months without new features.\n\nA sensible first order is the audit alone, with a fixed scope. It gives you the risk list and a realistic plan, and you decide about everything else afterwards.",
+  "personas": [
+    {
+      "key": "it_manager",
+      "text": "You get a sequence for reducing the risk of an outdated PHP system: audit, safety-net tests, reproducible environment, then version upgrades in small releases."
+    },
+    {
+      "key": "cto",
+      "text": "You get criteria for the rewrite-or-modernise decision and an approach that lets feature work continue while old code is replaced area by area."
+    },
+    {
+      "key": "operations_lead",
+      "text": "You see how the software your daily processes depend on can be updated while it keeps running, without a feature freeze, and what the audit will ask of your team."
+    }
+  ],
+  "faq": [
+    {
+      "q": "How long does it take to modernise an old PHP application?",
+      "a": "It depends on size, on how many versions it is behind and on how much is unused. No honest figure is possible before an audit. What can be planned is the order: the audit takes a short, fixed time, and after it the work is split into steps that each end in a release, so you can stop, pause or reprioritise after any of them."
+    },
+    {
+      "q": "Can we keep adding features during modernisation?",
+      "a": "Yes, and that is the main advantage over a rewrite. Because old and new code run side by side and each step is released on its own, feature work continues. It helps to agree a fixed share of time for modernisation each month so that it is not pushed aside by urgent requests."
+    },
+    {
+      "q": "Why write tests for code that will be replaced anyway?",
+      "a": "Because the old behaviour is the only complete description of what the system must do. Tests that record current outputs show immediately when an upgrade or a rebuilt module changes a result, such as an invoice total. Without them, differences are found by customers. The same tests keep working after the code behind them has been replaced."
+    }
+  ],
+  "meta_description": "PHP Legacy Modernization without a full rewrite: audit, tests around current behaviour, containers and step-by-step replacement.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.513Z",
+  "updated_at": "2026-10-01T18:58:05.145Z"
+}

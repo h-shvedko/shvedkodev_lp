@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    //= layout/head.html
+    <link rel="alternate" hreflang="en" href="https://shvedko.dev/blog/posts/craftly-ki-plattform-laravel/">
+    <link rel="alternate" hreflang="de" href="https://shvedko.dev/de/blog/posts/craftly-ki-plattform-laravel/">
+    <link rel="alternate" hreflang="x-default" href="https://shvedko.dev/blog/posts/craftly-ki-plattform-laravel/">
+    <title>Craftly: Wir bauen die KI-Forge für PHP · ShvedkoDev Blog</title>
+    <meta name="description" content="Warum wir eine KI-Agenten-Plattform für Laravel und WordPress entwickeln – und warum das PHP-Ökosystem bessere KI-Werkzeuge verdient.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Craftly: Wir bauen die KI-Forge für PHP · ShvedkoDev Blog">
+    <meta property="og:description" content="Warum wir eine KI-Agenten-Plattform für Laravel und WordPress entwickeln – und warum das PHP-Ökosystem bessere KI-Werkzeuge verdient.">
+    <meta property="og:url" content="https://shvedko.dev/de/blog/posts/craftly-ki-plattform-laravel/">
+    <meta property="og:site_name" content="ShvedkoDev">
+    <meta property="og:locale" content="de_DE">
+    <link rel="canonical" href="https://shvedko.dev/de/blog/posts/craftly-ki-plattform-laravel/">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+        //= layout/header.de.html
+        <main role="main" id="main">
+            <div class="container">
+                <article class="blog-post">
+                    <header class="blog-post__header animate-on-scroll fade-in">
+                        <div class="blog-post__meta">
+                            <a href="/de/blog/" class="blog-post__back">← Blog</a>
+                            <time datetime="2026-04-10">10. April 2026</time>
+                        </div>
+                        <h1>Craftly: Wir bauen die KI-Forge für PHP</h1>
+                        <div class="blog-post__tags">
+                            <span class="tag">KI</span>
+                            <span class="tag">Laravel</span>
+                            <span class="tag">WordPress</span>
+                            <span class="tag">Produkt</span>
+                            <span class="tag">PHP</span>
+                        </div>
+                    </header>
+
+                    <div class="blog-post__body animate-on-scroll fade-in">
+                        <p>Alle, die KI-Werkzeuge für Entwickler bauen, haben JavaScript im Visier. VS-Code-Erweiterungen, KI-Pair-Programmer, CLI-Scaffolding-Tools – sie alle setzen standardmäßig auf TypeScript, Next.js oder Node. Währenddessen laufen <strong>77 % des Webs</strong> mit PHP, und die Sprache bekommt fast nichts von dieser Aufmerksamkeit ab.</p>
+
+                        <p>Genau diese Lücke soll Craftly schließen.</p>
+
+                        <h2>Was Craftly macht</h2>
+                        <p>Craftly ist eine KI-Agenten-Plattform, die aus der Beschreibung einer Webanwendung in Alltagssprache eine produktionsreife Laravel- oder WordPress-Codebasis generiert – live, vor den Augen des Kunden, in unter 5 Minuten.</p>
+
+                        <p>Das ist weder Code-Autovervollständigung noch ein Snippet-Generator. Es ist eine vollständige agentische Pipeline: Die KI analysiert die Anforderungen, legt die Anwendungsstruktur an, erstellt Routen, Models, Controller, Views und Datenbankmigrationen und liefert noch während des Aufbaus eine Live-Vorschau. Der Kunde sieht in Echtzeit zu, wie seine Idee Gestalt annimmt.</p>
+
+                        <h2>Warum PHP?</h2>
+                        <p>Nach fast einem Jahrzehnt PHP-Backend-Arbeit – von Symfony- und Laravel-Projekten bei der Copernicus GmbH bis zu Kundenprojekten für Unternehmen aus der DACH-Region – bestätigt sich eines immer wieder: Das PHP-Ökosystem ist riesig, seine Entwickler sind erfahren, und seine Werkzeuge sind hervorragend. Vor allem mit Laravel macht das Entwickeln Freude. Aber die Lücke bei den KI-Werkzeugen ist real.</p>
+
+                        <p>Wenn ein deutsches mittelständisches Unternehmen eine Webanwendung möchte, braucht es sie oft auf einem Hosting-Paket, das es bereits besitzt – Ionos, Hetzner, Strato – und auf dem PHP läuft. Es braucht kein Vercel und kein TypeScript. Es braucht Laravel. Genau für diesen Markt ist Craftly gebaut.</p>
+
+                        <h2>Der technische Ansatz</h2>
+                        <p>Craftlys Pipeline nutzt eine agentische Architektur, in der jede Stufe – Anforderungsanalyse, Datei-Scaffolding, Codegenerierung, Bereitstellung der Vorschau – von einem eigenen Agenten mit spezialisiertem Kontext übernommen wird. Das Ergebnis ist qualitativ besser als bei einem einzelnen großen Prompt, weil sich jeder Agent auf eine einzige Aufgabe konzentriert.</p>
+
+                        <p>Der Kern basiert auf der Claude-API von Anthropic. Das Frontend ist eine Echtzeit-Streaming-Oberfläche, in der jede generierte Datei erscheint, während sie geschrieben wird. Kein Warten auf einen „Fertig“-Zustand – Sie sehen den gesamten Build-Prozess.</p>
+
+                        <h2>Aktueller Stand</h2>
+                        <p>Craftly befindet sich in aktiver Entwicklung. Die Laravel-Generierungspipeline funktioniert durchgängig. Die WordPress-Pipeline ist in Arbeit. Anmeldungen für die Beta-Warteliste nehmen wir ab sofort entgegen – wenn Sie Laravel-Entwickler sind, ein PHP-Team führen oder eine Digitalagentur in der DACH-Region betreiben, freuen wir uns über Ihr Feedback.</p>
+
+                        <p><a href="/craftly/">Mehr über Craftly erfahren →</a></p>
+                    </div>
+
+                    <footer class="blog-post__footer animate-on-scroll fade-in">
+                        <p>Verfasst von <a href="/de/about/">ShvedkoDev</a> · <a href="/de/contact/">Kontakt aufnehmen</a></p>
+                        <a href="/de/blog/" class="button outline">← Zurück zum Blog</a>
+                    </footer>
+                </article>
+            </div>
+        </main>
+        //= layout/footer.de.html
+    </div>
+</body>
+
+</html>

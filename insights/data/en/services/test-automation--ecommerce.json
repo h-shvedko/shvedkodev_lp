@@ -1,0 +1,41 @@
+{
+  "axis": "services",
+  "entity_a": "test-automation",
+  "entity_b": "ecommerce",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "Which parts of a shop to test automatically, how the layers of tests fit together, and how to tell a useful test suite from a decorative one.",
+  "overview": "In a shop, a bug is rarely cosmetic. A broken discount rule, a tax rate applied to the wrong country or a checkout button that does nothing on one browser costs orders until somebody notices, and customers seldom report it; they leave. Test automation means that software checks the important behaviour of the shop on every change, before the change reaches customers.\n\n## Typical problems in retail\n\n- Releases are held back before peak season because nobody can say what a change might break.\n- Testing means one person clicking through the checkout by hand. It takes hours, so it is skipped when time is short.\n- Price logic has grown over years: vouchers, tiered prices, shipping thresholds, customer groups. The combinations are too many to check manually.\n- Updates to the shop system, plugins or the payment integration break things far from where the change was made.\n- A fix for one bug quietly brings back an older one.\n- Tests exist but fail at random, so the team has learned to ignore them.\n\n## What a good solution includes\n\nGood test automation is layered. Each layer answers a different question, and the cheap, fast layers carry most of the load.\n\n- Unit tests check single rules in isolation: price calculation, tax, voucher validity, shipping cost. They run in seconds, and this is where the many combinations belong.\n- Feature or integration tests check that parts work together on the server: placing an order reduces stock, creates the invoice record, sends the confirmation, and a user without the right role cannot open the admin function.\n- JavaScript unit tests cover logic that runs in the browser, such as a cart that recalculates or a variant selector.\n- End-to-end tests drive a real browser through the few journeys that earn the money: search, product page, cart, checkout, payment in the provider's test mode, account login. They are slow and more fragile, so there should be few of them and they should be chosen carefully.\n\nAll of this runs in CI, meaning automatically on every change, and a failed run blocks the release. Tests that only run when someone remembers are of little use.\n\nA sound setup also includes controlled test data, a way to stand in for external services such as payment and shipping, and a rule for flaky tests: fix or delete them promptly, never tolerate them.\n\n## Where to start\n\nYou do not need full coverage. Start with the paths where an error costs money or trust: price and tax calculation, checkout, payment status handling, stock changes. Then add a test for every bug found in production, so it cannot return unnoticed. Coverage percentages are a weak target; a suite can touch every line and still assert nothing useful.\n\n## Questions to ask a provider\n\n- Which journeys and rules would you test first in our shop, and why those?\n- How are tests split between unit, integration and end-to-end, and how long does a full run take?\n- How do you test payment and shipping without touching live systems?\n- What happens when a test fails: is the release blocked?\n- How do you deal with tests that fail intermittently?\n- Who maintains the tests when features change, and is that part of the estimate?\n- Can our team read the test results without developer help?\n\n## Experience behind this page\n\nShvedkoDev has covered a content management system with PHPUnit unit and feature suites, JavaScript unit tests and Playwright end-to-end tests, all running in CI. The layering described above is the one used in that work.",
+  "personas": [
+    {
+      "key": "ecommerce_manager",
+      "text": "You learn which shop journeys and price rules deserve automated tests first, so that releases before sales periods stop being a gamble and manual click-through testing shrinks."
+    },
+    {
+      "key": "cto",
+      "text": "You get a layered structure to compare proposals against: what belongs in unit, feature and end-to-end tests, how CI should gate releases, and how to treat flaky tests."
+    },
+    {
+      "key": "project_manager",
+      "text": "You get questions for scoping and estimates: where to start, who maintains tests when features change, and how to read whether a suite actually protects the release."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Do we need to test everything automatically?",
+      "a": "No. Start where an error costs orders or trust: price and tax calculation, the checkout, payment status handling and stock changes. Add one test for each bug that reaches production. Visual details and rarely used pages can stay with manual checks. A small suite that guards the critical paths and always runs is worth more than broad coverage nobody trusts."
+    },
+    {
+      "q": "Can automated tests replace manual testing completely?",
+      "a": "No. Automated tests confirm that known behaviour still works. They do not notice that a new page is confusing, that a text is misleading or that a layout looks wrong on an unusual device. What they do is remove the repetitive part, so that people spend their testing time on new features and on judgement rather than on clicking through the same checkout again."
+    },
+    {
+      "q": "How do you test payments without charging real money?",
+      "a": "Payment providers offer a test mode with test credentials and test cards. End-to-end tests use that mode to run through a complete order. In faster tests, the provider is replaced by a stand-in that returns prepared answers, which makes it possible to check rare cases such as declined, delayed or duplicated payment notifications."
+    }
+  ],
+  "meta_description": "Test Automation for E-Commerce and Retail: what to test first, how test layers fit together, and what to ask a provider.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.522Z",
+  "updated_at": "2026-10-01T18:58:05.148Z"
+}

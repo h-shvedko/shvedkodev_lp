@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="ShvedkoDev" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/css/main.min.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="/js/jquery.main.js"></script>
+    <link rel="preconnect" href="//fonts.googleapis.com">
+    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+    
+    <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css'>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jQuery-viewport-checker/1.8.8/jquery.viewportchecker.min.js" integrity="sha512-FRX6MYITclzDyyMmSQLgZoZTfE+GLzAQpjs15adVZMY6AqhsrBLx8UZwp4FoqrrRFWY9TiaPwja7EY5fk309vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
+    
+    <link href="//fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500;700&family=Saira+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        // Google Analytics loads only after the visitor accepts cookies in the banner (footer partial).
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        function loadAnalytics() {
+            if (window.analyticsLoaded) return;
+            window.analyticsLoaded = true;
+            var script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=G-FY5NWV7102';
+            document.head.appendChild(script);
+            gtag('js', new Date());
+            gtag('config', 'G-FY5NWV7102');
+        }
+        try {
+            if (localStorage.getItem('cookieConsent') === 'accepted') loadAnalytics();
+        } catch (e) {}
+    </script>
+    <link rel="alternate" hreflang="en" href="https://shvedko.dev/blog/posts/fsm-bildungsplattform-laravel/">
+    <link rel="alternate" hreflang="de" href="https://shvedko.dev/de/blog/posts/fsm-bildungsplattform-laravel/">
+    <link rel="alternate" hreflang="x-default" href="https://shvedko.dev/blog/posts/fsm-bildungsplattform-laravel/">
+    <title>Fallstudie: FSM Digital Library mit Laravel und Livewire · ShvedkoDev Blog</title>
+    <meta name="description" content="Wie wir mit Laravel 12, Livewire 3 und FilamentPHP eine digitale Bibliothek gebaut haben, die über 2.000 Bücher an Schulen in Mikronesien bringt.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Fallstudie: FSM Digital Library mit Laravel und Livewire · ShvedkoDev Blog">
+    <meta property="og:description" content="Wie wir mit Laravel 12, Livewire 3 und FilamentPHP eine digitale Bibliothek gebaut haben, die über 2.000 Bücher an Schulen in Mikronesien bringt.">
+    <meta property="og:url" content="https://shvedko.dev/de/blog/posts/fsm-bildungsplattform-laravel/">
+    <meta property="og:site_name" content="ShvedkoDev">
+    <meta property="og:locale" content="de_DE">
+    <link rel="canonical" href="https://shvedko.dev/de/blog/posts/fsm-bildungsplattform-laravel/">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+        <header id="header">
+            <div class="container">
+                <div class="logo">
+                    <a href="/de/"><img src="/images/Logo.png" alt=""></a>
+                </div>
+                <input type="checkbox" id="burger-trigger" class="burger-trigger">
+                <label class="nav-opener" for="burger-trigger">Menü</label>
+                <div class="menu-holder">
+                    <nav>
+                        <ul id="nav" class="nav">
+                            <li class="active"><a href="/de/">Start</a></li>
+                            <li><a href="/de/about/">Über uns</a></li>
+                            <li><a href="/de/services/">Leistungen</a></li>
+                            <li><a href="/de/portfolio/">Portfolio</a></li>
+                            <li><a href="/de/blog/">Blog</a></li>
+                            <li><a href="/de/insights/">Insights</a></li>
+                            <li><a href="/de/contact/">Kontakt</a></li>
+                            <li class="lang-switch"><a href="/" hreflang="en" lang="en" title="English"><img src="/images/flag-en.svg" alt="English" width="24" height="16"></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main role="main" id="main">
+            <div class="container">
+                <article class="blog-post">
+                    <header class="blog-post__header animate-on-scroll fade-in">
+                        <div class="blog-post__meta">
+                            <a href="/de/blog/" class="blog-post__back">← Blog</a>
+                            <time datetime="2026-03-15">15. März 2026</time>
+                        </div>
+                        <h1>Fallstudie: FSM Digital Library – 2.000 Bücher für Schulen auf den Pazifikinseln</h1>
+                        <div class="blog-post__tags">
+                            <span class="tag">Laravel</span>
+                            <span class="tag">Livewire</span>
+                            <span class="tag">FilamentPHP</span>
+                            <span class="tag">Fallstudie</span>
+                            <span class="tag">Docker</span>
+                        </div>
+                    </header>
+
+                    <div class="blog-post__body animate-on-scroll fade-in">
+                        <p>Die Föderierten Staaten von Mikronesien erstrecken sich über mehr als 600 Inseln im Westpazifik. Kinder in ihrer Muttersprache zu unterrichten – Chuukesisch, Pohnpeanisch, Kosraeanisch oder Yapesisch – ist für den Erhalt der Kultur entscheidend. Das Problem: In diesen Sprachen gibt es so gut wie keine digitalen Lehrmaterialien, und die Verteilung auf abgelegene Inseln ist schwierig.</p>
+
+                        <p>Das Projekt FSM VLA Curriculum wollte das mit einer digitalen Bibliotheksplattform ändern. Wir haben das Full-Stack-System von September 2025 bis Januar 2026 konzipiert und entwickelt.</p>
+
+                        <h2>Die Anforderungen</h2>
+                        <p>Die Plattform sollte:</p>
+                        <ul>
+                            <li>Mehr als 2.000 Lehrbücher (PDFs + Metadaten) hosten und bereitstellen</li>
+                            <li>Mehrsprachige Filterung (Fach, Klassenstufe, Sprache, Typ, Jahr) mit Echtzeitsuche unterstützen</li>
+                            <li>Ein Admin-Dashboard für Content-Manager ohne technischen Hintergrund bieten</li>
+                            <li>Analysedaten erfassen – Aufrufe, Downloads, Suchanfragen, Filternutzung</li>
+                            <li>Auf bescheidenem Hosting laufen und auch über langsame Internetverbindungen erreichbar sein</li>
+                            <li>Langfristig von einem kleinen Team wartbar sein</li>
+                        </ul>
+
+                        <h2>Tech-Stack</h2>
+                        <p>Ausschlaggebend für die Auswahl waren die vorhandene PHP-Erfahrung des Teams und der Bedarf an einer umfangreichen Admin-Oberfläche, ohne diese von Grund auf neu zu bauen:</p>
+                        <ul>
+                            <li><strong>Laravel 12.x</strong> – primäres Framework, Routing, Authentifizierung, Eloquent ORM</li>
+                            <li><strong>Livewire 3.x</strong> – Echtzeitsuche und Filterung, ohne JavaScript-APIs zu schreiben</li>
+                            <li><strong>Alpine.js</strong> – leichtgewichtige Interaktivität für UI-Komponenten</li>
+                            <li><strong>FilamentPHP</strong> – voll ausgestattetes Admin-Panel für mehr als 2.000 Buchdatensätze, Metadaten und Benutzerverwaltung</li>
+                            <li><strong>Tailwind CSS</strong> – Utility-First-Styling über drei eigenständige UI-Templates hinweg</li>
+                            <li><strong>MySQL</strong> – relationale Speicherung für Bücher, Kategorien, Nutzerinteraktionen</li>
+                            <li><strong>Docker</strong> – containerisierte lokale Entwicklung und Deployment</li>
+                        </ul>
+
+                        <h2>Zentrale technische Entscheidungen</h2>
+
+                        <h3>Livewire für die Suche</h3>
+                        <p>Statt einer separaten Vue- oder React-SPA haben wir die reaktiven Komponenten von Livewire 3 für die Suche mit mehreren Filtern eingesetzt. Jeder Filter aktualisiert den State der Livewire-Komponente und rendert die Bücherliste neu, ohne die Seite vollständig neu zu laden. So blieb die Architektur monolithisch, und Deployment und Wartung auf Shared Hosting wurden deutlich einfacher.</p>
+
+                        <h3>FilamentPHP für den Admin-Bereich</h3>
+                        <p>Im Admin-Dashboard sollten Content-Manager PDFs hochladen, Metadaten bearbeiten, Nutzerbewertungen verwalten und Analysedaten einsehen können – alles ohne Beteiligung von Entwicklern. Das Resource-System von FilamentPHP hat das mit minimalem eigenem Code gelöst. Das Content-Team war an einem einzigen Nachmittag eingearbeitet.</p>
+
+                        <h3>Drei UI-Templates</h3>
+                        <p>Der Kunde wünschte sich, dass die Bibliothek dem Bildungskontext angemessen seriös wirkt. Wir haben drei responsive Templates entwickelt – Academic, Material und Modern –, zwischen denen im Admin-Bereich gewechselt werden kann. Jedes Template überträgt dieselben zugrunde liegenden Daten in eine andere visuelle Sprache.</p>
+
+                        <h2>Wirkung</h2>
+                        <p>Die Plattform hat Lehrkräften in abgelegenen Gemeinden der Pazifikinseln erfolgreich digitalen Zugang zu mehr als 2.000 Bildungsressourcen verschafft. Für viele Schulen standen damit zum ersten Mal muttersprachliche Unterrichtsmaterialien in einem durchsuchbaren digitalen Format zur Verfügung.</p>
+
+                        <p>Das Projekt ist live unter <a href="https://micronesian.school" target="_blank" rel="noopener">micronesian.school</a>.</p>
+                    </div>
+
+                    <footer class="blog-post__footer animate-on-scroll fade-in">
+                        <p>Verfasst von <a href="/de/about/">ShvedkoDev</a> · <a href="/de/contact/">Kontakt aufnehmen</a></p>
+                        <a href="/de/blog/" class="button outline">← Zurück zum Blog</a>
+                    </footer>
+                </article>
+            </div>
+        </main>
+        <div id="footer">
+            <div class="container">
+                <div class="row-holder">
+                    <div class="col-4 m-order-1">
+                        <div class="logotype">
+                            <a href="/de/"><img src="/images/Logo.png" alt=""></a>
+                        </div>
+                        <ul class="contacts-list">
+                            <li><a href="/de/imprint/" style="width: 100px;display: block;">Impressum</a></li>
+                            <li><a href="/de/data-protection/" style="width: 200px;display: block;"> Datenschutz</a></li>
+                            <li><a href="/de/insights/" style="width: 100px;display: block;">Insights</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-4 m-order-3">
+                        <h3>Kontakt</h3>
+                        <ul class="contacts-list">
+                            <li>
+                                <i class="icon icon-location2"></i>
+                                <address>Göttingen, Deutschland</address>
+                            </li>
+                            <li>
+                                <i class="icon icon-mail"></i>
+                                <a href="mailto:info@shvedko.dev">info@shvedko.dev</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-4 m-order-1">
+                        <h3>Folgen Sie uns:</h3>
+                        <ul class="social-network">
+                            <li class="col">
+                                <a href="https://www.facebook.com/people/ShvedkoDev/61574820107319/" target="_blank" class="link-social-network"> <i class="icon icon-facebook1"></i></a>
+                            </li>
+                            <li class="col">
+                                <a href="https://x.com/ShvedkoDev" target="_blank" class="link-social-network"> <i class="icon icon-xtwitter"></i></a>
+                            </li>
+                            <li class="col">
+                                <a href="https://www.upwork.com/agencies/1749148191404584960/" target="_blank" class="link-social-network"> <i class="icon icon-upwork"></i></a>
+                            </li>
+                            <li class="col">
+                                <a href="https://www.linkedin.com/company/shvedkodev/" target="_blank" class="link-social-network"> <i class="icon icon-linkedin-square"></i></a>
+                            </li>
+                            <li class="col">
+                                <a href="https://www.instagram.com/shvedkodev/" target="_blank" class="link-social-network"> <i class="icon icon-instagram"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <footer class="copy">
+            <div class="container">
+                <p>&copy; ShvedkoDev 2026. Alle Rechte vorbehalten.</p>
+            </div>
+        </footer>
+        <!-- Cookie Banner -->
+        <div id="cookie-banner" style="
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: #222;
+          color: #fff;
+          padding: 16px;
+          text-align: center;
+          font-size: 14px;
+          z-index: 1000;">
+            Diese Website verwendet Cookies für Statistiken, und nur mit Ihrer Einwilligung.
+            <a href="/de/data-protection/" style="color: #4caf50; text-decoration: underline; margin-left: 8px;" target="_blank">
+                Mehr erfahren
+            </a>
+            <button id="cookie-accept" style="
+            margin-left: 16px;
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 4px;">
+                Akzeptieren
+            </button>
+            <button id="cookie-decline" style="
+            margin-left: 8px;
+            background: transparent;
+            color: white;
+            border: 1px solid #888;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 4px;">
+                Ablehnen
+            </button>
+        </div>
+        
+        <script>
+            // The banner stays until the visitor decides. Analytics starts only on "accept".
+            (function () {
+                var banner = document.getElementById('cookie-banner');
+                var choice = null;
+                try { choice = localStorage.getItem('cookieConsent'); } catch (e) {}
+                if (choice) banner.style.display = 'none';
+                function decide(value) {
+                    try { localStorage.setItem('cookieConsent', value); } catch (e) {}
+                    banner.style.display = 'none';
+                    if (value === 'accepted') loadAnalytics();
+                }
+                document.getElementById('cookie-accept').addEventListener('click', function () { decide('accepted'); });
+                document.getElementById('cookie-decline').addEventListener('click', function () { decide('declined'); });
+            })();
+        </script>
+    </div>
+</body>
+
+</html>

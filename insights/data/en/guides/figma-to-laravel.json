@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "figma-to-laravel",
+  "entity_b": "",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "What an application design must specify beyond the picture: screen states, form rules, roles and where Livewire is worth it.",
+  "overview": "A marketing site consists mostly of pages that are read. A Laravel application consists mostly of screens that are used: people log in, fill in forms, filter lists, wait for results and make mistakes. The general handoff rules for tokens, components and responsive behaviour are covered in the Figma to WordPress guide and apply here unchanged. This page deals with what is different once the design describes an application.\n\n## One screen is several screens\n\nA Figma frame shows a screen in one condition. In the application the same screen exists in several:\n\n- empty: no records yet, the first visit\n- loading: the data is on its way\n- filled: with one record and with three hundred\n- error: the request failed or the input was rejected\n- restricted: the user may look but not change anything\n\nAsk for each of these per screen, or agree a general rule for the simple cases. A list of states per screen is the most useful single addition to an application design.\n\n## Blade or Livewire\n\nBlade components are server-rendered building blocks: a button, an input field, a card, a table row. Each Figma component should map to one Blade component whose options carry the same names as the Figma variants, for example size, type and state.\n\nLivewire adds behaviour without a separate JavaScript front end. A Livewire component keeps its state on the server and updates part of the page when the user types, clicks or filters. A rule of thumb: Blade for everything that only displays, Livewire where the screen reacts without a full page load, such as live search, filters, multi-step forms, inline editing or dependent select fields.\n\nThis has consequences for the design. Most Livewire interactions are a round trip to the server, so the design needs a loading indication and must tolerate a short delay. Very fine-grained interactions, such as drag and drop, are better handled by a small browser-side script.\n\n## Forms and validation\n\nForms are where most of the effort goes. For each form the design or an accompanying note should answer:\n\n- which fields are required and which formats and limits apply\n- when the check happens: on leaving a field or on submit\n- where the error message appears and how it is worded\n- that entered data survives a failed submit\n- what the user sees after success: a message, a redirect, the next step\n- what happens on a double click or a slow connection\n\nThe rules must always be enforced on the server. Live validation in the browser is a convenience on top, never a replacement. Error messages come from the application, so the designer should write them or at least approve them, including the longest one. Date pickers, file uploads with progress and searchable select fields are each a small project. Decide whether a standard component is acceptable or the design requires a custom one.\n\n## Authenticated areas\n\nLogin, registration, password reset, email verification, two-factor entry and the expired session are often missing from the design. Laravel's starter kits provide working versions of most of them. Decide early whether these are restyled or replaced by custom screens.\n\nRoles change screens. The same page looks different for an administrator and for a regular user. Mark in the design which elements depend on a permission and whether they are hidden or shown as disabled. Hiding a button is not protection: the server checks every action regardless of what the screen shows.\n\n## Data-heavy elements\n\nTables need answers on sorting, pagination, filters, bulk actions and their layout on narrow screens. Destructive actions need a confirmation step. Dates, numbers and currencies need a format, and missing values need a placeholder.\n\n## What to hand over\n\nAlongside the Figma file, four documents make the front end estimable:\n\n- a screen list with the states of each screen\n- a field list per form with rules and messages\n- a role matrix showing who sees and may do what\n- example data that is realistic in length and volume\n\nWithout them the developer makes these decisions, and you discover them in review.",
+  "personas": [
+    {
+      "key": "product_manager",
+      "text": "You get the list of states, form rules and role differences that a design file leaves open, so you can settle them before development instead of answering them one by one during sprints."
+    },
+    {
+      "key": "founder",
+      "text": "You understand why an application front end costs more than the same number of marketing pages, and which four documents next to the design make an estimate reliable."
+    },
+    {
+      "key": "developer",
+      "text": "You get a clear line between Blade and Livewire components and a set of questions to send back to the designer before you start building forms and logged-in screens."
+    }
+  ],
+  "faq": [
+    {
+      "q": "When is Livewire the better choice over plain Blade templates?",
+      "a": "When a screen has to react without reloading the page: live search, filters, multi-step forms, inline editing, fields that depend on each other. For screens that only display data or submit a simple form, plain Blade is simpler, faster to build and easier to maintain. Most applications use both, Blade for the building blocks and Livewire for the interactive parts."
+    },
+    {
+      "q": "Who should write the error messages and validation rules for forms?",
+      "a": "The rules come from the business side, because they describe what valid data is. The wording should come from whoever writes the other interface texts, usually the designer or product owner, and be approved before development. The developer implements both on the server. If nobody writes them, users get the framework's default sentences."
+    },
+    {
+      "q": "Do login and password reset screens have to be designed from scratch?",
+      "a": "No. Laravel's starter kits contain working screens for login, registration, password reset and email verification. They can be restyled with your colours and type in little time. Custom screens are worth it when the process differs, for example invitation-only registration, single sign-on or extra steps during sign-up."
+    }
+  ],
+  "meta_description": "Figma to Laravel in practice: screen states, Blade and Livewire components, forms, validation and the logged-in areas a design must cover.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.503Z",
+  "updated_at": "2026-10-01T18:58:05.144Z"
+}

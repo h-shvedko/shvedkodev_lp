@@ -1,0 +1,41 @@
+{
+  "axis": "products",
+  "entity_a": "jobhunter",
+  "entity_b": "job-scoring",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Wie eine KI-Bewertung jeder Ausschreibung hilft, die knappe Zeit für Bewerbungen zu lenken, und welche Urteile bei Ihnen bleiben.",
+  "overview": "Wer freiberuflich arbeitet, bezahlt jede Bewerbung mit Zeit, die an anderer Stelle fehlt: beim laufenden Auftrag oder am Feierabend. Eine sorgfältige Bewerbung braucht Konzentration, und davon ist nur begrenzt viel da. Die Bewertung in JobHunter soll genau eine Frage beantworten: Welche der neuen Ausschreibungen verdienen diese Mühe zuerst?\n\nJobHunter ist unser eigenes Produkt für Freelancer auf Upwork. Neue Ausschreibungen werden abgerufen und vorgefiltert, anschließend bewertet eine KI jede verbliebene Ausschreibung. Das Ergebnis ist eine Rangfolge, keine Bewerbung: JobHunter reicht keine Angebote ein, Sie bewerben sich von Hand auf Upwork.\n\n## Worauf die Bewertung beruht\n\nGrundlage der Bewertung ist die Ausschreibung, also das, was der Auftraggeber geschrieben hat. Daraus folgt, dass die Bewertung nie besser sein kann als dieser Text.\n\n- Eine knappe Ausschreibung bietet wenig Anhaltspunkte. Bei drei Zeilen Text hat die Bewertung kaum Stoff, Sie selbst allerdings auch nicht.\n- Eine ausführliche Ausschreibung bietet mehr Stoff und verdient zugleich, dass Sie sie ganz lesen.\n- Was nicht in der Ausschreibung steht, fließt nicht ein. Ihre aktuelle Auslastung, eine Branche, die Sie meiden, eine Technik, von der Sie wegwollen: All das wägen Sie selbst ab, wenn Sie lesen.\n\n## Aus der Bewertung eine Arbeitsweise machen\n\nNützlich wird die Bewertung erst, wenn sie Ihren Umgang mit der Zeit verändert. Ein möglicher Ablauf:\n\n- Beginnen Sie oben. Lesen Sie die am besten bewerteten Ausschreibungen vollständig, bevor Sie etwas anderes ansehen.\n- Legen Sie pro Durchgang ein Zeitfenster fest und hören Sie auf, wenn es verbraucht ist, statt die ganze Liste abzuarbeiten.\n- Sortieren Sie beim Lesen in drei Stapel: heute bewerben, vielleicht später, nein. Der mittlere Stapel sollte klein bleiben, denn die meisten Vielleichts sind ein Nein.\n- Lassen Sie an vollen Tagen die schwach bewerteten Ausschreibungen ungelesen. Darin liegt die Ersparnis.\n\n## Was die Bewertung nicht weiß\n\n- Ob der Auftraggeber angenehm ist und weiß, was er will.\n- Ob das Budget zur beschriebenen Arbeit passt. Das ist Ihre kaufmännische Einschätzung.\n- Ob Sie das Projekt wollen. Was auf dem Papier passt, kann trotzdem Arbeit sein, die Sie leid sind.\n- Ob Sie in diesem Monat Kapazität haben.\n\nEine hohe Bewertung ist deshalb eine Aufforderung zum Lesen. Eine niedrige beweist umgekehrt nicht, dass eine Ausschreibung nichts taugt.\n\n## Die Bewertung brauchbar halten\n\nDie Bewertung dient der Priorisierung. Brauchbar bleibt sie, solange Sie sie an Ihrem eigenen Urteil messen.\n\n- Ordnen Sie hin und wieder einige Ausschreibungen selbst, bevor Sie die Bewertungen ansehen, und vergleichen Sie.\n- Lesen Sie gelegentlich einige schwach bewertete Ausschreibungen ganz. Finden Sie dort Jobs, die Sie gern gehabt hätten, schenken Sie dem unteren Teil der Liste mehr Aufmerksamkeit.\n- Halten Sie fest, warum Sie gut bewertete Ausschreibungen verworfen haben. Meist sind es Gründe, die nur Sie kennen, etwa Ihre Kapazität oder die Art des Auftraggebers.\n- Entscheiden Sie weiterhin selbst. Die Bewertung ordnet die Liste, das Lesen der Ausschreibung ersetzt sie nicht.\n\n## Wann die Bewertung wenig bringt\n\n- Wenn ohnehin nur wenige Ausschreibungen bei Ihnen ankommen, können Sie alle lesen, und eine Reihenfolge hilft kaum.\n- Wenn Sie noch klären, was Sie anbieten, sagt Ihnen eine Reihenfolge nicht, welche Aufträge Sie wollen.\n- Wenn Sie nahezu jeden Auftrag annehmen, ändert eine Rangfolge nichts an Ihrem Verhalten.\n\n## Was hier nicht steht\n\nWie die Bewertung dargestellt wird, wie sie im Einzelnen berechnet wird und was das Produkt kostet, beschreibt diese Seite nicht. Sie enthält auch keine Zahlen zum Marktplatz. Die Einzelheiten finden Sie auf der Produktseite von JobHunter.",
+  "personas": [
+    {
+      "key": "freelancer",
+      "text": "Sie erhalten einen Ablauf, mit dem die Bewertung zur Lesereihenfolge wird: oben beginnen, Zeitfenster setzen, in drei Stapel sortieren und die Rangfolge von Zeit zu Zeit an Ihrem eigenen Urteil messen."
+    },
+    {
+      "key": "developer",
+      "text": "Als freiberuflicher Entwickler sehen Sie, wie eine Bewertung je Ausschreibung die kurzen Lücken zwischen Kundenprojekten auf die lesenswerten Jobs lenkt und warum die Entscheidung über eine Bewerbung bei Ihnen bleibt."
+    },
+    {
+      "key": "agency_owner",
+      "text": "Sichtet in Ihrer Agentur jemand Ausschreibungen auf Upwork, erfahren Sie, was die Bewertung dieser Person abnimmt und welche Urteile über Budget, Auftraggeber und Kapazität bei Ihnen bleiben."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Was sagt eine hohe Bewertung in JobHunter tatsächlich aus?",
+      "a": "Sie besagt, dass die KI diese Ausschreibung nach ihrem Text höher einstuft als die anderen in Ihrer Liste. Das ist ein Grund, diese Ausschreibung zuerst zu lesen. Über die Verlässlichkeit des Auftraggebers, ein angemessenes Budget oder Ihre Lust auf das Projekt sagt sie nichts. Diese Einschätzungen treffen Sie selbst, nachdem Sie die Ausschreibung ganz gelesen haben."
+    },
+    {
+      "q": "Warum werden Jobs gut bewertet, die ich nie annehmen würde?",
+      "a": "Weil die Bewertung auf dem Text der Ausschreibung beruht. Ihre aktuelle Auslastung, Auftraggeber, die Sie meiden, oder Arbeit, die Sie leid sind, kennt sie nicht. Solche Fälle sind normal: Die Bewertung legt eine Lesereihenfolge fest, und was nicht zu Ihnen passt, sortieren Sie beim Lesen aus. Eine gute Bewertung verpflichtet Sie nie zu einer Bewerbung."
+    },
+    {
+      "q": "Führt eine gute Bewertung zu einer automatischen Bewerbung?",
+      "a": "Nein. JobHunter reicht keine Angebote ein, gleich wie die Bewertung ausfällt. Sie ordnet lediglich die Ausschreibungen für Sie. Sie lesen die Ausschreibung, entscheiden über eine Bewerbung und senden das Angebot von Hand auf Upwork über Ihr eigenes Konto."
+    }
+  ],
+  "meta_description": "JobHunter: KI-Bewertung von Jobs ordnet neue Upwork-Ausschreibungen per KI, damit Sie wissen, welche Sie zuerst lesen sollten.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.609Z",
+  "updated_at": "2026-10-01T18:58:05.140Z"
+}

@@ -1,0 +1,41 @@
+{
+  "axis": "products",
+  "entity_a": "jobhunter",
+  "entity_b": "",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "What JobHunter takes off a freelancer's desk when looking for work on Upwork, and which steps stay with you, including every application.",
+  "overview": "JobHunter is our own product for freelancers who look for work on Upwork. It handles the repetitive part of the search: it fetches new job postings on a schedule, pre-filters them, scores each one with AI, drafts a cover letter and answers to the screening questions, and notifies you. It does not submit proposals. You apply manually on Upwork, with your own account, after reading the posting yourself.\n\n## What it automates\n\n- Fetching: new postings are collected on a schedule, so you do not have to keep the search open and refresh it.\n- Pre-filtering: postings that clearly do not fit are sorted out before anything else happens.\n- Scoring: each remaining posting is scored by AI, which gives you an order in which to read them.\n- Drafting: for a posting you get a draft cover letter and draft answers to its screening questions.\n- Notifying: you are told when there is something to look at.\n\n## What it does not automate\n\n- It does not submit proposals. Nothing is sent to a client on your behalf.\n- It does not decide for you. A score is a suggestion about where to look first, not a verdict on the job.\n- It does not negotiate, set your rate or talk to clients.\n- It does not replace your portfolio or your references. Those remain your work.\n\n## Who it suits\n\nJobHunter fits freelancers who already know what kind of work they want and lose time to searching, reading and writing first drafts. It is most useful if you apply regularly and your applications follow a recognisable pattern: similar services, similar clients, similar questions.\n\n## Who it does not suit\n\n- Freelancers who do not use Upwork. JobHunter is built for that platform.\n- Anyone hoping to apply to many jobs without reading them. That is not what the product does, and unread applications tend to show.\n- People who are still working out what they offer. A reading order only helps once you know what a good job looks like for you.\n\n## What you still do yourself\n\n- Read the posting. A score cannot tell you whether you want this client or this project.\n- Edit the draft. Check every statement about your experience: a draft may phrase something more broadly than is true for you, and you are the one who signs it.\n- Answer screening questions in your own words where they ask for specifics only you know, such as availability or a comparable project.\n- Decide on your rate and submit the proposal on Upwork yourself.\n- Follow Upwork's terms of service. Read the current terms yourself; responsibility for your account stays with you.\n\n## How to evaluate it\n\nGive it a fair trial against your own judgement rather than taking the scores on trust.\n\n- Compare the scoring with your own ranking of the same postings. Where the two disagree, work out why.\n- Look at what the pre-filter removed. A filter that hides jobs you would have wanted is costing you more than it saves.\n- Count how much of each draft survives your editing. If you rewrite most of it every time, the drafting step is not helping yet.\n- Watch whether the notifications arrive at a rhythm you can act on, or whether you start ignoring them.\n\nThis page states no figures about the marketplace, and none should be expected from the product description either: how many postings appear or how clients respond is not something we publish.\n\nPricing, plans, notification channels, how often postings are fetched and how filters are configured are not covered here. Check the JobHunter product site for those details before you decide.",
+  "personas": [
+    {
+      "key": "freelancer",
+      "text": "You see which parts of your Upwork routine JobHunter takes over, namely finding, filtering, scoring and drafting, and which stay yours: reading the posting, editing the draft and submitting the proposal."
+    },
+    {
+      "key": "developer",
+      "text": "As a developer who freelances on Upwork, you can judge whether scheduled fetching and AI scoring would spare you the manual search between client work, and how to test the scores against your own ranking."
+    },
+    {
+      "key": "agency_owner",
+      "text": "If your small agency wins work through Upwork, you learn where JobHunter prepares postings and drafts, and why a person on your team still reads, edits and sends every proposal."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Does JobHunter apply to Upwork jobs automatically?",
+      "a": "No. JobHunter does not submit proposals. It fetches and pre-filters postings, scores them, drafts a cover letter and answers to screening questions, and notifies you. You then read the posting, edit the draft and apply manually on Upwork with your own account."
+    },
+    {
+      "q": "Can I send the drafted cover letter without changing it?",
+      "a": "You should not. A draft is written from the posting and saves you the blank page, but it can describe your experience more generally than is accurate. Check every claim, add the detail only you know, and adjust the tone. The proposal goes out under your name, so the content is your responsibility."
+    },
+    {
+      "q": "How reliable is the AI score for a job posting?",
+      "a": "Treat it as a reading order, not a decision. Test it by ranking a set of postings yourself and comparing the result with the scores. If they often disagree, trust your own reading and look further down the list. The decision to apply remains yours in every case."
+    }
+  ],
+  "meta_description": "JobHunter fetches, filters and scores Upwork job postings and drafts cover letters. You review each draft and apply manually.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:01:27.222Z",
+  "updated_at": "2026-10-01T18:58:05.146Z"
+}

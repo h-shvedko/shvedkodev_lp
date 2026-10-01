@@ -1,0 +1,41 @@
+{
+  "axis": "products",
+  "entity_a": "craftly",
+  "entity_b": "",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "What Craftly generates from a description or a Figma design, who it suits, and which work still belongs to you or a developer.",
+  "overview": "Craftly is our own product: a conversational AI platform that generates WordPress themes and Laravel applications from a plain-language description. You describe what you need in a conversation, and a multi-agent system writes the PHP code. It is not a drag-and-drop builder. There is no canvas of blocks to arrange; the output is a code project.\n\n## What it generates\n\nCraftly produces two kinds of project:\n\n- WordPress themes\n- Laravel applications\n\nYou can start from a written description, or from a Figma design if one already exists. In both cases the result is ordinary code. The owner can keep it, open it in an editor and change it like any other PHP project. That is the main difference from a visual builder, where the layout is something you arrange rather than code you hold.\n\n## Who it suits\n\nCraftly fits people who know what they want built, can describe it clearly, and want code as the result.\n\n- Founders and small teams who need a first working version to react to, instead of a specification nobody can click through.\n- Agencies and freelancers who build WordPress themes or Laravel applications repeatedly and want a generated starting point instead of an empty project.\n- Teams with a finished Figma design who want it turned into a theme without rebuilding it by hand.\n\n## Who it does not suit\n\n- Anyone who wants to arrange a page visually and never deal with code. A builder is the better tool for that.\n- Projects on a stack other than WordPress or Laravel.\n- Teams that expect to hand over a vague idea and receive a finished product. The output can only be as precise as the description.\n\n## What you still do yourself\n\nGenerated code is a starting point that someone has to take responsibility for. Plan for these tasks:\n\n- Describe the project properly: pages, content types, user roles, what each form or screen does, and what happens when something goes wrong.\n- Review the result against that description, screen by screen.\n- Decide where and how the project runs, and who maintains it afterwards.\n- Supply the real content, texts and images.\n- Have legal texts and data protection questions checked by a lawyer. No generator settles those.\n\n## Where a developer is still needed\n\nA developer is needed in four areas: reviewing the code before it handles real data, especially anything touching logins, payments or personal information; connecting the project to systems you already use; writing business logic that is too particular to describe in a few sentences; and maintaining the project as requirements change. Because the output is ordinary PHP code, a developer who knows WordPress or Laravel can pick it up with normal tools. You do not need a specialist for one particular builder.\n\n## How to evaluate the result\n\nJudge a generated project the way you would judge work delivered by a contractor:\n\n- Does it do what was described, including the awkward cases?\n- If you started from Figma, does it match the design at phone, tablet and desktop widths?\n- Can a developer who did not see the conversation read the code and find their way around?\n- Can the people who will maintain the content do so in the way you asked for?\n\nWrite down what fails and feed it back as a more precise description, or hand that list to a developer.\n\nPricing, plans, hosting and the way you receive the generated project are not covered on this page. Check the Craftly product site for the current state before you plan a project around it.",
+  "personas": [
+    {
+      "key": "founder",
+      "text": "You see whether your idea can be described precisely enough to generate a WordPress theme or Laravel application, and which tasks, such as review, content and legal checks, remain yours before anything goes live."
+    },
+    {
+      "key": "agency_owner",
+      "text": "You can judge whether generated PHP code is a usable starting point for client projects, and where your team's review, integration work and maintenance still have to be planned and quoted."
+    },
+    {
+      "key": "developer",
+      "text": "You learn what to expect when a client hands you a Craftly project: ordinary WordPress or Laravel code that you review, extend and maintain with your usual tools, not a builder export."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Is Craftly a page builder like the drag-and-drop tools for WordPress?",
+      "a": "No. Craftly is a conversational AI platform: you describe the project in plain language and a multi-agent system writes PHP code. The result is a WordPress theme or a Laravel application as ordinary code, not a layout assembled from blocks. If you want to arrange pages by dragging elements and never touch code, a builder is the better fit."
+    },
+    {
+      "q": "Can I keep and change the code that Craftly generates?",
+      "a": "Yes. Generated projects are ordinary code that the owner can keep and edit, so a developer who knows WordPress or Laravel can continue the work with normal tools. For the exact licence and usage terms, read the terms on the Craftly product site rather than relying on a summary."
+    },
+    {
+      "q": "Do I still need a developer if I use Craftly?",
+      "a": "That depends on the project, but plan for one wherever mistakes are costly: code that handles logins, payments or personal data, connections to existing systems, unusual business logic and ongoing maintenance. Craftly gives you code to start from. It does not take over responsibility for that code."
+    }
+  ],
+  "meta_description": "Craftly generates WordPress themes and Laravel applications as ordinary PHP code. Who it suits and where a developer is still needed.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:01:27.221Z",
+  "updated_at": "2026-10-01T18:58:05.146Z"
+}

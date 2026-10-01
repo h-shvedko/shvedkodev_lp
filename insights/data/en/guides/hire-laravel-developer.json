@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "hire-laravel-developer",
+  "entity_b": "",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "Choose between freelancer, agency and employee, and know what to verify before you sign anything.",
+  "overview": "Hiring a Laravel developer is two decisions, not one. First you choose the form of engagement, then you check the person or team behind it. Most bad hires come from getting the first decision wrong: a good freelancer in a job that needed a team, or an agency for work that needed one person's full attention.\n\n## Which form fits which situation\n\nA freelancer fits a clearly bounded project or an existing application that needs steady, moderate work. You talk directly to the person writing the code, and decisions are quick. The weakness is dependence on one person: illness, holidays and other clients all affect you. Ask who covers for them and how the work is documented.\n\nAn agency fits when the project needs several skills at once, such as design, backend, frontend and hosting, or when a deadline requires parallel work. You get cover for absences and a project manager. You pay for that overhead, and the person in the sales meeting may not be the person who writes the code. Ask who exactly will work on your project.\n\nAn in-house hire fits when the application is the core of your business and the work will not stop for years. Knowledge stays in the company. The cost is recruiting time, a salary that runs whether or not there is work, and the need for someone who can judge the developer's work. A single in-house developer with no technical peer is as much a dependency as a single freelancer.\n\nA common mix: an external developer builds the first version, and you hire internally once the product has proven itself.\n\n## What to check before signing\n\n- Code samples. Ask for a repository or an excerpt of real work. If you cannot read code, pay an independent developer for an hour or two of review. They should look at structure, naming and whether a stranger could continue the work.\n- Tests. Ask how they test and ask to see tests from a past project. The answer you want is specific: which parts are covered, and that tests run automatically before each release.\n- Communication. Note how they behave before the contract: do they ask questions about your business, do they answer within the time they promised, do they write things down? That behaviour does not improve after signing.\n- A small paid trial. A task of a few days shows more than any interview: estimate, questions, result, explanation.\n- References. Speak to a previous client and ask what happened when something went wrong.\n- Handover terms. The contract should state that you own the code and get it in a repository under your control, that hosting, domain and third-party accounts are registered in your name, and what documentation you receive at the end. Have a lawyer check the wording on rights of use and liability.\n\n## Warning signs\n\n- A fixed price after a single conversation, with no written scope.\n- No questions about your users, your processes or your existing systems.\n- Resistance to giving you access to the repository during the project.\n- Accounts for hosting or domains held in the developer's name \"for simplicity\".\n- Tests described as something to add later.\n- Estimates with no breakdown, or a promise that everything is possible.\n- Payment entirely up front, or no intermediate results you can look at.\n- Vague answers about who does the work.\n\n## How to start\n\nWrite one page before you contact anyone: what the application must do, who uses it, what already exists, your deadline and your budget range. Send the same page to two or three candidates. The differences in their questions and estimates tell you more than their portfolios. Then agree a small first stage with a result you can check, and decide about the larger commitment after that.",
+  "personas": [
+    {
+      "key": "founder",
+      "text": "You get a way to decide between freelancer, agency and employee for your stage, and a list of checks you can run even without a technical background."
+    },
+    {
+      "key": "procurement",
+      "text": "You get contract points to insist on, such as code ownership, account ownership and handover documentation, and the warning signs that justify rejecting an offer."
+    },
+    {
+      "key": "cto",
+      "text": "You get a structure for assessing external Laravel developers: code and test review, a paid trial task, and the dependency risks of each engagement form."
+    }
+  ],
+  "faq": [
+    {
+      "q": "How can I judge a Laravel developer if I cannot read code?",
+      "a": "Pay an independent developer for one or two hours to review a code sample and the candidate's tests. You can assess the rest yourself: the quality of their questions, whether they keep small promises before the contract, how clearly they explain an estimate, and what a previous client says about how problems were handled."
+    },
+    {
+      "q": "Is a freelancer or an agency better for a Laravel project?",
+      "a": "It depends on the shape of the work. A freelancer suits a bounded project or ongoing work that one person can handle, with direct contact and little overhead. An agency suits projects that need several skills in parallel or cover for absences. In both cases, ask who actually writes the code and how the work is documented."
+    },
+    {
+      "q": "What should a handover clause cover?",
+      "a": "At minimum: that you own the code, that it lives in a repository you control, that hosting, domain and third-party accounts are in your name, and that you receive setup and deployment documentation. The precise wording on rights of use and liability is a legal matter, so have a lawyer review the contract."
+    }
+  ],
+  "meta_description": "How to Hire a Laravel Developer: freelancer, agency or in-house, what to check before signing, and the warning signs.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.509Z",
+  "updated_at": "2026-10-01T18:58:05.144Z"
+}

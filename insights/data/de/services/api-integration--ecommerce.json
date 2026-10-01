@@ -1,0 +1,41 @@
+{
+  "axis": "services",
+  "entity_a": "api-integration",
+  "entity_b": "ecommerce",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "So verbinden Sie Shop, Kasse, Lager und Partnersysteme, ohne dass Bestellungen, Bestände oder Gutscheine doppelt oder falsch verbucht werden.",
+  "overview": "Ein Handelsunternehmen arbeitet selten mit nur einem System. Webshop, Kassen, Warenwirtschaft, Zahlung, Versand, Marktplätze und Buchhaltung kennen jeweils einen Teil der Wahrheit. Eine API, also eine festgelegte Schnittstelle für den Datenaustausch zwischen Programmen, sorgt dafür, dass diese Teile übereinstimmen. API-Integration bedeutet entweder, Ihre Systeme an Schnittstellen anderer anzubinden, oder eine eigene Schnittstelle zu schaffen, über die Partner und Filialsysteme mit Ihren Daten arbeiten.\n\n## Typische Probleme\n\n- Der online angezeigte Bestand weicht vom Regal ab, weil der Abgleich nur nachts läuft oder unbemerkt fehlschlägt.\n- Eine Bestellung oder Einlösung entsteht doppelt. Die Verbindung brach ab, das sendende System versuchte es erneut, und der Empfänger behandelte die Wiederholung als neue Anfrage.\n- Daten wandern per Dateiexport und E-Mail. Das funktioniert, bis sich eine Spalte ändert.\n- Alle Partner nutzen denselben Zugangsschlüssel. Niemand erkennt, wer eine Anfrage gesendet hat, und der Entzug für einen Partner trifft alle.\n- Die Schnittstelle ist nur im Kopf der Person dokumentiert, die sie gebaut hat. Jede neue Anbindung beginnt mit Rätselraten.\n- Ausfälle fallen erst auf, wenn sich Kundschaft beschwert.\n\n## Was eine gute Lösung enthält\n\nEine Authentifizierung, die belegt, wer anfragt und dass die Nachricht unverändert ist. Verbreitet ist die HMAC-Signatur: Jedes Partnersystem erhält einen eigenen geheimen Schlüssel und berechnet damit zu jeder Anfrage eine Signatur. Der Empfänger rechnet nach und weist alles ab, was nicht übereinstimmt. Ein Zeitstempel in den signierten Daten verhindert, dass eine abgefangene Anfrage später erneut eingespielt wird. Schlüssel werden je System vergeben und lassen sich einzeln sperren.\n\nGefahrlose Wiederholung. Anfragen, die etwas anlegen oder verbrauchen, tragen eine eindeutige Referenz. Ein zweiter Versuch liefert dann das ursprüngliche Ergebnis und löst keinen weiteren Vorgang aus. Diese Maßnahme verhindert doppelte Bestellungen und Einlösungen, die durch Wiederholungsversuche entstehen.\n\nEine Dokumentation, die Menschen und Maschinen lesen können. OpenAPI ist ein Standardformat zur Beschreibung einer Schnittstelle: welche Adressen es gibt, welche Felder erwartet werden, welche Antworten und Fehler zurückkommen. Entwickler der Partner können daraus Testanfragen erzeugen, und die Beschreibung dient zugleich als Vereinbarung zwischen beiden Seiten.\n\nWeitere Bestandteile, auf denen Sie bestehen sollten:\n\n- Verständliche Fehlermeldungen mit gleichbleibenden Codes, damit das aufrufende System richtig reagiert.\n- Eine Testumgebung mit Testschlüsseln, getrennt von den Echtdaten.\n- Versionierung, damit Änderungen bestehende Anbindungen nicht unterbrechen.\n- Begrenzung der Anfragehäufigkeit je Schlüssel und Benachrichtigung bei steigender Fehlerquote.\n- Ein Protokoll der Anfragen mit Schlüssel, Zeitpunkt und Ergebnis für Support und Streitfälle.\n\n## Bevor Sie etwas beauftragen\n\nListen Sie alle beteiligten Systeme auf, legen Sie fest, welches für welche Daten maßgeblich ist, etwa für Bestand, Preise und Kundendaten, und wie aktuell die Daten sein müssen. Echtzeit ist nicht immer nötig und im Betrieb aufwendiger als ein Abgleich alle paar Minuten.\n\n## Fragen an den Anbieter\n\n- Wie meldet sich jedes angebundene System an, und wie wird ein Schlüssel gesperrt?\n- Was passiert, wenn dieselbe Anfrage zweimal eintrifft?\n- Gibt es eine OpenAPI-Beschreibung, und wird sie mit dem Code aktuell gehalten?\n- Wie erfahren wir, dass eine Verbindung ausgefallen ist?\n- Wie werden Änderungen an der Schnittstelle angekündigt und versioniert?\n- Was können Partner testen, ohne Echtdaten zu berühren?\n\n## Erfahrung hinter dieser Seite\n\nShvedkoDev hat eine HMAC-signierte API gebaut, über die externe Filialsysteme Tickets ausstellen und prüfen, dokumentiert mit OpenAPI. Der Schwerpunkt dieser Seite auf Schlüsseln je System, gefahrlosen Wiederholungen und einer schriftlichen Schnittstellenbeschreibung stammt aus dieser Art von Arbeit.",
+  "personas": [
+    {
+      "key": "ecommerce_manager",
+      "text": "Sie verstehen, warum Bestände und Bestellungen zwischen Systemen auseinanderlaufen, welche Fragen über die Verlässlichkeit einer Anbindung entscheiden und was Sie intern klären müssen, etwa welches System für welche Daten maßgeblich ist."
+    },
+    {
+      "key": "developer",
+      "text": "Sie erhalten eine knappe Prüfliste für eine Schnittstelle, an die Partner ohne Rückfragen andocken können: HMAC-Schlüssel je System, Schutz vor Wiedereinspielung, idempotente Schreibanfragen, stabile Fehlercodes, Versionierung und OpenAPI."
+    },
+    {
+      "key": "it_manager",
+      "text": "Sie finden die betrieblichen Anforderungen, die in einen Vertrag gehören: einzeln sperrbare Schlüssel, Anfrageprotokolle, Begrenzung der Anfragehäufigkeit, Alarmierung bei Fehlern, eine getrennte Testumgebung und angekündigte Änderungen."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Was ist eine HMAC-Signatur, einfach erklärt?",
+      "a": "Eine Prüfsumme, die aus der Anfrage und einem geheimen Schlüssel berechnet wird, den nur beide Seiten kennen. Der Empfänger berechnet dieselbe Prüfsumme und vergleicht. Wurde die Anfrage unterwegs verändert oder ohne Schlüssel erzeugt, weichen die Werte ab und die Anfrage wird abgelehnt. Anders als bei einem mitgeschickten Passwort wird das Geheimnis selbst nie übertragen."
+    },
+    {
+      "q": "Wozu braucht eine Schnittstelle eine OpenAPI-Dokumentation?",
+      "a": "Jedes System, das sich anbindet, muss genau wissen, welche Anfragen möglich sind und was zurückkommt. Eine OpenAPI-Beschreibung hält das in einem Standardformat fest, das auch Werkzeuge lesen können. Entwickler der Partner testen und bauen damit ohne lange Abstimmung. Zugleich sinkt die Abhängigkeit von der Person, die die Schnittstelle ursprünglich entwickelt hat."
+    },
+    {
+      "q": "Müssen alle unsere Systeme in Echtzeit abgeglichen werden?",
+      "a": "Nein. Entscheiden Sie je Datenart. Die Einlösung eines Gutscheins oder Tickets muss sofort geprüft werden, weil eine Verzögerung die doppelte Nutzung ermöglicht. Produkttexte oder Buchhaltungsexporte können in Abständen übertragen werden. Echtzeitverbindungen sind im Betrieb anspruchsvoller; setzen Sie sie dort ein, wo veraltete Daten tatsächlich Schaden anrichten."
+    }
+  ],
+  "meta_description": "API-Integration für E-Commerce und Einzelhandel: Shop, Kasse und Partnersysteme sicher verbinden, mit Signatur und Dokumentation.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.609Z",
+  "updated_at": "2026-10-01T18:58:05.141Z"
+}

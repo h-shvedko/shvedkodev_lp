@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "laravel-automated-testing",
+  "entity_b": "",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Welche Tests in ein Laravel-Projekt gehören, was jede Testart findet und welchen Pflegeaufwand Sie über die Jahre einplanen sollten.",
+  "overview": "Automatisierte Tests sind kleine Programme, die die Anwendung bei jeder Codeänderung überprüfen. Für Sie als Auftraggeber zählt daran vor allem eines: Ein Entwickler kann im achtzehnten Monat etwas ändern, ohne zu zerstören, was im zweiten Monat gebaut wurde. Im fertigen Produkt sieht man Tests nicht, und deshalb werden sie bei knappem Budget als Erstes gestrichen. Diese Seite zeigt, was ein solides Laravel-Projekt enthält, damit Sie es einfordern und prüfen können.\n\n## Unit-Tests\n\nEin Unit-Test prüft ein einzelnes Stück Logik für sich, ohne Datenbank und ohne Browser. Typische Fälle sind Preis- und Steuerberechnung, Rabattregeln, Datumslogik und die Umwandlung importierter Daten. Hunderte davon laufen in Sekunden. Sie finden Rechenfehler und vergessene Sonderfälle. Der Pflegeaufwand bleibt gering, solange fachliche Regeln geprüft werden und nicht innere Details des Codes. Ob die Teile zusammenspielen, zeigen sie nicht.\n\n## Feature-Tests\n\nHier liegt die Stärke von Laravel und der größte Nutzen. Ein Feature-Test schickt eine Anfrage an die Anwendung, wie es ein Browser oder ein API-Client täte, mit einer Testdatenbank dahinter, und prüft Antwort und gespeicherte Daten. Beispiele: Ein Kunde sieht nur seine eigenen Rechnungen. Ein Formular ohne Pflichtangabe wird abgewiesen. Eine Bestellung legt den Auftrag an, verringert den Bestand und stellt die Bestätigungsmail in die Warteschlange. Fremddienste wie Zahlung oder E-Mail-Versand werden durch Stellvertreter ersetzt. Feature-Tests decken fehlerhafte Berechtigungen, Lücken in der Validierung und Nebenwirkungen von Änderungen an anderer Stelle auf. Angepasst werden müssen sie, wenn sich Verhalten absichtlich ändert. Dieser Aufwand ist mäßig und gut planbar.\n\n## Browser-Tests mit Playwright\n\nPlaywright steuert einen echten Browser, klickt, tippt und wartet wie ein Mensch. Nur diese Ebene bemerkt, dass ein Button wegen eines JavaScript-Fehlers nicht mehr reagiert oder ein mehrstufiger Bestellvorgang im dritten Schritt seine Daten verliert. Solche Tests sind langsam und am empfindlichsten gegenüber Änderungen, denn schon eine umgestaltete Seite kann sie scheitern lassen, obwohl kein Fehler vorliegt. Halten Sie ihre Zahl klein und richten Sie sie auf die Abläufe, deren Ausfall Geld kostet: Registrierung, Anmeldung, Bestellabschluss, der zentrale Arbeitsablauf. Zur Veranschaulichung: Einer mittelgroßen Anwendung genügen oft zehn bis zwanzig solcher Abläufe statt Hunderten.\n\n## Continuous Integration\n\nTests nützen nichts, wenn sie nur laufen, wenn jemand daran denkt. Continuous Integration, kurz CI, führt bei jeder Codeänderung alle Tests automatisch aus und sperrt die Änderung, wenn etwas fehlschlägt. Meist laufen dort zusätzlich Stilprüfungen und eine statische Analyse, die bestimmte Fehler findet, ohne den Code auszuführen. CI sollte in der ersten Projektwoche stehen und nicht erst kurz vor dem Livegang.\n\n## Welche Abdeckung Sie erwarten dürfen\n\nEine Prozentzahl taugt wenig als Ziel, weil sich hohe Werte auch mit Tests erreichen lassen, die nichts Wichtiges prüfen. Fragen Sie stattdessen, welche Risiken abgedeckt sind:\n\n- alles rund ums Geld: Preise, Zahlungen, Rechnungen\n- Berechtigungen: wer was sehen und ändern darf\n- Importe, Exporte und Schnittstellen zu anderen Systemen\n- die wichtigsten Nutzerabläufe im Browser\n- jeder behobene Fehler mit einem Test, der ihn nachstellt\n\nReine Anzeigeseiten und selten genutzte Verwaltungsmasken dürfen dünner abgedeckt sein, ohne dass viel Risiko entsteht.\n\n## Was es kostet\n\nTests zu schreiben gehört zur Entwicklung einer Funktion und erhöht deren Aufwand spürbar. Der genaue Anteil hängt von Funktion und Team ab. Lassen Sie ihn im Angebot ausweisen, statt ihn zu verstecken. Im Gegenzug werden spätere Änderungen günstiger und das manuelle Nachtesten vor jeder Veröffentlichung schrumpft. Tests sind Code und brauchen Pflege: Ändert sich eine Funktion, ändern sich ihre Tests mit. Eine Testsammlung, die häufig grundlos fehlschlägt oder so lange läuft, dass man sie überspringt, hat ihren Wert verloren und muss repariert werden.\n\n## Was Tests nicht finden\n\nTests bestätigen, dass die Software tut, was der Entwickler verstanden hat. Eine missverstandene Anforderung, eine verwirrende Maske, eine falsche Einstellung auf dem Produktivserver oder ein Fremdsystem, das sich anders verhält als sein Stellvertreter, bleiben unentdeckt. Die Abnahme durch echte Nutzer und die Überwachung nach dem Start bleiben nötig.\n\n## So prüfen Sie es\n\nLassen Sie sich den Testlauf in der CI zur letzten Änderung zeigen, die Zahl der Tests je Ebene und die Laufzeit. Vereinbaren Sie im Vertrag, dass die Tests zusammen mit dem Quellcode im Repository übergeben werden.",
+  "personas": [
+    {
+      "key": "founder",
+      "text": "Sie verstehen, wofür Sie zahlen, wenn im Angebot eine Position für Tests steht, welche Teile Ihres Produkts sie am dringendsten brauchen und wie Sie auch ohne Technikkenntnisse prüfen, ob sie vorhanden sind und wirklich laufen."
+    },
+    {
+      "key": "project_manager",
+      "text": "Sie erhalten eine risikoorientierte Prüfliste für die Abnahme: Geld, Berechtigungen, Schnittstellen, Hauptabläufe und behobene Fehler. Außerdem sehen Sie, warum manuelles Testen vor einer Veröffentlichung weniger wird, aber nicht entfällt."
+    },
+    {
+      "key": "procurement",
+      "text": "Sie können Angebote vergleichbar machen, indem Sie jeden Anbieter fragen, welche Testebenen enthalten sind, ob Continuous Integration von Beginn an eingerichtet wird und ob die Tests mit dem Quellcode übergeben werden."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Wie viel Prozent Testabdeckung sollte ein Laravel-Projekt haben?",
+      "a": "Eine Zahl, die Qualität garantiert, gibt es nicht. Die Abdeckung misst, welche Codezeilen während der Tests ausgeführt wurden, und nicht, ob dabei etwas Sinnvolles geprüft wurde. Hilfreicher ist die Vereinbarung, welche Bereiche getestet sein müssen: Zahlungen, Berechtigungen, Schnittstellen und die wichtigsten Nutzerabläufe. Als Warnsignal bei starkem Rückgang taugt der Wert, als Ziel nicht."
+    },
+    {
+      "q": "Lassen sich Tests in einer bestehenden Laravel-Anwendung nachträglich ergänzen?",
+      "a": "Ja, nur selten sinnvoll für alles auf einmal. Üblich ist, mit Feature-Tests für die kritischsten Abläufe zu beginnen, jeden behobenen Fehler mit einem Test abzusichern und einen Bereich abzudecken, bevor er geändert wird. Älterer Code muss mitunter leicht umgebaut werden, damit er testbar wird. Dieser Aufwand gehört in die Planung."
+    },
+    {
+      "q": "Ersetzen automatisierte Tests das manuelle Testen vor einer Veröffentlichung?",
+      "a": "Nein. Sie übernehmen den wiederkehrenden Teil, also die Prüfung, ob alles noch funktioniert, was gestern funktionierte. Menschen beurteilen weiterhin, ob eine neue Funktion verständlich ist, auf verschiedenen Geräten richtig aussieht und dem entspricht, was die Fachseite gemeint hat. Mit guten Tests konzentriert sich das manuelle Testen auf das Neue."
+    }
+  ],
+  "meta_description": "Automatisierte Tests in Laravel: welche Unit-, Feature- und Browser-Tests Auftraggeber erwarten dürfen und was jede Ebene an Pflege kostet.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.490Z",
+  "updated_at": "2026-10-01T18:58:05.135Z"
+}

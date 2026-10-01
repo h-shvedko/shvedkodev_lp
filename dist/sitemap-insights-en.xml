@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://shvedko.dev/insights/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/guides/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/guides/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/guides/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/guides/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/examples/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/examples/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/examples/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/examples/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/services/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/services/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/services/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/services/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/products/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/products/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/products/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/products/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/examples/acceptance-test-plan/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/examples/acceptance-test-plan/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/examples/acceptance-test-plan/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/examples/acceptance-test-plan/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/examples/maintenance-sla/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/examples/maintenance-sla/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/examples/maintenance-sla/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/examples/maintenance-sla/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/examples/requirements-specification/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/examples/requirements-specification/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/examples/requirements-specification/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/examples/requirements-specification/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/examples/user-story/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/examples/user-story/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/examples/user-story/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/examples/user-story/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/examples/web-development-rfp/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/examples/web-development-rfp/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/examples/web-development-rfp/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/examples/web-development-rfp/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/examples/web-project-brief/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/examples/web-project-brief/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/examples/web-project-brief/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/examples/web-project-brief/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/guides/ai-app-builders-php/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/guides/ai-app-builders-php/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/guides/ai-app-builders-php/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/guides/ai-app-builders-php/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/guides/ai-features-in-laravel/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/guides/ai-features-in-laravel/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/guides/ai-features-in-laravel/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/guides/ai-features-in-laravel/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/guides/api-integration-guide/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/guides/api-integration-guide/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/guides/api-integration-guide/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/guides/api-integration-guide/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/guides/figma-to-laravel/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/guides/figma-to-laravel/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/guides/figma-to-laravel/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/guides/figma-to-laravel/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/guides/figma-to-wordpress/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/guides/figma-to-wordpress/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/guides/figma-to-wordpress/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/guides/figma-to-wordpress/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/guides/fixed-price-vs-time-and-materials/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/guides/fixed-price-vs-time-and-materials/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/guides/fixed-price-vs-time-and-materials/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/guides/fixed-price-vs-time-and-materials/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/guides/gdpr-website-development/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/guides/gdpr-website-development/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/guides/gdpr-website-development/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/guides/gdpr-website-development/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/guides/hire-laravel-developer/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/guides/hire-laravel-developer/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/guides/hire-laravel-developer/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/guides/hire-laravel-developer/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/guides/laravel-automated-testing/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/guides/laravel-automated-testing/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/guides/laravel-automated-testing/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/guides/laravel-automated-testing/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/guides/laravel-development-cost/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/guides/laravel-development-cost/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/guides/laravel-development-cost/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/guides/laravel-development-cost/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/guides/laravel-saas-development/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/guides/laravel-saas-development/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/guides/laravel-saas-development/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/guides/laravel-saas-development/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/guides/laravel-vs-wordpress/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/guides/laravel-vs-wordpress/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/guides/laravel-vs-wordpress/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/guides/laravel-vs-wordpress/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/guides/mvp-development-timeline/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/guides/mvp-development-timeline/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/guides/mvp-development-timeline/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/guides/mvp-development-timeline/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/guides/php-legacy-modernization/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/guides/php-legacy-modernization/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/guides/php-legacy-modernization/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/guides/php-legacy-modernization/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/guides/website-maintenance-contract/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/guides/website-maintenance-contract/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/guides/website-maintenance-contract/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/guides/website-maintenance-contract/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/guides/website-relaunch-checklist/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/guides/website-relaunch-checklist/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/guides/website-relaunch-checklist/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/guides/website-relaunch-checklist/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/products/craftly-figma-to-wordpress/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/products/craftly-figma-to-wordpress/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/products/craftly-figma-to-wordpress/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/products/craftly-figma-to-wordpress/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/products/craftly-laravel/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/products/craftly-laravel/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/products/craftly-laravel/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/products/craftly-laravel/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/products/craftly-wordpress/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/products/craftly-wordpress/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/products/craftly-wordpress/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/products/craftly-wordpress/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/products/craftly/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/products/craftly/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/products/craftly/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/products/craftly/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/products/jobhunter-cover-letters/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/products/jobhunter-cover-letters/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/products/jobhunter-cover-letters/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/products/jobhunter-cover-letters/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/products/jobhunter-job-alerts/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/products/jobhunter-job-alerts/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/products/jobhunter-job-alerts/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/products/jobhunter-job-alerts/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/products/jobhunter-job-scoring/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/products/jobhunter-job-scoring/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/products/jobhunter-job-scoring/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/products/jobhunter-job-scoring/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/products/jobhunter/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/products/jobhunter/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/products/jobhunter/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/products/jobhunter/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/services/ai-integration-for-education/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/services/ai-integration-for-education/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/services/ai-integration-for-education/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/services/ai-integration-for-education/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/services/ai-integration-for-hr/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/services/ai-integration-for-hr/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/services/ai-integration-for-hr/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/services/ai-integration-for-hr/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/services/ai-integration-for-marketing/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/services/ai-integration-for-marketing/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/services/ai-integration-for-marketing/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/services/ai-integration-for-marketing/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/services/api-integration-for-ecommerce/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/services/api-integration-for-ecommerce/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/services/api-integration-for-ecommerce/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/services/api-integration-for-ecommerce/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/services/api-integration-for-hr/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/services/api-integration-for-hr/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/services/api-integration-for-hr/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/services/api-integration-for-hr/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/services/cms-development-for-ecommerce/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/services/cms-development-for-ecommerce/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/services/cms-development-for-ecommerce/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/services/cms-development-for-ecommerce/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/services/laravel-development-for-ecommerce/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/services/laravel-development-for-ecommerce/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/services/laravel-development-for-ecommerce/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/services/laravel-development-for-ecommerce/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/services/laravel-development-for-education/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/services/laravel-development-for-education/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/services/laravel-development-for-education/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/services/laravel-development-for-education/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/services/laravel-development-for-public-sector/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/services/laravel-development-for-public-sector/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/services/laravel-development-for-public-sector/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/services/laravel-development-for-public-sector/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/services/legacy-modernization-for-public-sector/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/services/legacy-modernization-for-public-sector/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/services/legacy-modernization-for-public-sector/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/services/legacy-modernization-for-public-sector/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/services/n8n-automation-for-education/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/services/n8n-automation-for-education/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/services/n8n-automation-for-education/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/services/n8n-automation-for-education/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/services/n8n-automation-for-hr/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/services/n8n-automation-for-hr/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/services/n8n-automation-for-hr/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/services/n8n-automation-for-hr/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/services/saas-development-for-hr/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/services/saas-development-for-hr/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/services/saas-development-for-hr/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/services/saas-development-for-hr/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/services/saas-development-for-marketing/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/services/saas-development-for-marketing/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/services/saas-development-for-marketing/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/services/saas-development-for-marketing/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/services/test-automation-for-ecommerce/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/services/test-automation-for-ecommerce/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/services/test-automation-for-ecommerce/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/services/test-automation-for-ecommerce/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/services/test-automation-for-marketing/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/services/test-automation-for-marketing/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/services/test-automation-for-marketing/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/services/test-automation-for-marketing/"/>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/insights/services/wordpress-development-for-marketing/</loc>
+        <lastmod>2026-10-01</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/services/wordpress-development-for-marketing/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/services/wordpress-development-for-marketing/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/services/wordpress-development-for-marketing/"/>
+    </url>
+</urlset>

@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+<link rel="shortcut icon" href="/images/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="ShvedkoDev" />
+<link rel="manifest" href="/site.webmanifest" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+<link href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.min.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="/js/jquery.main.js"></script>
+<link rel="preconnect" href="//fonts.googleapis.com">
+<link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+
+<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css'>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jQuery-viewport-checker/1.8.8/jquery.viewportchecker.min.js" integrity="sha512-FRX6MYITclzDyyMmSQLgZoZTfE+GLzAQpjs15adVZMY6AqhsrBLx8UZwp4FoqrrRFWY9TiaPwja7EY5fk309vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
+
+<link href="//fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500;700&family=Saira+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+    // Google Analytics loads only after the visitor accepts cookies in the banner (footer partial).
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    function loadAnalytics() {
+        if (window.analyticsLoaded) return;
+        window.analyticsLoaded = true;
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-FY5NWV7102';
+        document.head.appendChild(script);
+        gtag('js', new Date());
+        gtag('config', 'G-FY5NWV7102');
+    }
+    try {
+        if (localStorage.getItem('cookieConsent') === 'accepted') loadAnalytics();
+    } catch (e) {}
+</script>
+<title>Lastenheft-Beispiel · ShvedkoDev</title>
+<meta name="description" content="Lastenheft-Beispiel für eine kleine Webanwendung: Ausgangslage, Anforderungen und Abnahmekriterien als Vorlage für Ihr eigenes Projekt.">
+<link rel="canonical" href="https://shvedko.dev/de/insights/examples/requirements-specification/">
+<link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/examples/requirements-specification/">
+<link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/examples/requirements-specification/">
+<link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/examples/requirements-specification/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Wie lang sollte ein Lastenheft für eine kleine Webanwendung sein?","acceptedAnswer":{"@type":"Answer","text":"Fünf bis zehn Seiten reichen in der Regel. Entscheidend ist nicht der Umfang, sondern dass jede Anforderung eine Nummer hat, genau ein Verhalten beschreibt, eine Priorität trägt und sich bei der Abnahme prüfen lässt. Zwanzig prüfbare Anforderungen sind mehr wert als vierzig Seiten Beschreibung."}},{"@type":"Question","name":"Worin unterscheiden sich Lastenheft und Pflichtenheft?","acceptedAnswer":{"@type":"Answer","text":"Das Lastenheft schreibt der Auftraggeber: Es sagt, was gebraucht wird und wozu. Das Pflichtenheft schreibt der Auftragnehmer: Es sagt, wie die Anforderungen umgesetzt werden. Bei kleinen Projekten ersetzt häufig ein ausführliches Angebot, das sich auf die Nummern im Lastenheft bezieht, das Pflichtenheft."}},{"@type":"Question","name":"Muss ich im Lastenheft die Technik vorgeben?","acceptedAnswer":{"@type":"Answer","text":"Nein. Beschreiben Sie Ergebnisse und nennen Sie nur echte Rahmenbedingungen, zum Beispiel eine vorhandene Software mit Schnittstelle, einen geforderten Serverstandort oder ein System, das Ihr Team bereits betreut. Die Wahl von Framework und Architektur gehört in die Antwort des Anbieters, und Sie dürfen eine Begründung verlangen."}}]}</script>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+<header id="header">
+    <div class="container">
+        <div class="logo">
+            <a href="/de/"><img src="/images/Logo.png" alt=""></a>
+        </div>
+        <input type="checkbox" id="burger-trigger" class="burger-trigger">
+        <label class="nav-opener" for="burger-trigger">Menü</label>
+        <div class="menu-holder">
+            <nav>
+                <ul id="nav" class="nav">
+                    <li><a href="/de/">Start</a></li>
+                    <li><a href="/de/about/">Über uns</a></li>
+                    <li><a href="/de/services/">Leistungen</a></li>
+                    <li><a href="/de/portfolio/">Portfolio</a></li>
+                    <li><a href="/de/blog/">Blog</a></li>
+                    <li><a href="/de/insights/">Insights</a></li>
+                    <li><a href="/de/contact/">Kontakt</a></li>
+                    <li class="lang-switch"><a href="/insights/examples/requirements-specification/" hreflang="en" lang="en" title="English" data-lang-fixed><img src="/images/flag-en.svg" alt="English" width="24" height="16"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+        <main role="main" id="main" class="insight-main">
+            <div class="container">
+<div class="insight">
+<aside class="insight__aside"><nav class="insight__nav" aria-label="Bereiche"><h2>Bereiche</h2><ul><li><a href="/de/insights/">Alle Seiten</a></li><li><a href="/de/insights/guides/">Leitfäden</a></li><li><a href="/de/insights/examples/" aria-current="page">Beispiele</a></li><li><a href="/de/insights/services/">Leistungen nach Branche</a></li><li><a href="/de/insights/products/">Produkte</a></li></ul></nav><nav class="insight__toc" aria-label="Auf dieser Seite"><h2>Auf dieser Seite</h2><ol><li><a href="#overview">Überblick</a></li><li><a href="#example">Beispiel</a></li><li><a href="#personas">Für wen das relevant ist</a></li><li><a href="#faq">Fragen und Antworten</a></li><li><a href="#related">Verwandte Seiten</a></li></ol></nav></aside>
+<article class="insight__body">
+<header class="insight__header">
+<p class="insight__crumbs"><a href="/de/insights/">Insights</a> / <a href="/de/insights/examples/">Beispiele</a></p>
+<h1>Lastenheft-Beispiel</h1>
+<p class="insight__subtitle">Ein vollständiges, frei erfundenes Lastenheft für eine kleine Webanwendung, das Sie Abschnitt für Abschnitt auf Ihr Projekt übertragen können.</p>
+</header>
+<section class="insight__section" id="overview"><h2><span class="insight__num">1</span> Überblick</h2><p>Ein Lastenheft beschreibt aus Sicht des Auftraggebers, was eine Webanwendung leisten soll und warum. Sie schreiben es selbst oder lassen sich dabei begleiten. Der Auftragnehmer antwortet darauf mit einem Angebot oder einem Pflichtenheft, in dem steht, wie er die Anforderungen umsetzt. Damit ist das Lastenheft die Grundlage für vergleichbare Angebote, für den Vertrag und am Ende für die Abnahme.</p>
+<p>Für eine kleine Webanwendung muss das Dokument nicht umfangreich sein. Fünf bis zehn Seiten reichen meist aus, wenn sich jede Anforderung überprüfen lässt.</p>
+<h3>Was hineingehört</h3>
+<ul><li>Ausgangslage: Wer Sie sind, wie die Arbeit heute abläuft und wo es hakt. Wer das Problem versteht, schlägt bessere Lösungen vor als jemand, der nur eine Funktionsliste bekommt.</li><li>Ziele: Die wenigen Ergebnisse, die das Projekt erreichen muss, so formuliert, dass Sie später feststellen können, ob sie erreicht wurden.</li><li>Nutzergruppen und Rollen: Wer arbeitet mit der Anwendung, wie oft, auf welchen Geräten, und was darf jede Rolle sehen und ändern?</li><li>Funktionale Anforderungen: Was die Anwendung tut. Jede Anforderung erhält eine eigene Nummer und beschreibt genau ein Verhalten.</li><li>Nicht-funktionale Anforderungen: Wie gut sie es tut. Ladezeit, unterstützte Browser, Barrierefreiheit, Datenschutz, Datensicherung, Serverstandort, Sprachen.</li><li>Abgrenzung: Was ausdrücklich nicht zum Projekt gehört. Kein Abschnitt verhindert später mehr Streit als dieser.</li><li>Abnahmekriterien: Die konkreten Prüfungen, an denen sich entscheidet, ob die Leistung erbracht ist.</li><li>Offene Punkte: Alles, was noch nicht entschieden ist, mit der Person, die entscheidet.</li></ul>
+<h3>So formulieren Sie eine Anforderung</h3>
+<p>Beschreiben Sie das Ergebnis und nicht die Technik. „Eine Mieterin kann einen Schaden mit Foto melden, ohne anzurufen“ ist eine Anforderung. „Die Anwendung nutzt ein bestimmtes Framework“ ist bereits eine Lösung und nimmt dem Anbieter die Möglichkeit, etwas Günstigeres oder Robusteres vorzuschlagen. Anders ist es bei echten Rahmenbedingungen, etwa einer vorhandenen Software, mit der Daten ausgetauscht werden müssen. Nennen Sie diese als Rahmenbedingung und begründen Sie sie kurz.</p>
+<p>Geben Sie jeder Anforderung eine Priorität. Drei Stufen genügen: Muss, Soll, Kann. Liegt das Angebot über Ihrem Budget, zeigen die Prioritäten beiden Seiten, wo gekürzt werden kann, ohne den Zweck des Projekts zu gefährden.</p>
+<h3>Häufige Fehler</h3>
+<ul><li>Eigenschaftswörter statt Messgrößen. „Schnell“, „modern“ und „benutzerfreundlich“ lassen sich nicht prüfen. Schreiben Sie, was eine Person erledigen können muss und wie lange es dauern darf.</li><li>Fehlende Rollen und Rechte. Wer darf Datensätze löschen, wer sieht Kosten, wer darf Daten exportieren? Solche Fragen werden teuer, wenn sie erst während der Entwicklung auftauchen.</li><li>Keine Angaben zu vorhandenen Daten. Müssen Adressen, Objekte oder alte Vorgänge übernommen werden, nennen Sie Anzahl und Format.</li><li>Nur der Normalfall ist beschrieben. Was geschieht, wenn eine E-Mail nicht zustellbar ist, ein Foto zu groß ist oder zwei Personen denselben Vorgang bearbeiten?</li><li>Abnahmekriterien, die die Anforderungen nur wiederholen. Ein Kriterium nennt eine Situation, eine Handlung und das erwartete Ergebnis.</li><li>Das Dokument gilt als endgültig. Anforderungen ändern sich, sobald eine erste Version zu sehen ist. Vereinbaren Sie vorab, wie Änderungen gemeldet, geschätzt und freigegeben werden.</li></ul>
+<h3>So nutzen Sie das Beispiel</h3>
+<p>Übernehmen Sie den Aufbau und ersetzen Sie den Inhalt. Behalten Sie die Nummerierung bei, denn über sie können Sie sich im Angebot, in Besprechungen und im Abnahmeprotokoll eindeutig auf eine Anforderung beziehen. Werden personenbezogene Daten verarbeitet, beziehen Sie Ihre Datenschutzbeauftragte oder Ihren Datenschutzbeauftragten früh ein. Fragen zu Vertrag, Haftung und Gewährleistung klärt eine Anwältin oder ein Anwalt, nicht eine Vorlage.</p></section>
+<section class="insight__section" id="example"><h2><span class="insight__num">2</span> Beispiel</h2><div class="insight__example"><p>Das folgende Lastenheft ist vollständig erfunden. Die Hausverwaltung Erlenbrook GmbH, alle genannten Personen und sämtliche Zahlen sind fiktiv und zeigen nur Aufbau und Detailtiefe.</p>
+<p>Lastenheft: Mieterportal für Schadensmeldungen der Hausverwaltung Erlenbrook GmbH<br>Version 1.0, erstellt von Friederike Ohlsen (Leitung Objektbetreuung)</p>
+<h3>1. Ausgangslage</h3>
+<p>Die Hausverwaltung Erlenbrook GmbH betreut mit 11 Mitarbeitenden 46 Wohnanlagen mit rund 1.900 Wohnungen. Schäden melden Mieterinnen und Mieter bisher per Telefon oder E-Mail. Pro Monat gehen etwa 240 Meldungen ein. Häufig fehlen Angaben, sodass nachgefragt werden muss, und niemand sieht auf einen Blick, welcher Vorgang bei welchem Handwerksbetrieb liegt.</p>
+<h3>2. Ziele</h3>
+<ul><li>Meldungen kommen vollständig und mit Foto an.</li><li>Jeder Vorgang hat jederzeit einen erkennbaren Status und eine zuständige Person.</li><li>Die Zahl der Rückfragen sinkt innerhalb von sechs Monaten nach dem Start um mindestens die Hälfte.</li></ul>
+<h3>3. Nutzergruppen und Rollen</h3>
+<ul><li>Mieterin oder Mieter: meldet selten, fast immer mit dem Smartphone.</li><li>Objektbetreuung (6 Personen): prüft Meldungen, beauftragt Handwerksbetriebe.</li><li>Handwerksbetrieb (etwa 30 Betriebe): sieht nur die eigenen Aufträge.</li><li>Administration (2 Personen): pflegt Objekte, Betriebe und Benutzerkonten.</li></ul>
+<h3>4. Funktionale Anforderungen</h3>
+<ul><li>F-01 (Muss): Eine Mieterin kann einen Schaden mit Kategorie, Beschreibung und bis zu fünf Fotos melden.</li><li>F-02 (Muss): Nach der Meldung erhält sie eine Bestätigung per E-Mail mit einer Vorgangsnummer.</li><li>F-03 (Muss): Die Objektbetreuung sieht alle offenen Vorgänge ihrer Objekte in einer Liste und kann nach Status und Objekt filtern.</li><li>F-04 (Muss): Ein Vorgang kann einem Handwerksbetrieb zugewiesen werden; der Betrieb wird per E-Mail benachrichtigt.</li><li>F-05 (Muss): Bei jeder Statusänderung wird die Mieterin automatisch informiert.</li><li>F-06 (Soll): Der Handwerksbetrieb kann einen Termin eintragen und den Auftrag als erledigt melden.</li><li>F-07 (Soll): Die Administration kann eine Monatsauswertung nach Objekt und Kategorie als Tabelle exportieren.</li><li>F-08 (Kann): Mieterinnen und Mieter können die Erledigung mit einem Satz bewerten.</li></ul>
+<h3>5. Nicht-funktionale Anforderungen</h3>
+<ul><li>N-01: Das Meldeformular ist auf einem Smartphone ohne Anleitung bedienbar und lädt in höchstens 2 Sekunden.</li><li>N-02: Die Anwendung läuft in den aktuellen Versionen von Chrome, Safari, Firefox und Edge.</li><li>N-03: Die Daten liegen auf Servern in Deutschland; es gibt eine tägliche Sicherung, die 30 Tage aufbewahrt wird.</li><li>N-04: Jede Rolle sieht ausschließlich die Daten, die sie für ihre Aufgabe braucht.</li><li>N-05: Die Oberfläche für Mieterinnen und Mieter ist in Deutsch und Englisch verfügbar.</li></ul>
+<h3>6. Abgrenzung</h3>
+<ul><li>Keine Anbindung an die Buchhaltung in dieser Phase.</li><li>Keine Nebenkostenabrechnung, kein Dokumentenarchiv.</li><li>Keine eigene App für App-Stores.</li></ul>
+<h3>7. Vorhandene Daten</h3>
+<p>46 Objekte, rund 1.900 Wohnungen und 30 Handwerksbetriebe liegen als Tabellen vor und werden einmalig übernommen.</p>
+<h3>8. Abnahmekriterien</h3>
+<ul><li>A-01: Eine Testperson meldet auf dem Smartphone einen Schaden mit zwei Fotos in unter 3 Minuten.</li><li>A-02: Ein Handwerksbetrieb sieht nach der Anmeldung nur die ihm zugewiesenen Vorgänge; der Aufruf eines fremden Vorgangs wird abgewiesen.</li><li>A-03: Nach einer Statusänderung trifft die Benachrichtigung innerhalb von 5 Minuten bei der Mieterin ein.</li><li>A-04: Alle 46 Objekte sind mit korrekter Adresse und Zuständigkeit übernommen, geprüft an einer Stichprobe von 10 Objekten.</li><li>A-05: Die Monatsauswertung stimmt für einen Testmonat mit einer von Hand gezählten Liste überein.</li></ul>
+<h3>9. Offene Punkte</h3>
+<ul><li>Sollen Notfälle außerhalb der Geschäftszeiten anders behandelt werden? Entscheidung: Henrik Vossberg (Geschäftsführung), bis 14. März.</li><li>Wie lange werden abgeschlossene Vorgänge aufbewahrt? Klärung mit der Datenschutzbeauftragten, bis 28. März.</li></ul></div></section>
+<section class="insight__section" id="personas"><h2><span class="insight__num">3</span> Für wen das relevant ist</h2><div class="insight__personas"><div class="insight__persona"><h3>Gründerinnen und Gründer</h3><p>Sie sehen, wie aus einer Idee für ein Kundenportal oder ein internes Werkzeug ein Dokument wird, auf das Entwickler ein belastbares Angebot abgeben können, ohne dass Sie selbst über Technik entscheiden müssen.</p></div><div class="insight__persona"><h3>Projektleitung</h3><p>Sie erhalten einen nummerierten Aufbau mit Prioritäten und prüfbaren Abnahmekriterien, der von der Angebotsanfrage bis zum Abnahmetermin durchgängig verwendbar ist.</p></div><div class="insight__persona"><h3>IT-Leitung</h3><p>Sie finden eine Vorlage für die nicht-funktionalen Anforderungen, also Serverstandort, Datensicherung, Browser, Rollen und Rechte, die Fachabteilungen beim Schreiben häufig vergessen.</p></div></div></section>
+<section class="insight__section" id="faq"><h2><span class="insight__num">4</span> Fragen und Antworten</h2><h3>Wie lang sollte ein Lastenheft für eine kleine Webanwendung sein?</h3><p>Fünf bis zehn Seiten reichen in der Regel. Entscheidend ist nicht der Umfang, sondern dass jede Anforderung eine Nummer hat, genau ein Verhalten beschreibt, eine Priorität trägt und sich bei der Abnahme prüfen lässt. Zwanzig prüfbare Anforderungen sind mehr wert als vierzig Seiten Beschreibung.</p><h3>Worin unterscheiden sich Lastenheft und Pflichtenheft?</h3><p>Das Lastenheft schreibt der Auftraggeber: Es sagt, was gebraucht wird und wozu. Das Pflichtenheft schreibt der Auftragnehmer: Es sagt, wie die Anforderungen umgesetzt werden. Bei kleinen Projekten ersetzt häufig ein ausführliches Angebot, das sich auf die Nummern im Lastenheft bezieht, das Pflichtenheft.</p><h3>Muss ich im Lastenheft die Technik vorgeben?</h3><p>Nein. Beschreiben Sie Ergebnisse und nennen Sie nur echte Rahmenbedingungen, zum Beispiel eine vorhandene Software mit Schnittstelle, einen geforderten Serverstandort oder ein System, das Ihr Team bereits betreut. Die Wahl von Framework und Architektur gehört in die Antwort des Anbieters, und Sie dürfen eine Begründung verlangen.</p></section>
+<section class="insight__section" id="related"><h2><span class="insight__num">5</span> Verwandte Seiten</h2><ul class="insight-list"><li><a href="/de/insights/examples/acceptance-test-plan/">Beispiel für einen Abnahmetestplan</a><p>Ein ausgearbeiteter Plan mit Testfällen, Rollen und Abnahmekriterien zeigt, wie Sie ein Webprojekt prüfen, bevor Sie es freigeben.</p></li><li><a href="/de/insights/examples/maintenance-sla/">Beispiel für ein Wartungs-SLA</a><p>So sieht eine Wartungsvereinbarung aus, in der Prioritäten, Fristen und Ausschlüsse so klar stehen, dass beide Seiten sie nachprüfen können.</p></li><li><a href="/de/insights/examples/user-story/">User-Story-Beispiel</a><p>Sechs ausformulierte User Storys mit Akzeptanzkriterien zu einer Funktion: Anforderungen, die sich schätzen, umsetzen und abnehmen lassen.</p></li><li><a href="/de/insights/examples/web-development-rfp/">Beispiel für eine Ausschreibung zur Webentwicklung</a><p>Eine ausgefüllte Ausschreibung, mit der Sie von mehreren Webdienstleistern Angebote erhalten, die sich Zeile für Zeile vergleichen lassen.</p></li><li><a href="/de/insights/examples/web-project-brief/">Beispiel für ein Website-Briefing</a><p>Ein kurzes, erfundenes Briefing mit Zielen, Zielgruppe, Umfang, Budgetrahmen und Zeitplan, das Sie für Ihre eigene Anfrage umschreiben können.</p></li></ul></section>
+<section class="insight__cta"><h2>Sie planen ein ähnliches Projekt?</h2><p>Schildern Sie uns Ihr Vorhaben. Sie erhalten eine klare Einschätzung zu Umfang, Vorgehen und Aufwand.</p><p><a href="/de/contact/" class="button">Kontakt aufnehmen</a></p></section>
+<footer class="insight__note"><p>Das Beispiel auf dieser Seite ist zur Veranschaulichung erfunden. Unternehmen, Personen und Zahlen sind fiktiv.</p><p>Aktualisiert: <time datetime="2026-10-01">2026-10-01</time></p></footer>
+</article>
+</div>
+            </div>
+        </main>
+<div id="footer">
+    <div class="container">
+        <div class="row-holder">
+            <div class="col-4 m-order-1">
+                <div class="logotype">
+                    <a href="/de/"><img src="/images/Logo.png" alt=""></a>
+                </div>
+                <ul class="contacts-list">
+                    <li><a href="/de/imprint/" style="width: 100px;display: block;">Impressum</a></li>
+                    <li><a href="/de/data-protection/" style="width: 200px;display: block;"> Datenschutz</a></li>
+                    <li><a href="/de/insights/" style="width: 100px;display: block;">Insights</a></li>
+                </ul>
+            </div>
+            <div class="col-4 m-order-3">
+                <h3>Kontakt</h3>
+                <ul class="contacts-list">
+                    <li>
+                        <i class="icon icon-location2"></i>
+                        <address>Göttingen, Deutschland</address>
+                    </li>
+                    <li>
+                        <i class="icon icon-mail"></i>
+                        <a href="mailto:info@shvedko.dev">info@shvedko.dev</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-4 m-order-1">
+                <h3>Folgen Sie uns:</h3>
+                <ul class="social-network">
+                    <li class="col">
+                        <a href="https://www.facebook.com/people/ShvedkoDev/61574820107319/" target="_blank" class="link-social-network"> <i class="icon icon-facebook1"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://x.com/ShvedkoDev" target="_blank" class="link-social-network"> <i class="icon icon-xtwitter"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://www.upwork.com/agencies/1749148191404584960/" target="_blank" class="link-social-network"> <i class="icon icon-upwork"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://www.linkedin.com/company/shvedkodev/" target="_blank" class="link-social-network"> <i class="icon icon-linkedin-square"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://www.instagram.com/shvedkodev/" target="_blank" class="link-social-network"> <i class="icon icon-instagram"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<footer class="copy">
+    <div class="container">
+        <p>&copy; ShvedkoDev 2026. Alle Rechte vorbehalten.</p>
+    </div>
+</footer>
+<!-- Cookie Banner -->
+<div id="cookie-banner" style="
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #222;
+  color: #fff;
+  padding: 16px;
+  text-align: center;
+  font-size: 14px;
+  z-index: 1000;">
+    Diese Website verwendet Cookies für Statistiken, und nur mit Ihrer Einwilligung.
+    <a href="/de/data-protection/" style="color: #4caf50; text-decoration: underline; margin-left: 8px;" target="_blank">
+        Mehr erfahren
+    </a>
+    <button id="cookie-accept" style="
+    margin-left: 16px;
+    background: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;">
+        Akzeptieren
+    </button>
+    <button id="cookie-decline" style="
+    margin-left: 8px;
+    background: transparent;
+    color: white;
+    border: 1px solid #888;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;">
+        Ablehnen
+    </button>
+</div>
+
+<script>
+    // The banner stays until the visitor decides. Analytics starts only on "accept".
+    (function () {
+        var banner = document.getElementById('cookie-banner');
+        var choice = null;
+        try { choice = localStorage.getItem('cookieConsent'); } catch (e) {}
+        if (choice) banner.style.display = 'none';
+        function decide(value) {
+            try { localStorage.setItem('cookieConsent', value); } catch (e) {}
+            banner.style.display = 'none';
+            if (value === 'accepted') loadAnalytics();
+        }
+        document.getElementById('cookie-accept').addEventListener('click', function () { decide('accepted'); });
+        document.getElementById('cookie-decline').addEventListener('click', function () { decide('declined'); });
+    })();
+</script>
+
+</body>
+</html>

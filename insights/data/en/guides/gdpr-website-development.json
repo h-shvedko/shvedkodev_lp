@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "gdpr-website-development",
+  "entity_b": "",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "The technical measures a developer builds into a website for data protection, and how you can check that they are really there.",
+  "overview": "This page describes the technical side of data protection in a web project: what a developer builds and what you can verify. It is technical guidance, not legal advice. Whether a specific setup is lawful, which legal basis applies and what your privacy policy must say are questions for a data protection officer or a specialised lawyer.\n\n## Consent before anything loads\n\nA consent banner only does its job if it actually controls the scripts. Analytics, marketing tags, embedded videos, maps and chat widgets must stay blocked until the visitor agrees, and must stay blocked after a refusal.\n\n- Refusing is as easy as accepting, with no pre-ticked boxes\n- The choice is stored and can be changed later through a link on every page\n- Categories can be accepted separately\n- Each service is listed with its purpose and provider\n\nYou can test this yourself: open the site in a private browser window, open the network view of the developer tools and reload. Before you click anything, no requests should go to external analytics or advertising domains.\n\n## Third-party resources\n\nMany data transfers happen without anyone deciding on them: fonts, icon sets and script libraries loaded from external servers pass the visitor's IP address to that provider. A developer hosts these files on your own server. Videos and maps are replaced by a placeholder that loads the external content only after a click.\n\n## Data minimisation\n\nCollect only what the purpose requires, and keep it only as long as needed.\n\n- Forms ask for the fields actually used; optional fields are marked\n- Form submissions are not kept in the CMS database indefinitely\n- Server logs are shortened or deleted after a defined period\n- Retention periods are implemented as automatic deletion jobs, not as a note in a document\n- Test and staging systems work with anonymised data instead of a copy of real customers\n\n## Hosting and processors\n\nA server location in the EU is a good start but covers only the hosting. Every service that touches personal data counts: email delivery, newsletter tool, error tracking, backup storage, form services, payment, AI interfaces. The developer supplies a complete list with the purpose, the data involved and the location of each service. Where a service processes data on your behalf, your company concludes a data processing agreement with it, usually through the provider's customer account; your data protection officer can say which services that covers. Services outside the EU need a legal assessment before they are used, not after.\n\n## Deletion and export\n\nPeople can ask what you store about them and can ask for its deletion. The application has to be able to answer:\n\n- Find all data belonging to one person across tables, uploads and connected systems\n- Export it in a common machine-readable format\n- Delete or anonymise it, including in the newsletter tool and the CRM\n- Let backups expire through rotation so deleted data does not live on for years\n\nThis is far cheaper to plan in the data model than to retrofit. Where retention duties conflict with deletion, for example for invoices, a lawyer decides what is kept and for how long; the developer then implements blocking instead of deletion.\n\n## Security basics\n\nEncrypted transport throughout, passwords stored only as hashes, access rights by role, encrypted backups, timely updates and a log of administrative access. Personal data does not belong in URLs or in error messages sent to external tools.\n\n## What the developer hands over\n\nAt the end of the project you should receive documentation that your legal adviser can work with:\n\n- All cookies and local storage entries with purpose and lifetime\n- All external services and the data they receive\n- Where each type of personal data is stored and when it is deleted\n- How an access or deletion request is carried out step by step\n\nThese are the inputs for the privacy policy and the record of processing activities. Writing those texts and assessing them is legal work.",
+  "personas": [
+    {
+      "key": "marketing_lead",
+      "text": "You see what analytics and marketing tags need technically before they may run, and how to test in the browser whether your consent banner really blocks them until a visitor agrees."
+    },
+    {
+      "key": "founder",
+      "text": "You learn which technical measures to request from a developer, which documentation to expect at handover and at which points you need a lawyer or data protection officer instead."
+    },
+    {
+      "key": "developer",
+      "text": "You get a working list for a project: script blocking by consent, locally hosted resources, deletion jobs, export and erasure paths, processor inventory and the documentation to hand over."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Is a cookie banner enough to make a website GDPR-compliant?",
+      "a": "No. A banner is one measure, and only if it technically blocks scripts until consent is given. Data protection also concerns forms, server logs, externally loaded fonts and media, the services that process data for you, retention periods and the ability to export and delete a person's data. Whether the whole setup meets the legal requirements has to be assessed by a data protection officer or lawyer."
+    },
+    {
+      "q": "Does hosting in the EU settle the question of data transfers?",
+      "a": "Only for the hosting itself. Email delivery, newsletter tools, error tracking, embedded media, payment and AI services may still send personal data elsewhere. A developer can list every service with its location and the data it receives. Whether a transfer outside the EU is permissible and on what basis is a legal question to clarify before the service is used."
+    },
+    {
+      "q": "Who is responsible for data protection, the developer or the site owner?",
+      "a": "The company operating the website answers to visitors and authorities. The developer implements the technical measures, points out risks and documents data flows, but does not replace legal advice. How responsibility and liability are divided between you and the developer belongs in the contract, and a lawyer should review that part."
+    }
+  ],
+  "meta_description": "GDPR-Compliant Website Development: consent, data minimisation, EU hosting, deletion and export. Technical guidance, not legal advice.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.507Z",
+  "updated_at": "2026-10-01T18:58:05.144Z"
+}

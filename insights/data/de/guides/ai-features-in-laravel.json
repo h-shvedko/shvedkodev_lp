@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "ai-features-in-laravel",
+  "entity_b": "",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Sechs Entwurfsentscheidungen, mit denen eine Sprachmodell-Funktion in einer bestehenden Laravel-Anwendung zuverlässig und bezahlbar bleibt.",
+  "overview": "Zusammenfassungen, Einordnung von Anfragen, Antwortentwürfe, Daten aus Dokumenten, Suche in eigenen Inhalten: Bei einer solchen Funktion in einer bestehenden Laravel-Anwendung ist der Aufruf des Modells der kleinste Teil. Er umfasst wenige Zeilen. Die eigentlichen Fragen lauten, was geschieht, wenn er langsam, falsch, teuer oder nicht erreichbar ist.\n\n## Abstraktion des Anbieters\n\nRufen Sie die Schnittstelle eines Anbieters nicht direkt aus Controllern auf. Legen Sie eine Schicht dazwischen: Die Anwendung verlangt eine Aufgabe, etwa einen Text zusammenzufassen, und eine einzige Klasse weiß, welcher Anbieter und welches Modell sie erledigt. Laravel-Pakete bieten eine einheitliche Schnittstelle über mehrere Anbieter, eine schlanke eigene Schicht tut es ebenfalls. Der Nutzen ist praktisch: Ein Modellwechsel bei geänderten Preisen oder besserer Qualität wird zur Konfigurationsänderung, Tests laufen gegen eine Attrappe statt gegen einen kostenpflichtigen Dienst, und ein zweiter Anbieter kann als Ersatz einspringen.\n\n## Prompts in der Konfiguration\n\nPrompts bestimmen das Verhalten und ändern sich oft. Halten Sie sie in Konfigurationsdateien oder in der Datenbank, nicht als verstreute Zeichenketten im Code. Jeder Prompt erhält einen Namen, eine Version, das Modell, mit dem er getestet wurde, und eine Liste seiner Variablen. Speichern Sie zu jedem Ergebnis, welche Prompt-Version es erzeugt hat. Führen Sie einen kleinen Satz Testeingaben mit erwarteten Ergebnissen und lassen Sie ihn bei jeder Änderung von Prompt oder Modell erneut laufen.\n\n## Queues\n\nModellaufrufe dauern Sekunden und schlagen gelegentlich fehl. Führen Sie sie als Jobs in einer Warteschlange aus: Die Person erhält sofort eine Rückmeldung, das Ergebnis erscheint, sobald es vorliegt. Jeder Job braucht ein Zeitlimit, eine begrenzte Zahl von Wiederholungen mit wachsenden Pausen und einen Schutz vor Dubletten, damit eine Wiederholung keine zwei Datensätze anlegt. Eine Mengenbegrenzung der Warteschlange hält Sie innerhalb der Limits des Anbieters.\n\n## Kostenkontrolle\n\nDie Kosten hängen von der Menge des gesendeten und empfangenen Textes ab. Wirksam sind:\n\n- Tokens und Kosten je Aufruf, je Funktion und je Nutzer oder Kundenkonto protokollieren\n- Grenzen je Nutzer und Tag setzen, dazu ein Monatsbudget mit Warnung\n- das kleinste Modell nehmen, das Ihre Testfälle besteht\n- Eingabe- und Ausgabelänge begrenzen\n- Ergebnisse identischer Anfragen zwischenspeichern\n- nur die Daten senden, die die Aufgabe braucht\n\nEin Rechenbeispiel mit erfundenen Zahlen: Eine Funktion, die 0,4 Cent je Aufruf kostet, wirkt kostenlos. Wird sie bei einem Import automatisch für jeden von 50.000 Datensätzen ausgelöst, kostet sie an einem Nachmittag 200 Euro. Automatische Auslöser brauchen eine Grenze dringender als Schaltflächen.\n\n## Ausgaben prüfen, bevor sie gespeichert werden\n\nBehandeln Sie die Ausgabe des Modells wie eine ungeprüfte Eingabe. Verlangen Sie eine strukturierte Ausgabe in einem festgelegten Format und prüfen Sie sie mit den Validierungsregeln von Laravel wie ein abgesendetes Formular: Typen, erlaubte Werte, Längen und die Existenz referenzierter Datensätze. Scheitert die Prüfung, wiederholen Sie einmal und markieren den Fall danach zur manuellen Bearbeitung. Führen Sie Ausgaben nie aus und lassen Sie sie nie ungeprüft über Datensatzkennungen oder Berechtigungen entscheiden. Maskieren Sie sie bei der Anzeige.\n\nTexte von Nutzern oder aus hochgeladenen Dokumenten können Anweisungen an das Modell enthalten. Die Funktion darf deshalb nie mehr Rechte haben als die Person, die sie ausgelöst hat. Hat ein Ergebnis Folgen, etwa eine E-Mail an einen Kunden oder ein geänderter Preis, bestätigt es zuvor ein Mensch.\n\n## Fallbacks\n\nLegen Sie je Funktion fest, was geschieht, wenn der Anbieter ausfällt, langsam ist oder Unbrauchbares liefert: ein zweiter Anbieter, ein Weg ohne Modell wie ein von Hand ausgefülltes Feld oder ein klarer Hinweis, dass die Funktion gerade nicht verfügbar ist. Der Kern der Anwendung muss ohne die Funktion arbeiten. Ein Schalter, der sie ohne neue Auslieferung abstellt, gehört zum Entwurf.\n\n## Datenschutz\n\nKlären Sie, welche Daten an den Anbieter gehen, wo sie verarbeitet werden und auf welcher Vertragsgrundlage. Bei personenbezogenen Daten ist das eine Rechtsfrage für Ihre Datenschutzbeauftragte oder Ihren Datenschutzbeauftragten oder für eine Anwaltskanzlei. Technisch gilt: entfernen, was die Aufgabe nicht braucht, und vollständige Prompts mit personenbezogenen Daten nicht unbegrenzt in Protokollen aufbewahren.\n\n## Eine sinnvolle Reihenfolge\n\nBeginnen Sie mit einer eng umrissenen Funktion, deren Fehler harmlos und sichtbar sind, etwa einem Zusammenfassungsvorschlag, den ein Mensch freigibt. Bauen Sie dafür Schicht, Warteschlange, Kostenprotokoll und Prüfung. Die zweite Funktion nutzt alle vier wieder.",
+  "personas": [
+    {
+      "key": "cto",
+      "text": "Sie erhalten einen Architekturumriss für Modell-Funktionen in bestehendem Laravel-Code: eine Anbieterschicht, versionierte Prompts, Aufrufe über Queues, geprüfte Ausgaben und ein Fallback je Funktion."
+    },
+    {
+      "key": "product_manager",
+      "text": "Sie erfahren, welche Entscheidungen je Funktion bei Ihnen liegen, bevor das Team schätzen kann: Grenzen, Verhalten bei Ausfall des Modells und die Stellen, an denen ein Mensch bestätigt."
+    },
+    {
+      "key": "it_manager",
+      "text": "Sie sehen, was der Betrieb einer solchen Funktion verlangt: Budgets und Warnungen, einen Ausschalter, die Abhängigkeit von einem externen Anbieter und die vorab zu klärenden Datenschutzfragen."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Müssen wir unsere Laravel-Anwendung umbauen, um eine KI-Funktion zu ergänzen?",
+      "a": "Nein. Eine Modell-Funktion wird wie jede Anbindung an einen externen Dienst ergänzt: eine Service-Schicht, Jobs in der Warteschlange, einige Tabellen für Ergebnisse und Verbrauch sowie Konfiguration. Die bestehende Anwendung bleibt, wie sie ist. Nötig sind eine funktionierende Queue-Einrichtung und ein klarer Ort in der Oberfläche, an dem Ergebnisse erscheinen und korrigiert werden können."
+    },
+    {
+      "q": "Wie bleiben die laufenden Kosten einer KI-Funktion planbar?",
+      "a": "Protokollieren Sie Tokens und Kosten vom ersten Tag an für jeden Aufruf, setzen Sie Grenzen je Nutzer und Tag und legen Sie ein Monatsbudget mit Warnung fest. Automatische Auslöser wie Importe oder geplante Aufgaben brauchen eine harte Obergrenze, weil sie unbemerkt Menge erzeugen. Nutzen Sie das kleinste Modell, das Ihre Testfälle besteht, und speichern Sie wiederholte Anfragen zwischen."
+    },
+    {
+      "q": "Was geschieht, wenn das Modell falsche oder fehlerhaft formatierte Ausgaben liefert?",
+      "a": "Fehlerhaft formatierte Ausgaben fängt die Validierung ab, bevor etwas gespeichert wird: Der Job wiederholt einmal und markiert den Fall dann zur manuellen Bearbeitung. Inhaltlich falsche, aber korrekt formatierte Ausgaben erkennt eine Formatprüfung nicht. Dafür brauchen Sie Plausibilitätsregeln, wo möglich, und einen Menschen, der folgenreiche Ergebnisse vorab bestätigt."
+    }
+  ],
+  "meta_description": "KI-Funktionen in Laravel sauber einbauen: Anbieter-Abstraktion, Prompts in der Konfiguration, Queues, Kostenkontrolle, Fallbacks.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.478Z",
+  "updated_at": "2026-10-01T18:58:05.132Z"
+}

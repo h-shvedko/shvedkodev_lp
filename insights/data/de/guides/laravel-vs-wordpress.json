@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "laravel-vs-wordpress",
+  "entity_b": "",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Eine nüchterne Gegenüberstellung, die zeigt, welches System zu Ihrem Vorhaben passt, was der Betrieb kostet und wann beide zusammen die bessere Lösung sind.",
+  "overview": "WordPress und Laravel werden oft verglichen, als wären es zwei Marken desselben Produkts. Das stimmt nicht. WordPress ist ein fertiges Redaktionssystem: Nach der Installation kann Ihre Redaktion am selben Tag Seiten veröffentlichen. Laravel ist ein Framework, also ein Satz erprobter Bausteine, aus denen Entwickler eine Anwendung bauen, die es so noch nicht gibt. Die Wahl ergibt sich daraus, was Ihr Vorhaben im Kern ist.\n\n## Wann WordPress passt\n\nWordPress ist richtig, wenn Inhalte im Mittelpunkt stehen und Redakteure die Seite pflegen, nicht Entwickler. Typisch sind Unternehmensseiten, Blogs, Magazine, Kampagnenseiten und kleine Shops mit üblichem Bestellablauf. Die Redaktion bekommt eine vertraute Oberfläche, Entwürfe, Medienverwaltung und einen Änderungsverlauf, ohne dass etwas davon programmiert werden muss. Für Formulare, Mehrsprachigkeit oder Einstellungen für Suchmaschinen gibt es fertige Erweiterungen.\n\nDie Grenze ist erreicht, wenn Erweiterungen für etwas zurechtgebogen werden, wofür sie nicht gedacht waren. Braucht Ihre Seite eigene Datenstrukturen mit Regeln dazwischen, zum Beispiel Wartungsverträge, die zu Kunden mit mehreren Standorten und unterschiedlichen Konditionen gehören, dann bauen Sie eine Anwendung in ein System hinein, das für Beiträge und Seiten entworfen wurde.\n\n## Wann Laravel passt\n\nLaravel ist richtig, wenn Geschäftslogik und ein eigenes Datenmodell den Kern bilden: Kundenportale, Buchungs- und Bestellsysteme, interne Werkzeuge, Software im Abonnement oder alles mit mehreren Rollen, Freigabeschritten und Anbindungen an andere Systeme. Nichts steht im Weg, aber es ist auch nichts von vornherein da. Jede Maske, auch der Verwaltungsbereich, muss gebaut oder aus Paketen zusammengesetzt werden.\n\n## Die Abwägungen\n\n- Baukosten: Für eine Inhaltsseite ist WordPress im Einstieg günstiger, weil das meiste schon vorhanden ist. Bei individueller Logik kehrt sich das Verhältnis um. Die Grenzen von Erweiterungen zu umgehen dauert oft länger, als die Funktion in Laravel sauber zu bauen.\n- Wartung: WordPress braucht häufige Updates für Kern, Theme und jede Erweiterung, und ein Update kann eine andere Erweiterung stören. Laravel hat weniger fremde Teile, die sich bewegen, doch der Wechsel auf eine neue Hauptversion ist Entwicklerarbeit, die Sie einplanen müssen.\n- Sicherheitsupdates: WordPress ist wegen seiner Verbreitung ein häufiges Ziel automatisierter Angriffe, und veraltete Erweiterungen sind das übliche Einfallstor. Updates lassen sich automatisch einspielen, was hilft, solange jemand das Ergebnis prüft. Eine Laravel-Anwendung ist ein weniger einheitliches Ziel, wird aber von niemandem für Sie aktualisiert. Sicher bleibt sie nur, wenn jemand dafür zuständig ist.\n- Personal: Fachleute für WordPress finden Sie leicht, allerdings mit sehr unterschiedlichem Können. Laravel-Entwickler gibt es weniger. Dafür erleichtern die festen Konventionen des Frameworks die Übernahme eines bestehenden Projekts durch eine neue Person.\n- Abhängigkeit: Mit vielen Erweiterungen hängen Sie von der Weiterpflege und den Lizenzbedingungen jedes einzelnen Herstellers ab. Bei Laravel hängen Sie von denen ab, die Ihren Code kennen. Bestehen Sie deshalb auf Dokumentation und automatisierten Tests.\n\n## Wann die Kombination sinnvoll ist\n\nViele Unternehmen brauchen beides: einen Auftritt, den das Marketing jede Woche ändert, und eine Anwendung, in die sich Kunden einloggen. Beides zu trennen ist oft sauberer, als ein Werkzeug zu beiden Aufgaben zu zwingen. Üblich ist WordPress auf der Hauptdomain für Seiten und Blog und eine Laravel-Anwendung auf einer Subdomain für das Portal, mit gemeinsamem Erscheinungsbild und bei Bedarf gemeinsamer Anmeldung. Eine andere Variante: WordPress bleibt die Oberfläche für die Redaktion, und eine Laravel-Anwendung ruft die Inhalte von dort ab.\n\nDer Preis sind zwei Systeme, die gehostet, aktualisiert und überwacht werden müssen. Das lohnt sich, wenn sich Inhalte und Anwendung unterschiedlich schnell ändern und von verschiedenen Personen betreut werden.\n\n## Ein kurzer Test\n\nBeantworten Sie drei Fragen. Wer ändert die Seite am häufigsten, Redaktion oder Entwicklung? Bestehen die Daten aus Seiten und Beiträgen oder aus Datensätzen mit Regeln dazwischen? Wächst das Vorhaben durch mehr Inhalte oder durch mehr Funktionen? Überwiegt jeweils die erste Antwort, spricht das für WordPress, überwiegt die zweite, für Laravel. Ein deutliches Sowohl-als-auch spricht für die Kombination.",
+  "personas": [
+    {
+      "key": "founder",
+      "text": "Sie erhalten drei Fragen, mit denen Sie Ihr Vorhaben WordPress, Laravel oder einer Kombination zuordnen, und sehen, welche Wahl die erste Version günstig hält und welche die späteren Änderungen."
+    },
+    {
+      "key": "marketing_lead",
+      "text": "Sie sehen, was Ihre Redaktion mit WordPress ohne Programmierung bekommt, wo dieser Komfort endet und wie der Webauftritt in Ihrer Hand bleibt, auch wenn daneben ein Kundenportal entsteht."
+    },
+    {
+      "key": "it_manager",
+      "text": "Sie finden die Abwägungen zu Wartung, Sicherheitsupdates, Personal und Herstellerabhängigkeit nebeneinander, dazu zwei erprobte Wege, beide Systeme gemeinsam zu betreiben, und den Betriebsaufwand, den das bedeutet."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Lässt sich individuelle Geschäftslogik in WordPress mit Erweiterungen abbilden?",
+      "a": "Bis zu einem gewissen Punkt. Formulare, Mitgliederbereiche und einfache Shops sind gut abgedeckt. Teuer wird es, wenn Sie eigene Datenstrukturen, mehrere Rollen mit unterschiedlichen Rechten oder Regeln über mehrere Erweiterungen hinweg brauchen. Dann arbeiten Sie bei jeder Änderung um fremden Code herum, und jedes Update wird zum Risiko. Trifft das auf den Kern Ihres Vorhabens zu, ist Laravel die wirtschaftlichere Grundlage."
+    },
+    {
+      "q": "Können wir mit WordPress beginnen und später zu Laravel wechseln?",
+      "a": "Bei Inhalten ja: Seiten, Beiträge und Medien lassen sich exportieren und übernehmen. Logik, die in Erweiterungen steckt, lässt sich nicht übernehmen, sie muss neu gebaut werden. Wissen Sie schon heute, dass ein Anwendungsteil kommt, trennen Sie von Anfang an: Inhalte in WordPress, die Anwendung in Laravel. Dann muss später nichts umziehen, und jeder Teil kann in seinem Tempo wachsen."
+    },
+    {
+      "q": "Was ist sicherer, Laravel oder WordPress?",
+      "a": "Keines der beiden ist von sich aus sicher oder unsicher. Eine WordPress-Seite mit wenigen, gepflegten Erweiterungen und zügigen Updates lässt sich sicher betreiben. Eine Laravel-Anwendung, die seit Jahren niemand aktualisiert hat, nicht. Entscheidend ist, ob jemand für Updates, Backups und Überwachung zuständig ist. Regeln Sie diese Zuständigkeit schriftlich vor dem Start, unabhängig vom System."
+    }
+  ],
+  "meta_description": "Laravel vs. WordPress für Auftraggeber: was zu Inhaltsseiten passt, was zu eigener Geschäftslogik, und wann sich die Kombination lohnt.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:01:27.213Z",
+  "updated_at": "2026-10-01T18:58:05.136Z"
+}

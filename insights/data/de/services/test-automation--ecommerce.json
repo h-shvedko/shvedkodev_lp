@@ -1,0 +1,41 @@
+{
+  "axis": "services",
+  "entity_a": "test-automation",
+  "entity_b": "ecommerce",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Welche Teile eines Shops automatisch geprüft werden sollten, wie die Testebenen zusammenwirken und woran Sie eine brauchbare Testsuite erkennen.",
+  "overview": "Ein Fehler im Shop ist selten nur ein Schönheitsfehler. Eine falsch berechnete Rabattregel, ein Steuersatz für das falsche Land oder ein Kaufen-Button, der in einem Browser nicht reagiert, kostet Bestellungen, bis es jemand bemerkt. Kundinnen und Kunden melden so etwas kaum, sie gehen. Testautomatisierung heißt: Software prüft das wichtige Verhalten des Shops bei jeder Änderung, bevor diese Änderung Ihre Kundschaft erreicht.\n\n## Typische Probleme im Handel\n\n- Vor der Hochsaison werden Änderungen zurückgehalten, weil niemand sagen kann, was sie beschädigen könnten.\n- Getestet wird, indem eine Person den Bestellablauf von Hand durchklickt. Das dauert Stunden und entfällt, wenn die Zeit knapp ist.\n- Die Preislogik ist über Jahre gewachsen: Gutscheine, Staffelpreise, Versandkostengrenzen, Kundengruppen. Die Kombinationen lassen sich von Hand nicht mehr prüfen.\n- Updates des Shopsystems, von Erweiterungen oder der Zahlungsanbindung verursachen Fehler an ganz anderer Stelle.\n- Die Korrektur eines Fehlers bringt unbemerkt einen alten zurück.\n- Es gibt Tests, aber sie schlagen zufällig fehl. Das Team hat gelernt, sie zu übergehen.\n\n## Was eine gute Lösung enthält\n\nGute Testautomatisierung ist in Ebenen aufgebaut. Jede Ebene beantwortet eine andere Frage, und die schnellen, günstigen Ebenen tragen die Hauptlast.\n\n- Unit-Tests prüfen einzelne Regeln für sich: Preisberechnung, Steuer, Gültigkeit von Gutscheinen, Versandkosten. Sie laufen in Sekunden. Hierhin gehören die vielen Kombinationen.\n- Feature- oder Integrationstests prüfen das Zusammenspiel auf dem Server: Eine Bestellung verringert den Bestand, legt den Rechnungsdatensatz an und verschickt die Bestätigung, und ohne passende Rolle bleibt eine Verwaltungsfunktion gesperrt.\n- JavaScript-Unit-Tests decken Logik im Browser ab, etwa einen Warenkorb, der neu rechnet, oder die Variantenauswahl.\n- End-to-End-Tests steuern einen echten Browser durch die wenigen Abläufe, die den Umsatz bringen: Suche, Produktseite, Warenkorb, Kasse, Zahlung im Testmodus des Dienstleisters, Anmeldung im Kundenkonto. Sie sind langsam und anfälliger. Deshalb sollten es wenige sein, sorgfältig ausgewählt.\n\nAlles läuft in der CI, also automatisch bei jeder Änderung, und ein fehlgeschlagener Lauf blockiert die Veröffentlichung. Tests, die nur laufen, wenn jemand daran denkt, helfen wenig.\n\nZu einem soliden Aufbau gehören außerdem kontrollierte Testdaten, Ersatz für externe Dienste wie Zahlung und Versand und eine Regel für unzuverlässige Tests: zügig reparieren oder löschen, nie dulden.\n\n## Womit beginnen?\n\nEine vollständige Abdeckung brauchen Sie nicht. Beginnen Sie dort, wo ein Fehler Geld oder Vertrauen kostet: Preis- und Steuerberechnung, Kasse, Verarbeitung des Zahlungsstatus, Bestandsänderungen. Ergänzen Sie danach für jeden Fehler aus dem Live-Betrieb einen Test, damit er nicht unbemerkt zurückkehrt. Abdeckungsquoten sind ein schwaches Ziel. Eine Suite kann jede Codezeile berühren und trotzdem nichts Sinnvolles prüfen.\n\n## Fragen an den Anbieter\n\n- Welche Abläufe und Regeln würden Sie in unserem Shop zuerst testen, und warum diese?\n- Wie verteilen sich die Tests auf Unit-, Integrations- und End-to-End-Ebene, und wie lange dauert ein vollständiger Lauf?\n- Wie testen Sie Zahlung und Versand, ohne Live-Systeme zu berühren?\n- Was geschieht bei einem fehlgeschlagenen Test: Wird die Veröffentlichung blockiert?\n- Wie gehen Sie mit Tests um, die nur gelegentlich fehlschlagen?\n- Wer pflegt die Tests, wenn sich Funktionen ändern, und ist das im Aufwand enthalten?\n- Kann unser Team die Testergebnisse ohne Entwicklerhilfe lesen?\n\n## Erfahrung hinter dieser Seite\n\nShvedkoDev hat ein Content-Management-System mit PHPUnit-Suiten für Unit- und Feature-Tests, mit JavaScript-Unit-Tests und mit Playwright-End-to-End-Tests abgesichert, die alle in der CI laufen. Der oben beschriebene Aufbau in Ebenen entspricht dem, der dort verwendet wurde.",
+  "personas": [
+    {
+      "key": "ecommerce_manager",
+      "text": "Sie erfahren, welche Abläufe und Preisregeln Ihres Shops zuerst automatisiert geprüft werden sollten, damit Änderungen vor Aktionszeiträumen kein Glücksspiel mehr sind und das Durchklicken von Hand abnimmt."
+    },
+    {
+      "key": "cto",
+      "text": "Sie erhalten einen Aufbau in Ebenen, an dem Sie Angebote messen können: was in Unit-, Feature- und End-to-End-Tests gehört, wie die CI Veröffentlichungen absichert und wie mit unzuverlässigen Tests umzugehen ist."
+    },
+    {
+      "key": "project_manager",
+      "text": "Sie bekommen Fragen für Umfang und Aufwandsschätzung: womit begonnen wird, wer Tests bei geänderten Funktionen pflegt und woran sich ablesen lässt, ob eine Suite die Veröffentlichung wirklich schützt."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Müssen wir alles automatisiert testen?",
+      "a": "Nein. Beginnen Sie dort, wo ein Fehler Bestellungen oder Vertrauen kostet: Preis- und Steuerberechnung, Kasse, Verarbeitung des Zahlungsstatus und Bestandsänderungen. Ergänzen Sie einen Test für jeden Fehler, der den Live-Betrieb erreicht. Optische Details und selten genutzte Seiten können bei der manuellen Prüfung bleiben. Eine kleine Suite, die die kritischen Wege schützt und immer läuft, ist mehr wert als eine breite, der niemand traut."
+    },
+    {
+      "q": "Ersetzen automatisierte Tests die manuelle Prüfung vollständig?",
+      "a": "Nein. Automatisierte Tests bestätigen, dass bekanntes Verhalten weiter funktioniert. Sie bemerken nicht, dass eine neue Seite verwirrt, ein Text missverständlich ist oder eine Darstellung auf einem ungewöhnlichen Gerät nicht stimmt. Sie nehmen Ihrem Team aber die Wiederholungsarbeit ab, sodass die Prüfzeit in neue Funktionen und in Urteilsvermögen fließt statt in denselben Bestellablauf."
+    },
+    {
+      "q": "Wie lassen sich Zahlungen testen, ohne echtes Geld zu bewegen?",
+      "a": "Zahlungsdienstleister bieten einen Testmodus mit Testzugängen und Testkarten. End-to-End-Tests nutzen ihn, um eine vollständige Bestellung zu durchlaufen. In schnelleren Tests wird der Dienstleister durch einen Ersatz vertreten, der vorbereitete Antworten liefert. So lassen sich auch seltene Fälle prüfen, etwa abgelehnte, verspätete oder doppelte Zahlungsmeldungen."
+    }
+  ],
+  "meta_description": "Testautomatisierung für E-Commerce und Einzelhandel: was zuerst geprüft wird, welche Testebenen es gibt, was Sie Anbieter fragen.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.613Z",
+  "updated_at": "2026-10-01T18:58:05.142Z"
+}

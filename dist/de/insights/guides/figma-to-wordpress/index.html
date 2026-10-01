@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+<link rel="shortcut icon" href="/images/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="ShvedkoDev" />
+<link rel="manifest" href="/site.webmanifest" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+<link href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.min.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="/js/jquery.main.js"></script>
+<link rel="preconnect" href="//fonts.googleapis.com">
+<link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+
+<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css'>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jQuery-viewport-checker/1.8.8/jquery.viewportchecker.min.js" integrity="sha512-FRX6MYITclzDyyMmSQLgZoZTfE+GLzAQpjs15adVZMY6AqhsrBLx8UZwp4FoqrrRFWY9TiaPwja7EY5fk309vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
+
+<link href="//fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500;700&family=Saira+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+    // Google Analytics loads only after the visitor accepts cookies in the banner (footer partial).
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    function loadAnalytics() {
+        if (window.analyticsLoaded) return;
+        window.analyticsLoaded = true;
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-FY5NWV7102';
+        document.head.appendChild(script);
+        gtag('js', new Date());
+        gtag('config', 'G-FY5NWV7102');
+    }
+    try {
+        if (localStorage.getItem('cookieConsent') === 'accepted') loadAnalytics();
+    } catch (e) {}
+</script>
+<title>Von Figma zu WordPress · ShvedkoDev</title>
+<meta name="description" content="Von Figma zu WordPress ohne Detailverlust: Design-Tokens, Blöcke, responsives Verhalten, Editor und der sinnvolle Einsatz von KI.">
+<link rel="canonical" href="https://shvedko.dev/de/insights/guides/figma-to-wordpress/">
+<link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/guides/figma-to-wordpress/">
+<link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/guides/figma-to-wordpress/">
+<link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/guides/figma-to-wordpress/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Muss ein Figma-Design vorbereitet werden, bevor daraus ein WordPress-Theme entsteht?","acceptedAnswer":{"@type":"Answer","text":"In den meisten Fällen ja. Farben, Schriftgrößen und Abstände sollten als benannte Variablen oder Stile vorliegen, wiederkehrende Elemente als Komponenten mit Varianten, und zu jeder Komponente gehört ein Hinweis, was die Redaktion ändern darf. Ohne diese Vorarbeit lässt sich das Design trotzdem umsetzen, nur trifft dann der Entwickler diese Entscheidungen allein."}},{"@type":"Question","name":"Kann ein KI-Werkzeug aus einer Figma-Datei ein fertiges WordPress-Theme erzeugen?","acceptedAnswer":{"@type":"Answer","text":"Es liefert einen brauchbaren ersten Entwurf für Abschnitte und Stile. Ein fertiges Theme entsteht so nicht, weil die Datei nicht enthält, was ein Theme wissen muss: welche Felder bearbeitbar sind, wie sich Layouts zwischen den gezeichneten Breiten verhalten und was bei langen oder fehlenden Inhalten geschieht. Struktur und Prüfung bleiben Aufgabe eines Entwicklers."}},{"@type":"Question","name":"Sollte jede Komponente aus dem Design ein eigener Block werden?","acceptedAnswer":{"@type":"Answer","text":"Nein. Einfache Layouts, die die Redaktion umstellen darf, funktionieren gut als Block-Vorlagen aus Standardblöcken und sind günstiger in Bau und Pflege. Ein eigener Block lohnt sich, wenn die Struktur fest bleiben muss, nur einzelne Felder bearbeitbar sein sollen oder das Element Daten einbindet, etwa aktuelle Beiträge oder Termine."}}]}</script>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+<header id="header">
+    <div class="container">
+        <div class="logo">
+            <a href="/de/"><img src="/images/Logo.png" alt=""></a>
+        </div>
+        <input type="checkbox" id="burger-trigger" class="burger-trigger">
+        <label class="nav-opener" for="burger-trigger">Menü</label>
+        <div class="menu-holder">
+            <nav>
+                <ul id="nav" class="nav">
+                    <li><a href="/de/">Start</a></li>
+                    <li><a href="/de/about/">Über uns</a></li>
+                    <li><a href="/de/services/">Leistungen</a></li>
+                    <li><a href="/de/portfolio/">Portfolio</a></li>
+                    <li><a href="/de/blog/">Blog</a></li>
+                    <li><a href="/de/insights/">Insights</a></li>
+                    <li><a href="/de/contact/">Kontakt</a></li>
+                    <li class="lang-switch"><a href="/insights/guides/figma-to-wordpress/" hreflang="en" lang="en" title="English" data-lang-fixed><img src="/images/flag-en.svg" alt="English" width="24" height="16"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+        <main role="main" id="main" class="insight-main">
+            <div class="container">
+<div class="insight">
+<aside class="insight__aside"><nav class="insight__nav" aria-label="Bereiche"><h2>Bereiche</h2><ul><li><a href="/de/insights/">Alle Seiten</a></li><li><a href="/de/insights/guides/" aria-current="page">Leitfäden</a></li><li><a href="/de/insights/examples/">Beispiele</a></li><li><a href="/de/insights/services/">Leistungen nach Branche</a></li><li><a href="/de/insights/products/">Produkte</a></li></ul></nav><nav class="insight__toc" aria-label="Auf dieser Seite"><h2>Auf dieser Seite</h2><ol><li><a href="#overview">Überblick</a></li><li><a href="#personas">Für wen das relevant ist</a></li><li><a href="#faq">Fragen und Antworten</a></li><li><a href="#related">Verwandte Seiten</a></li></ol></nav></aside>
+<article class="insight__body">
+<header class="insight__header">
+<p class="insight__crumbs"><a href="/de/insights/">Insights</a> / <a href="/de/insights/guides/">Leitfäden</a></p>
+<h1>Von Figma zu WordPress</h1>
+<p class="insight__subtitle">Was zwischen fertiger Figma-Datei und einem WordPress-Theme geklärt sein muss, damit die Redaktion das Design nicht versehentlich zerlegt.</p>
+</header>
+<section class="insight__section" id="overview"><h2><span class="insight__num">1</span> Überblick</h2><p>Eine Figma-Datei zeigt, wie eine Website aussehen soll. Ein WordPress-Theme muss zusätzlich festlegen, wie sie sich verhält, wenn die Redaktion eine Überschrift einträgt, die doppelt so lang ist wie im Entwurf, und das auf einer Bildschirmbreite, die niemand gezeichnet hat. In dieser Lücke steckt der größte Teil der Arbeit, und dort entstehen die meisten Enttäuschungen.</p>
+<h3>Erst die Tokens, dann die Seiten</h3>
+<p>Design-Tokens sind die benannten Grundwerte eines Designs: Farben, Schriftgrößen, Abstände, Radien, Schatten. In einem Block-Theme gehören sie in die Datei theme.json. Von dort erscheinen sie als Farbpalette, Schriftgrößen und Abstandsstufen in der Seitenleiste des Editors. Arbeitet die Figma-Datei durchgehend mit Variablen und Stilen, ist die Übertragung fast mechanisch. Enthält sie vierzehn leicht unterschiedliche Grautöne und von Hand eingetippte Abstände, muss vor dem ersten Template jemand entscheiden, welche Werte gelten. Bitten Sie das Designteam um diese Bereinigung. In Figma ist sie billiger als im Code.</p>
+<h3>Aus Komponenten werden Blöcke</h3>
+<p>Jedes wiederkehrende Element, etwa Karte, Teaser, Kundenstimme oder Handlungsaufruf, wird zu einem von drei Dingen:</p>
+<ul><li>einer Block-Vorlage aus Standardblöcken, wenn der Aufbau einfach ist und die Redaktion ihn umstellen darf</li><li>einem eigenen Block, wenn die Struktur fest bleiben soll und nur bestimmte Felder bearbeitbar sind</li><li>einem Template-Teil für alles, was es nur einmal gibt, etwa Kopf- und Fußbereich</li></ul>
+<p>Maßgeblich ist, wer das Element später pflegt, nicht wie es aussieht. Halten Sie je Komponente fest, welche Felder änderbar sind, welche optional, welche Grenzen gelten (Textlänge, Bildformat) und welche Varianten es gibt. Eine Komponente mit einer solchen Liste wird einmal gebaut und wiederverwendet. Ohne Liste entsteht sie für jede Seite neu.</p>
+<h3>Responsives Verhalten</h3>
+<p>Entwürfe liegen meist in zwei oder drei Breiten vor, der Browser zeigt alle dazwischen. Klären Sie je Abschnitt: Stapeln sich die Spalten, und in welcher Reihenfolge? Wird das Bild beschnitten oder skaliert? Ab welcher Breite klappt die Navigation ein? Fließende Schriftgrößen und Abstände, die mit dem Bildschirm mitwachsen, ersparen viele Sonderfälle. Sie brauchen aber einen abgestimmten Kleinst- und Größtwert.</p>
+<h3>Die Arbeit im Editor</h3>
+<p>Ein Theme, das am ersten Tag dem Entwurf entspricht und nach einer Woche Redaktionsarbeit nicht mehr, hat sein Ziel verfehlt. Prüfen Sie: Zeigt der Editor annähernd das, was Besucher sehen? Werden nur die Markenfarben und die definierten Größen angeboten? Sind Blöcke gesperrt, die nicht verschoben werden sollen? Tragen die Vorlagen verständliche Namen? Testen Sie mit echten Inhalten: der längsten Überschrift, einem fehlenden Bild, einer Liste mit einem und mit zwölf Einträgen.</p>
+<h3>Wo Details verloren gehen</h3>
+<ul><li>nie gezeichnete Zustände: Hover, Fokus, Fehler, leer, lädt</li><li>echte Inhalte, die länger oder kürzer sind als der Platzhaltertext oder ganz fehlen</li><li>Abstände nach Augenmaß statt nach System</li><li>Schriften: Lizenz, Dateiformate, Ersatzschrift, Ladeverhalten</li><li>Bildformate und die Frage, was bei einem abweichenden Upload geschieht</li><li>Animationen, die besprochen, aber nicht dokumentiert wurden</li><li>Barrierefreiheit: Kontrast, Fokusreihenfolge, Überschriftenebenen</li></ul>
+<p>Dagegen hilft Unspektakuläres: eine kurze Übergabenotiz je Komponente, ein Satz echter Beispieltexte, eine gemeinsame Liste offener Fragen und eine Abnahme im Browser in mehreren Breiten, bevor die Inhalte eingepflegt werden.</p>
+<h3>Handarbeit oder KI-gestützte Generierung</h3>
+<p>KI-Werkzeuge, die eine Figma-Datei lesen, liefern schnell Markup und Stile für einen Abschnitt. Stark sind sie beim Wiederholbaren: Tokens übertragen, Block-Markup entwerfen, Varianten erzeugen. Schwach sind sie genau an den oben genannten Stellen. Sie bilden den sichtbaren Rahmen nach, oft mit festen Pixelwerten, und wissen nicht, welche Felder die Redaktion braucht, was bei langen Texten geschieht oder wie die vorhandenen Blöcke des Themes heißen.</p>
+<p>Sinnvoll ist diese Aufteilung: Die Generierung liefert den Entwurf, ein Entwickler verantwortet die Struktur, also theme.json, Block-Entscheidungen, Einschränkungen im Editor, Barrierefreiheit und Ladezeit, und prüft jedes generierte Stück nach derselben Liste wie handgeschriebenen Code. Bei sauber aufgebauten Design-Dateien ist die Zeitersparnis spürbar, bei unaufgeräumten gering. Die Bereinigung verschwindet nicht, sie verlagert sich nur.</p></section>
+<section class="insight__section" id="personas"><h2><span class="insight__num">2</span> Für wen das relevant ist</h2><div class="insight__personas"><div class="insight__persona"><h3>Marketingleitung</h3><p>Sie wissen, was Sie vor Baubeginn einfordern sollten, damit Ihr Team später im Editor neue Seiten im Markendesign anlegt, ohne für jedes Layout einen Entwickler zu brauchen.</p></div><div class="insight__persona"><h3>Agenturinhaberinnen und -inhaber</h3><p>Sie erhalten eine Liste der Übergabelücken, die zwischen Designteam und WordPress-Umsetzung Nacharbeit auslösen, und eine realistische Einschätzung, wo KI-Generierung Zeit spart.</p></div><div class="insight__persona"><h3>Projektleitung</h3><p>Aus den Abschnitten lässt sich eine Übergabe-Checkliste ableiten: bereinigte Tokens, bearbeitbare Felder je Komponente, Verhalten zwischen den Breakpoints, Abnahme im Browser.</p></div></div></section>
+<section class="insight__section" id="faq"><h2><span class="insight__num">3</span> Fragen und Antworten</h2><h3>Muss ein Figma-Design vorbereitet werden, bevor daraus ein WordPress-Theme entsteht?</h3><p>In den meisten Fällen ja. Farben, Schriftgrößen und Abstände sollten als benannte Variablen oder Stile vorliegen, wiederkehrende Elemente als Komponenten mit Varianten, und zu jeder Komponente gehört ein Hinweis, was die Redaktion ändern darf. Ohne diese Vorarbeit lässt sich das Design trotzdem umsetzen, nur trifft dann der Entwickler diese Entscheidungen allein.</p><h3>Kann ein KI-Werkzeug aus einer Figma-Datei ein fertiges WordPress-Theme erzeugen?</h3><p>Es liefert einen brauchbaren ersten Entwurf für Abschnitte und Stile. Ein fertiges Theme entsteht so nicht, weil die Datei nicht enthält, was ein Theme wissen muss: welche Felder bearbeitbar sind, wie sich Layouts zwischen den gezeichneten Breiten verhalten und was bei langen oder fehlenden Inhalten geschieht. Struktur und Prüfung bleiben Aufgabe eines Entwicklers.</p><h3>Sollte jede Komponente aus dem Design ein eigener Block werden?</h3><p>Nein. Einfache Layouts, die die Redaktion umstellen darf, funktionieren gut als Block-Vorlagen aus Standardblöcken und sind günstiger in Bau und Pflege. Ein eigener Block lohnt sich, wenn die Struktur fest bleiben muss, nur einzelne Felder bearbeitbar sein sollen oder das Element Daten einbindet, etwa aktuelle Beiträge oder Termine.</p></section>
+<section class="insight__section" id="related"><h2><span class="insight__num">4</span> Verwandte Seiten</h2><ul class="insight-list"><li><a href="/de/insights/guides/figma-to-laravel/">Von Figma zu Laravel</a><p>Was ein Anwendungsdesign über das Bild hinaus festlegen muss: Zustände, Formularregeln, Rollen und der richtige Einsatz von Livewire.</p></li><li><a href="/de/insights/products/craftly-figma-to-wordpress/">Craftly: von Figma zu WordPress</a><p>So bereiten Sie eine Figma-Datei für ein WordPress-Theme vor, ergänzen, was das Design offen lässt, und prüfen das Ergebnis.</p></li><li><a href="/de/insights/products/craftly-laravel/">Craftly für Laravel</a><p>Was Sie für eine Laravel-Anwendung beschreiben müssen, was Sie als Ergebnis erhalten und wie die Entwicklung danach weitergeht.</p></li><li><a href="/de/insights/products/craftly-wordpress/">Craftly für WordPress</a><p>Wann sich ein generiertes eigenes Theme gegenüber einem angepassten Kauf-Theme lohnt, was Sie beschreiben und wer es später pflegt.</p></li><li><a href="/de/insights/products/craftly/">Craftly</a><p>Was Craftly aus einer Beschreibung erzeugt, für wen sich das eignet und an welchen Stellen Sie weiterhin einen Entwickler brauchen.</p></li><li><a href="/de/insights/guides/ai-app-builders-php/">KI-App-Builder für PHP</a><p>Nüchtern betrachtet: wofür generierter Laravel- und WordPress-Code taugt, was ihm fehlt und wie Sie ihn vor dem Livegang prüfen.</p></li></ul></section>
+<section class="insight__cta"><h2>Mit Craftly ausprobieren</h2><p>Craftly erzeugt WordPress-Themes und Laravel-Anwendungen aus einer Beschreibung oder einem Design.</p><p><a href="https://craftly.build" class="button">Craftly öffnen</a> <a href="/de/contact/" class="button outline">Kontakt aufnehmen</a></p></section>
+<footer class="insight__note"><p>Diese Seite beruht auf unserer eigenen Projekterfahrung. Sie ist eine allgemeine Orientierung und keine Beratung zu Ihrem konkreten Vertrag oder Ihrer Rechtslage.</p><p>Aktualisiert: <time datetime="2026-10-01">2026-10-01</time></p></footer>
+</article>
+</div>
+            </div>
+        </main>
+<div id="footer">
+    <div class="container">
+        <div class="row-holder">
+            <div class="col-4 m-order-1">
+                <div class="logotype">
+                    <a href="/de/"><img src="/images/Logo.png" alt=""></a>
+                </div>
+                <ul class="contacts-list">
+                    <li><a href="/de/imprint/" style="width: 100px;display: block;">Impressum</a></li>
+                    <li><a href="/de/data-protection/" style="width: 200px;display: block;"> Datenschutz</a></li>
+                    <li><a href="/de/insights/" style="width: 100px;display: block;">Insights</a></li>
+                </ul>
+            </div>
+            <div class="col-4 m-order-3">
+                <h3>Kontakt</h3>
+                <ul class="contacts-list">
+                    <li>
+                        <i class="icon icon-location2"></i>
+                        <address>Göttingen, Deutschland</address>
+                    </li>
+                    <li>
+                        <i class="icon icon-mail"></i>
+                        <a href="mailto:info@shvedko.dev">info@shvedko.dev</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-4 m-order-1">
+                <h3>Folgen Sie uns:</h3>
+                <ul class="social-network">
+                    <li class="col">
+                        <a href="https://www.facebook.com/people/ShvedkoDev/61574820107319/" target="_blank" class="link-social-network"> <i class="icon icon-facebook1"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://x.com/ShvedkoDev" target="_blank" class="link-social-network"> <i class="icon icon-xtwitter"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://www.upwork.com/agencies/1749148191404584960/" target="_blank" class="link-social-network"> <i class="icon icon-upwork"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://www.linkedin.com/company/shvedkodev/" target="_blank" class="link-social-network"> <i class="icon icon-linkedin-square"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://www.instagram.com/shvedkodev/" target="_blank" class="link-social-network"> <i class="icon icon-instagram"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<footer class="copy">
+    <div class="container">
+        <p>&copy; ShvedkoDev 2026. Alle Rechte vorbehalten.</p>
+    </div>
+</footer>
+<!-- Cookie Banner -->
+<div id="cookie-banner" style="
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #222;
+  color: #fff;
+  padding: 16px;
+  text-align: center;
+  font-size: 14px;
+  z-index: 1000;">
+    Diese Website verwendet Cookies für Statistiken, und nur mit Ihrer Einwilligung.
+    <a href="/de/data-protection/" style="color: #4caf50; text-decoration: underline; margin-left: 8px;" target="_blank">
+        Mehr erfahren
+    </a>
+    <button id="cookie-accept" style="
+    margin-left: 16px;
+    background: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;">
+        Akzeptieren
+    </button>
+    <button id="cookie-decline" style="
+    margin-left: 8px;
+    background: transparent;
+    color: white;
+    border: 1px solid #888;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;">
+        Ablehnen
+    </button>
+</div>
+
+<script>
+    // The banner stays until the visitor decides. Analytics starts only on "accept".
+    (function () {
+        var banner = document.getElementById('cookie-banner');
+        var choice = null;
+        try { choice = localStorage.getItem('cookieConsent'); } catch (e) {}
+        if (choice) banner.style.display = 'none';
+        function decide(value) {
+            try { localStorage.setItem('cookieConsent', value); } catch (e) {}
+            banner.style.display = 'none';
+            if (value === 'accepted') loadAnalytics();
+        }
+        document.getElementById('cookie-accept').addEventListener('click', function () { decide('accepted'); });
+        document.getElementById('cookie-decline').addEventListener('click', function () { decide('declined'); });
+    })();
+</script>
+
+</body>
+</html>

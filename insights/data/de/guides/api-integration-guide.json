@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "api-integration-guide",
+  "entity_b": "",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "So planen Sie die Anbindung an ERP, CRM oder Zahlungsanbieter, dass Ausfälle, Zeitüberschreitungen und doppelte Meldungen keinen Schaden anrichten.",
+  "overview": "Jede Schnittstelle macht Ihre Anwendung von einem System abhängig, das Sie nicht selbst steuern. Dieses System ist gelegentlich langsam, kurz nicht erreichbar, benennt ein Feld um oder schickt dieselbe Nachricht zweimal. Die Verbindung an sich funktioniert meist schon am ersten Tag. Teuer wird es später, wenn etwas schiefgeht und niemand vorher festgelegt hat, was dann passieren soll. Diese Seite beschreibt die Entscheidungen, von denen abhängt, ob eine Störung unbemerkt bleibt oder tagelange Korrekturen von Hand nach sich zieht.\n\n## Vier Fragen vor der ersten Zeile Code\n\n- Welches System ist für welche Daten führend? Wenn eine Kundenadresse im Shop und im ERP geändert werden kann, muss feststehen, welche Änderung gilt.\n- In welche Richtung fließen die Daten und wie aktuell müssen sie sein? Lagerbestände müssen oft auf Minuten genau stimmen, für einen Artikelkatalog genügt häufig ein nächtlicher Abgleich.\n- Was soll Ihre Anwendung tun, wenn das andere System eine Stunde ausfällt: weiter Bestellungen annehmen und später übertragen oder anhalten?\n- Gibt es auf der Gegenseite eine Testumgebung und eine Person, die technische Fragen beantwortet?\n\n## Authentifizierung\n\nÜblich sind API-Schlüssel oder OAuth 2.0 mit Tokens, die ablaufen und erneuert werden müssen. Verlangen Sie getrennte Zugangsdaten für Test und Produktion, abgelegt in der Serverkonfiguration und nicht im Quellcode. Die Schnittstelle erhält nur die Rechte, die sie wirklich braucht. Die Erneuerung von Tokens läuft automatisch, und Zertifikate oder Schlüssel mit Ablaufdatum gehören in einen Kalender. Abgelaufene Zugangsdaten sind eine der häufigsten Ursachen für plötzliche Ausfälle.\n\n## Anfragelimits\n\nFast jede API begrenzt, wie viele Anfragen pro Minute oder Tag erlaubt sind. Im Normalbetrieb fällt das selten auf, beim ersten Gesamtimport und bei Massenänderungen dagegen sofort. Die Lösung: ausgehende Aufrufe über eine Warteschlange schicken, die sich drosseln lässt, Datensätze bündeln, wo die API das zulässt, nur Änderungen seit dem letzten Lauf abholen und so lange warten, wie das andere System es bei Erreichen des Limits vorgibt.\n\n## Wiederholungen und Idempotenz\n\nEine Zeitüberschreitung sagt nicht, ob die Anfrage gescheitert ist. Sie kann angekommen und verarbeitet worden sein, während nur die Antwort verloren ging. Jeder schreibende Vorgang braucht deshalb zweierlei. Erstens automatische Wiederholungen mit wachsenden Pausen und einer festen Höchstzahl an Versuchen; danach landet der Vorgang in einer Fehlerliste, die ein Mensch einsehen kann. Wiederholt werden nur vorübergehende Fehler, denn ein abgelehnter, ungültiger Datensatz scheitert jedes Mal gleich. Zweitens Idempotenz: Jeder Vorgang trägt einen eindeutigen Schlüssel, an dem das andere System eine Wiederholung erkennt und sie nicht doppelt ausführt. Ein Beispiel zur Veranschaulichung: Eine Zahlungsanfrage läuft nach 30 Sekunden in eine Zeitüberschreitung und wird erneut gesendet. Ohne Schlüssel wird der Kunde womöglich zweimal belastet, mit Schlüssel liefert die zweite Anfrage nur das Ergebnis der ersten.\n\n## Webhooks\n\nBei Webhooks ruft das andere System Ihre Anwendung auf, sobald etwas geschieht. Bewährt hat sich ein fester Ablauf: Signatur prüfen, das Ereignis unverändert speichern, sofort antworten und die Verarbeitung im Hintergrund erledigen. Rechnen Sie mit doppelten Ereignissen und falscher Reihenfolge und überspringen Sie Ereignisse, deren Kennung bereits verarbeitet wurde. Weil Webhooks auch verloren gehen, gehört ein regelmäßiger Abgleich dazu, der beide Systeme vergleicht und Fehlendes nachholt.\n\n## Überwachung\n\nJede Anfrage und Antwort wird mit einer Vorgangsnummer protokolliert, ohne Passwörter und ohne vollständige Zahlungsdaten. Alarme melden eine steigende Fehlerquote, eine wachsende Warteschlange und fehlgeschlagene Anmeldungen. Im Alltag am wertvollsten ist eine einfache Übersicht, in der auch Fachanwender fehlgeschlagene Vorgänge sehen, den Grund lesen und einen neuen Versuch auslösen können.\n\n## Typische Fehlerbilder\n\n- Ein Nutzer wartet auf eine Seite, während Ihr Server auf ein langsames Fremdsystem wartet. Der Aufruf gehört in den Hintergrund.\n- Ein Feld wird umbenannt oder ein neuer Statuswert taucht auf. Eingehende Daten prüfen und Fehler sichtbar melden, statt Unsinn zu speichern.\n- Beide Systeme ändern denselben Datensatz und überschreiben sich gegenseitig. Zuständigkeit je Feld festlegen.\n- Testdaten gelangen ins Produktivsystem. Zugangsdaten und Adressen je Umgebung trennen.\n- Niemand bemerkt, dass der nächtliche Abgleich seit drei Tagen steht. Auch ausbleibende Läufe müssen einen Alarm auslösen.\n\n## Was im Angebot stehen sollte\n\nEine schriftliche Feldzuordnung, das Wiederholungs- und Fehlerverhalten je Vorgang, eine Fehlerliste mit Bedienoberfläche, ein Abgleichlauf und eine benannte Person, die nach dem Livegang auf Alarme reagiert.",
+  "personas": [
+    {
+      "key": "it_manager",
+      "text": "Sie erhalten eine Liste dessen, was Sie vor der Abnahme vom Dienstleister verlangen sollten: getrennte Zugangsdaten je Umgebung, Wiederholungsregeln, einen Abgleichlauf und Alarme, die auch bei stillstehender Synchronisation auslösen."
+    },
+    {
+      "key": "operations_lead",
+      "text": "Sie verstehen, warum Bestellungen oder Rechnungen zwischen zwei Systemen doppelt auftauchen oder fehlen, und welche Funktionen Ihrem Team erlauben, solche Fälle ohne Entwickler zu klären, etwa eine Fehlerliste mit erneutem Versuch."
+    },
+    {
+      "key": "cto",
+      "text": "Sie können einen Schnittstellenentwurf an den üblichen Schwachstellen prüfen: führendes System je Feld, Idempotenzschlüssel bei schreibenden Vorgängen, Drosselung über Warteschlangen und Webhook-Verarbeitung, die Dubletten und falsche Reihenfolge verkraftet."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Wie lange dauert die Anbindung einer Webanwendung an ein ERP oder CRM?",
+      "a": "Das hängt weniger von der Zahl der Endpunkte ab als von einer klaren Feldzuordnung und davon, wie gut Dokumentation und Testumgebung des anderen Systems sind. Daten lesen und anzeigen geht schnell. Daten in beide Richtungen schreiben, samt Fehlerbehandlung, Abgleich und Überwachung, macht den größeren Teil der Arbeit aus. Lassen Sie sich den Aufwand je Datenfluss schätzen und nicht als eine Gesamtzahl."
+    },
+    {
+      "q": "Was passiert mit unseren Bestellungen, wenn das angebundene System ausfällt?",
+      "a": "Das sollten Sie ausdrücklich entscheiden. Meist nimmt die Anwendung weiter Bestellungen an, speichert sie lokal und überträgt sie über eine Warteschlange, sobald das andere System wieder erreichbar ist. Wo eine sofortige Antwort unverzichtbar ist, etwa bei der Zahlungsfreigabe, braucht der Nutzer eine klare Meldung und einen sicheren zweiten Versuch, der keine Dublette erzeugt."
+    },
+    {
+      "q": "Sind Webhooks oder regelmäßige Abfragen der bessere Weg, Änderungen zu erhalten?",
+      "a": "Webhooks liefern Änderungen innerhalb von Sekunden und erzeugen wenig Last, einzelne Ereignisse können aber verloren gehen oder doppelt eintreffen. Regelmäßige Abfragen sind langsamer, dafür verlässlich. Eine robuste Anbindung nutzt beides: Webhooks für die Geschwindigkeit und einen geplanten Abgleichlauf als Sicherheitsnetz."
+    }
+  ],
+  "meta_description": "Leitfaden zur API-Integration: Authentifizierung, Limits, Wiederholungen und Webhooks so planen, dass Störungen fremder Systeme folgenlos bleiben.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.480Z",
+  "updated_at": "2026-10-01T18:58:05.132Z"
+}

@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "website-relaunch-checklist",
+  "entity_b": "",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Die Website neu gestalten oder neu aufbauen und dabei Suchmaschinen-Rankings und Anfragen der alten Seite behalten.",
+  "overview": "Ein Relaunch ersetzt eine Website, die Suchmaschinen und Besucher bereits kennen. Rankings und Anfragen gehen verloren, wenn sich Adressen ohne Weiterleitung ändern, wenn Inhalte verschwinden, die Besucher gebracht haben, oder wenn Formulare und Tracking unbemerkt ausfallen. Alle drei Ursachen lassen sich mit einer Checkliste vermeiden, die lange vor dem Design beginnt.\n\n## Vor der Umsetzung\n\nURL-Inventar\n- Exportieren Sie alle Adressen der bestehenden Website: aus einem Crawl, aus der Sitemap, aus dem Webmaster-Werkzeug der Suchmaschine und aus Ihrer Webanalyse.\n- Markieren Sie die Seiten, die Besucher aus der Suche bringen, die von anderen Websites verlinkt werden und auf denen Anfragen oder Käufe entstehen. Diese Seiten dürfen Sie nicht verlieren.\n- Sichern Sie die heutigen Werte als Vergleichsbasis: Suchzugriffe je Seite, Anfragen je Monat, Ladezeiten der wichtigsten Seitentypen.\n\nInhalte\n- Entscheiden Sie für jede Seite: behalten, zusammenführen, neu schreiben oder entfernen.\n- Übernehmen Sie bei gut platzierten Seiten Titel, Überschriften und Haupttext, oder verbessern Sie sie bewusst. Eine solche Seite zu kürzen, damit sie ins neue Layout passt, ist eine häufige Ursache für verlorene Zugriffe.\n- Übernehmen Sie Bildbeschreibungen, Downloads, strukturierte Daten und interne Links.\n\n## Während der Umsetzung\n\nWeiterleitungen\n- Legen Sie eine Tabelle an: je alte Adresse eine Zeile mit der neuen Adresse.\n- Verwenden Sie dauerhafte Weiterleitungen und führen Sie jede alte Seite auf ihre nächstliegende Entsprechung, nicht auf die Startseite.\n- Vermeiden Sie Ketten: Eine alte Adresse erreicht die endgültige in einem Schritt.\n- Berücksichtigen Sie auch Adressen, die schon bisher weitergeleitet wurden, Dateien wie PDFs und Varianten mit und ohne Schrägstrich am Ende.\n\nTracking und Formulare\n- Listen Sie jede heute gemessene Conversion auf: abgesendete Formulare, Klicks auf Telefonnummer und E-Mail, Käufe, Newsletter-Anmeldungen. Bauen Sie jede neu auf und testen Sie sie.\n- Prüfen Sie, ob das Einwilligungsbanner funktioniert und das Tracking sich daran hält. Die rechtlichen Anforderungen klären Sie mit einem Anwalt oder Ihrem Datenschutzbeauftragten.\n- Senden Sie jedes Formular auf dem Testsystem ab und kontrollieren Sie, ob die Nachricht im richtigen Postfach oder System ankommt.\n\nLadezeit\n- Messen Sie auf einem Mittelklasse-Smartphone, nicht nur am Bürorechner.\n- Komprimieren Sie Bilder und liefern Sie sie in passender Größe aus, laden Sie Schriften und Skripte sparsam und vergleichen Sie mit der Ausgangsbasis.\n\nTestsystem\n- Schützen Sie es per Passwort vor Suchmaschinen und notieren Sie, dass jede Sperre zum Start entfernt werden muss.\n\n## Am Starttag\n\n- Wählen Sie einen ruhigen Vormittag unter der Woche, an dem das Team erreichbar ist, keinen Freitagnachmittag.\n- Erstellen Sie eine vollständige Sicherung der alten Website und halten Sie sie zum Vergleich erreichbar.\n- Entfernen Sie die Sperren für Suchmaschinen, die vom Testsystem stammen: noindex-Einstellungen und robots-Regeln.\n- Testen Sie eine Stichprobe der Weiterleitungen aus der Tabelle, darunter die wichtigsten Seiten.\n- Prüfen Sie Sicherheitszertifikat, kanonische Adressen und Fehlerseite.\n- Reichen Sie die neue Sitemap im Webmaster-Werkzeug ein.\n- Senden Sie über jedes Formular eine echte Anfrage und lösen Sie im Shop eine Testbestellung aus.\n- Kontrollieren Sie, ob das Tracking diese Testaktionen erfasst.\n\n## Nach dem Start\n\n- Tag 1 bis 7: täglich nach nicht gefundenen Seiten sehen und fehlende Weiterleitungen ergänzen. Beobachten Sie die Anfragen: Ein plötzlicher Rückgang auf null bedeutet meist ein defektes Formular, nicht weniger Interesse.\n- Woche 2 bis 6: Suchzugriffe und Positionen je Seite mit der Ausgangsbasis vergleichen. Schwankungen in den ersten Wochen sind normal. Ein stetiger Rückgang einzelner Seiten deutet auf fehlende Inhalte oder eine falsche Weiterleitung.\n- Lassen Sie Weiterleitungen dauerhaft bestehen und behalten Sie bei einem Domainwechsel die alte Domain.\n- Aktualisieren Sie Adressen in externen Profilen, Anzeigenkampagnen, E-Mail-Signaturen und Drucksachen.\n\n## Wer wofür zuständig ist\n\nBenennen Sie für jede Liste eine Person: Weiterleitungstabelle, Inhalte, Tracking, Kontrollen am Starttag. Ein Relaunch scheitert selten am Können. Er scheitert daran, dass jede Seite annahm, die andere kümmere sich um die Weiterleitungen.",
+  "personas": [
+    {
+      "key": "marketing_lead",
+      "text": "Sie erhalten die Schritte, die Sichtbarkeit in der Suche und Anfragen über den Relaunch hinweg sichern, und die Ausgangswerte, mit denen Sie danach belegen, dass nichts verloren ging."
+    },
+    {
+      "key": "project_manager",
+      "text": "Sie erhalten eine nach Projektphasen geordnete Checkliste mit klaren Arbeitsergebnissen wie Weiterleitungstabelle und Conversion-Liste sowie die Zuständigkeiten, die Sie vergeben müssen."
+    },
+    {
+      "key": "ecommerce_manager",
+      "text": "Sie erhalten die Kontrollen, mit denen Produkt- und Kategorieseiten nach dem Neuaufbau auffindbar und der Bestellablauf messbar bleiben, einschließlich Testbestellung am Starttag."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Verliert meine Website nach einem Relaunch ihre Rankings?",
+      "a": "Kurzfristige Schwankungen sind üblich, solange Suchmaschinen die Änderungen verarbeiten. Dauerhafte Verluste haben meist eine konkrete Ursache: fehlende oder falsche Weiterleitungen, entfernte oder gekürzte Inhalte auf gut platzierten Seiten oder eine Sperre für Suchmaschinen, die vom Testsystem übrig blieb. Früh entdeckt, lässt sich jede davon beheben."
+    },
+    {
+      "q": "Wie lange sollten Weiterleitungen bestehen bleiben?",
+      "a": "Dauerhaft, soweit es praktikabel ist. Alte Adressen leben jahrelang weiter: in Lesezeichen, in Links anderer Websites, in E-Mails und in Drucksachen. Weiterleitungen zu behalten kostet fast nichts. Wer sie später entfernt, holt sich die Fehler zurück, die beim Start vermieden wurden."
+    },
+    {
+      "q": "Brauche ich Weiterleitungen, wenn sich nur das Design ändert?",
+      "a": "Nicht, wenn jede Adresse exakt gleich bleibt. Prüfen Sie das, statt es anzunehmen: Ein neues System oder Theme ändert oft die Adressstruktur, Schrägstriche am Ende, Kategoriepfade oder Dateiablagen, ohne dass es jemand beschlossen hat. Vergleichen Sie vor dem Start das alte URL-Inventar mit der neuen Website."
+    }
+  ],
+  "meta_description": "Checkliste für den Website-Relaunch: URL-Inventar, Weiterleitungen, Inhalte und Tracking, damit Rankings und Anfragen bleiben.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.497Z",
+  "updated_at": "2026-10-01T18:58:05.138Z"
+}

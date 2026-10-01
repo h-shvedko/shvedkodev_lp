@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+<link rel="shortcut icon" href="/images/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="ShvedkoDev" />
+<link rel="manifest" href="/site.webmanifest" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+<link href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.min.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="/js/jquery.main.js"></script>
+<link rel="preconnect" href="//fonts.googleapis.com">
+<link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+
+<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css'>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jQuery-viewport-checker/1.8.8/jquery.viewportchecker.min.js" integrity="sha512-FRX6MYITclzDyyMmSQLgZoZTfE+GLzAQpjs15adVZMY6AqhsrBLx8UZwp4FoqrrRFWY9TiaPwja7EY5fk309vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
+
+<link href="//fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500;700&family=Saira+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+    // Google Analytics loads only after the visitor accepts cookies in the banner (footer partial).
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    function loadAnalytics() {
+        if (window.analyticsLoaded) return;
+        window.analyticsLoaded = true;
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-FY5NWV7102';
+        document.head.appendChild(script);
+        gtag('js', new Date());
+        gtag('config', 'G-FY5NWV7102');
+    }
+    try {
+        if (localStorage.getItem('cookieConsent') === 'accepted') loadAnalytics();
+    } catch (e) {}
+</script>
+<title>SaaS-Entwicklung mit Laravel · ShvedkoDev</title>
+<meta name="description" content="SaaS-Entwicklung mit Laravel: Mandantentrennung, Abrechnungseinheit, Rollen und Warteschlangen richtig wählen, bevor Änderungen teuer werden.">
+<link rel="canonical" href="https://shvedko.dev/de/insights/guides/laravel-saas-development/">
+<link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/guides/laravel-saas-development/">
+<link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/guides/laravel-saas-development/">
+<link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/guides/laravel-saas-development/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Sollte jeder Kunde eines SaaS-Produkts eine eigene Datenbank bekommen?","acceptedAnswer":{"@type":"Answer","text":"Nicht grundsätzlich. Eine gemeinsame Datenbank mit Mandantenkennung an jedem Datensatz ist günstiger im Betrieb und leichter zu aktualisieren. Für die meisten Produkte reicht sie aus, wenn der Mandantenfilter automatisch greift und getestet ist. Getrennte Datenbanken lohnen den Mehraufwand, wenn Kunden vertragliche Trennung, Wiederherstellung einzelner Konten oder Speicherung in einer bestimmten Region verlangen."}},{"@type":"Question","name":"Warum eignet sich Laravel für die Entwicklung eines SaaS-Produkts?","acceptedAnswer":{"@type":"Answer","text":"Es bringt mit, was jedes SaaS braucht: Anmeldung, Warteschlangen, geplante Aufgaben, E-Mails und Benachrichtigungen sowie offizielle Pakete für die Abo-Abrechnung. So fließt das Budget in das eigentliche Produkt. Die Grenzen sind dieselben wie bei jeder einzelnen Anwendung: Sehr hohe Last oder besondere Echtzeitanforderungen verlangen zusätzliche Architektur, die am konkreten Fall zu beurteilen ist."}},{"@type":"Question","name":"Lässt sich das Preismodell eines SaaS nach dem Start noch ändern?","acceptedAnswer":{"@type":"Answer","text":"Preise und Tarifinhalte lassen sich leicht ändern, wenn die Tarifgrenzen an einer zentralen Stelle definiert sind. Schwieriger ist der Wechsel der Abrechnungseinheit, etwa von der Pauschale zum Preis je Nutzer oder nach Verbrauch: Die Anwendung muss dann etwas zählen, das sie bisher nicht gezählt hat, und Bestandskunden brauchen eine Übergangsregel. Legen Sie die Einheit früh fest und halten Sie die Tarife selbst flexibel."}}]}</script>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+<header id="header">
+    <div class="container">
+        <div class="logo">
+            <a href="/de/"><img src="/images/Logo.png" alt=""></a>
+        </div>
+        <input type="checkbox" id="burger-trigger" class="burger-trigger">
+        <label class="nav-opener" for="burger-trigger">Menü</label>
+        <div class="menu-holder">
+            <nav>
+                <ul id="nav" class="nav">
+                    <li><a href="/de/">Start</a></li>
+                    <li><a href="/de/about/">Über uns</a></li>
+                    <li><a href="/de/services/">Leistungen</a></li>
+                    <li><a href="/de/portfolio/">Portfolio</a></li>
+                    <li><a href="/de/blog/">Blog</a></li>
+                    <li><a href="/de/insights/">Insights</a></li>
+                    <li><a href="/de/contact/">Kontakt</a></li>
+                    <li class="lang-switch"><a href="/insights/guides/laravel-saas-development/" hreflang="en" lang="en" title="English" data-lang-fixed><img src="/images/flag-en.svg" alt="English" width="24" height="16"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+        <main role="main" id="main" class="insight-main">
+            <div class="container">
+<div class="insight">
+<aside class="insight__aside"><nav class="insight__nav" aria-label="Bereiche"><h2>Bereiche</h2><ul><li><a href="/de/insights/">Alle Seiten</a></li><li><a href="/de/insights/guides/" aria-current="page">Leitfäden</a></li><li><a href="/de/insights/examples/">Beispiele</a></li><li><a href="/de/insights/services/">Leistungen nach Branche</a></li><li><a href="/de/insights/products/">Produkte</a></li></ul></nav><nav class="insight__toc" aria-label="Auf dieser Seite"><h2>Auf dieser Seite</h2><ol><li><a href="#overview">Überblick</a></li><li><a href="#personas">Für wen das relevant ist</a></li><li><a href="#faq">Fragen und Antworten</a></li><li><a href="#related">Verwandte Seiten</a></li></ol></nav></aside>
+<article class="insight__body">
+<header class="insight__header">
+<p class="insight__crumbs"><a href="/de/insights/">Insights</a> / <a href="/de/insights/guides/">Leitfäden</a></p>
+<h1>SaaS-Entwicklung mit Laravel</h1>
+<p class="insight__subtitle">Treffen Sie die wenigen schwer umkehrbaren SaaS-Entscheidungen wie Mandantentrennung, Abrechnungseinheit und Rechte, bevor der erste Kunde sich anmeldet.</p>
+</header>
+<section class="insight__section" id="overview"><h2><span class="insight__num">1</span> Überblick</h2><p>Ein SaaS-Produkt ist eine einzige Anwendung, die viele Kunden gleichzeitig nutzen. Jeder sieht nur die eigenen Daten, jeder zahlt wiederkehrend. Laravel bringt den Unterbau dafür weitgehend mit: Anmeldung, Hintergrundverarbeitung, geplante Aufgaben, E-Mail-Versand und offizielle Pakete für die Abo-Abrechnung. Funktionen zu bauen ist deshalb selten das Schwierige. Schwierig sind einige Strukturentscheidungen, die am ersten Tag wenig kosten und teuer werden, sobald echte Kundendaten vorhanden sind. Diese Seite geht sie in der Reihenfolge durch, in der sie Sie festlegen.</p>
+<h3>Mandantenfähigkeit: wie Kunden getrennt werden</h3>
+<p>Ein Mandant ist ein Kundenkonto, meist ein Unternehmen mit mehreren Nutzern. Drei Modelle sind üblich.</p>
+<ul><li>Gemeinsame Datenbank: Alle Mandanten liegen in denselben Tabellen, jeder Datensatz trägt eine Mandantenkennung. Im Betrieb am günstigsten und am einfachsten zu aktualisieren. Das Risiko ist eine Abfrage ohne Mandantenfilter. Der Filter muss deshalb automatisch greifen und durch Tests abgesichert sein.</li><li>Eine Datenbank je Mandant: stärkere Trennung, einfache Sicherung, Ausgabe und Löschung je Kunde, bei Bedarf Speicherung in einer bestimmten Region. Dafür muss jede Datenbankänderung bei allen Mandanten eingespielt werden, und kundenübergreifende Auswertungen werden aufwendiger.</li><li>Eine Installation je Mandant: vollständige Abschottung für Kunden mit strengen Vorgaben, bei den höchsten Betriebskosten. Als Standardmodell selten richtig.</li></ul>
+<p>Die meisten Produkte starten gut mit einer gemeinsamen Datenbank. Getrennte Datenbanken sind angebracht, wenn Kunden die Trennung oder eine Wiederherstellung einzelner Konten vertraglich verlangen werden. Ein späterer Wechsel bedeutet die Migration laufender Daten. Legen Sie zugleich fest, woran ein Mandant erkannt wird: an einer Subdomain, an der eigenen Domain des Kunden oder an einer Auswahl nach der Anmeldung.</p>
+<h3>Nutzer und Konten</h3>
+<p>Kann eine Person mit derselben Anmeldung mehreren Mandanten angehören, etwa eine Beraterin, die für drei Kundenfirmen arbeitet? Dann gehören Rollen zur Mitgliedschaft und nicht zum Nutzer. Ein nachträglicher Einbau berührt fast jede Maske. Klären Sie das früh, auch wenn die erste Version nur ein Konto anzeigt.</p>
+<h3>Rollen und Rechte</h3>
+<p>Beginnen Sie mit wenigen festen Rollen, etwa Inhaber, Administrator und Mitglied, und prüfen Sie Rechte an einer zentralen Stelle statt verstreut in einzelnen Seiten. Werden Kunden später eigene Rollen definieren wollen? Ist das wahrscheinlich, sollten Rechte von Anfang an als einzelne Befugnisse angelegt sein. Planen Sie außerdem ein, dass Ihr Support ein Konto so ansehen kann, wie der Kunde es sieht, mit dessen Wissen und mit einem Protokoll jedes Zugriffs.</p>
+<h3>Abo-Abrechnung</h3>
+<p>Die Zahlungsabwicklung übernimmt ein Abrechnungsanbieter, den Laravel über seine Abrechnungspakete anbindet. Die folgenden Entscheidungen bleiben bei Ihnen:</p>
+<ul><li>Was ist die Abrechnungseinheit: ein Pauschalpreis je Konto, ein Preis je Nutzer oder nach Verbrauch? Eine spätere Änderung betrifft Verträge und nicht nur Code.</li><li>Gibt es eine Testphase, und was geschieht an ihrem Ende ohne hinterlegtes Zahlungsmittel?</li><li>Was passiert bei einer fehlgeschlagenen Zahlung: wie viele Erinnerungen, welche Schonfrist, danach nur Lesezugriff oder Sperre?</li><li>Wie werden Tarifwechsel mitten im Abrechnungszeitraum verrechnet?</li><li>Wo werden Tarifgrenzen durchgesetzt? Eine zentrale Definition dessen, was jeder Tarif erlaubt, verhindert, dass eine Grenze auf einer Seite geprüft und auf einer anderen vergessen wird.</li></ul>
+<p>Der Abo-Status in Ihrer Anwendung muss den Benachrichtigungen des Anbieters folgen und nicht dem Ergebnis der Bezahlseite. Rechnungsstellung und Umsatzsteuer bei Kunden in verschiedenen Ländern klären Sie vor dem ersten Verkauf mit einer Steuerberatung.</p>
+<h3>Warteschlangen und Hintergrundarbeit</h3>
+<p>Alles, was dauert oder von einem anderen System abhängt, läuft im Hintergrund: E-Mails, Importe, Exporte, Berichte, eingehende Abrechnungsmeldungen. Zwei Punkte sind typisch für SaaS. Jeder Auftrag muss wissen, zu welchem Mandanten er gehört. Und der riesige Import eines Kunden darf nicht alle anderen ausbremsen, was getrennte Warteschlangen oder Grenzen je Mandant erfordert.</p>
+<h3>Onboarding</h3>
+<p>Der Weg von der Registrierung zum ersten brauchbaren Ergebnis entscheidet, ob aus einer Testphase ein Abo wird. Planen Sie ihn wie eine Funktion: Registrierung mit möglichst wenigen Feldern, Beispieldaten oder ein geführter erster Schritt, das Einladen von Kollegen und die Übernahme vorhandener Daten. Messen Sie, an welcher Stelle neue Konten abbrechen.</p>
+<h3>Vor dem Start entscheiden</h3>
+<ul><li>Mandantenmodell und Erkennung des Mandanten</li><li>ob ein Nutzer mehreren Konten angehören kann</li><li>Abrechnungseinheit und Tarifstruktur</li><li>Ausgabe und vollständige Löschung der Kundendaten bei Vertragsende</li><li>ein Änderungsprotokoll, wer was geändert hat</li></ul>
+<p>Vertragsbedingungen, Auftragsverarbeitung und Datenschutzpflichten gehören in die Hände einer Rechtsberatung und nicht in die der Entwicklung.</p></section>
+<section class="insight__section" id="personas"><h2><span class="insight__num">2</span> Für wen das relevant ist</h2><div class="insight__personas"><div class="insight__persona"><h3>Gründerinnen und Gründer</h3><p>Sie sehen, was vor Entwicklungsbeginn feststehen sollte, weil eine spätere Änderung Datenmigration oder neue Verträge bedeutet: Mandantenmodell, Abrechnungseinheit und die Frage, ob ein Nutzer mehreren Konten angehören kann.</p></div><div class="insight__persona"><h3>CTO oder Tech Lead</h3><p>Sie erhalten die Abwägung zwischen gemeinsamer Datenbank, Datenbank je Mandant und getrennten Installationen sowie die SaaS-typischen Punkte bei Warteschlangen, Rechteprüfung und dem Abgleich des Abo-Status mit dem Abrechnungsanbieter.</p></div><div class="insight__persona"><h3>Produktmanagement</h3><p>Sie bekommen die Produktfragen, die Ihnen die Entwicklung nicht abnehmen kann: Regeln für Testphase und Zahlungsausfall, Tarifgrenzen, feste oder kundeneigene Rollen und den Weg von der Registrierung zum ersten brauchbaren Ergebnis.</p></div></div></section>
+<section class="insight__section" id="faq"><h2><span class="insight__num">3</span> Fragen und Antworten</h2><h3>Sollte jeder Kunde eines SaaS-Produkts eine eigene Datenbank bekommen?</h3><p>Nicht grundsätzlich. Eine gemeinsame Datenbank mit Mandantenkennung an jedem Datensatz ist günstiger im Betrieb und leichter zu aktualisieren. Für die meisten Produkte reicht sie aus, wenn der Mandantenfilter automatisch greift und getestet ist. Getrennte Datenbanken lohnen den Mehraufwand, wenn Kunden vertragliche Trennung, Wiederherstellung einzelner Konten oder Speicherung in einer bestimmten Region verlangen.</p><h3>Warum eignet sich Laravel für die Entwicklung eines SaaS-Produkts?</h3><p>Es bringt mit, was jedes SaaS braucht: Anmeldung, Warteschlangen, geplante Aufgaben, E-Mails und Benachrichtigungen sowie offizielle Pakete für die Abo-Abrechnung. So fließt das Budget in das eigentliche Produkt. Die Grenzen sind dieselben wie bei jeder einzelnen Anwendung: Sehr hohe Last oder besondere Echtzeitanforderungen verlangen zusätzliche Architektur, die am konkreten Fall zu beurteilen ist.</p><h3>Lässt sich das Preismodell eines SaaS nach dem Start noch ändern?</h3><p>Preise und Tarifinhalte lassen sich leicht ändern, wenn die Tarifgrenzen an einer zentralen Stelle definiert sind. Schwieriger ist der Wechsel der Abrechnungseinheit, etwa von der Pauschale zum Preis je Nutzer oder nach Verbrauch: Die Anwendung muss dann etwas zählen, das sie bisher nicht gezählt hat, und Bestandskunden brauchen eine Übergangsregel. Legen Sie die Einheit früh fest und halten Sie die Tarife selbst flexibel.</p></section>
+<section class="insight__section" id="related"><h2><span class="insight__num">4</span> Verwandte Seiten</h2><ul class="insight-list"><li><a href="/de/insights/guides/ai-app-builders-php/">KI-App-Builder für PHP</a><p>Nüchtern betrachtet: wofür generierter Laravel- und WordPress-Code taugt, was ihm fehlt und wie Sie ihn vor dem Livegang prüfen.</p></li><li><a href="/de/insights/guides/ai-features-in-laravel/">KI-Funktionen in Laravel</a><p>Sechs Entwurfsentscheidungen, mit denen eine Sprachmodell-Funktion in einer bestehenden Laravel-Anwendung zuverlässig und bezahlbar bleibt.</p></li><li><a href="/de/insights/guides/api-integration-guide/">Leitfaden zur API-Integration</a><p>So planen Sie die Anbindung an ERP, CRM oder Zahlungsanbieter, dass Ausfälle, Zeitüberschreitungen und doppelte Meldungen keinen Schaden anrichten.</p></li><li><a href="/de/insights/guides/figma-to-laravel/">Von Figma zu Laravel</a><p>Was ein Anwendungsdesign über das Bild hinaus festlegen muss: Zustände, Formularregeln, Rollen und der richtige Einsatz von Livewire.</p></li><li><a href="/de/insights/guides/figma-to-wordpress/">Von Figma zu WordPress</a><p>Was zwischen fertiger Figma-Datei und einem WordPress-Theme geklärt sein muss, damit die Redaktion das Design nicht versehentlich zerlegt.</p></li><li><a href="/de/insights/guides/fixed-price-vs-time-and-materials/">Festpreis vs. Abrechnung nach Aufwand</a><p>So wählen Sie das Vertragsmodell für Ihr Webprojekt: Wer trägt welches Risiko, und wie werden Änderungen bezahlt?</p></li></ul></section>
+<section class="insight__cta"><h2>Sie planen ein ähnliches Projekt?</h2><p>Schildern Sie uns Ihr Vorhaben. Sie erhalten eine klare Einschätzung zu Umfang, Vorgehen und Aufwand.</p><p><a href="/de/contact/" class="button">Kontakt aufnehmen</a></p></section>
+<footer class="insight__note"><p>Diese Seite beruht auf unserer eigenen Projekterfahrung. Sie ist eine allgemeine Orientierung und keine Beratung zu Ihrem konkreten Vertrag oder Ihrer Rechtslage.</p><p>Aktualisiert: <time datetime="2026-10-01">2026-10-01</time></p></footer>
+</article>
+</div>
+            </div>
+        </main>
+<div id="footer">
+    <div class="container">
+        <div class="row-holder">
+            <div class="col-4 m-order-1">
+                <div class="logotype">
+                    <a href="/de/"><img src="/images/Logo.png" alt=""></a>
+                </div>
+                <ul class="contacts-list">
+                    <li><a href="/de/imprint/" style="width: 100px;display: block;">Impressum</a></li>
+                    <li><a href="/de/data-protection/" style="width: 200px;display: block;"> Datenschutz</a></li>
+                    <li><a href="/de/insights/" style="width: 100px;display: block;">Insights</a></li>
+                </ul>
+            </div>
+            <div class="col-4 m-order-3">
+                <h3>Kontakt</h3>
+                <ul class="contacts-list">
+                    <li>
+                        <i class="icon icon-location2"></i>
+                        <address>Göttingen, Deutschland</address>
+                    </li>
+                    <li>
+                        <i class="icon icon-mail"></i>
+                        <a href="mailto:info@shvedko.dev">info@shvedko.dev</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-4 m-order-1">
+                <h3>Folgen Sie uns:</h3>
+                <ul class="social-network">
+                    <li class="col">
+                        <a href="https://www.facebook.com/people/ShvedkoDev/61574820107319/" target="_blank" class="link-social-network"> <i class="icon icon-facebook1"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://x.com/ShvedkoDev" target="_blank" class="link-social-network"> <i class="icon icon-xtwitter"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://www.upwork.com/agencies/1749148191404584960/" target="_blank" class="link-social-network"> <i class="icon icon-upwork"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://www.linkedin.com/company/shvedkodev/" target="_blank" class="link-social-network"> <i class="icon icon-linkedin-square"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://www.instagram.com/shvedkodev/" target="_blank" class="link-social-network"> <i class="icon icon-instagram"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<footer class="copy">
+    <div class="container">
+        <p>&copy; ShvedkoDev 2026. Alle Rechte vorbehalten.</p>
+    </div>
+</footer>
+<!-- Cookie Banner -->
+<div id="cookie-banner" style="
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #222;
+  color: #fff;
+  padding: 16px;
+  text-align: center;
+  font-size: 14px;
+  z-index: 1000;">
+    Diese Website verwendet Cookies für Statistiken, und nur mit Ihrer Einwilligung.
+    <a href="/de/data-protection/" style="color: #4caf50; text-decoration: underline; margin-left: 8px;" target="_blank">
+        Mehr erfahren
+    </a>
+    <button id="cookie-accept" style="
+    margin-left: 16px;
+    background: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;">
+        Akzeptieren
+    </button>
+    <button id="cookie-decline" style="
+    margin-left: 8px;
+    background: transparent;
+    color: white;
+    border: 1px solid #888;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;">
+        Ablehnen
+    </button>
+</div>
+
+<script>
+    // The banner stays until the visitor decides. Analytics starts only on "accept".
+    (function () {
+        var banner = document.getElementById('cookie-banner');
+        var choice = null;
+        try { choice = localStorage.getItem('cookieConsent'); } catch (e) {}
+        if (choice) banner.style.display = 'none';
+        function decide(value) {
+            try { localStorage.setItem('cookieConsent', value); } catch (e) {}
+            banner.style.display = 'none';
+            if (value === 'accepted') loadAnalytics();
+        }
+        document.getElementById('cookie-accept').addEventListener('click', function () { decide('accepted'); });
+        document.getElementById('cookie-decline').addEventListener('click', function () { decide('declined'); });
+    })();
+</script>
+
+</body>
+</html>

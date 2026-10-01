@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+<link rel="shortcut icon" href="/images/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="ShvedkoDev" />
+<link rel="manifest" href="/site.webmanifest" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+<link href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.min.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="/js/jquery.main.js"></script>
+<link rel="preconnect" href="//fonts.googleapis.com">
+<link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+
+<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css'>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jQuery-viewport-checker/1.8.8/jquery.viewportchecker.min.js" integrity="sha512-FRX6MYITclzDyyMmSQLgZoZTfE+GLzAQpjs15adVZMY6AqhsrBLx8UZwp4FoqrrRFWY9TiaPwja7EY5fk309vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
+
+<link href="//fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500;700&family=Saira+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+    // Google Analytics loads only after the visitor accepts cookies in the banner (footer partial).
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    function loadAnalytics() {
+        if (window.analyticsLoaded) return;
+        window.analyticsLoaded = true;
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-FY5NWV7102';
+        document.head.appendChild(script);
+        gtag('js', new Date());
+        gtag('config', 'G-FY5NWV7102');
+    }
+    try {
+        if (localStorage.getItem('cookieConsent') === 'accepted') loadAnalytics();
+    } catch (e) {}
+</script>
+<title>Automated Testing in Laravel · ShvedkoDev</title>
+<meta name="description" content="Automated Testing in Laravel: which unit, feature and browser tests a client should expect, what each layer catches and what upkeep costs.">
+<link rel="canonical" href="https://shvedko.dev/insights/guides/laravel-automated-testing/">
+<link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/guides/laravel-automated-testing/">
+<link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/guides/laravel-automated-testing/">
+<link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/guides/laravel-automated-testing/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What percentage of test coverage should a Laravel project have?","acceptedAnswer":{"@type":"Answer","text":"There is no figure that guarantees quality. Coverage measures which lines were executed during tests, not whether anything meaningful was checked. It is more useful to agree which areas must be tested: payments, permissions, interfaces and the main user journeys. A coverage figure can serve as a warning sign when it drops sharply, but not as a goal."}},{"@type":"Question","name":"Can tests be added later to an existing Laravel application?","acceptedAnswer":{"@type":"Answer","text":"Yes, and it rarely makes sense to do it for everything at once. The usual approach is to start with feature tests for the most critical processes, add a test for every bug that gets fixed, and cover each area before it is changed. Older code sometimes has to be restructured slightly before it can be tested, which should be planned as part of the work."}},{"@type":"Question","name":"Do automated tests replace manual testing before a release?","acceptedAnswer":{"@type":"Answer","text":"No. They take over the repetitive part: checking that everything that worked yesterday still works today. People are still needed to judge whether a new feature is understandable, looks right on different devices and matches what the business intended. With a good suite, manual testing concentrates on what is new."}}]}</script>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+<header id="header">
+    <div class="container">
+        <div class="logo">
+            <a href="/"><img src="/images/Logo.png" alt=""></a>
+        </div>
+        <input type="checkbox" id="burger-trigger" class="burger-trigger">
+        <label class="nav-opener" for="burger-trigger">Menu</label>
+        <div class="menu-holder">
+            <nav>
+                <ul id="nav" class="nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about/">About us</a></li>
+                    <li><a href="/services/">Services</a></li>
+                    <li><a href="/portfolio/">Portfolio</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/insights/">Insights</a></li>
+                    <li><a href="/contact/">Contact</a></li>
+                    <li class="lang-switch"><a href="/de/insights/guides/laravel-automated-testing/" hreflang="de" lang="de" title="Deutsch" data-lang-fixed><img src="/images/flag-de.svg" alt="Deutsch" width="24" height="16"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+        <main role="main" id="main" class="insight-main">
+            <div class="container">
+<div class="insight">
+<aside class="insight__aside"><nav class="insight__nav" aria-label="Sections"><h2>Sections</h2><ul><li><a href="/insights/">All pages</a></li><li><a href="/insights/guides/" aria-current="page">Guides</a></li><li><a href="/insights/examples/">Examples</a></li><li><a href="/insights/services/">Services by industry</a></li><li><a href="/insights/products/">Products</a></li></ul></nav><nav class="insight__toc" aria-label="On this page"><h2>On this page</h2><ol><li><a href="#overview">Overview</a></li><li><a href="#personas">Who this is for</a></li><li><a href="#faq">Questions and answers</a></li><li><a href="#related">Related pages</a></li></ol></nav></aside>
+<article class="insight__body">
+<header class="insight__header">
+<p class="insight__crumbs"><a href="/insights/">Insights</a> / <a href="/insights/guides/">Guides</a></p>
+<h1>Automated Testing in Laravel</h1>
+<p class="insight__subtitle">Know which tests a Laravel project should include, what each kind catches, and what keeping them up to date costs you over the years.</p>
+</header>
+<section class="insight__section" id="overview"><h2><span class="insight__num">1</span> Overview</h2><p>Automated tests are small programs that check the application every time the code changes. For a client they matter for one reason: they let a developer change something in month eighteen without breaking what was built in month two. Tests are invisible in the finished product, so they are the first thing cut when a budget is tight. This page explains what a reasonable Laravel project contains, so you can ask for it and check that you received it.</p>
+<h3>Unit tests</h3>
+<p>A unit test checks one piece of logic in isolation, without database or browser. Typical subjects are price and tax calculation, discount rules, date logic and the conversion of imported data. Hundreds of them run in seconds. They catch calculation errors and forgotten special cases. Maintenance is low as long as they test rules of the business and not internal details of the code.</p>
+<h3>Feature tests</h3>
+<p>This is the layer where Laravel is strongest and where most of the value lies. A feature test sends a request to the application the way a browser or an API client would, with a test database behind it, and checks the response and the stored data. Examples: a customer may see only their own invoices, a form with a missing mandatory field is rejected, placing an order creates the order, reduces stock and queues a confirmation email. External services such as payment or email are replaced by stand-ins. Feature tests catch broken permissions, validation gaps and side effects of changes elsewhere. They need updating when behaviour changes on purpose: moderate, predictable work.</p>
+<h3>Browser end-to-end tests with Playwright</h3>
+<p>Playwright drives a real browser: it clicks, types and waits like a user. Only this layer notices that a button no longer reacts because of a JavaScript error, or that a multi-step checkout loses its data on step three. These tests are slow and the most sensitive to change, because a redesigned page can break them without any real defect. Keep them few and aimed at the journeys that cost money when they fail: registration, login, checkout, the central workflow of the application. As an illustration, a mid-sized application is often well served by ten to twenty such journeys rather than hundreds.</p>
+<h3>Continuous integration</h3>
+<p>Tests are useless if they only run when someone remembers. Continuous integration, CI for short, runs the whole suite automatically on every code change and blocks the change if anything fails. It usually also runs static analysis, which finds certain mistakes without executing the code. Expect CI to be set up in the first week of a project, not shortly before launch.</p>
+<h3>What coverage to expect</h3>
+<p>A percentage is a poor target, because a high figure can be reached with tests that check nothing important. Ask instead which risks are covered:</p>
+<ul><li>everything involving money: prices, payments, invoices</li><li>permissions: who may see and change what</li><li>imports, exports and interfaces to other systems</li><li>the main user journeys, in a browser</li><li>every bug that was fixed, with a test that reproduces it</li></ul>
+<h3>What it costs</h3>
+<p>Writing tests is part of developing a feature and adds noticeably to its effort; the exact share depends on the feature and the team, so have it shown in the estimate rather than hidden. Tests are code and have to be maintained: when a feature changes, its tests change with it. A suite that is frequently red for no reason, or takes so long that people skip it, has lost its value and needs repair.</p>
+<h3>What tests do not catch</h3>
+<p>Tests confirm that the software does what the developer understood. They do not notice a misunderstood requirement, a confusing screen, a wrong production setting or an external system that behaves differently from its stand-in. Acceptance by real users and monitoring after launch remain necessary.</p>
+<h3>How to verify</h3>
+<p>Ask to see the test run in CI for the latest change, the number of tests per layer, and how long the suite takes. Agree in the contract that tests are delivered in the repository together with the code.</p></section>
+<section class="insight__section" id="personas"><h2><span class="insight__num">2</span> Who this is for</h2><div class="insight__personas"><div class="insight__persona"><h3>Founder</h3><p>You learn what you are paying for when an estimate contains a line for tests, which parts of your product need them most, and how to check without technical knowledge that they exist and actually run.</p></div><div class="insight__persona"><h3>Project manager</h3><p>You get a risk-based checklist for acceptance: money, permissions, interfaces, main journeys and fixed bugs. You also see why manual testing before a release shrinks but does not vanish.</p></div><div class="insight__persona"><h3>Procurement lead</h3><p>You can compare offers on a like-for-like basis by asking each vendor which test layers are included, whether continuous integration is set up from the start, and whether tests are delivered with the source code.</p></div></div></section>
+<section class="insight__section" id="faq"><h2><span class="insight__num">3</span> Questions and answers</h2><h3>What percentage of test coverage should a Laravel project have?</h3><p>There is no figure that guarantees quality. Coverage measures which lines were executed during tests, not whether anything meaningful was checked. It is more useful to agree which areas must be tested: payments, permissions, interfaces and the main user journeys. A coverage figure can serve as a warning sign when it drops sharply, but not as a goal.</p><h3>Can tests be added later to an existing Laravel application?</h3><p>Yes, and it rarely makes sense to do it for everything at once. The usual approach is to start with feature tests for the most critical processes, add a test for every bug that gets fixed, and cover each area before it is changed. Older code sometimes has to be restructured slightly before it can be tested, which should be planned as part of the work.</p><h3>Do automated tests replace manual testing before a release?</h3><p>No. They take over the repetitive part: checking that everything that worked yesterday still works today. People are still needed to judge whether a new feature is understandable, looks right on different devices and matches what the business intended. With a good suite, manual testing concentrates on what is new.</p></section>
+<section class="insight__section" id="related"><h2><span class="insight__num">4</span> Related pages</h2><ul class="insight-list"><li><a href="/insights/guides/ai-app-builders-php/">AI App Builders for PHP</a><p>A sober look at what generated Laravel and WordPress code is good for, what it leaves out, and how to check it before it goes live.</p></li><li><a href="/insights/guides/ai-features-in-laravel/">AI Features in Laravel</a><p>The six design decisions that keep a language-model feature in an existing Laravel application reliable, affordable and replaceable.</p></li><li><a href="/insights/guides/api-integration-guide/">API Integration Guide</a><p>Plan an integration with ERP, CRM or payment systems so that outages, duplicates and timeouts stay harmless instead of costing manual clean-up.</p></li><li><a href="/insights/guides/figma-to-laravel/">Figma to Laravel</a><p>What an application design must specify beyond the picture: screen states, form rules, roles and where Livewire is worth it.</p></li><li><a href="/insights/guides/figma-to-wordpress/">Figma to WordPress</a><p>What has to be decided between a finished Figma file and a WordPress theme that editors can use without breaking the design.</p></li><li><a href="/insights/guides/fixed-price-vs-time-and-materials/">Fixed Price vs Time and Materials</a><p>How to choose the contract model for a web project by asking who carries the risk and how changes are paid for.</p></li></ul></section>
+<section class="insight__cta"><h2>Planning a project like this?</h2><p>Tell us what you are building. You get a straight answer on scope, approach and effort.</p><p><a href="/contact/" class="button">Get in touch</a></p></section>
+<footer class="insight__note"><p>This page reflects our own project experience. It is general guidance, not advice for your specific contract or legal situation.</p><p>Updated: <time datetime="2026-10-01">2026-10-01</time></p></footer>
+</article>
+</div>
+            </div>
+        </main>
+<div id="footer">
+    <div class="container">
+        <div class="row-holder">
+            <div class="col-4 m-order-1">
+                <div class="logotype">
+                    <a href="/"><img src="/images/Logo.png" alt=""></a>
+                </div>
+                <ul class="contacts-list">
+                    <li><a href="/imprint/" style="width: 100px;display: block;">Imprint</a></li>
+                    <li><a href="/data-protection/" style="width: 200px;display: block;"> Data Protection</a></li>
+                    <li><a href="/insights/" style="width: 100px;display: block;">Insights</a></li>
+                </ul>
+            </div>
+            <div class="col-4 m-order-3">
+                <h3>Contact</h3>
+                <ul class="contacts-list">
+                    <li>
+                        <i class="icon icon-location2"></i>
+                        <address>Göttingen, Germany</address>
+                    </li>
+                    <li>
+                        <i class="icon icon-mail"></i>
+                        <a href="mailto:info@shvedko.dev">info@shvedko.dev</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-4 m-order-1">
+                <h3>Follow us:</h3>
+                <ul class="social-network">
+                    <li class="col">
+                        <a href="https://www.facebook.com/people/ShvedkoDev/61574820107319/" target="_blank" class="link-social-network"> <i class="icon icon-facebook1"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://x.com/ShvedkoDev" target="_blank" class="link-social-network"> <i class="icon icon-xtwitter"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://www.upwork.com/agencies/1749148191404584960/" target="_blank" class="link-social-network"> <i class="icon icon-upwork"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://www.linkedin.com/company/shvedkodev/" target="_blank" class="link-social-network"> <i class="icon icon-linkedin-square"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://www.instagram.com/shvedkodev/" target="_blank" class="link-social-network"> <i class="icon icon-instagram"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<footer class="copy">
+    <div class="container">
+        <p>&copy; ShvedkoDev 2026. All Rights Reserved.</p>
+    </div>
+</footer>
+<!-- Cookie Banner -->
+<div id="cookie-banner" style="
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #222;
+  color: #fff;
+  padding: 16px;
+  text-align: center;
+  font-size: 14px;
+  z-index: 1000;">
+    This website uses cookies for statistics, and only with your consent.
+    <a href="/data-protection/" style="color: #4caf50; text-decoration: underline; margin-left: 8px;" target="_blank">
+        Learn more
+    </a>
+    <button id="cookie-accept" style="
+    margin-left: 16px;
+    background: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;">
+        Accept
+    </button>
+    <button id="cookie-decline" style="
+    margin-left: 8px;
+    background: transparent;
+    color: white;
+    border: 1px solid #888;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;">
+        Decline
+    </button>
+</div>
+
+<script>
+    // The banner stays until the visitor decides. Analytics starts only on "accept".
+    (function () {
+        var banner = document.getElementById('cookie-banner');
+        var choice = null;
+        try { choice = localStorage.getItem('cookieConsent'); } catch (e) {}
+        if (choice) banner.style.display = 'none';
+        function decide(value) {
+            try { localStorage.setItem('cookieConsent', value); } catch (e) {}
+            banner.style.display = 'none';
+            if (value === 'accepted') loadAnalytics();
+        }
+        document.getElementById('cookie-accept').addEventListener('click', function () { decide('accepted'); });
+        document.getElementById('cookie-decline').addEventListener('click', function () { decide('declined'); });
+    })();
+</script>
+
+</body>
+</html>

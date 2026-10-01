@@ -1,0 +1,41 @@
+{
+  "axis": "products",
+  "entity_a": "jobhunter",
+  "entity_b": "job-alerts",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "Hear about matching Upwork postings by email, Slack, WhatsApp or browser push, and pick the channel that fits how and where you work.",
+  "overview": "A posting you see two days late may already have been read by many others. Checking the job search every hour is no answer either: it breaks up the work you are paid for. Alerts solve this from the other side. Instead of you going to the postings, a message comes to you when there is something worth a look.\n\nJobHunter is our own product for freelancers on Upwork. It fetches new postings on a schedule, pre-filters them, scores each one with AI and prepares a draft cover letter and draft answers to screening questions. The alert is the last link in that chain: it tells you that a matching posting is waiting. Four channels are available: email, Slack, WhatsApp and browser push.\n\n## Which channel for which situation\n\nThe channels differ less in what they say than in where they reach you.\n\n- Email suits a fixed routine. Alerts collect in your inbox and you go through them at set times, for example in the morning and after lunch. Little interruption, but you see things later.\n- Slack suits people who have it open all day for client work anyway. The alert appears where you already look. If you share a workspace with colleagues, a dedicated channel keeps alerts out of other conversations.\n- WhatsApp reaches you on the phone, away from the desk. That is useful on days with meetings or travel, and intrusive if your phone is also your private line.\n- Browser push shows a notification while you are at the computer. It is immediate and easy to dismiss, and it is gone once you close the laptop.\n\nA sensible starting point is one channel, not all four. Add a second only when you notice a gap, such as missing alerts while travelling.\n\n## What quickly means here\n\nPostings are fetched on a schedule, so an alert follows the next fetch, not the second a client publishes. How often fetching happens is described on the product site. The other half of speed is yours: an alert only helps if you can act on it within a reasonable time.\n\n## What to do when an alert arrives\n\n- Decide in a minute whether the posting is worth reading in full. If not, drop it and return to your work.\n- If yes, read the whole posting on Upwork, not just the summary.\n- Revise the prepared draft and the answers to the screening questions.\n- Submit the proposal yourself on Upwork. JobHunter does not submit proposals.\n\nIf you cannot respond now, set a fixed time later that day. An alert left without a decision tends to be forgotten.\n\n## Keeping alerts worth reading\n\nAlerts lose their value once you start ignoring them. Signs of this: you swipe them away unread, or you mute the channel.\n\n- If too many arrive, the cause lies upstream. Tighten what counts as a match for you; the product site explains what can be set.\n- Keep work alerts out of your free time where the channel allows it, using the quiet hours of your phone or the notification settings of the app.\n- Review after two weeks: which alerts led you to read a posting, and which did not?\n\n## Privacy and shared spaces\n\nAn alert can reveal which jobs you are looking at. In a shared Slack workspace or on a screen visible to others, think about who can read along, especially while you work on a client's premises.\n\n## Not covered here\n\nWhat an alert contains, whether channels can be combined, setup steps and pricing are described on the JobHunter product site.",
+  "personas": [
+    {
+      "key": "freelancer",
+      "text": "You can choose between email, Slack, WhatsApp and browser push based on where you actually are during the day, and you get a short procedure for what to do in the minutes after an alert arrives."
+    },
+    {
+      "key": "agency_owner",
+      "text": "If several people in your agency watch for Upwork jobs, you see how a dedicated Slack channel or a shared inbox keeps alerts in one place, and why one person should own the response to each alert."
+    },
+    {
+      "key": "operations_lead",
+      "text": "You learn how to keep alerts from becoming noise: start with a single channel, tighten the matching when volume grows, respect quiet hours and review after two weeks which alerts led to action."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Through which channels does JobHunter send job alerts?",
+      "a": "Through email, Slack, WhatsApp and browser push. Email suits fixed reading times, Slack suits people who have it open for work anyway, WhatsApp reaches you away from the desk, and browser push appears while you are at the computer. Setup and whether channels can be combined are explained on the product site."
+    },
+    {
+      "q": "Will I be alerted the moment a client publishes a job?",
+      "a": "Not to the second. JobHunter fetches new postings on a schedule, then pre-filters and scores them, and the alert follows that. How often fetching runs is described on the product site. In practice your own reaction time matters just as much, so choose a channel you really look at."
+    },
+    {
+      "q": "What happens after I receive an alert?",
+      "a": "Nothing happens without you. The alert tells you that a matching posting and prepared drafts are waiting. You read the posting, revise the draft cover letter and the answers to the screening questions, and apply manually on Upwork. JobHunter does not submit proposals."
+    }
+  ],
+  "meta_description": "JobHunter Job Alerts notify you of matching Upwork postings by email, Slack, WhatsApp or browser push. You apply yourself.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.620Z",
+  "updated_at": "2026-10-01T18:58:05.146Z"
+}

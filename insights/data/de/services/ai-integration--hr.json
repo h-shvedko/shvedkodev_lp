@@ -1,0 +1,41 @@
+{
+  "axis": "services",
+  "entity_a": "ai-integration",
+  "entity_b": "hr",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Wo Sprachmodelle im Recruiting helfen, wie Sie deren Ergebnisse an echten Daten prüfen und welche Fragen Sie einem Anbieter stellen sollten.",
+  "overview": "Im Recruiting fällt viel Text an: Stellenanzeigen, Lebensläufe, Anschreiben, Gesprächsnotizen, E-Mails. Sprachmodelle können Texte gut lesen und entwerfen, deshalb liegt ihr Einsatz im Personalbereich nahe. Zugleich betreffen Fehler hier den Berufsweg von Menschen. Die entscheidende Frage lautet daher nicht, ob ein Modell eine Aufgabe erledigen kann, sondern wie Sie prüfen, ob es sie richtig erledigt hat.\n\n## Typische Probleme in HR und Recruiting\n\n- Menge. Viele Anzeigen oder Bewerbungen von Hand zu lesen und zu vergleichen dauert lange, und die Aufmerksamkeit lässt mit jedem weiteren Dokument nach.\n- Uneinheitlichkeit. Zwei Personen bewerten dieselbe Anzeige oder dasselbe Profil unterschiedlich, und die Kriterien stehen selten irgendwo geschrieben.\n- Wiederkehrende Schreibarbeit. Anzeigen, Antworten und Anschreiben entstehen jedes Mal neu, obwohl sich der größte Teil wiederholt.\n- Verstreute Werkzeuge. Bewerbermanagement, E-Mail, Tabellen und Stellenbörsen tauschen keine Daten aus.\n- Plausible, aber falsche Ausgaben. Ein Modell kann eine Anforderung, eine Gehaltsspanne oder eine Qualifikation nennen, die im Ausgangstext gar nicht vorkommt.\n- Sensible Daten und Fairness. Bewerberdaten sind personenbezogen, und automatische Bewertungen können Personengruppen benachteiligen, ohne dass es jemand bemerkt.\n\n## Wo KI passt und wo nicht\n\nGut geeignet sind Aufgaben mit einem Text als Eingabe und einem überprüfbaren Ergebnis: eine Anzeige in Felder wie Aufgaben, Anforderungen, Ort und Vertragsart zerlegen, einen Text nach schriftlichen Kriterien bewerten, zusammenfassen, Entwürfe vorbereiten. Ungeeignet sind abschließende Entscheidungen über Menschen, Schritte ohne menschliche Kontrolle und Fragen, deren Antwort nicht in der Eingabe steht.\n\n## Was eine gute Lösung enthält\n\n- Schriftliche Kriterien je Kategorie, dazu eine eigene Punktzahl und eine kurze Begründung pro Kategorie statt einer einzigen Gesamtzahl.\n- Strukturierte Ausgaben mit festen Feldern und erlaubten Wertebereichen. Programmcode prüft jede Antwort; ungültige Antworten werden verworfen oder neu angefordert.\n- Validierung an echten Daten. Die Modellausgabe wird mit dem Ausgangstext verglichen und mit einer Reihe von Fällen, die Ihr Team selbst bewertet hat. Der Vergleich wird wiederholt, sobald sich Prompt oder Modell ändern.\n- Entwürfe bleiben Entwürfe. Der erzeugte Text verwendet nur die übergebenen Daten, und ein Mensch überarbeitet und versendet ihn.\n- Ein Protokoll von Eingabe, Modellversion und Ausgabe, damit sich ein Ergebnis später erklären lässt.\n- Datensparsamkeit. An das Modell gehen nur die Felder, die die Aufgabe braucht, und es ist geklärt, wo sie verarbeitet werden und ob der Modellanbieter sie speichert.\n- Ein Ersatzweg für den Fall, dass der Modelldienst nicht erreichbar ist.\n\n## Erfahrung hinter dieser Seite\n\nWir haben eine KI-Bewertung von Stellenanzeigen über mehrere Kategorien gebaut, mit einer Validierung der Modellausgabe an echten Daten, sowie die Erstellung von Anschreiben-Entwürfen. Daher rührt das Gewicht, das diese Seite auf die Validierung legt: Eine Punktzahl nützt nur, wenn sie an etwas Echtem geprüft wurde.\n\n## Fragen an einen Anbieter\n\n- Wie testen Sie die Ausgaben, und an welchen Daten?\n- Was geschieht, wenn das Modell etwas Ungültiges oder Widersprüchliches liefert?\n- Welche Daten verlassen unsere Systeme, wohin gehen sie, und wie lange bleiben sie gespeichert?\n- Können wir Kriterien und Prompts selbst ändern?\n- Wie berechnen sich die laufenden Kosten, und wovon hängen sie ab?\n- Was ändert sich für uns, wenn das Modell durch ein anderes ersetzt wird?\n- An welchen Stellen prüft ein Mensch das Ergebnis?\n\n## Rechtliche Punkte\n\nAutomatische Bewertungen im Einstellungsverfahren berühren den Datenschutz, das Gleichbehandlungsrecht, die Regulierung von KI-Systemen und, wo vorhanden, die Mitbestimmung des Betriebsrats. Diese Seite ist keine Rechtsberatung. Ziehen Sie eine Anwaltskanzlei und Ihre Datenschutzbeauftragte oder Ihren Datenschutzbeauftragten hinzu, bevor ein System in Betrieb geht.\n\n## So fangen Sie an\n\nWählen Sie eine eng umrissene Aufgabe, zum Beispiel das Strukturieren und Bewerten von Anzeigen. Lassen Sie Ihr Team eine Reihe echter Fälle von Hand bewerten, schicken Sie dieselben Fälle durch das Modell und vergleichen Sie. Erweitern Sie das System erst, wenn Sie die Abweichungen verstanden haben.",
+  "personas": [
+    {
+      "key": "hr_lead",
+      "text": "Sie erfahren, welche Aufgaben im Recruiting sich für ein Sprachmodell eignen, welche bei Menschen bleiben sollten und was Sie verlangen müssen, damit Bewertungen erklärbar sind: schriftliche Kriterien, eine Begründung je Kategorie und eine menschliche Prüfung."
+    },
+    {
+      "key": "cto",
+      "text": "Sie erhalten die technischen Anforderungen, die eine brauchbare Integration von einer Demo unterscheiden: per Code geprüfte strukturierte Ausgaben, Validierung an von Hand bewerteten echten Fällen, Protokollierung der Modellversion und ein Ersatzweg bei Ausfall."
+    },
+    {
+      "key": "founder",
+      "text": "Sie bekommen einen Weg für einen kleinen Einstieg: eine eng umrissene Aufgabe wählen, Modellergebnisse mit den Bewertungen des eigenen Teams vergleichen und Angebote sowie laufende Kosten anhand der Anbieterfragen beurteilen."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Darf eine KI entscheiden, wen wir zum Vorstellungsgespräch einladen?",
+      "a": "Allein sollte sie das nicht. Ein Modell kann Informationen ordnen, Texte nach schriftlichen Kriterien bewerten und auf Lücken hinweisen. Die Entscheidung über einen Menschen sollte aber eine Person treffen, die die Gründe hinter einer Punktzahl sieht. Vollautomatische Entscheidungen im Einstellungsverfahren sind zudem rechtlich heikel. Klären Sie mit einer Anwaltskanzlei, wie die Regeln für Ihren Ablauf gelten, bevor Sie Punktzahlen zur Auswahl nutzen."
+    },
+    {
+      "q": "Woran erkennen wir, ob die KI-Bewertungen verlässlich sind?",
+      "a": "Am Test mit echten Daten. Lassen Sie Ihr Team eine Reihe echter Anzeigen oder Profile von Hand bewerten, schicken Sie dieselben Fälle durch das Modell und vergleichen Sie die Ergebnisse je Kategorie. Prüfen Sie außerdem, ob jede genannte Tatsache im Ausgangstext steht. Wiederholen Sie den Test, wenn Sie Prompt, Kriterien oder Modell ändern, denn jede dieser Änderungen kann die Ergebnisse verschieben."
+    },
+    {
+      "q": "Was geschieht mit Bewerberdaten, die an ein KI-Modell gesendet werden?",
+      "a": "Das hängt vom Modellanbieter und vom Vertrag ab. Klären Sie, wo die Daten verarbeitet werden, ob und wie lange sie gespeichert bleiben und ob sie zum Training dienen. Senden Sie nur die Felder, die die Aufgabe braucht, und entfernen Sie Namen und Kontaktdaten, wo es ohne sie geht. Lassen Sie den Aufbau von Ihrer oder Ihrem Datenschutzbeauftragten prüfen, bevor echte Bewerberdaten fließen."
+    }
+  ],
+  "meta_description": "KI-Integration für HR und Recruiting: sinnvolle Einsatzfelder, Prüfung der Modellausgaben und Fragen an Anbieter vor dem Start.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:01:27.215Z",
+  "updated_at": "2026-10-01T18:58:05.140Z"
+}

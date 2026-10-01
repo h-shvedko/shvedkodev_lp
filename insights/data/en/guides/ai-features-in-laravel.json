@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "ai-features-in-laravel",
+  "entity_b": "",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "The six design decisions that keep a language-model feature in an existing Laravel application reliable, affordable and replaceable.",
+  "overview": "Summaries, classification, drafted replies, data extracted from documents, search across your own content: adding such a feature to an existing Laravel application is less about the model call than about everything around it. The call is a few lines. The questions are what happens when it is slow, wrong, expensive or unavailable.\n\n## Provider abstraction\n\nDo not call a vendor's interface directly from controllers. Put a layer in between: the application asks for a task, such as summarising a text, and one class knows which provider and which model does it. Laravel packages offer a uniform interface across providers, or a thin layer of your own does the job. Changing the model when prices or quality shift becomes a configuration change, tests run against a fake instead of a paid service, and a second provider can step in as a fallback.\n\n## Prompts in configuration\n\nPrompts define behaviour and change often. Keep them in configuration files or in the database, not scattered through the code as strings. Give each prompt a name, a version, the model it was tested with and a list of its variables. Store with every result which prompt version produced it. Keep a small set of test inputs with expected results and run it again whenever the prompt or the model changes.\n\n## Queues\n\nModel calls take seconds and sometimes fail. Run them as queued jobs: the user gets an immediate response and the result appears when it is ready. Each job needs a timeout, a limited number of retries with growing pauses, and protection against duplicates, so that a retry does not create two records. A rate limit on the queue keeps you within the provider's limits.\n\n## Cost control\n\nCosts depend on the amount of text sent and received. Measures that work:\n\n- record tokens and cost per call, per feature and per user or customer account\n- set limits per user and per day, plus a monthly budget with an alert\n- use the smallest model that passes your test set\n- cap input and output length\n- cache results for identical requests\n- send only the data the task needs\n\nAn illustration with invented numbers: a feature that costs 0.4 cents per call looks free. Triggered automatically for each of 50,000 records in an import, it costs 200 euros in one afternoon. Automatic triggers need a limit more than buttons do.\n\n## Validate output before storing it\n\nTreat model output as untrusted input. Ask for structured output in a defined format and check it with Laravel's validation rules exactly like a submitted form: types, allowed values, lengths, and whether referenced records exist. If the check fails, retry once, then mark the item for manual handling. Never execute output, and never let it decide on record identifiers or permissions unchecked.\n\nTexts from users or uploaded documents can contain instructions aimed at the model. The feature must therefore never have more rights than the user who triggered it. Where a result has consequences, such as an email to a customer or a changed price, a person confirms it first.\n\n## Fallbacks\n\nDecide per feature what happens when the provider is down, slow or returns something unusable: a second provider, a path without the model such as a field filled in by hand, or a clear message that the function is unavailable at the moment. The core of the application must work without the feature. A switch that turns it off without a deployment is part of the design.\n\n## Data protection\n\nClarify which data goes to the provider, where it is processed and under which contract. For personal data this is a legal question that belongs with your data protection officer or a lawyer. Technically, remove what the task does not need and do not keep full prompts containing personal data in logs indefinitely.\n\n## A sensible order\n\nStart with one narrow feature whose errors are harmless and visible, for example a suggested summary that a person approves. Build the layer, the queue, the cost log and the validation for it. The second feature then reuses all four.",
+  "personas": [
+    {
+      "key": "cto",
+      "text": "You get an architecture outline for model features in an existing Laravel codebase: one provider layer, versioned prompts, queued calls, validated output and a defined fallback for every feature."
+    },
+    {
+      "key": "product_manager",
+      "text": "You learn which decisions you have to make per feature, such as limits, the behaviour when the model fails and where a person confirms, before the team can estimate it."
+    },
+    {
+      "key": "it_manager",
+      "text": "You see what running such a feature involves: budgets and alerts, an off switch, dependence on an external provider and the data protection questions to settle beforehand."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Do we have to rebuild our Laravel application to add a language-model feature?",
+      "a": "No. A model feature is added like any other integration with an external service: a service layer, queued jobs, a few tables for results and usage, and configuration. The existing application stays as it is. What you do need is a working queue setup and a clear place in the user interface where results appear and can be corrected."
+    },
+    {
+      "q": "How do we keep the running costs of an AI feature predictable?",
+      "a": "Log tokens and cost for every call from the first day, set limits per user and per day, and define a monthly budget with an alert. Put a hard cap on automatic triggers such as imports or scheduled tasks, because they generate volume without anyone noticing. Use the smallest model that passes your test cases and cache repeated requests."
+    },
+    {
+      "q": "What happens if the model returns wrong or malformed output?",
+      "a": "Malformed output is caught by validation before anything is stored: the job retries once and then flags the item for manual handling. Wrong but well-formed output cannot be caught by format checks alone. For that you need plausibility rules where possible, and a person who confirms results with consequences before they take effect."
+    }
+  ],
+  "meta_description": "How to add AI Features in Laravel safely: provider abstraction, versioned prompts, queues, cost limits, output validation, fallbacks.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.500Z",
+  "updated_at": "2026-10-01T18:58:05.144Z"
+}

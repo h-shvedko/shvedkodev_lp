@@ -1,0 +1,41 @@
+{
+  "axis": "products",
+  "entity_a": "craftly",
+  "entity_b": "",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Was Craftly aus einer Beschreibung erzeugt, für wen sich das eignet und an welchen Stellen Sie weiterhin einen Entwickler brauchen.",
+  "overview": "Craftly ist unser eigenes Produkt: eine KI-Plattform, mit der Sie im Gespräch beschreiben, was gebaut werden soll, und die daraus WordPress-Themes und Laravel-Anwendungen erzeugt. Im Hintergrund arbeitet ein Multi-Agenten-System, das PHP-Code schreibt. Craftly ist kein Baukasten, in dem Sie Elemente mit der Maus anordnen. Am Ende steht ein Code-Projekt.\n\n## Was Sie hineingeben und was herauskommt\n\nDer Ausgangspunkt ist eine Beschreibung in normaler Sprache. Liegt bereits ein Figma-Design vor, kann Craftly auch davon ausgehen. Das Ergebnis ist in beiden Fällen gewöhnlicher Code:\n\n- ein WordPress-Theme oder\n- eine Laravel-Anwendung.\n\nDiesen Code kann der Eigentümer behalten und bearbeiten wie jedes andere PHP-Projekt. Für die Planung ist das der wichtigste Punkt: Wer später etwas ändern will, braucht dafür WordPress- oder Laravel-Kenntnisse, aber kein Spezialwissen über ein bestimmtes Baukastensystem.\n\n## Für wen Craftly passt\n\n- Gründerinnen und Gründer, die eine erste lauffähige Fassung brauchen, um darüber zu sprechen, statt über ein Konzeptpapier.\n- Agenturen und Freelancer, die regelmäßig Themes oder Laravel-Anwendungen bauen und mit einem erzeugten Grundgerüst beginnen möchten statt mit einem leeren Projekt.\n- Teams, deren Design in Figma fertig ist und nicht von Hand nachgebaut werden soll.\n\n## Für wen Craftly nicht passt\n\n- Wenn Sie Seiten visuell zusammenstellen und mit Code nichts zu tun haben möchten, sind Sie mit einem Baukasten besser bedient.\n- Wenn Ihr Projekt auf einer anderen Technik als WordPress oder Laravel aufbauen soll.\n- Wenn die Anforderungen noch unklar sind. Eine ungenaue Beschreibung führt zu einem ungenauen Ergebnis; die Klärung nimmt Ihnen kein Werkzeug ab.\n\n## Was bei Ihnen bleibt\n\nErzeugter Code ist ein Anfang, für den jemand die Verantwortung übernehmen muss. Rechnen Sie mit diesen Aufgaben:\n\n- Die Anforderungen genau beschreiben: Seiten, Inhaltstypen, Rollen, Formulare, Abläufe und was im Fehlerfall geschehen soll.\n- Das Ergebnis gegen diese Beschreibung prüfen, Seite für Seite.\n- Festlegen, wo das Projekt betrieben wird und wer es danach pflegt.\n- Echte Inhalte, Texte und Bilder liefern.\n- Impressum, Datenschutzerklärung und ähnliche Fragen von einer Anwältin oder einem Anwalt prüfen lassen. Das ersetzt kein Generator.\n\n## Wo ein Entwickler weiterhin nötig ist\n\nEin Entwickler wird vor allem an vier Stellen gebraucht. Erstens bei der Durchsicht des Codes, bevor echte Daten verarbeitet werden, besonders bei Anmeldung, Zahlung und personenbezogenen Daten. Zweitens bei der Anbindung an Systeme, die Sie bereits nutzen. Drittens bei Geschäftslogik, die zu speziell ist, um sie in wenigen Sätzen zu beschreiben. Viertens bei der laufenden Pflege, wenn sich Anforderungen ändern. Weil es sich um gewöhnlichen PHP-Code handelt, kann das jede Fachkraft übernehmen, die WordPress oder Laravel beherrscht.\n\n## Woran Sie das Ergebnis messen\n\nBeurteilen Sie ein erzeugtes Projekt so, wie Sie die Lieferung eines Dienstleisters abnehmen würden:\n\n- Erfüllt es die Beschreibung, auch in den unbequemen Fällen?\n- Entspricht es bei einem Figma-Ausgangspunkt dem Design, auf dem Smartphone ebenso wie am Desktop?\n- Findet sich ein Entwickler im Code zurecht, der an der Entstehung nicht beteiligt war?\n- Können die Personen, die Inhalte pflegen, so arbeiten, wie Sie es verlangt haben?\n\nHalten Sie fest, was nicht stimmt. Diese Liste ist die Grundlage für eine genauere Beschreibung oder für den Auftrag an einen Entwickler.\n\nAngaben zu Preisen, Tarifen, Hosting und zur Übergabe des erzeugten Projekts finden Sie auf dieser Seite nicht. Prüfen Sie dazu den aktuellen Stand auf der Produktseite von Craftly, bevor Sie ein Vorhaben darauf aufbauen.",
+  "personas": [
+    {
+      "key": "founder",
+      "text": "Sie können einschätzen, ob sich Ihr Vorhaben genau genug beschreiben lässt, um daraus ein WordPress-Theme oder eine Laravel-Anwendung erzeugen zu lassen, und welche Aufgaben vor dem Livegang bei Ihnen bleiben."
+    },
+    {
+      "key": "agency_owner",
+      "text": "Sie sehen, an welcher Stelle erzeugter PHP-Code in Ihre Kundenprojekte passt und welche Leistungen Ihres Teams, etwa Prüfung, Anbindung und Pflege, Sie weiterhin einplanen und anbieten müssen."
+    },
+    {
+      "key": "project_manager",
+      "text": "Sie erhalten eine Liste der Aufgaben, die trotz Generator im Projektplan stehen müssen: Anforderungen beschreiben, Ergebnis abnehmen, Betrieb klären, Inhalte liefern und Rechtstexte prüfen lassen."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Worin unterscheidet sich Craftly von einem Website-Baukasten?",
+      "a": "Bei einem Baukasten ordnen Sie Elemente visuell an. Bei Craftly beschreiben Sie das Vorhaben in normaler Sprache, und ein Multi-Agenten-System schreibt PHP-Code. Heraus kommt ein WordPress-Theme oder eine Laravel-Anwendung als gewöhnlicher Code. Wer ohne jeden Kontakt zu Code arbeiten möchte, ist mit einem Baukasten besser bedient."
+    },
+    {
+      "q": "Kann ich den erzeugten Code behalten und selbst weiterentwickeln?",
+      "a": "Ja. Erzeugte Projekte sind gewöhnlicher Code, den der Eigentümer behalten und bearbeiten kann. Ein Entwickler mit WordPress- oder Laravel-Kenntnissen arbeitet daran mit den üblichen Werkzeugen weiter. Die genauen Lizenz- und Nutzungsbedingungen entnehmen Sie bitte der Produktseite von Craftly."
+    },
+    {
+      "q": "Brauche ich mit Craftly überhaupt noch einen Entwickler?",
+      "a": "Das hängt vom Vorhaben ab. Planen Sie einen Entwickler überall dort ein, wo Fehler teuer werden: bei Anmeldung, Zahlung und personenbezogenen Daten, bei der Anbindung vorhandener Systeme, bei spezieller Geschäftslogik und bei der laufenden Pflege. Craftly liefert Code als Ausgangspunkt, die Verantwortung dafür bleibt bei Ihnen."
+    }
+  ],
+  "meta_description": "Was Craftly aus einer Beschreibung oder einem Figma-Design erzeugt, was Sie selbst beitragen und wann ein Entwickler nötig bleibt.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:01:27.214Z",
+  "updated_at": "2026-10-01T18:58:05.139Z"
+}

@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "figma-to-wordpress",
+  "entity_b": "",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "What has to be decided between a finished Figma file and a WordPress theme that editors can use without breaking the design.",
+  "overview": "A Figma file describes how a site should look. A WordPress theme also has to decide how it behaves when an editor types a headline twice as long as the one in the mockup, on a screen width nobody drew. Most of the work lies in that gap, and most disappointments come from leaving it unspecified.\n\n## Start with tokens, not pages\n\nDesign tokens are the named values a design is built from: colours, font sizes, spacing steps, radii, shadows. In a block theme they belong in the theme.json file, where they become the palette, font sizes and spacing presets that editors see in the sidebar. If the Figma file uses variables and styles consistently, this mapping is almost mechanical. If it contains fourteen slightly different greys and spacing typed in by hand, someone must decide which values are real before the first template is built. Ask the designer for that clean-up. It is cheaper in Figma than in code.\n\n## Components become blocks\n\nEvery repeating element in the design, such as a card, a teaser, a testimonial or a call-to-action band, should end up as one of three things:\n\n- a block pattern made from core blocks, when the layout is simple and editors may rearrange it\n- a custom block, when the structure must stay fixed and only certain fields are editable\n- a template part, for things that exist once per site, such as header and footer\n\nThe decision depends on who edits the element later, not on how it looks. For each component write down which fields can be changed, which are optional, what limits apply (text length, image ratio) and which variants exist. A component with such a list is built once and reused.\n\n## Responsive behaviour\n\nDesigns usually arrive in two or three widths. The browser shows every width in between. Agree for each section what happens: do columns stack and in what order, is the image cropped or scaled, at which width does the navigation collapse. Fluid type and spacing, meaning values that grow with the screen, remove many special cases, but they need a minimum and a maximum that the designer has confirmed.\n\n## The editor experience\n\nA theme that matches the mockup on launch day and no longer does after a week of editing has failed. Check that the block editor shows roughly what visitors see, that only the brand palette and the defined sizes are offered, that blocks which should not be moved are locked, and that every pattern has an understandable name. Test with real content: the longest headline, a missing image, a list with one entry and with twelve.\n\n## Where detail gets lost\n\n- states that were never drawn: hover, focus, error, empty, loading\n- real content that is longer, shorter or absent compared with the placeholder text\n- spacing set by eye rather than by the system\n- fonts: licence, file formats, fallback font, loading behaviour\n- image ratios, and what happens when an editor uploads a different one\n- animations that were discussed in a meeting but are not in the file\n- accessibility: contrast, focus order, heading levels\n\nPrevention is unglamorous: a short handoff note per component, a set of real sample texts, a shared list of open questions, and a review in the browser at several widths before content entry starts.\n\n## Manual build or AI-assisted generation\n\nAI tools that read a Figma file produce markup and styles for a section quickly. They are good at the repeatable part: translating tokens, drafting block markup, producing variants. They are weak at exactly the points listed above. They reproduce the frame they see, often with fixed pixel values, and cannot know which fields an editor needs, what happens with long content, or what the theme's existing blocks are called.\n\nA sensible split: generation drafts, and a developer owns the structure, meaning theme.json, block decisions, editor restrictions, accessibility and loading speed, and reviews every generated piece against the same checklist as hand-written code. The time saved is noticeable with well-structured design files and small with messy ones, because the clean-up does not disappear.",
+  "personas": [
+    {
+      "key": "marketing_lead",
+      "text": "You learn what to ask for before the build starts so that your team can later create pages in the editor that stay on brand, without calling a developer for every new layout."
+    },
+    {
+      "key": "agency_owner",
+      "text": "You get a list of the handoff gaps that cause rework between your design team and the WordPress build, plus a realistic view of where AI generation shortens the job and where it does not."
+    },
+    {
+      "key": "project_manager",
+      "text": "You can turn the sections into a handoff checklist: tokens cleaned up, editable fields per component, behaviour between breakpoints, and a browser review before content entry."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Does a Figma design need to be prepared before it can be built as a WordPress theme?",
+      "a": "Yes, in most cases. Colours, type sizes and spacing should exist as named variables or styles, repeating elements as components with variants, and each component needs a note on which parts editors may change. A file without this can still be built, but the developer then makes those decisions alone and you see them only in review."
+    },
+    {
+      "q": "Can an AI tool convert a Figma file into a finished WordPress theme?",
+      "a": "It can produce a usable first draft of sections and styles. It does not produce a finished theme, because the file does not contain what a theme needs to know: which fields are editable, how layouts behave between the drawn widths, what happens with long or missing content. A developer still has to define the structure and review the output."
+    },
+    {
+      "q": "Should every design component become a custom block?",
+      "a": "No. Simple layouts that editors may rearrange work well as block patterns built from core blocks, which are cheaper to build and maintain. A custom block is worth it when the structure must stay fixed, when only specific fields should be editable, or when the element pulls in data such as the latest posts or events."
+    }
+  ],
+  "meta_description": "Figma to WordPress without losing detail: tokens, blocks, responsive rules, the editor experience, and where AI generation helps.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.505Z",
+  "updated_at": "2026-10-01T18:58:05.144Z"
+}

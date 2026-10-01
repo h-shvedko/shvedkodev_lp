@@ -168,10 +168,28 @@ gulp.task('cache:clear', function(done) {
     return cache.clearAll(done);
 });
 
-gulp.task('build', gulp.series('clean:build', gulp.parallel('html:build', 'css:build', 'js:build', 'fonts:build', 'image:build', 'craftly:build', 'htaccess:build', 'seo:build')));
+// Insight pages: rendered from insights/data into dist/insights (see insights/cli.js).
+// Runs after htaccess:build and seo:build because it extends their output.
+function insights(preview) {
+    return function(done) {
+        Object.keys(require.cache).forEach(function(file) {
+            if (file.indexOf(__dirname + '/insights/') === 0) delete require.cache[file];
+        });
+        require('./insights/render').build({ preview: preview });
+        done();
+    };
+}
+
+// Published pages only.
+gulp.task('insights:build', insights(false));
+
+// Also pages awaiting review or publication, marked noindex. For local review.
+gulp.task('insights:preview', insights(true));
+
+gulp.task('build', gulp.series('clean:build', gulp.parallel('html:build', 'css:build', 'js:build', 'fonts:build', 'image:build', 'craftly:build', 'htaccess:build', 'seo:build'), 'insights:preview'));
 
 
-gulp.task('dist', gulp.series('clean:build', gulp.parallel('html:build', 'css:dist', 'js:dist', 'fonts:build', 'image:build', 'craftly:build', 'htaccess:build', 'seo:build')));
+gulp.task('dist', gulp.series('clean:build', gulp.parallel('html:build', 'css:dist', 'js:dist', 'fonts:build', 'image:build', 'craftly:build', 'htaccess:build', 'seo:build'), 'insights:build'));
 
 gulp.task('watch', function() {
     gulp.watch(path.watch.html, gulp.series('html:build'));
@@ -180,6 +198,7 @@ gulp.task('watch', function() {
     gulp.watch(path.watch.img, gulp.series('image:build'));
     gulp.watch(path.watch.fonts, gulp.series('fonts:build'));
     gulp.watch(path.watch.craftly, gulp.series('craftly:build'));
+    gulp.watch(['insights/**/*.{js,json}', 'src/html/layout/*.html'], gulp.series('insights:preview'));
 });
 
 gulp.task('default', gulp.series('build', gulp.parallel('webserver', 'watch')));

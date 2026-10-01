@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "api-integration-guide",
+  "entity_b": "",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "Plan an integration with ERP, CRM or payment systems so that outages, duplicates and timeouts stay harmless instead of costing manual clean-up.",
+  "overview": "An integration is a dependency on a system you do not control. It will sometimes be slow, unavailable, change a field, or send the same message twice. The connection itself usually works on the first day; the trouble comes later, when something fails and nobody decided in advance what should happen. The decisions below determine whether a failure passes unnoticed or ends in days of correcting records by hand.\n\n## Four questions before any code\n\n- Which system is the source of truth for each piece of data? If a customer address can be edited in both the shop and the ERP, someone must decide which one wins.\n- In which direction does data flow, and how fresh must it be? Stock levels may need minutes, a catalogue only a nightly run.\n- What should your application do while the other system is down for an hour: keep accepting orders and deliver them later, or stop?\n- Is there a test environment on the other side, and a person who answers technical questions?\n\n## Authentication\n\nMost systems use an API key, or OAuth 2.0 with tokens that expire and have to be renewed. Ask for separate credentials for test and production, stored in the server configuration and never in the code repository. Grant only the permissions needed. Token renewal must happen automatically, and keys or certificates with an expiry date belong in a calendar: an expired credential is a common cause of a sudden outage.\n\n## Rate limits\n\nNearly every API limits the number of requests per minute or day. The first full import and bulk updates reach the limit long before normal operation does. Send outgoing calls through a queue that can be slowed down, bundle records where the API allows it, fetch only what changed since the last run, and wait as long as the other system asks when it reports that the limit was reached.\n\n## Retries and idempotency\n\nA timeout does not tell you whether the request failed. It may have been processed while only the answer got lost. So every write operation needs two things. First, automatic retries with growing pauses and a fixed maximum number of attempts, after which the item goes to a list of failed items that a person can see. Only temporary errors are retried; an invalid record fails the same way every time. Second, idempotency: each operation carries a unique key so that a repeated request is recognised and not executed twice. As an illustration: a payment request times out and is repeated. Without a key the customer may be charged twice; with a key the second request returns the first result.\n\n## Webhooks\n\nWith webhooks the other system calls you when something happens. Handle them in a fixed pattern: verify the signature, store the raw event, answer immediately, and process in a background job. Expect duplicates and events arriving in the wrong order, and ignore events whose ID you have already processed. Webhooks also get lost, so add a regular reconciliation run that compares both systems and fetches what is missing.\n\n## Monitoring\n\nLog every request and response with a reference number, without passwords or payment data. Set alerts for a rising error rate, a growing queue and failed authentication. Add a simple screen where non-developers can see failed items, read the reason and trigger a retry.\n\n## Typical failure modes\n\n- A user waits on a page while your server waits for a slow external system. Move the call to the background.\n- A field is renamed or a new status value appears. Validate incoming data and fail loudly instead of saving nonsense.\n- Both systems update the same record and overwrite each other. Define ownership per field.\n- Test data reaches the production system. Separate credentials and addresses per environment.\n- Nobody notices that the nightly sync stopped three days ago. Alert on missing runs, not only on errors.\n\n## What to ask for in an offer\n\nA field-by-field data mapping, the retry and error behaviour per operation, a failed-items view, a reconciliation job, and a named person responsible for alerts after go-live.",
+  "personas": [
+    {
+      "key": "it_manager",
+      "text": "You get a list of what to demand from a vendor before sign-off: separate credentials per environment, retry rules, a reconciliation run and alerts that also fire when a sync silently stops."
+    },
+    {
+      "key": "operations_lead",
+      "text": "You see why orders or invoices end up duplicated or missing between systems, and which features, such as a failed-items view with a retry button, let your team fix cases without a developer."
+    },
+    {
+      "key": "cto",
+      "text": "You can check an integration design against the usual weak points: source of truth per field, idempotency keys on write operations, queue-based throttling, and webhook handling that tolerates duplicates and wrong order."
+    }
+  ],
+  "faq": [
+    {
+      "q": "How long does it take to connect a web application to an ERP or CRM?",
+      "a": "It depends less on the number of endpoints than on the clarity of the data mapping and the quality of the other system's documentation and test environment. Reading and displaying data is quick. Writing data in both directions, with error handling, reconciliation and monitoring, is the larger part of the work. Ask for an estimate per data flow, not one figure for the whole integration."
+    },
+    {
+      "q": "What happens to our orders if the connected system is down?",
+      "a": "That is a design decision you should make explicitly. In most cases the application keeps accepting orders, stores them locally and delivers them through a queue once the other system is reachable again. Where a live answer is essential, for example a payment authorisation, the user needs a clear message and a safe way to try again without creating a duplicate."
+    },
+    {
+      "q": "Is polling or a webhook the better way to receive changes?",
+      "a": "Webhooks deliver changes within seconds and cause little load, but individual events can be lost or arrive twice. Polling, meaning asking at intervals what has changed, is slower but dependable. A robust integration uses both: webhooks for speed and a scheduled comparison run as a safety net."
+    }
+  ],
+  "meta_description": "API Integration Guide: plan authentication, rate limits, retries, idempotency and webhooks so that failures in connected systems stay harmless.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.502Z",
+  "updated_at": "2026-10-01T18:58:05.144Z"
+}

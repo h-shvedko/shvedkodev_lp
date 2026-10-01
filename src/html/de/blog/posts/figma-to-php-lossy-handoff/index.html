@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    //= layout/head.html
+    <link rel="alternate" hreflang="en" href="https://shvedko.dev/blog/posts/figma-to-php-lossy-handoff/">
+    <link rel="alternate" hreflang="de" href="https://shvedko.dev/de/blog/posts/figma-to-php-lossy-handoff/">
+    <link rel="alternate" hreflang="x-default" href="https://shvedko.dev/blog/posts/figma-to-php-lossy-handoff/">
+    <title>Die verlustbehaftete Übergabe: Wie aus Figma Code wird – neu gedacht · ShvedkoDev Blog</title>
+    <meta name="description" content="Vom Design zum Deployment: bisher ein Stille-Post-Spiel. Craftlys Figma-Integration ändert das – deterministische Extraktion, visuelle Verfeinerung.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Die verlustbehaftete Übergabe: Wie aus Figma Code wird – neu gedacht · ShvedkoDev Blog">
+    <meta property="og:description" content="Vom Design zum Deployment: bisher ein Stille-Post-Spiel. Craftlys Figma-Integration ändert das – deterministische Extraktion, visuelle Verfeinerung.">
+    <meta property="og:url" content="https://shvedko.dev/de/blog/posts/figma-to-php-lossy-handoff/">
+    <meta property="og:site_name" content="ShvedkoDev">
+    <meta property="og:locale" content="de_DE">
+    <link rel="canonical" href="https://shvedko.dev/de/blog/posts/figma-to-php-lossy-handoff/">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+        //= layout/header.de.html
+        <main role="main" id="main">
+            <div class="container">
+                <article class="blog-post">
+                    <header class="blog-post__header animate-on-scroll fade-in">
+                        <div class="blog-post__meta">
+                            <a href="/de/blog/" class="blog-post__back">← Blog</a>
+                            <time datetime="2026-06-04">4. Juni 2026</time>
+                        </div>
+                        <h1>Die verlustbehaftete Übergabe: Wie aus Figma Code wird – neu gedacht</h1>
+                        <div class="blog-post__tags">
+                            <span class="tag">Figma</span>
+                            <span class="tag">PHP</span>
+                            <span class="tag">WordPress</span>
+                            <span class="tag">Craftly</span>
+                            <span class="tag">KI</span>
+                        </div>
+                    </header>
+
+                    <div class="blog-post__body animate-on-scroll fade-in">
+
+                        <div class="blog-post__hero-img">
+                            <img src="/images/figma-to-php-puzzle.png"
+                                 alt="Das Figma-zu-PHP-Puzzle – Fühlen Sie sich überfordert? Wie schließen Sie die Lücke?"
+                                 class="blog-post__hero-img-el">
+                        </div>
+
+                        <p>Seit es moderne Webentwicklung gibt, gleicht der Weg vom Design zum Deployment einem <strong>Stille-Post-Spiel</strong>. Ein Designer erschafft ein Meisterwerk. Ein Entwickler interpretiert es. Dazwischen gehen Variablen verloren, Layouts werden zum Kompromiss, und Stunden nicht abrechenbarer Zeit fließen in das Nachjustieren von Paddings im Browser-Inspektor.</p>
+
+                        <p>Wir haben diese Reibung als Naturgesetz der Softwareentwicklung hingenommen. Das sollte sie aber nicht sein.</p>
+
+                        <p>Als wir mit der Architektur der neuen Figma-Integration für Craftly.build begannen, wollten wir dieses Kernproblem von Grund auf angehen. Eine Designdatei sollte kein visueller Vorschlag sein, sondern eine <strong>explizite Layout-Konfiguration</strong>.</p>
+
+                        <h2>Ein Paradigmenwechsel: Was heute schon funktioniert</h2>
+                        <p>Wir haben unsere Integration so gebaut, dass Figma die Single Source of Truth für die Präsentationsschicht Ihrer Anwendung ist. Sie funktioniert sauber, sicher und durchgängig:</p>
+
+                        <ul>
+                            <li><strong>Deterministische Extraktion des Design-Systems:</strong> Wir erraten Ihr Branding nicht. Über einen sicheren OAuth-Handshake pro Nutzer extrahiert Craftly exakte Hex-Codes, Schriftfamilien (die nativ auf Google Fonts abgebildet werden), Zeilenhöhen und Layout-Richtungen direkt aus Ihren Auto-Layout-Parametern.</li>
+                            <li><strong>Semantische Erkennung von Sektionen:</strong> Statt eine endlose Wand verschachtelter Elemente auszuspucken, liest das System die strukturelle Absicht Ihres Canvas. Es gliedert den Code sauber in logische Blöcke – Heroes, Features, Preismodelle – und folgt dabei etablierten Komponentenmustern.</li>
+                            <li><strong>Visuell gestützte Verfeinerung:</strong> Durch die Einbindung visueller Modelle in die Pipeline „sieht“ die KI die Komposition so, wie ein menschlicher Designer sie sehen würde. So bleiben räumliche Beziehungen und Hierarchie auch im Code erhalten.</li>
+                        </ul>
+
+                        <p>Das Ergebnis ist eine produktionsreife WordPress- oder Laravel-Umgebung, die innerhalb von Sekunden eine interaktive Live-Vorschau liefert.</p>
+
+                        <h2>Der technische Horizont: Unsere Roadmap</h2>
+                        <p>Die zentrale Extraktions-Engine ist heute voll einsatzfähig und praxiserprobt, doch unsere langfristige Perspektive auf dieses Problem geht noch einen Schritt weiter. Wir entwerfen derzeit eine <strong>selbstkorrigierende Schleife für visuelle Genauigkeit</strong>.</p>
+
+                        <p>Statt sich allein auf prädiktive Generierung zu verlassen, sieht die Zukunft von Craftly einen automatisierten QA-Agenten vor, der Screenshots der kompilierten Anwendung erstellt, einen Pixel-Diff gegen das Figma-Canvas berechnet und Layout, Schatten und Abstandsvariablen automatisch anpasst, bis ein nahezu perfekter Übereinstimmungsindex erreicht ist.</p>
+
+                        <h2>Wie sehen Sie das?</h2>
+                        <p>Die Arbeit an diesem Tool hat mir gezeigt, wie viel Zeit wir an die „Infrastruktur“ des Layout-Baus verlieren, statt anspruchsvolle Anwendungslogik zu entwickeln. Indem wir die Umsetzung eines visuellen Designs in sauberes PHP automatisieren, wollen wir Entwicklern ihre Zeit zurückgeben.</p>
+
+                        <p>Das eröffnet jedoch eine interessante Grundsatzdebatte für die Entwickler-Community: Wenn die Übersetzungsschicht fehlerfrei wird, wie verändert das die Rolle des Frontend-Entwicklers? Macht es den Entwickler zum reinen Systemarchitekten, oder geht etwas Wesentliches verloren, wenn wir das CSS nicht mehr von Hand schreiben?</p>
+
+                        <p>Ich freue mich auf Ihre Gedanken dazu. Falls Sie ein Figma-Projekt haben, das Sie mit unserer Engine testen möchten:</p>
+
+                        <p><a href="/craftly/" class="button">Craftly kostenlos testen →</a></p>
+
+                    </div>
+
+                    <footer class="blog-post__footer animate-on-scroll fade-in">
+                        <p>Verfasst von <a href="/de/about/">ShvedkoDev</a> · <a href="/de/contact/">Kontakt aufnehmen</a></p>
+                        <a href="/de/blog/" class="button outline">← Zurück zum Blog</a>
+                    </footer>
+                </article>
+            </div>
+        </main>
+        //= layout/footer.de.html
+    </div>
+</body>
+
+</html>

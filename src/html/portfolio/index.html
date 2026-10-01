@@ -3,6 +3,18 @@
 
 <head>
     //= layout/head.html
+    <title>Portfolio: Projects and Case Studies · ShvedkoDev</title>
+    <meta name="description" content="Selected projects by ShvedkoDev: web applications, platforms and websites built with Laravel, PHP and WordPress, plus teaching work.">
+    <link rel="canonical" href="https://shvedko.dev/portfolio/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Portfolio: Projects and Case Studies · ShvedkoDev">
+    <meta property="og:description" content="Selected projects by ShvedkoDev: web applications, platforms and websites built with Laravel, PHP and WordPress, plus teaching work.">
+    <meta property="og:url" content="https://shvedko.dev/portfolio/">
+    <meta property="og:site_name" content="ShvedkoDev">
+    <meta property="og:locale" content="en_US">
+    <link rel="alternate" hreflang="en" href="https://shvedko.dev/portfolio/">
+    <link rel="alternate" hreflang="de" href="https://shvedko.dev/de/portfolio/">
+    <link rel="alternate" hreflang="x-default" href="https://shvedko.dev/portfolio/">
 </head>
 
 <body>
@@ -277,25 +289,14 @@
                 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js " integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI " crossorigin="anonymous "></script>
                 <!-- Mixitup -->
                 <script src='https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.2.2/mixitup.min.js'></script>
-                <!-- fancybox -->
-                <script src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.js'></script>
                 <!-- Custom JS -->
                 <script>
-                    var containerEl = document.querySelector(".portfolio-item ");
+                    var containerEl = document.querySelector(".portfolio-item");
                     var mixer = mixitup(containerEl, {
                         animation: {
-                            effects: "fade translateZ(-100px) ",
-                            effectsIn: "fade translateY(-100%) ",
-                            easing: "cubic-bezier(0.645, 0.045, 0.355, 1) "
-                        }
-                    });
-
-                    $("[data-fancybox] ").fancybox({
-                        loop: true,
-                        hash: true,
-                        transitionEffect: "slide ",
-                        clickContent: function(current, event) {
-                            return current.type === "image " ? "next " : false;
+                            effects: "fade translateZ(-100px)",
+                            effectsIn: "fade translateY(-100%)",
+                            easing: "cubic-bezier(0.645, 0.045, 0.355, 1)"
                         }
                     });
                 </script>

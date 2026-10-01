@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "laravel-saas-development",
+  "entity_b": "",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Treffen Sie die wenigen schwer umkehrbaren SaaS-Entscheidungen wie Mandantentrennung, Abrechnungseinheit und Rechte, bevor der erste Kunde sich anmeldet.",
+  "overview": "Ein SaaS-Produkt ist eine einzige Anwendung, die viele Kunden gleichzeitig nutzen. Jeder sieht nur die eigenen Daten, jeder zahlt wiederkehrend. Laravel bringt den Unterbau dafür weitgehend mit: Anmeldung, Hintergrundverarbeitung, geplante Aufgaben, E-Mail-Versand und offizielle Pakete für die Abo-Abrechnung. Funktionen zu bauen ist deshalb selten das Schwierige. Schwierig sind einige Strukturentscheidungen, die am ersten Tag wenig kosten und teuer werden, sobald echte Kundendaten vorhanden sind. Diese Seite geht sie in der Reihenfolge durch, in der sie Sie festlegen.\n\n## Mandantenfähigkeit: wie Kunden getrennt werden\n\nEin Mandant ist ein Kundenkonto, meist ein Unternehmen mit mehreren Nutzern. Drei Modelle sind üblich.\n\n- Gemeinsame Datenbank: Alle Mandanten liegen in denselben Tabellen, jeder Datensatz trägt eine Mandantenkennung. Im Betrieb am günstigsten und am einfachsten zu aktualisieren. Das Risiko ist eine Abfrage ohne Mandantenfilter. Der Filter muss deshalb automatisch greifen und durch Tests abgesichert sein.\n- Eine Datenbank je Mandant: stärkere Trennung, einfache Sicherung, Ausgabe und Löschung je Kunde, bei Bedarf Speicherung in einer bestimmten Region. Dafür muss jede Datenbankänderung bei allen Mandanten eingespielt werden, und kundenübergreifende Auswertungen werden aufwendiger.\n- Eine Installation je Mandant: vollständige Abschottung für Kunden mit strengen Vorgaben, bei den höchsten Betriebskosten. Als Standardmodell selten richtig.\n\nDie meisten Produkte starten gut mit einer gemeinsamen Datenbank. Getrennte Datenbanken sind angebracht, wenn Kunden die Trennung oder eine Wiederherstellung einzelner Konten vertraglich verlangen werden. Ein späterer Wechsel bedeutet die Migration laufender Daten. Legen Sie zugleich fest, woran ein Mandant erkannt wird: an einer Subdomain, an der eigenen Domain des Kunden oder an einer Auswahl nach der Anmeldung.\n\n## Nutzer und Konten\n\nKann eine Person mit derselben Anmeldung mehreren Mandanten angehören, etwa eine Beraterin, die für drei Kundenfirmen arbeitet? Dann gehören Rollen zur Mitgliedschaft und nicht zum Nutzer. Ein nachträglicher Einbau berührt fast jede Maske. Klären Sie das früh, auch wenn die erste Version nur ein Konto anzeigt.\n\n## Rollen und Rechte\n\nBeginnen Sie mit wenigen festen Rollen, etwa Inhaber, Administrator und Mitglied, und prüfen Sie Rechte an einer zentralen Stelle statt verstreut in einzelnen Seiten. Werden Kunden später eigene Rollen definieren wollen? Ist das wahrscheinlich, sollten Rechte von Anfang an als einzelne Befugnisse angelegt sein. Planen Sie außerdem ein, dass Ihr Support ein Konto so ansehen kann, wie der Kunde es sieht, mit dessen Wissen und mit einem Protokoll jedes Zugriffs.\n\n## Abo-Abrechnung\n\nDie Zahlungsabwicklung übernimmt ein Abrechnungsanbieter, den Laravel über seine Abrechnungspakete anbindet. Die folgenden Entscheidungen bleiben bei Ihnen:\n\n- Was ist die Abrechnungseinheit: ein Pauschalpreis je Konto, ein Preis je Nutzer oder nach Verbrauch? Eine spätere Änderung betrifft Verträge und nicht nur Code.\n- Gibt es eine Testphase, und was geschieht an ihrem Ende ohne hinterlegtes Zahlungsmittel?\n- Was passiert bei einer fehlgeschlagenen Zahlung: wie viele Erinnerungen, welche Schonfrist, danach nur Lesezugriff oder Sperre?\n- Wie werden Tarifwechsel mitten im Abrechnungszeitraum verrechnet?\n- Wo werden Tarifgrenzen durchgesetzt? Eine zentrale Definition dessen, was jeder Tarif erlaubt, verhindert, dass eine Grenze auf einer Seite geprüft und auf einer anderen vergessen wird.\n\nDer Abo-Status in Ihrer Anwendung muss den Benachrichtigungen des Anbieters folgen und nicht dem Ergebnis der Bezahlseite. Rechnungsstellung und Umsatzsteuer bei Kunden in verschiedenen Ländern klären Sie vor dem ersten Verkauf mit einer Steuerberatung.\n\n## Warteschlangen und Hintergrundarbeit\n\nAlles, was dauert oder von einem anderen System abhängt, läuft im Hintergrund: E-Mails, Importe, Exporte, Berichte, eingehende Abrechnungsmeldungen. Zwei Punkte sind typisch für SaaS. Jeder Auftrag muss wissen, zu welchem Mandanten er gehört. Und der riesige Import eines Kunden darf nicht alle anderen ausbremsen, was getrennte Warteschlangen oder Grenzen je Mandant erfordert.\n\n## Onboarding\n\nDer Weg von der Registrierung zum ersten brauchbaren Ergebnis entscheidet, ob aus einer Testphase ein Abo wird. Planen Sie ihn wie eine Funktion: Registrierung mit möglichst wenigen Feldern, Beispieldaten oder ein geführter erster Schritt, das Einladen von Kollegen und die Übernahme vorhandener Daten. Messen Sie, an welcher Stelle neue Konten abbrechen.\n\n## Vor dem Start entscheiden\n\n- Mandantenmodell und Erkennung des Mandanten\n- ob ein Nutzer mehreren Konten angehören kann\n- Abrechnungseinheit und Tarifstruktur\n- Ausgabe und vollständige Löschung der Kundendaten bei Vertragsende\n- ein Änderungsprotokoll, wer was geändert hat\n\nVertragsbedingungen, Auftragsverarbeitung und Datenschutzpflichten gehören in die Hände einer Rechtsberatung und nicht in die der Entwicklung.",
+  "personas": [
+    {
+      "key": "founder",
+      "text": "Sie sehen, was vor Entwicklungsbeginn feststehen sollte, weil eine spätere Änderung Datenmigration oder neue Verträge bedeutet: Mandantenmodell, Abrechnungseinheit und die Frage, ob ein Nutzer mehreren Konten angehören kann."
+    },
+    {
+      "key": "cto",
+      "text": "Sie erhalten die Abwägung zwischen gemeinsamer Datenbank, Datenbank je Mandant und getrennten Installationen sowie die SaaS-typischen Punkte bei Warteschlangen, Rechteprüfung und dem Abgleich des Abo-Status mit dem Abrechnungsanbieter."
+    },
+    {
+      "key": "product_manager",
+      "text": "Sie bekommen die Produktfragen, die Ihnen die Entwicklung nicht abnehmen kann: Regeln für Testphase und Zahlungsausfall, Tarifgrenzen, feste oder kundeneigene Rollen und den Weg von der Registrierung zum ersten brauchbaren Ergebnis."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Sollte jeder Kunde eines SaaS-Produkts eine eigene Datenbank bekommen?",
+      "a": "Nicht grundsätzlich. Eine gemeinsame Datenbank mit Mandantenkennung an jedem Datensatz ist günstiger im Betrieb und leichter zu aktualisieren. Für die meisten Produkte reicht sie aus, wenn der Mandantenfilter automatisch greift und getestet ist. Getrennte Datenbanken lohnen den Mehraufwand, wenn Kunden vertragliche Trennung, Wiederherstellung einzelner Konten oder Speicherung in einer bestimmten Region verlangen."
+    },
+    {
+      "q": "Warum eignet sich Laravel für die Entwicklung eines SaaS-Produkts?",
+      "a": "Es bringt mit, was jedes SaaS braucht: Anmeldung, Warteschlangen, geplante Aufgaben, E-Mails und Benachrichtigungen sowie offizielle Pakete für die Abo-Abrechnung. So fließt das Budget in das eigentliche Produkt. Die Grenzen sind dieselben wie bei jeder einzelnen Anwendung: Sehr hohe Last oder besondere Echtzeitanforderungen verlangen zusätzliche Architektur, die am konkreten Fall zu beurteilen ist."
+    },
+    {
+      "q": "Lässt sich das Preismodell eines SaaS nach dem Start noch ändern?",
+      "a": "Preise und Tarifinhalte lassen sich leicht ändern, wenn die Tarifgrenzen an einer zentralen Stelle definiert sind. Schwieriger ist der Wechsel der Abrechnungseinheit, etwa von der Pauschale zum Preis je Nutzer oder nach Verbrauch: Die Anwendung muss dann etwas zählen, das sie bisher nicht gezählt hat, und Bestandskunden brauchen eine Übergangsregel. Legen Sie die Einheit früh fest und halten Sie die Tarife selbst flexibel."
+    }
+  ],
+  "meta_description": "SaaS-Entwicklung mit Laravel: Mandantentrennung, Abrechnungseinheit, Rollen und Warteschlangen richtig wählen, bevor Änderungen teuer werden.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.492Z",
+  "updated_at": "2026-10-01T18:58:05.136Z"
+}

@@ -1,0 +1,41 @@
+{
+  "axis": "services",
+  "entity_a": "cms-development",
+  "entity_b": "ecommerce",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Was ein individuelles CMS im Handel leisten muss, wo Standardsysteme enden und welche Fragen Sie einem Anbieter vor der Beauftragung stellen sollten.",
+  "overview": "Im Handel hat eine Website zwei Aufgaben, die schlecht zusammenpassen. Die Redaktion braucht Freiheit: Aktionsseiten, Ratgeber, Filialseiten, saisonale Kampagnen. Der Shop braucht Verlässlichkeit: richtige Preise, richtige Bestände, korrekte Steuersätze und einen Bestellablauf, der nicht ausfällt. Oft entstehen daraus zwei Systeme mit einer wackligen Verbindung dazwischen. Bei der CMS-Entwicklung für den Handel geht es darum, diese Grenze bewusst zu ziehen und die Werkzeuge für Ihr Team darum herum zu bauen.\n\n## Typische Probleme im Handel\n\n- Produktdaten werden an mehreren Stellen gepflegt: in der Warenwirtschaft, in einer Tabelle, im Shop. Welche Angabe stimmt, weiß niemand sicher.\n- Für jede Aktionsseite wird ein Entwickler gebraucht. Kampagnen starten deshalb zu spät oder gar nicht.\n- Inhalte und Produkte sind getrennt. Ein Ratgeber kann den aktuellen Preis und die Verfügbarkeit der empfohlenen Artikel nicht anzeigen.\n- Der Verwaltungsbereich ist für Entwickler gebaut. Mitarbeitende behelfen sich mit Kopieren und Einfügen.\n- Erweiterungen häufen sich, bis jedes Update ein Risiko ist und niemand mehr den Bestellablauf anfasst.\n- In der Hochsaison zeigen sich langsame Kategorieseiten und eine träge Suche.\n\n## Was eine gute Lösung enthält\n\nAm Anfang steht ein klares Datenmodell: Produkte, Varianten, Kategorien, Preise, Bestände und die Inhaltstypen, die Ihr Team tatsächlich veröffentlicht. Jedes Feld hat genau ein führendes System. Führt die Warenwirtschaft den Bestand, zeigt das CMS ihn an und lässt ihn nicht bearbeiten.\n\nDer Verwaltungsbereich orientiert sich an den täglichen Aufgaben. Rollen und Rechte trennen, wer Texte ändern darf und wer Preise anpasst oder Erstattungen auslöst. Entwürfe, Vorschau und zeitgesteuerte Veröffentlichung erlauben es, eine Kampagne vorzubereiten und zu einem festen Zeitpunkt freizuschalten.\n\nInhaltsbausteine können auf Produkte verweisen. Ein Artikel zeigt dann den aktuellen Preis und die Verfügbarkeit statt einer einkopierten Zahl, die veraltet.\n\nDie Zahlung läuft über einen etablierten Zahlungsdienstleister. Kartendaten gehören nicht auf Ihren eigenen Server. Das CMS speichert die Bestellung und den Zahlungsstatus und verarbeitet die Statusmeldungen des Dienstleisters zuverlässig, auch fehlgeschlagene und doppelt eintreffende.\n\nBestellungen, Rechnungen, Versandmitteilungen und Retouren haben festgelegte Zustände und ein Änderungsprotokoll. Importe und Exporte zu Warenwirtschaft, Buchhaltung und Preisvergleichsportalen werden von Beginn an eingeplant.\n\nHinzu kommen sprechende URLs, Weiterleitungen für entfallene Produkte, strukturierte Produktdaten für Suchmaschinen, Bildverarbeitung, Caching und automatisierte Tests für den Weg vom Warenkorb bis zur bezahlten Bestellung. Rechtliche Pflichtangaben im Shop, etwa zu Widerruf und Preisangaben, lassen Sie von einer Fachanwältin oder einem Fachanwalt prüfen; das System muss sie nur sauber abbilden können.\n\n## Individuell oder Standard?\n\nEin Standard-Shopsystem ist richtig, wenn Sortiment und Abläufe gewöhnlich sind. Eine Individualentwicklung lohnt sich, wenn Produkte konfiguriert werden, Preisregeln ungewöhnlich sind, Inhalte und Verkauf eng verzahnt sein sollen oder vorhandene Systeme den Datenfluss vorgeben. Lassen Sie sich von einem Anbieter beide Wege begründen.\n\n## Fragen an den Anbieter\n\n- Welches System führt Preise und Bestände, und wie werden Abweichungen aufgelöst?\n- Können wir den Verwaltungsbereich eines vergleichbaren Projekts sehen und eine typische Aufgabe selbst ausprobieren?\n- Wie ist die Zahlung angebunden, und was geschieht, wenn eine Zahlungsmeldung ausbleibt?\n- Wie werden vorhandene Daten übernommen und alte URLs weitergeleitet?\n- Wem gehört der Quellcode, und kann ein anderes Team ihn übernehmen?\n- Was wird vor jeder Veröffentlichung automatisch getestet?\n- Was umfasst die Wartung nach dem Start, und wie werden Sicherheitsupdates eingespielt?\n\n## Erfahrung hinter dieser Seite\n\nShvedkoDev hat ein Content-Management-System auf Basis von Laravel gebaut, das einen Verwaltungsbereich mit Shop- und Zahlungsfunktionen verbindet. Die Hinweise oben stammen aus dieser Art von Arbeit: Inhalte und Verkauf in einer Anwendung, mit einem gemeinsamen Verwaltungsbereich für die Menschen, die damit arbeiten.",
+  "personas": [
+    {
+      "key": "ecommerce_manager",
+      "text": "Sie erhalten eine Prüfliste dafür, was Verwaltungsbereich, Produktdaten und Bestellabwicklung leisten sollten, und können so beurteilen, ob ein Angebot zum Arbeitsalltag Ihres Teams passt."
+    },
+    {
+      "key": "founder",
+      "text": "Sie erkennen, wann ein Standard-Shopsystem genügt und wann sich eine Individualentwicklung rechtfertigt, und welche Fragen zeigen, ob ein Anbieter Zahlung, Datenhoheit und Wartung durchdacht hat."
+    },
+    {
+      "key": "it_manager",
+      "text": "Sie sehen, welche Schnittstellenfragen früh zu klären sind: welches System Preise und Bestände führt, wie Zahlungsmeldungen verarbeitet werden und wie Importe, Exporte und Datenübernahme geplant sind."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Wann ist ein individuelles CMS besser als ein Standard-Shopsystem?",
+      "a": "Wenn Ihre Anforderungen an entscheidenden Stellen vom Standard abweichen: konfigurierbare Produkte, ungewöhnliche Preisregeln, Inhalte, die eng mit Produkten verknüpft sein müssen, oder vorhandene Systeme, die den Datenfluss vorgeben. Bei gewöhnlichem Sortiment und üblichen Abläufen ist ein Standardsystem meist günstiger im Betrieb. Ein guter Anbieter sagt Ihnen offen, welcher Fall bei Ihnen vorliegt."
+    },
+    {
+      "q": "Verarbeitet ein individuelles CMS Kartenzahlungen selbst?",
+      "a": "Das sollte es nicht. Die Zahlung wird an einen etablierten Zahlungsdienstleister übergeben, sodass Kartendaten Ihren Server nie erreichen. Das CMS legt die Bestellung an, leitet zur Zahlung weiter und übernimmt das Ergebnis aus den Statusmeldungen des Dienstleisters. Sorgfalt verlangt der Umgang mit fehlgeschlagenen, verspäteten oder doppelten Meldungen, damit keine Bestellung irrtümlich als bezahlt gilt."
+    },
+    {
+      "q": "Können wir unsere Warenwirtschaft oder Buchhaltung weiter nutzen?",
+      "a": "In der Regel ja, sofern das System eine Schnittstelle oder zumindest regelmäßige Dateiexporte anbietet. Entscheidend ist, welches System welche Daten führt. Üblicherweise führt die Warenwirtschaft Bestände und oft auch Preise, das CMS Beschreibungen, Bilder und Inhalte. Lassen Sie den Anbieter das vor Entwicklungsbeginn Feld für Feld schriftlich festhalten."
+    }
+  ],
+  "meta_description": "CMS-Entwicklung für E-Commerce und Einzelhandel: typische Probleme, Bestandteile einer guten Lösung und Fragen an Anbieter.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.498Z",
+  "updated_at": "2026-10-01T18:58:05.141Z"
+}

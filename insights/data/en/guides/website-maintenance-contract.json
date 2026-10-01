@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "website-maintenance-contract",
+  "entity_b": "",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "What a maintenance agreement has to spell out so that updates, backups and outages are settled before something breaks.",
+  "overview": "A website is not finished at launch. The content management system, plugins, framework packages, the PHP version and the server all receive updates, and every update left undone becomes either a security gap or a compatibility problem later. A maintenance contract defines who takes care of this, how quickly, and at what cost.\n\n## What the contract should cover\n\n- Updates: which components are updated (core, plugins, themes, framework and library packages, server software), how often, and how urgent security patches are handled outside the regular cycle. Ask whether updates are tried on a staging copy first and whether the site is checked afterwards.\n- Backups: what is saved (files, database, uploads), how often, how long copies are kept and where they are stored. A backup on the same server as the site is useless when that server fails, and the contract should require a regular restore test.\n- Monitoring: availability, expiry of certificates and domains, disk space, error logs, failed scheduled jobs and, for shops and applications, a test of the key process such as checkout or login. Clarify who receives the alert and what happens at night and at weekends.\n- Response times: the time until someone confirms a report and starts working, separated by severity. A site that is down needs a different response than a typo. A response time is not a resolution time; few providers can promise the latter.\n- Reporting: a short monthly record of what was updated, what was noticed and what is recommended.\n- Access and ownership: you hold the administrator accounts for domain, hosting and code repository, and the contract describes the handover when it ends.\n\n## Maintenance or change request\n\nMost disputes start here. Maintenance keeps the existing functions working: applying updates, repairing what an update broke, restoring from a backup, cleaning up after an attack. A change request alters what the site does or how it looks: a new form field, a new page template, another payment method, a connection to a further system.\n\nThe grey areas should be named in the contract:\n\n- A major version upgrade of the CMS or framework that requires code changes\n- Adjustments because an external service changed its interface\n- Defects in code written by a previous developer\n- Content editing and small text changes\n- Changes made necessary by new legal requirements\n\nFor each of these the contract should say whether it is included, covered by an allowance of hours, or quoted separately. An allowance needs rules as well: whether unused time carries over, and at what rate additional time is billed.\n\n## How to compare offers\n\nOffers are hard to compare because each one lists different things. Put them into one table with the same rows:\n\n- Update frequency and whether staging tests are included\n- Backup frequency, retention period, storage location, restore test\n- What is monitored and during which hours alerts are handled\n- Response time per severity and the hours in which it applies\n- Included hours and the rate beyond them\n- Minimum term and notice period\n- What is explicitly excluded\n\nEvery empty cell is a question to ask. A low monthly fee where everything beyond plugin updates is billed by the hour can cost more over a year than a higher fee with a real allowance. An illustration with invented numbers: one offer costs 80 per month with no hours included, another 180 with two hours included. At an hourly rate of 50, both cost the same in a month with two hours of work, and the first becomes more expensive with every further hour.\n\nAlso ask who does the work when your contact is on holiday, and whether hosting is part of the contract or stays with a separate provider. That decides who is responsible when the server itself fails.\n\n## Before you sign\n\nA provider taking over a site built by someone else should inspect code, server and update status first. A paid initial audit with a written list of findings is a reasonable start and gives you a baseline for the monthly reports.",
+  "personas": [
+    {
+      "key": "founder",
+      "text": "You get a list of what a maintenance agreement must settle, so you can judge an offer without technical background and know which gaps will cost money later."
+    },
+    {
+      "key": "it_manager",
+      "text": "You can check an offer against concrete criteria: update cycle, backup retention and restore tests, monitoring scope, response times per severity and the handover of access at the end of the contract."
+    },
+    {
+      "key": "procurement",
+      "text": "You receive a row-by-row structure for comparing offers from different providers and the questions that reveal what a low monthly fee leaves out."
+    }
+  ],
+  "faq": [
+    {
+      "q": "What is the difference between maintenance and a change request?",
+      "a": "Maintenance keeps the existing functions running: updates, repairs after updates, backups, restores and security fixes. A change request alters what the site does or how it looks, for example a new form, template or integration. The contract should name the grey areas, such as major version upgrades, and say whether they are included, covered by an hourly allowance or quoted separately."
+    },
+    {
+      "q": "Is a guaranteed response time the same as a guaranteed fix?",
+      "a": "No. A response time states how quickly someone confirms the report and begins working on it. How long the repair takes depends on the cause, which is why most providers do not promise a resolution time. Check during which hours the response time applies and whether it differs by severity, for example for a complete outage compared with a display error."
+    },
+    {
+      "q": "Do I need a maintenance contract if my hosting provider already makes backups?",
+      "a": "Hosting backups cover only one part. They rarely include applying and testing application updates, checking the site after an update, monitoring forms or checkout, or repairing errors. Ask your host how long backups are kept and who restores them. If nobody is responsible for updates and testing, that gap is what a maintenance contract fills."
+    }
+  ],
+  "meta_description": "Website Maintenance Contract: which updates, backups, monitoring and response times it should cover and how to compare offers.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.515Z",
+  "updated_at": "2026-10-01T18:58:05.145Z"
+}

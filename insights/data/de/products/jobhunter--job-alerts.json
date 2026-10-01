@@ -1,0 +1,41 @@
+{
+  "axis": "products",
+  "entity_a": "jobhunter",
+  "entity_b": "job-alerts",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Von passenden Upwork-Jobs per E-Mail, Slack, WhatsApp oder Browser-Push erfahren und den Kanal wählen, der zu Ihrem Arbeitstag passt.",
+  "overview": "Eine Ausschreibung, die Sie erst nach zwei Tagen sehen, haben vermutlich schon andere gelesen. Stündlich in die Jobsuche zu schauen, ist aber auch keine Lösung, denn es zerstückelt die Arbeit, für die Sie bezahlt werden. Benachrichtigungen drehen das Verhältnis um: Sie gehen nicht zu den Ausschreibungen, sondern erhalten eine Nachricht, sobald sich ein Blick lohnt.\n\nJobHunter ist unser eigenes Produkt für Freelancer auf Upwork. Es ruft neue Ausschreibungen nach Zeitplan ab, filtert sie vor, bewertet jede mit KI und bereitet einen Entwurf für das Anschreiben und für die Antworten auf Screening-Fragen vor. Die Benachrichtigung ist das letzte Glied dieser Kette: Sie meldet, dass eine passende Ausschreibung wartet. Vier Kanäle stehen zur Verfügung: E-Mail, Slack, WhatsApp und Browser-Push.\n\n## Welcher Kanal für welche Lage\n\nDie Kanäle unterscheiden sich weniger im Inhalt als darin, wo sie Sie erreichen.\n\n- E-Mail passt zu festen Abläufen. Die Meldungen sammeln sich im Postfach, und Sie gehen sie zu festen Zeiten durch, etwa morgens und nach der Mittagspause. Das stört wenig, dafür sehen Sie manches später.\n- Slack passt, wenn Sie es für die Projektarbeit ohnehin den ganzen Tag geöffnet haben. Die Meldung erscheint dort, wo Sie sowieso hinschauen. Teilen Sie den Workspace mit Kollegen, hält ein eigener Kanal die Meldungen aus anderen Gesprächen heraus.\n- WhatsApp erreicht Sie auf dem Telefon, auch fern vom Schreibtisch. Das hilft an Tagen mit Terminen oder Reisen und stört, wenn dasselbe Telefon Ihr privater Anschluss ist.\n- Browser-Push zeigt einen Hinweis, während Sie am Rechner sitzen. Er kommt sofort, ist schnell weggeklickt und endet, wenn Sie den Laptop zuklappen.\n\nBeginnen Sie mit einem Kanal, nicht mit allen vier. Einen zweiten nehmen Sie erst hinzu, wenn Sie eine Lücke bemerken, etwa verpasste Meldungen unterwegs.\n\n## Was „schnell“ hier bedeutet\n\nAusschreibungen werden nach Zeitplan abgerufen. Die Benachrichtigung folgt also auf den nächsten Abruf und nicht in der Sekunde, in der ein Auftraggeber veröffentlicht. Wie oft abgerufen wird, steht auf der Produktseite. Die andere Hälfte der Geschwindigkeit liegt bei Ihnen: Eine Meldung nützt nur, wenn Sie in absehbarer Zeit darauf reagieren können.\n\n## Was Sie nach einer Meldung tun\n\n- Entscheiden Sie innerhalb einer Minute, ob sich das vollständige Lesen lohnt. Wenn nicht, verwerfen Sie die Meldung und arbeiten weiter.\n- Wenn ja, lesen Sie die ganze Ausschreibung auf Upwork, nicht nur die Kurzfassung.\n- Überarbeiten Sie den vorbereiteten Entwurf und die Antworten auf die Screening-Fragen.\n- Reichen Sie das Angebot selbst auf Upwork ein. JobHunter reicht keine Angebote ein.\n\nKönnen Sie gerade nicht reagieren, legen Sie einen festen Zeitpunkt am selben Tag fest. Eine Meldung ohne Entscheidung gerät leicht in Vergessenheit.\n\n## Damit Meldungen lesenswert bleiben\n\nBenachrichtigungen verlieren ihren Wert, sobald Sie sie übergehen. Anzeichen dafür: Sie wischen sie ungelesen weg oder schalten den Kanal stumm.\n\n- Kommen zu viele, liegt die Ursache weiter vorn. Fassen Sie enger, was für Sie als passend gilt. Was sich einstellen lässt, erklärt die Produktseite.\n- Halten Sie berufliche Meldungen aus der Freizeit heraus, soweit der Kanal es erlaubt, etwa über die Ruhezeiten Ihres Telefons oder die Mitteilungseinstellungen der App.\n- Ziehen Sie nach zwei Wochen Bilanz: Welche Meldungen haben dazu geführt, dass Sie eine Ausschreibung gelesen haben, und welche nicht?\n\n## Vertraulichkeit und geteilte Umgebungen\n\nEine Meldung kann verraten, welche Jobs Sie sich ansehen. In einem geteilten Slack-Workspace oder an einem Bildschirm, den andere einsehen, sollten Sie bedenken, wer mitliest, besonders wenn Sie gerade bei einem Kunden vor Ort arbeiten.\n\n## Was hier nicht steht\n\nWas eine Benachrichtigung enthält, ob sich Kanäle kombinieren lassen, wie die Einrichtung abläuft und was das Produkt kostet, beschreibt die Produktseite von JobHunter.",
+  "personas": [
+    {
+      "key": "freelancer",
+      "text": "Sie wählen zwischen E-Mail, Slack, WhatsApp und Browser-Push danach, wo Sie sich tagsüber wirklich aufhalten, und erhalten einen kurzen Ablauf für die Minuten nach einer eingegangenen Meldung."
+    },
+    {
+      "key": "agency_owner",
+      "text": "Achten in Ihrer Agentur mehrere Personen auf Upwork-Jobs, sehen Sie, wie ein eigener Slack-Kanal oder ein gemeinsames Postfach die Meldungen bündelt und warum jede Meldung einen Verantwortlichen braucht."
+    },
+    {
+      "key": "operations_lead",
+      "text": "Sie erfahren, wie Meldungen nicht zum Rauschen werden: mit einem Kanal beginnen, bei wachsender Menge enger filtern, Ruhezeiten einhalten und nach zwei Wochen prüfen, welche Meldungen etwas ausgelöst haben."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Über welche Kanäle verschickt JobHunter Job-Benachrichtigungen?",
+      "a": "Per E-Mail, Slack, WhatsApp und Browser-Push. E-Mail eignet sich für feste Lesezeiten, Slack für alle, die es beruflich ohnehin geöffnet haben, WhatsApp erreicht Sie abseits des Schreibtischs, und Browser-Push erscheint, während Sie am Rechner arbeiten. Einrichtung und Kombination der Kanäle erläutert die Produktseite."
+    },
+    {
+      "q": "Werde ich in dem Moment benachrichtigt, in dem ein Job erscheint?",
+      "a": "Nicht auf die Sekunde. JobHunter ruft neue Ausschreibungen nach Zeitplan ab, filtert und bewertet sie, und danach folgt die Benachrichtigung. Wie oft der Abruf läuft, steht auf der Produktseite. In der Praxis zählt Ihre eigene Reaktionszeit ebenso, wählen Sie daher einen Kanal, den Sie tatsächlich im Blick haben."
+    },
+    {
+      "q": "Was geschieht, nachdem ich eine Benachrichtigung erhalten habe?",
+      "a": "Ohne Sie geschieht nichts. Die Meldung sagt Ihnen, dass eine passende Ausschreibung und vorbereitete Entwürfe warten. Sie lesen die Ausschreibung, überarbeiten Anschreiben und Antworten auf die Screening-Fragen und bewerben sich von Hand auf Upwork. JobHunter reicht keine Angebote ein."
+    }
+  ],
+  "meta_description": "JobHunter: Job-Benachrichtigungen melden passende Upwork-Jobs per E-Mail, Slack, WhatsApp oder Browser-Push. Sie bewerben sich selbst.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.608Z",
+  "updated_at": "2026-10-01T18:58:05.140Z"
+}

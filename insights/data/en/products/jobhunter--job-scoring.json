@@ -1,0 +1,41 @@
+{
+  "axis": "products",
+  "entity_a": "jobhunter",
+  "entity_b": "job-scoring",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "How an AI score per job posting helps you choose where your limited application time goes, and which judgements stay with you.",
+  "overview": "Application time is the scarce resource in freelancing. Every proposal you write properly costs concentration, and the hours come out of paid work or your evening. The scoring step in JobHunter addresses one question only: of the postings that arrived, which deserve that effort first?\n\nJobHunter is our own product for freelancers on Upwork. After new postings have been fetched and pre-filtered, each remaining one is scored by AI. The result is a priority, not an application: JobHunter does not submit proposals, and you apply manually on Upwork.\n\n## What the score works from\n\nThe score is derived from the job posting, that is, from what the client wrote. That has a practical consequence. The score can only be as good as that text.\n\n- A thin posting gives little to go on. Three lines of text leave the score with little substance, and you with little too.\n- A detailed posting offers more to assess, and it also deserves a full read from you.\n- What is not written in the posting is not weighed. Your current workload, a client you would rather avoid, a technology you want to leave behind: you weigh these yourself when you read.\n\n## Turning scores into a routine\n\nA score earns its keep when it changes what you do with your time. One workable routine:\n\n- Start at the top. Read the best-scored postings in full before you look at anything else.\n- Set yourself a time budget per session and stop when it is used up, rather than working through the whole list.\n- Sort into three piles as you read: apply today, maybe later, no. The middle pile should stay small; most maybes are a no.\n- Leave the low-scored postings unread on busy days. That is the saving.\n\n## What a score cannot tell you\n\n- Whether the client is pleasant to work with or clear about what they want.\n- Whether the budget suits the work described. That is your commercial judgement.\n- Whether you want the project. A good match on paper can still be work you are tired of.\n- Whether you have capacity this month.\n\nFor these reasons a high score is an invitation to read, and a low score is not proof that a posting is worthless.\n\n## Keeping the scores useful\n\nThe score is a tool for prioritising, and it stays useful as long as you check it against your own judgement.\n\n- Now and then, rank a handful of postings yourself before you look at the scores, then compare.\n- Once in a while, read a few low-scored postings in full. If you find jobs there you would have wanted, give the lower part of the list more attention.\n- Note why you turned down well-scored postings. The reasons are usually things only you can know, such as capacity or the kind of client.\n- Keep deciding yourself. The score orders the list; it does not replace reading the posting.\n\n## When scoring helps little\n\n- If only a few postings reach you anyway, you can read them all, and an order adds little.\n- If you are still deciding what to offer, an order does not tell you which jobs to want.\n- If you take almost any job, ranking does not change your behaviour.\n\n## What this page leaves out\n\nHow the score is displayed, how it is calculated in detail and what the product costs are not described here. This page also contains no figures about the marketplace, and JobHunter publishes none. For the details, see the JobHunter product site.",
+  "personas": [
+    {
+      "key": "freelancer",
+      "text": "You get a routine for using scores as a reading order: start at the top, set a time budget, sort into three piles, and check the ranking against your own judgement from time to time."
+    },
+    {
+      "key": "developer",
+      "text": "As a freelance developer you see how a score per posting lets you spend the short gaps between client work on the postings worth reading, and why the decision to apply stays yours."
+    },
+    {
+      "key": "agency_owner",
+      "text": "If someone on your team screens Upwork postings, you learn what a score can take off that person's desk and which judgements about budget, client and capacity it cannot make for you."
+    }
+  ],
+  "faq": [
+    {
+      "q": "What does a high score from JobHunter actually mean?",
+      "a": "It means the AI rated this posting, as written, higher than the others in your list. It is a reason to read that posting first. It says nothing about the client's reliability, whether the budget is fair or whether you want the work. Those judgements remain with you after reading the posting in full."
+    },
+    {
+      "q": "Why do postings I would never take receive good scores?",
+      "a": "Because the score is derived from the posting text. It cannot know your current workload, the clients you would rather avoid or the work you are tired of. Treat such cases as normal: the score sets a reading order, and you sort out what does not suit you when you read. A good score never obliges you to apply."
+    },
+    {
+      "q": "Does a good score lead to an automatic application?",
+      "a": "No. JobHunter does not submit proposals, whatever the score. The score only orders the postings for you. You read the posting, decide whether to apply, and send the proposal manually on Upwork with your own account."
+    }
+  ],
+  "meta_description": "JobHunter AI Job Scoring ranks new Upwork postings with an AI score so you know which to read first. You still decide.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.620Z",
+  "updated_at": "2026-10-01T18:58:05.146Z"
+}

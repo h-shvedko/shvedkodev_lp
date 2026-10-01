@@ -1,0 +1,41 @@
+{
+  "axis": "services",
+  "entity_a": "cms-development",
+  "entity_b": "ecommerce",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "What a custom CMS has to do for a shop, where standard systems run out, and which questions to put to a provider before you sign.",
+  "overview": "A retailer's website has two jobs that pull in different directions. The content side wants freedom: landing pages, buying guides, seasonal campaigns, store pages. The shop side wants strictness: correct prices, correct stock, correct tax, a checkout that never breaks. Many retailers end up with one system for each and a fragile bridge between them. CMS development for e-commerce is about deciding where that line runs and building the editing tools around it.\n\n## Typical problems in retail\n\n- Product data is maintained in several places: the inventory system, a spreadsheet, the shop backend. Nobody is sure which one is right.\n- Editors cannot build a campaign page without a developer, so campaigns go live late or not at all.\n- Content and products are separate worlds. A buying guide cannot show the current price and availability of the products it recommends.\n- The admin area was built for developers. Staff need training for every task and work around the system with copy and paste.\n- Plugins pile up until every update is a risk, and nobody dares to touch the checkout.\n- Seasonal peaks expose slow category pages and searches.\n\n## What a good solution includes\n\nA clear data model comes first: products, variants, categories, prices, stock, and the content types your team actually publishes. Each field has one owner. If the inventory system owns stock, the CMS displays it and never lets anyone edit it.\n\nThe admin panel is designed around the daily tasks of the people who use it. Roles and permissions separate who may edit a text from who may change a price or issue a refund. Drafts, preview and scheduled publishing let a campaign be prepared ahead and go live at a set time.\n\nContent blocks can reference products, so an article or landing page shows live price and availability instead of a pasted number that goes stale.\n\nPayment runs through an established payment provider. Card data should never touch your own server; the CMS stores the order and the payment status, and handles the provider's status notifications reliably, including failed and repeated ones.\n\nOrders, invoices, shipping notices and returns have defined states and an audit trail. Imports and exports to the inventory system, accounting and price comparison feeds are planned as part of the system, not added later.\n\nFinally: clean URLs, redirects when products are removed, structured product data for search engines, image handling, caching, and automated tests on the path from cart to paid order.\n\n## Custom or standard?\n\nA standard shop system is the right choice when your range and processes are ordinary. A custom build pays off when your products need configuration, when pricing rules are unusual, when content and commerce must be tightly joined, or when existing systems dictate how data has to flow. Ask a provider to argue both sides.\n\n## Questions to ask a provider\n\n- Which system is the source of truth for prices and stock, and how are conflicts resolved?\n- Can we see the admin panel of a comparable project and try a typical task ourselves?\n- How are payments integrated, and what happens when a payment notification does not arrive?\n- How is our existing data migrated, and how are old URLs redirected?\n- Who owns the code, and can another team take it over?\n- What is tested automatically before each release?\n- What does maintenance cover after launch, and how are security updates handled?\n\n## Experience behind this page\n\nShvedkoDev has built a content management system on Laravel that combines an admin panel with shop and payment functions. The guidance above comes from that kind of work: content and commerce in one application, with one admin area for the people who run it.",
+  "personas": [
+    {
+      "key": "ecommerce_manager",
+      "text": "You get a checklist of what the admin area, product data and order handling should do, so you can judge whether a proposal fits the way your team works every day."
+    },
+    {
+      "key": "founder",
+      "text": "You see when a standard shop system is enough and when a custom build is justified, and which questions expose a provider who has not thought about payments, data ownership and maintenance."
+    },
+    {
+      "key": "it_manager",
+      "text": "You get the integration points to clarify early: which system owns prices and stock, how payment notifications are handled, and how imports, exports and migration are planned."
+    }
+  ],
+  "faq": [
+    {
+      "q": "When is a custom CMS better than a standard shop system?",
+      "a": "When your requirements differ from the standard in ways that matter: configurable products, unusual pricing rules, content that must be closely tied to products, or existing systems that dictate the data flow. If your range and processes are ordinary, a standard system is usually cheaper to run and easier to staff. A good provider will tell you which case you are in."
+    },
+    {
+      "q": "Does a custom CMS handle card payments itself?",
+      "a": "It should not. Payment is handed to an established payment provider, so card data never reaches your server. The CMS creates the order, sends the customer to the payment step, and records the result from the provider's status notifications. What needs care is the handling of failed, delayed or repeated notifications, so that no order is marked paid by mistake."
+    },
+    {
+      "q": "Can we keep our existing inventory or accounting system?",
+      "a": "Usually yes, provided it offers an interface or at least regular file exports. The important decision is which system owns which data. Typically the inventory system owns stock and often prices, and the CMS owns descriptions, images and content. Have the provider write this down per field before development starts."
+    }
+  ],
+  "meta_description": "CMS Development for E-Commerce and Retail: what the system must cover, typical problems, and questions to ask a provider.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.522Z",
+  "updated_at": "2026-10-01T18:58:05.147Z"
+}

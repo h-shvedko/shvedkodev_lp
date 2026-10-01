@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="ShvedkoDev" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/css/main.min.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="/js/jquery.main.js"></script>
+    <link rel="preconnect" href="//fonts.googleapis.com">
+    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+    
+    <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css'>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jQuery-viewport-checker/1.8.8/jquery.viewportchecker.min.js" integrity="sha512-FRX6MYITclzDyyMmSQLgZoZTfE+GLzAQpjs15adVZMY6AqhsrBLx8UZwp4FoqrrRFWY9TiaPwja7EY5fk309vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
+    
+    <link href="//fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500;700&family=Saira+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        // Google Analytics loads only after the visitor accepts cookies in the banner (footer partial).
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        function loadAnalytics() {
+            if (window.analyticsLoaded) return;
+            window.analyticsLoaded = true;
+            var script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=G-FY5NWV7102';
+            document.head.appendChild(script);
+            gtag('js', new Date());
+            gtag('config', 'G-FY5NWV7102');
+        }
+        try {
+            if (localStorage.getItem('cookieConsent') === 'accepted') loadAnalytics();
+        } catch (e) {}
+    </script>
+    <title>Portfolio: Projekte und Fallstudien · ShvedkoDev</title>
+    <meta name="description" content="Ausgewählte Projekte von ShvedkoDev: Webanwendungen, Plattformen und Websites mit Laravel, PHP und WordPress sowie Lehrtätigkeit.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Portfolio: Projekte und Fallstudien · ShvedkoDev">
+    <meta property="og:description" content="Ausgewählte Projekte von ShvedkoDev: Webanwendungen, Plattformen und Websites mit Laravel, PHP und WordPress sowie Lehrtätigkeit.">
+    <meta property="og:url" content="https://shvedko.dev/de/portfolio/">
+    <meta property="og:site_name" content="ShvedkoDev">
+    <meta property="og:locale" content="de_DE">
+    <link rel="alternate" hreflang="en" href="https://shvedko.dev/portfolio/">
+    <link rel="alternate" hreflang="de" href="https://shvedko.dev/de/portfolio/">
+    <link rel="alternate" hreflang="x-default" href="https://shvedko.dev/portfolio/">
+    <link rel="canonical" href="https://shvedko.dev/de/portfolio/">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+        <header id="header">
+            <div class="container">
+                <div class="logo">
+                    <a href="/de/"><img src="/images/Logo.png" alt=""></a>
+                </div>
+                <input type="checkbox" id="burger-trigger" class="burger-trigger">
+                <label class="nav-opener" for="burger-trigger">Menü</label>
+                <div class="menu-holder">
+                    <nav>
+                        <ul id="nav" class="nav">
+                            <li class="active"><a href="/de/">Start</a></li>
+                            <li><a href="/de/about/">Über uns</a></li>
+                            <li><a href="/de/services/">Leistungen</a></li>
+                            <li><a href="/de/portfolio/">Portfolio</a></li>
+                            <li><a href="/de/blog/">Blog</a></li>
+                            <li><a href="/de/insights/">Insights</a></li>
+                            <li><a href="/de/contact/">Kontakt</a></li>
+                            <li class="lang-switch"><a href="/" hreflang="en" lang="en" title="English"><img src="/images/flag-en.svg" alt="English" width="24" height="16"></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main role="main" id="main">
+            <div class="container">
+                <!-- Page intro for direct-link visitors -->
+                <div class="page-intro animate-on-scroll fade-in">
+                    <h1>Portfolio</h1>
+                    <p>Ausgewählte Projekte – von KI-Plattformen über Bildungssysteme bis hin zu Enterprise-Webanwendungen. <a href="/de/contact/">Lassen Sie uns Ihr Projekt gemeinsam umsetzen →</a></p>
+                </div>
+
+                <!-- Featured Projects (case studies) -->
+                <section class="case-studies-section section" id="case-studies">
+                    <div class="h-underline">
+                        <h2 class="animate-on-scroll zoom-in">Ausgewählte Projekte</h2>
+                        <div class="line"></div>
+                    </div>
+
+                    <!-- Craftly -->
+                    <div class="case-study-card animate-on-scroll fade-in">
+                        <div class="case-study-card__badge own-product">Eigenes Produkt</div>
+                        <div class="case-study-card__body">
+                            <div class="case-study-card__tags">
+                                <span class="tag">KI</span>
+                                <span class="tag">Laravel</span>
+                                <span class="tag">WordPress</span>
+                                <span class="tag">SaaS</span>
+                                <span class="tag">PHP</span>
+                            </div>
+                            <h3>Craftly – KI-Agenten-Plattform für Laravel &amp; WordPress</h3>
+                            <p>Die weltweit erste KI-Agenten-Plattform, die aus einer kurzen Beschreibung in unter 5 Minuten produktionsreife Laravel- und WordPress-Webanwendungen generiert. Von Grund auf bei ShvedkoDev in Göttingen für kleine und mittlere Unternehmen im DACH-Raum entwickelt.</p>
+                            <ul class="case-study-card__highlights">
+                                <li>Agentische KI-Pipeline, die die vollständige Anwendungsstruktur, Routen, Models und Views generiert</li>
+                                <li>Live-Vorschau während der Generierung – Kunden sehen in Echtzeit, wie die Anwendung entsteht</li>
+                                <li>Richtet sich an die 77 % des Webs, die auf PHP laufen und von den gängigen KI-Tools vernachlässigt werden</li>
+                            </ul>
+                            <a href="/craftly/" class="button" target="_blank" rel="noopener">Zur Landingpage →</a>
+                        </div>
+                    </div>
+
+                    <!-- FSM VLA Curriculum -->
+                    <div class="case-study-card animate-on-scroll fade-in">
+                        <div class="case-study-card__badge client">Kundenprojekt</div>
+                        <div class="case-study-card__body">
+                            <div class="case-study-card__tags">
+                                <span class="tag">Laravel 12</span>
+                                <span class="tag">Livewire 3</span>
+                                <span class="tag">FilamentPHP</span>
+                                <span class="tag">Alpine.js</span>
+                                <span class="tag">Tailwind</span>
+                                <span class="tag">Docker</span>
+                            </div>
+                            <h3>FSM VLA Curriculum – Digitale Bibliothek für mikronesische Schulen</h3>
+                            <p>Konzeption und Entwicklung einer Full-Stack-Plattform für eine digitale Bibliothek, die Lehrkräften in den Föderierten Staaten von Mikronesien über 2.000 Lehrbücher in mikronesischen Muttersprachen bereitstellt. Zugängliche, durchsuchbare digitale Ressourcen für abgelegene pazifische Inselgemeinschaften tragen so zur Bewahrung des kulturellen Erbes bei.</p>
+                            <ul class="case-study-card__highlights">
+                                <li>Erweiterte Such- und Filterfunktionen für mehr als 2.000 Bücher (Fach, Klassenstufe, Sprache, Typ, Jahr)</li>
+                                <li>Admin-Dashboard auf Basis von FilamentPHP zur Verwaltung sämtlicher Inhalte, Metadaten, PDFs und nutzergenerierter Inhalte</li>
+                                <li>Analysesystem zur Erfassung von Buchaufrufen, Downloads, Suchanfragen und Filternutzung</li>
+                                <li>Mehrere responsive UI-Templates (Academic, Material, Modern) nach dem Mobile-First-Ansatz</li>
+                                <li>Rollenbasierte Zugriffskontrolle, Bewertungen, Rezensionen und Favoriten</li>
+                            </ul>
+                            <a href="https://micronesian.school" class="button" target="_blank" rel="noopener">micronesian.school besuchen →</a>
+                        </div>
+                    </div>
+
+                    <!-- Helmsauer Gruppe -->
+                    <div class="case-study-card animate-on-scroll fade-in">
+                        <div class="case-study-card__badge client">Kundenprojekt</div>
+                        <div class="case-study-card__body">
+                            <div class="case-study-card__tags">
+                                <span class="tag">Laravel</span>
+                                <span class="tag">React</span>
+                                <span class="tag">Tailwind CSS</span>
+                                <span class="tag">MSSQL</span>
+                                <span class="tag">REST API</span>
+                            </div>
+                            <h3>Enterprise-Versicherungsplattform – Frontend &amp; Laravel-Backend</h3>
+                            <p>Laufende Frontend- und Backend-Entwicklung für ein deutsches Unternehmen der Versicherungsbranche. Entwicklung eines React-Frontends mit Laravel-REST-API-Backend, angebunden an die MSSQL-Datenbanken des Unternehmens und die bestehende Geschäftslogik.</p>
+                            <ul class="case-study-card__highlights">
+                                <li>React-Komponentenbibliothek mit Tailwind CSS für eine einheitliche Designsprache</li>
+                                <li>Laravel-REST-API-Schicht als Brücke zwischen Frontend und bestehenden MSSQL-Datensystemen</li>
+                                <li>Git-basierter CI-Workflow mit GitHub-Integration</li>
+                            </ul>
+                            <p class="case-study-card__nda"><em>NDA – Kundendetails vertraulich</em></p>
+                        </div>
+                    </div>
+
+                    <!-- CASTL AG -->
+                    <div class="case-study-card animate-on-scroll fade-in">
+                        <div class="case-study-card__badge client">Kundenprojekt</div>
+                        <div class="case-study-card__body">
+                            <div class="case-study-card__tags">
+                                <span class="tag">Laravel</span>
+                                <span class="tag">Livewire</span>
+                                <span class="tag">Vue.js</span>
+                                <span class="tag">Tailwind CSS</span>
+                                <span class="tag">OpenAI API</span>
+                                <span class="tag">MySQL</span>
+                                <span class="tag">GitLab</span>
+                            </div>
+                            <h3>CASTL AG – Full-Stack-Entwicklung mit KI-Integration</h3>
+                            <p>Einsatz als Full-Stack-Entwickler für die CASTL AG: Entwicklung von Backend-Funktionen mit Laravel und Livewire, Frontend-Komponenten mit Vue.js sowie Integration der OpenAI-API. Im Rahmen eines sechsmonatigen Remote-Einsatzes wurden RESTful-API-Endpunkte, eine Benutzeroberfläche mit Tailwind CSS und MySQL-Optimierungen umgesetzt.</p>
+                            <ul class="case-study-card__highlights">
+                                <li>Backend-Entwicklung mit Laravel &amp; Livewire</li>
+                                <li>Vue.js-Frontend-Komponenten mit Tailwind CSS</li>
+                                <li>Integration der OpenAI-API für KI-gestützte Funktionen</li>
+                                <li>RESTful-API-Design und MySQL-Optimierung</li>
+                            </ul>
+                            <p class="case-study-card__nda"><em>NDA – Kundendetails vertraulich</em></p>
+                        </div>
+                    </div>
+
+                    <!-- Webmaster Akademie -->
+                    <div class="case-study-card animate-on-scroll fade-in">
+                        <div class="case-study-card__badge client">Lehre</div>
+                        <div class="case-study-card__body">
+                            <div class="case-study-card__tags">
+                                <span class="tag">Laravel</span>
+                                <span class="tag">PHP</span>
+                                <span class="tag">Kursentwicklung</span>
+                            </div>
+                            <h3>Laravel-Kurs – Webmaster Akademie Nürnberg</h3>
+                            <p>Entwicklung und kontinuierliche Aktualisierung eines umfassenden Laravel-Kurses für Fernlernende der Webmaster Akademie Nürnberg GmbH. Praxisnahe Betreuung, Begleitung der Teilnehmenden durch komplexe Themen und Zusammenarbeit mit anderen Kursentwicklern zur Verbesserung der Lernergebnisse.</p>
+                            <ul class="case-study-card__highlights">
+                                <li>Vollständiger Laravel-Lehrgang von den Grundlagen bis zu fortgeschrittenen Themen</li>
+                                <li>Betreuung und Code-Reviews für Fernlernende</li>
+                                <li>Gemeinsame Weiterentwicklung des Lehrplans mit dem Kursentwicklungsteam</li>
+                            </ul>
+                            <a href="https://webmaster-akademie.de" class="button outline" target="_blank" rel="noopener">Webmaster Akademie →</a>
+                        </div>
+                    </div>
+
+                    <!-- Jagaad Academy -->
+                    <div class="case-study-card animate-on-scroll fade-in">
+                        <div class="case-study-card__badge client">Lehre</div>
+                        <div class="case-study-card__body">
+                            <div class="case-study-card__tags">
+                                <span class="tag">PHP</span>
+                                <span class="tag">Symfony</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Docker</span>
+                                <span class="tag">Git</span>
+                            </div>
+                            <h3>Backend-Coach – Jagaad Academy</h3>
+                            <p>Tätigkeit als Backend-Coach an der Jagaad Academy: Unterricht in PHP, Symfony, Docker und JavaScript für Teilnehmende eines internationalen Remote-Bootcamps. Über einen Zeitraum von 9 Monaten Live-Gruppensitzungen per Zoom, 1:1-Mentoring und Reviews der Teilnehmerprojekte.</p>
+                            <ul class="case-study-card__highlights">
+                                <li>Unterricht in PHP, Symfony, Slim Framework, Docker und Git</li>
+                                <li>Live-Sitzungen mit Lerngruppen und 1:1-Sitzungen nach Bedarf</li>
+                                <li>Korrektur von Aufgaben und individuelles Feedback</li>
+                                <li>Anpassung des Lehrplans an aktuelle Framework- und Tooling-Versionen</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Upwork Freelance -->
+                    <div class="case-study-card animate-on-scroll fade-in">
+                        <div class="case-study-card__badge client">Freelance</div>
+                        <div class="case-study-card__body">
+                            <div class="case-study-card__tags">
+                                <span class="tag">PHP</span>
+                                <span class="tag">Laravel</span>
+                                <span class="tag">Symfony</span>
+                                <span class="tag">React</span>
+                                <span class="tag">Vue.js</span>
+                                <span class="tag">TypeScript</span>
+                                <span class="tag">REST API</span>
+                                <span class="tag">MySQL</span>
+                            </div>
+                            <h3>Upwork Freelance – Internationale PHP- &amp; Full-Stack-Projekte</h3>
+                            <p>Seit 2022 setzen wir über Upwork Freelance-Projekte für internationale Kunden um und decken dabei den gesamten PHP-Stack ab: Laravel- und Symfony-Backends, React- und Vue.js-Frontends, RESTful-API-Design, MySQL-Optimierung und TypeScript. Die Projekte reichen von individuellen Webanwendungen über SaaS-Funktionen und API-Integrationen bis zur Modernisierung von Legacy-PHP.</p>
+                            <ul class="case-study-card__highlights">
+                                <li>PHP-Backend-Entwicklung mit Laravel und Symfony</li>
+                                <li>Frontends mit React, Vue.js, Angular und jQuery</li>
+                                <li>RESTful-API-Design und Integration von Drittanbietern</li>
+                                <li>Optimierung von MySQL-Abfragen und Schema-Design</li>
+                                <li>TypeScript, EcmaScript, AJAX, Verarbeitung von XML-/JSON-Daten</li>
+                            </ul>
+                            <a href="https://www.upwork.com/freelancers/shvedko" class="button outline" target="_blank" rel="noopener">Upwork-Profil ansehen →</a>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="portfolio-section" id="portfolio">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <h2 class="animate-on-scroll slide-in-top">Design- &amp; Template-Galerie</h2>
+                            </div>
+                        </div>
+                        <div class="portfolio-menu mt-2 mb-4 animate-on-scroll slide-in-top">
+                            <nav class="controls">
+                                <button type="button" class="control button outline" data-filter="all">Alle</button>
+                                <button type="button" class="control button outline" data-filter=".webdesign">Webdesign</button>
+                                <button type="button" class="control button outline" data-filter=".ecommerce">E-Commerce</button>
+                                <button type="button" class="control button outline" data-filter=".dev">Entwicklung</button>
+                                <button type="button" class="control button outline" data-filter=".templates">Templates</button>
+                            </nav>
+                        </div>
+                        <div class="row-holder portfolio-item animate-on-scroll">
+                            <div class="mix ecommerce templates col-3">
+                                <div class="holder">
+                                    <img src="/images/bikes copy.jpeg" class="image" itemprop="thumbnail" alt="E-Commerce-Template Bikes" />
+                                    <div class="portfolio-overlay">
+                                        <div class="overlay-content">
+                                            <p class="category">Bikes</p>
+                                            <a data-fancybox="item" title="Zum Vergrößern klicken" href="/images/bikes.jpeg">
+                                                <div class="magnify-icon">
+                                                    <span><i class="icon-zoom-in" aria-hidden="true"></i></span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mix ecommerce templates col-3">
+                                <div class="holder">
+                                    <img src="/images/clothingctore.jpeg" class="image" itemprop="thumbnail" alt="Template für einen Modeshop" />
+                                    <div class="portfolio-overlay">
+                                        <div class="overlay-content">
+                                            <p class="category">Modeshop</p>
+                                            <a data-fancybox="item" title="Zum Vergrößern klicken" href="/images/clothingctore.jpeg">
+                                                <div class="magnify-icon">
+                                                    <span><i class="icon-zoom-in" aria-hidden="true"></i></span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mix templates col-3">
+                                <div class="holder">
+                                    <img src="/images/coffee.jpeg" class="image" itemprop="thumbnail" alt="Landingpage-Template Coffee" />
+                                    <div class="portfolio-overlay">
+                                        <div class="overlay-content">
+                                            <p class="category">Coffee (Landingpage)</p>
+                                            <a data-fancybox="item" title="Zum Vergrößern klicken" href="/images/coffee.jpeg">
+                                                <div class="magnify-icon">
+                                                    <span><i class="icon-zoom-in" aria-hidden="true"></i></span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mix dev col-3">
+                                <div class="holder">
+                                    <img src="/images/trico.jpeg" class="image" itemprop="thumbnail" alt="Entwicklungsprojekt Trico" />
+                                    <div class="portfolio-overlay">
+                                        <div class="overlay-content">
+                                            <p class="category">Trico</p>
+                                            <a data-fancybox="item" title="Zum Vergrößern klicken" href="/images/trico2.jpeg">
+                                                <div class="magnify-icon">
+                                                    <span><i class="icon-zoom-in" aria-hidden="true"></i></span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- JS Links -->
+
+                <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js " integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI " crossorigin="anonymous "></script>
+                <!-- Mixitup -->
+                <script src='https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.2.2/mixitup.min.js'></script>
+                <!-- Custom JS -->
+                <script>
+                    var containerEl = document.querySelector(".portfolio-item");
+                    var mixer = mixitup(containerEl, {
+                        animation: {
+                            effects: "fade translateZ(-100px)",
+                            effectsIn: "fade translateY(-100%)",
+                            easing: "cubic-bezier(0.645, 0.045, 0.355, 1)"
+                        }
+                    });
+                </script>
+            </div>
+        </main>
+        <div id="footer">
+            <div class="container">
+                <div class="row-holder">
+                    <div class="col-4 m-order-1">
+                        <div class="logotype">
+                            <a href="/de/"><img src="/images/Logo.png" alt=""></a>
+                        </div>
+                        <ul class="contacts-list">
+                            <li><a href="/de/imprint/" style="width: 100px;display: block;">Impressum</a></li>
+                            <li><a href="/de/data-protection/" style="width: 200px;display: block;"> Datenschutz</a></li>
+                            <li><a href="/de/insights/" style="width: 100px;display: block;">Insights</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-4 m-order-3">
+                        <h3>Kontakt</h3>
+                        <ul class="contacts-list">
+                            <li>
+                                <i class="icon icon-location2"></i>
+                                <address>Göttingen, Deutschland</address>
+                            </li>
+                            <li>
+                                <i class="icon icon-mail"></i>
+                                <a href="mailto:info@shvedko.dev">info@shvedko.dev</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-4 m-order-1">
+                        <h3>Folgen Sie uns:</h3>
+                        <ul class="social-network">
+                            <li class="col">
+                                <a href="https://www.facebook.com/people/ShvedkoDev/61574820107319/" target="_blank" class="link-social-network"> <i class="icon icon-facebook1"></i></a>
+                            </li>
+                            <li class="col">
+                                <a href="https://x.com/ShvedkoDev" target="_blank" class="link-social-network"> <i class="icon icon-xtwitter"></i></a>
+                            </li>
+                            <li class="col">
+                                <a href="https://www.upwork.com/agencies/1749148191404584960/" target="_blank" class="link-social-network"> <i class="icon icon-upwork"></i></a>
+                            </li>
+                            <li class="col">
+                                <a href="https://www.linkedin.com/company/shvedkodev/" target="_blank" class="link-social-network"> <i class="icon icon-linkedin-square"></i></a>
+                            </li>
+                            <li class="col">
+                                <a href="https://www.instagram.com/shvedkodev/" target="_blank" class="link-social-network"> <i class="icon icon-instagram"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <footer class="copy">
+            <div class="container">
+                <p>&copy; ShvedkoDev 2026. Alle Rechte vorbehalten.</p>
+            </div>
+        </footer>
+        <!-- Cookie Banner -->
+        <div id="cookie-banner" style="
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: #222;
+          color: #fff;
+          padding: 16px;
+          text-align: center;
+          font-size: 14px;
+          z-index: 1000;">
+            Diese Website verwendet Cookies für Statistiken, und nur mit Ihrer Einwilligung.
+            <a href="/de/data-protection/" style="color: #4caf50; text-decoration: underline; margin-left: 8px;" target="_blank">
+                Mehr erfahren
+            </a>
+            <button id="cookie-accept" style="
+            margin-left: 16px;
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 4px;">
+                Akzeptieren
+            </button>
+            <button id="cookie-decline" style="
+            margin-left: 8px;
+            background: transparent;
+            color: white;
+            border: 1px solid #888;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 4px;">
+                Ablehnen
+            </button>
+        </div>
+        
+        <script>
+            // The banner stays until the visitor decides. Analytics starts only on "accept".
+            (function () {
+                var banner = document.getElementById('cookie-banner');
+                var choice = null;
+                try { choice = localStorage.getItem('cookieConsent'); } catch (e) {}
+                if (choice) banner.style.display = 'none';
+                function decide(value) {
+                    try { localStorage.setItem('cookieConsent', value); } catch (e) {}
+                    banner.style.display = 'none';
+                    if (value === 'accepted') loadAnalytics();
+                }
+                document.getElementById('cookie-accept').addEventListener('click', function () { decide('accepted'); });
+                document.getElementById('cookie-decline').addEventListener('click', function () { decide('declined'); });
+            })();
+        </script>
+    </div>
+</body>
+
+</html>

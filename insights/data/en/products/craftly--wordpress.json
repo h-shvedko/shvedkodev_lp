@@ -1,0 +1,41 @@
+{
+  "axis": "products",
+  "entity_a": "craftly",
+  "entity_b": "wordpress",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "When a generated custom theme is the better choice than adapting a bought one, what to describe, and who looks after it later.",
+  "overview": "Many WordPress sites start with a bought theme that is then bent into shape. That works while the site stays close to the demo. It becomes tiring when it does not. This page compares that route with having Craftly generate a theme for your site from a description.\n\n## Why adapting a bought theme gets expensive\n\nA bought theme is written for many buyers at once. That has consequences:\n\n- It carries options, layouts and scripts for cases you do not have. Editors face settings nobody on your team understands.\n- Its structure is fixed. A page that does not fit one of the supplied layouts has to be forced in with overrides.\n- Your changes sit on top of someone else's code. When the vendor releases an update, they may have to be checked and repaired.\n- Some themes store content in their own formats, which makes a later switch to another theme laborious.\n\nNone of this is a defect. It is the price of a product that has to fit everyone.\n\n## What changes with a generated theme\n\nWith Craftly you describe the site in a conversation, and a multi-agent system writes the PHP code of a WordPress theme. It is not a drag-and-drop builder: you do not assemble pages from blocks on a canvas. The theme is ordinary code that the owner can keep and edit.\n\nThe practical difference is where the work goes. With a bought theme you spend the time removing and overriding. With a generated theme you spend it describing, and afterwards checking.\n\n## What to describe\n\n- The page types: home page, service page, article, contact, and what each consists of from top to bottom.\n- Recurring content that is more than a page, such as team members, references, events or job offers, with the fields each entry has.\n- What editors must be able to change themselves, and what should stay fixed so the layout cannot be broken by accident.\n- Navigation, footer, and what the menu does on a phone.\n- The look: colours, fonts, spacing, logo. If a Figma design exists, Craftly can start from that.\n- The languages of the site.\n\n## What a theme does not settle\n\nA theme controls how the site looks and how content is entered. These remain separate tasks:\n\n- Texts and images.\n- Functions that usually come from plugins, for example a shop, contact form delivery or search engine settings. Name them in your description so the theme can be checked together with them.\n- Hosting, backups and updates of WordPress itself.\n- Imprint, privacy policy and consent questions. Ask a lawyer.\n\n## Who looks after it\n\nThis is the point buyers overlook. A bought theme gets updates from its vendor. A custom theme gets updates from nobody unless you arrange it. Decide before going live who checks the theme after WordPress updates: an employee, a freelancer or an agency. Because the theme is ordinary PHP code, any developer who knows WordPress can do this.\n\n## When buying is still the right call\n\n- The site is small and standard, and a demo already looks the way you want it.\n- Nobody is available to take responsibility for code, now or later.\n- The site is temporary, for a campaign or an event.\n\n## Checking the generated theme\n\n- Let the person who will maintain the content create one page of each type without help. Note where they get stuck.\n- Open every page type on a phone.\n- Enter a very long headline, an entry without an image and an empty list.\n- Activate the plugins you rely on and look at their output inside the theme.\n- Ask a developer to read through the code once before launch.\n\nPrices, plans and the way the theme is delivered are on the Craftly product site.",
+  "personas": [
+    {
+      "key": "marketing_lead",
+      "text": "You can weigh a bought theme against a generated one for your site, and you get a list of what to describe so that your team can maintain pages later without breaking the layout."
+    },
+    {
+      "key": "founder",
+      "text": "You find out whether your site is standard enough for a bought theme or particular enough for a custom one, and which tasks, from content to legal texts, a theme will not take off your hands."
+    },
+    {
+      "key": "freelancer",
+      "text": "You see where a generated theme saves you the work of stripping down a bought one, and which maintenance agreement you should offer clients, since a custom theme has no vendor shipping updates."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Is a generated custom theme always better than a bought theme?",
+      "a": "No. A bought theme is the sensible choice for a small standard site where a demo already fits, for a temporary site, or when nobody can take responsibility for code. A custom theme pays off when the site departs from the demo, when editors need a tidy and limited set of options, or when you want to own code that contains only what you asked for."
+    },
+    {
+      "q": "Who updates a WordPress theme that Craftly generated?",
+      "a": "You arrange that yourself. There is no theme vendor sending updates as with a bought theme. Name a person or a service provider who checks the theme after WordPress updates and fixes what needs fixing. The theme is ordinary PHP code, so a developer who knows WordPress can take this on."
+    },
+    {
+      "q": "Can I use my existing plugins with a generated theme?",
+      "a": "A theme and plugins are separate parts of a WordPress site, so in principle they work side by side, but this page makes no promise about any particular plugin. Mention the plugins you depend on in your description and test their output in the finished theme before going live."
+    }
+  ],
+  "meta_description": "Craftly for WordPress compared with adapting a bought theme: what you describe, what you own afterwards, and when buying is still fine.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.619Z",
+  "updated_at": "2026-10-01T18:58:05.146Z"
+}

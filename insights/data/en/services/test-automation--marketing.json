@@ -1,0 +1,41 @@
+{
+  "axis": "services",
+  "entity_a": "test-automation",
+  "entity_b": "marketing",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "Catch broken forms, tracking and checkout paths before a campaign goes live, without clicking through every site by hand.",
+  "overview": "A marketing site rarely fails with an error page. It fails quietly: a contact form that submits but sends nothing, a consent banner that blocks the analytics tag, a campaign landing page whose button points to last quarter's offer. Nobody notices until the leads stop arriving, and by then the media budget is spent. Test automation exists to make such failures loud and early.\n\n## Typical problems for marketing teams and agencies\n\n- Releases happen often and close to deadlines, so manual checks are shortened or skipped.\n- An agency maintains many client sites built on a shared theme, plugin set or platform. One update can break twenty sites in twenty slightly different ways.\n- Plugin and core updates in a CMS change behaviour that no one on the team touched.\n- Forms, tracking and newsletter sign-ups depend on third-party services that change without notice.\n- Checking is done by whoever has time, on one browser and one screen size.\n- When something breaks, there is no record of when it last worked.\n\n## What a good solution includes\n\nAutomated tests are scripts that use the site the way a visitor does and report when the result differs from what is expected. For marketing work, the value is concentrated in a small number of paths.\n\n- End-to-end tests for the paths that earn money: lead form, demo request, newsletter sign-up, checkout, login. The test fills in the form, submits it and verifies that the confirmation appears and the message reaches its destination.\n- Checks that tracking events fire after consent is given and do not fire before.\n- Tests on at least one desktop and one mobile screen size, in more than one browser engine.\n- Unit tests for the logic behind the pages: price calculations, form validation, redirect rules.\n- Visual comparison for key templates, so a layout shift after an update is flagged.\n- Automatic execution on every code change and before every deployment, plus a scheduled run against the live site to catch failures caused by third parties.\n- A readable report: which path failed, on which site, with a screenshot or video.\n- Test data and test accounts that do not pollute the CRM or trigger real emails to customers.\n\nFor agencies, one more point matters: tests should be written once for the shared platform and run per client with that client's configuration, rather than copied per site.\n\n## Experience this guidance is based on\n\nWe wrote Playwright end-to-end suites and unit tests for a multi-tenant web platform and set them up to run on every push. Multi-tenant means one codebase serving many separate customers, which is the same situation an agency faces with a shared theme or platform across clients.\n\n## What to ask a provider\n\n- Which five paths would you test first on our site, and why those?\n- When do the tests run: on every change, before deployment, on a schedule against the live site?\n- Who is notified on failure, through which channel, and what does the message contain?\n- How do you prevent test submissions from appearing as leads in our CRM or analytics?\n- How do you handle tests that fail intermittently without a real defect?\n- Who updates the tests when we redesign a page, and what does that cost in effort?\n- Can our own team read and extend the tests later?\n- How are several client sites covered without duplicating everything?\n\n## Where to start\n\nList the actions on your site that produce revenue or leads, and rank them by what an outage of one day would cost you. Automate the top three to five. A small suite that runs on every change and is trusted is worth more than a large one that is ignored because it fails for unclear reasons. Extend it each time a defect reaches production: the fix comes with a test that would have caught it.",
+  "personas": [
+    {
+      "key": "marketing_lead",
+      "text": "You learn which parts of a campaign site are worth testing automatically, such as forms, consent and tracking, and what a failure report should tell you so that a broken lead path is found before the budget is spent."
+    },
+    {
+      "key": "agency_owner",
+      "text": "You see how one test suite can cover many client sites on a shared theme or platform, which lowers the risk of updates and gives you something concrete to show clients about how releases are checked."
+    },
+    {
+      "key": "project_manager",
+      "text": "You get a way to choose the first paths to automate, questions to put to a provider, and a rule for growing the suite over time, so testing becomes part of each release instead of a last-minute task."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Do we still need manual checks once tests are automated?",
+      "a": "Yes, but fewer and of a different kind. Automated tests confirm that known paths still work after every change. People remain better at judging whether a new page reads well, looks right and makes sense. Automation takes over the repetitive checking so that manual review can focus on what is new."
+    },
+    {
+      "q": "How many tests does a marketing website need?",
+      "a": "Fewer than most teams expect. Start with the three to five actions that generate leads or revenue and cover them on desktop and mobile. Add a test whenever a defect reaches the live site. A suite that grows from real failures stays relevant and remains small enough to maintain."
+    },
+    {
+      "q": "Will test submissions distort our analytics and CRM data?",
+      "a": "They should not, if this is planned from the start. Common approaches are a separate test environment, dedicated test accounts, marked test addresses that the CRM filters out, and excluding the test runner from analytics. Ask the provider which of these they use for runs against the live site."
+    }
+  ],
+  "meta_description": "Test Automation for Marketing Teams and Agencies: which paths to test, when tests should run and what to ask a provider.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.624Z",
+  "updated_at": "2026-10-01T18:58:05.148Z"
+}

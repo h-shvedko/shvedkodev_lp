@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+<link rel="shortcut icon" href="/images/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="ShvedkoDev" />
+<link rel="manifest" href="/site.webmanifest" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+<link href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.min.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="/js/jquery.main.js"></script>
+<link rel="preconnect" href="//fonts.googleapis.com">
+<link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+
+<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css'>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jQuery-viewport-checker/1.8.8/jquery.viewportchecker.min.js" integrity="sha512-FRX6MYITclzDyyMmSQLgZoZTfE+GLzAQpjs15adVZMY6AqhsrBLx8UZwp4FoqrrRFWY9TiaPwja7EY5fk309vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
+
+<link href="//fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500;700&family=Saira+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+    // Google Analytics loads only after the visitor accepts cookies in the banner (footer partial).
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    function loadAnalytics() {
+        if (window.analyticsLoaded) return;
+        window.analyticsLoaded = true;
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-FY5NWV7102';
+        document.head.appendChild(script);
+        gtag('js', new Date());
+        gtag('config', 'G-FY5NWV7102');
+    }
+    try {
+        if (localStorage.getItem('cookieConsent') === 'accepted') loadAnalytics();
+    } catch (e) {}
+</script>
+<title>API Integration for HR and Recruiting · ShvedkoDev</title>
+<meta name="description" content="API Integration for HR and Recruiting: typical data and notification problems, what a sound setup includes, what to ask a provider.">
+<link rel="canonical" href="https://shvedko.dev/insights/services/api-integration-for-hr/">
+<link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/services/api-integration-for-hr/">
+<link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/services/api-integration-for-hr/">
+<link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/services/api-integration-for-hr/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can any job board or marketplace be connected through an API?","acceptedAnswer":{"@type":"Answer","text":"No. It depends on whether the platform offers an official interface and what its terms permit. Some provide full APIs, some only feeds or partner access, some nothing. A serious provider checks this first and tells you when a source cannot be connected in a permitted way."}},{"@type":"Question","name":"Which notification channel should we use for recruiting alerts?","acceptedAnswer":{"@type":"Answer","text":"Use the channel each recipient already reads, and let them choose. A common split is a messenger or push for time-critical items and email digests for the rest. Some messenger services need approved templates and consent, and browser push needs the user's permission, so plan setup time for each channel."}},{"@type":"Question","name":"Is it allowed to send applicant data through messaging services?","acceptedAnswer":{"@type":"Answer","text":"That is a legal question which depends on your setup, the service, its contract terms and where data is processed. A practical approach is to keep personal details out of the message and link to the secured system instead. Have your data protection officer or a lawyer confirm the design before launch."}}]}</script>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+<header id="header">
+    <div class="container">
+        <div class="logo">
+            <a href="/"><img src="/images/Logo.png" alt=""></a>
+        </div>
+        <input type="checkbox" id="burger-trigger" class="burger-trigger">
+        <label class="nav-opener" for="burger-trigger">Menu</label>
+        <div class="menu-holder">
+            <nav>
+                <ul id="nav" class="nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about/">About us</a></li>
+                    <li><a href="/services/">Services</a></li>
+                    <li><a href="/portfolio/">Portfolio</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/insights/">Insights</a></li>
+                    <li><a href="/contact/">Contact</a></li>
+                    <li class="lang-switch"><a href="/de/insights/services/api-integration-for-hr/" hreflang="de" lang="de" title="Deutsch" data-lang-fixed><img src="/images/flag-de.svg" alt="Deutsch" width="24" height="16"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+        <main role="main" id="main" class="insight-main">
+            <div class="container">
+<div class="insight">
+<aside class="insight__aside"><nav class="insight__nav" aria-label="Sections"><h2>Sections</h2><ul><li><a href="/insights/">All pages</a></li><li><a href="/insights/guides/">Guides</a></li><li><a href="/insights/examples/">Examples</a></li><li><a href="/insights/services/" aria-current="page">Services by industry</a></li><li><a href="/insights/products/">Products</a></li></ul></nav><nav class="insight__toc" aria-label="On this page"><h2>On this page</h2><ol><li><a href="#overview">Overview</a></li><li><a href="#personas">Who this is for</a></li><li><a href="#faq">Questions and answers</a></li><li><a href="#related">Related pages</a></li></ol></nav></aside>
+<article class="insight__body">
+<header class="insight__header">
+<p class="insight__crumbs"><a href="/insights/">Insights</a> / <a href="/insights/services/">Services by industry</a></p>
+<h1>API Integration for HR and Recruiting</h1>
+<p class="insight__subtitle">What it takes to connect job sources, applicant data and notification channels, and how to judge a provider's proposal.</p>
+</header>
+<section class="insight__section" id="overview"><h2><span class="insight__num">1</span> Overview</h2><p>Recruiting work is spread over many systems: job boards and marketplaces, an applicant tracking system, calendars, the HR system that takes over after a hire, and the channels where people actually read messages. API integration connects these systems so that data moves without someone copying it by hand.</p>
+<h3>Typical problems</h3>
+<ul><li>The same vacancy is maintained in several places, and the versions drift apart. A salary range or closing date is corrected on one board and stays wrong on another.</li><li>Candidates arrive through different sources and end up as duplicates, or with the source missing, so nobody can say which channel produced the hire.</li><li>New applications or matching jobs are noticed late because the alert goes to a shared inbox nobody watches. In recruiting, a day of delay can decide whether a candidate is still available.</li><li>Exports and imports by spreadsheet. They work until a column changes, and they leave copies of personal data on laptops.</li><li>An integration that was built once and then silently stopped: an access token expired, the external API changed a field, and nobody was told.</li></ul>
+<h3>What a good solution includes</h3>
+<ul><li>A written data map. For every field it says which system is the source of truth, which direction it travels and what happens on a conflict.</li><li>Respect for the limits of the external API. Job platforms restrict how often you may query them and what you may do with the data. The integration should follow the platform's terms, stay within rate limits and fetch only the fields it needs. GraphQL interfaces help here, because the query names exactly the fields that are returned.</li><li>Deduplication with a stable identifier, so a retry or a second run does not create a second record or a second message.</li><li>Notifications that people can steer. Each recipient chooses channel and threshold, for example urgent items by messenger and the rest as a daily email digest. Too many alerts get ignored, and the important one is missed with them.</li><li>Retries, a log and an alarm. When a delivery fails or a token expires, a named person hears about it the same day.</li><li>Data protection built in from the start: minimal data, access roles, deletion periods for rejected applicants and a clear list of every service that receives personal data. Messaging services are part of that list. Have your data protection officer or a lawyer review it; a developer can describe the data flows but cannot give the legal assessment.</li></ul>
+<h3>From practice</h3>
+<p>One project of ours combined both halves of this picture: an integration with the GraphQL API of a job marketplace on the intake side, and notification delivery through email, Slack, WhatsApp and browser push on the output side. The general lesson for HR work is that each channel has its own rules. Email needs a correctly configured sending domain, some messenger services require approved message templates and the recipient's consent, and browser push only works after the user has allowed it in the browser. Plan these as separate pieces of work, not as one line in an estimate.</p>
+<h3>What to ask a provider</h3>
+<ul><li>Which official interfaces will you use, and what do their terms allow? Be wary of anyone who proposes reading a platform through unofficial means.</li><li>What happens when the external API changes or is unavailable for an hour?</li><li>How do we see that the integration ran, and who is alerted when it did not?</li><li>Where is applicant data stored, for how long, and how is it deleted?</li><li>Can we add a channel or a job source later without a rebuild?</li><li>What do we receive at the end: source code, documentation, access to all accounts and keys?</li></ul>
+<h3>How to start</h3>
+<p>Pick the one handover that costs the most time or causes the most errors today, and automate that first. A narrow first integration that runs reliably tells you more about the provider and about your own data than a large concept that tries to connect everything at once.</p></section>
+<section class="insight__section" id="personas"><h2><span class="insight__num">2</span> Who this is for</h2><div class="insight__personas"><div class="insight__persona"><h3>HR lead</h3><p>You see which recurring recruiting problems come from disconnected systems, what an integration can realistically take over and which data protection questions you need answered before work starts.</p></div><div class="insight__persona"><h3>IT manager</h3><p>You get a checklist for the technical side: data map, rate limits, deduplication, monitoring and token handling, plus the questions that show whether a provider plans for failures.</p></div><div class="insight__persona"><h3>Operations lead</h3><p>You learn how to choose the first handover worth automating and how to set up notifications so that urgent items reach the right person without flooding everyone else.</p></div></div></section>
+<section class="insight__section" id="faq"><h2><span class="insight__num">3</span> Questions and answers</h2><h3>Can any job board or marketplace be connected through an API?</h3><p>No. It depends on whether the platform offers an official interface and what its terms permit. Some provide full APIs, some only feeds or partner access, some nothing. A serious provider checks this first and tells you when a source cannot be connected in a permitted way.</p><h3>Which notification channel should we use for recruiting alerts?</h3><p>Use the channel each recipient already reads, and let them choose. A common split is a messenger or push for time-critical items and email digests for the rest. Some messenger services need approved templates and consent, and browser push needs the user's permission, so plan setup time for each channel.</p><h3>Is it allowed to send applicant data through messaging services?</h3><p>That is a legal question which depends on your setup, the service, its contract terms and where data is processed. A practical approach is to keep personal details out of the message and link to the secured system instead. Have your data protection officer or a lawyer confirm the design before launch.</p></section>
+<section class="insight__section" id="related"><h2><span class="insight__num">4</span> Related pages</h2><ul class="insight-list"><li><a href="/insights/services/ai-integration-for-hr/">AI Integration for HR and Recruiting</a><p>Where language models help in recruiting, how to check their output against real data, and which questions to put to a provider.</p></li><li><a href="/insights/services/api-integration-for-ecommerce/">API Integration for E-Commerce and Retail</a><p>How to connect shop, till, warehouse and partner systems so that orders, stock and vouchers stay correct, and what to demand from a provider.</p></li><li><a href="/insights/services/n8n-automation-for-hr/">n8n Workflow Automation for HR and Recruiting</a><p>Which recruiting steps n8n can take off your team's desk, what a reliable workflow needs, and where a person must stay in charge.</p></li><li><a href="/insights/services/saas-development-for-hr/">SaaS Development for HR and Recruiting</a><p>What an HR or recruiting SaaS product must get right from the first version: data handling, scoring you can explain, and human decisions.</p></li><li><a href="/insights/services/ai-integration-for-education/">AI Integration for Education and E-Learning</a><p>What AI can reliably take over in course production and assessment, where expert review has to stay, and what to ask a provider.</p></li><li><a href="/insights/services/ai-integration-for-marketing/">AI Integration for Marketing Teams and Agencies</a><p>Where AI saves a marketing team real hours, what a dependable integration needs, and what to ask before you sign.</p></li></ul></section>
+<section class="insight__cta"><h2>Planning a project like this?</h2><p>Tell us what you are building. You get a straight answer on scope, approach and effort.</p><p><a href="/contact/" class="button">Get in touch</a></p></section>
+<footer class="insight__note"><p>Based on our own project work. Clients are not named.</p><p>Updated: <time datetime="2026-10-01">2026-10-01</time></p></footer>
+</article>
+</div>
+            </div>
+        </main>
+<div id="footer">
+    <div class="container">
+        <div class="row-holder">
+            <div class="col-4 m-order-1">
+                <div class="logotype">
+                    <a href="/"><img src="/images/Logo.png" alt=""></a>
+                </div>
+                <ul class="contacts-list">
+                    <li><a href="/imprint/" style="width: 100px;display: block;">Imprint</a></li>
+                    <li><a href="/data-protection/" style="width: 200px;display: block;"> Data Protection</a></li>
+                    <li><a href="/insights/" style="width: 100px;display: block;">Insights</a></li>
+                </ul>
+            </div>
+            <div class="col-4 m-order-3">
+                <h3>Contact</h3>
+                <ul class="contacts-list">
+                    <li>
+                        <i class="icon icon-location2"></i>
+                        <address>Göttingen, Germany</address>
+                    </li>
+                    <li>
+                        <i class="icon icon-mail"></i>
+                        <a href="mailto:info@shvedko.dev">info@shvedko.dev</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-4 m-order-1">
+                <h3>Follow us:</h3>
+                <ul class="social-network">
+                    <li class="col">
+                        <a href="https://www.facebook.com/people/ShvedkoDev/61574820107319/" target="_blank" class="link-social-network"> <i class="icon icon-facebook1"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://x.com/ShvedkoDev" target="_blank" class="link-social-network"> <i class="icon icon-xtwitter"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://www.upwork.com/agencies/1749148191404584960/" target="_blank" class="link-social-network"> <i class="icon icon-upwork"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://www.linkedin.com/company/shvedkodev/" target="_blank" class="link-social-network"> <i class="icon icon-linkedin-square"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://www.instagram.com/shvedkodev/" target="_blank" class="link-social-network"> <i class="icon icon-instagram"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<footer class="copy">
+    <div class="container">
+        <p>&copy; ShvedkoDev 2026. All Rights Reserved.</p>
+    </div>
+</footer>
+<!-- Cookie Banner -->
+<div id="cookie-banner" style="
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #222;
+  color: #fff;
+  padding: 16px;
+  text-align: center;
+  font-size: 14px;
+  z-index: 1000;">
+    This website uses cookies for statistics, and only with your consent.
+    <a href="/data-protection/" style="color: #4caf50; text-decoration: underline; margin-left: 8px;" target="_blank">
+        Learn more
+    </a>
+    <button id="cookie-accept" style="
+    margin-left: 16px;
+    background: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;">
+        Accept
+    </button>
+    <button id="cookie-decline" style="
+    margin-left: 8px;
+    background: transparent;
+    color: white;
+    border: 1px solid #888;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;">
+        Decline
+    </button>
+</div>
+
+<script>
+    // The banner stays until the visitor decides. Analytics starts only on "accept".
+    (function () {
+        var banner = document.getElementById('cookie-banner');
+        var choice = null;
+        try { choice = localStorage.getItem('cookieConsent'); } catch (e) {}
+        if (choice) banner.style.display = 'none';
+        function decide(value) {
+            try { localStorage.setItem('cookieConsent', value); } catch (e) {}
+            banner.style.display = 'none';
+            if (value === 'accepted') loadAnalytics();
+        }
+        document.getElementById('cookie-accept').addEventListener('click', function () { decide('accepted'); });
+        document.getElementById('cookie-decline').addEventListener('click', function () { decide('declined'); });
+    })();
+</script>
+
+</body>
+</html>

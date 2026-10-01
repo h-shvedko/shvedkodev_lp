@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "hire-laravel-developer",
+  "entity_b": "",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Freelancer, Agentur oder Festanstellung: So wählen Sie die passende Form und prüfen vor der Unterschrift das Richtige.",
+  "overview": "Wer einen Laravel-Entwickler sucht, trifft zwei Entscheidungen. Zuerst die Form der Zusammenarbeit, dann die Person oder das Team. Viele Fehlbesetzungen entstehen bei der ersten: ein guter Freelancer in einem Projekt, das ein Team gebraucht hätte, oder eine Agentur für eine Aufgabe, die die volle Aufmerksamkeit einer einzelnen Person verlangt.\n\n## Welche Form zu welcher Lage passt\n\nEin Freelancer passt zu einem klar abgegrenzten Projekt oder zu einer bestehenden Anwendung mit gleichmäßigem, überschaubarem Bedarf. Sie sprechen direkt mit der Person, die den Code schreibt, und Entscheidungen fallen schnell. Die Schwäche ist die Abhängigkeit von einem Menschen: Krankheit, Urlaub und andere Kunden wirken sich auf Sie aus. Fragen Sie nach einer Vertretung und danach, wie die Arbeit dokumentiert wird.\n\nEine Agentur passt, wenn mehrere Fähigkeiten gleichzeitig gebraucht werden, etwa Design, Backend, Frontend und Hosting, oder wenn ein Termin paralleles Arbeiten verlangt. Sie erhalten Vertretung und eine Projektleitung. Diesen Aufwand bezahlen Sie mit, und wer im Erstgespräch sitzt, entwickelt nicht unbedingt später. Fragen Sie, wer konkret an Ihrem Projekt arbeitet.\n\nEine Festanstellung passt, wenn die Anwendung Kern Ihres Geschäfts ist und die Arbeit auf Jahre nicht endet. Das Wissen bleibt im Haus. Dafür kostet die Suche Zeit, das Gehalt läuft unabhängig von der Auslastung, und jemand muss die Arbeit fachlich beurteilen können. Ein einzelner angestellter Entwickler ohne fachlichen Gegenpart ist genauso ein Einzelrisiko wie ein einzelner Freelancer.\n\nHäufig bewährt sich die Kombination: Ein externer Entwickler baut die erste Version, intern eingestellt wird, sobald sich das Produkt trägt.\n\n## Was Sie vor der Unterschrift prüfen\n\n- Codebeispiele. Lassen Sie sich ein Repository oder einen Ausschnitt echter Arbeit zeigen. Können Sie Code nicht selbst lesen, bezahlen Sie einen unabhängigen Entwickler für ein bis zwei Stunden Durchsicht: Aufbau, Benennung und die Frage, ob ein Fremder daran weiterarbeiten könnte.\n- Tests. Fragen Sie, wie getestet wird, und lassen Sie sich Tests aus einem früheren Projekt zeigen. Eine gute Antwort ist konkret: welche Teile abgedeckt sind und dass die Tests vor jeder Veröffentlichung automatisch laufen.\n- Kommunikation. Achten Sie auf das Verhalten vor dem Vertrag: Kommen Rückfragen zu Ihrem Geschäft, werden zugesagte Antwortzeiten eingehalten, wird Besprochenes schriftlich festgehalten? Nach der Unterschrift wird das nicht besser.\n- Bezahlter Probeauftrag. Eine Aufgabe von wenigen Tagen zeigt mehr als jedes Gespräch: Schätzung, Rückfragen, Ergebnis, Erklärung.\n- Referenzen. Sprechen Sie mit einem früheren Auftraggeber und fragen Sie, was geschah, als etwas schiefging.\n- Übergabe. Im Vertrag sollte stehen, dass der Code Ihnen gehört und in einem Repository unter Ihrer Kontrolle liegt, dass Hosting, Domain und Konten bei Drittanbietern auf Ihren Namen laufen und welche Dokumentation Sie am Ende erhalten. Die Formulierungen zu Nutzungsrechten und Haftung sollte ein Anwalt prüfen.\n\n## Warnsignale\n\n- Ein Festpreis nach einem einzigen Gespräch, ohne schriftlichen Leistungsumfang.\n- Keine Fragen zu Ihren Nutzern, Abläufen und vorhandenen Systemen.\n- Widerstand dagegen, Ihnen während des Projekts Zugriff auf das Repository zu geben.\n- Hosting oder Domain laufen der Einfachheit halber auf den Namen des Entwicklers.\n- Tests sollen später ergänzt werden.\n- Schätzungen ohne Aufschlüsselung oder die Zusage, alles sei machbar.\n- Vollständige Vorauszahlung oder keine Zwischenstände, die Sie ansehen können.\n- Ausweichende Antworten auf die Frage, wer die Arbeit erledigt.\n\n## So beginnen Sie\n\nSchreiben Sie vor der ersten Anfrage eine Seite: Was soll die Anwendung leisten, wer nutzt sie, was gibt es schon, welcher Termin und welcher Budgetrahmen gelten. Schicken Sie dieselbe Seite an zwei oder drei Kandidaten. Die Unterschiede in Rückfragen und Schätzungen sagen mehr als jedes Portfolio. Vereinbaren Sie danach eine kleine erste Etappe mit einem prüfbaren Ergebnis und entscheiden Sie erst dann über den größeren Auftrag.",
+  "personas": [
+    {
+      "key": "founder",
+      "text": "Sie erhalten eine Entscheidungshilfe zwischen Freelancer, Agentur und Festanstellung für Ihre Phase und Prüfpunkte, die auch ohne technischen Hintergrund funktionieren."
+    },
+    {
+      "key": "procurement",
+      "text": "Sie erhalten die Punkte, auf denen Sie im Vertrag bestehen sollten, etwa Eigentum am Code, Konten auf Ihren Namen und Übergabedokumentation, sowie Gründe, ein Angebot abzulehnen."
+    },
+    {
+      "key": "it_manager",
+      "text": "Sie erhalten ein Raster zur Beurteilung externer Laravel-Entwickler: Durchsicht von Code und Tests, bezahlter Probeauftrag und die Abhängigkeiten jeder Vertragsform."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Wie beurteile ich einen Laravel-Entwickler, wenn ich keinen Code lesen kann?",
+      "a": "Beauftragen Sie einen unabhängigen Entwickler für ein bis zwei Stunden, ein Codebeispiel und die Tests des Kandidaten durchzusehen. Den Rest beurteilen Sie selbst: die Qualität der Rückfragen, ob kleine Zusagen vor dem Vertrag eingehalten werden, wie nachvollziehbar eine Schätzung erklärt wird und was ein früherer Auftraggeber über den Umgang mit Problemen berichtet."
+    },
+    {
+      "q": "Freelancer oder Agentur: Was ist für ein Laravel-Projekt besser?",
+      "a": "Das hängt vom Zuschnitt der Arbeit ab. Ein Freelancer eignet sich für ein abgegrenztes Projekt oder laufende Arbeit, die eine Person bewältigt, mit direktem Kontakt und wenig Verwaltungsaufwand. Eine Agentur eignet sich, wenn mehrere Fähigkeiten parallel gebraucht werden oder Vertretung nötig ist. Fragen Sie in beiden Fällen, wer den Code tatsächlich schreibt."
+    },
+    {
+      "q": "Was sollte eine Übergaberegelung im Vertrag enthalten?",
+      "a": "Mindestens: dass der Code Ihnen gehört, dass er in einem Repository unter Ihrer Kontrolle liegt, dass Hosting, Domain und Drittanbieter-Konten auf Ihren Namen laufen und dass Sie eine Dokumentation zu Einrichtung und Veröffentlichung erhalten. Die genaue Formulierung zu Nutzungsrechten und Haftung ist eine Rechtsfrage und gehört zu einem Anwalt."
+    }
+  ],
+  "meta_description": "Laravel-Entwickler beauftragen: Freelancer, Agentur oder Festanstellung, Prüfpunkte vor der Unterschrift und typische Warnsignale.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.486Z",
+  "updated_at": "2026-10-01T18:58:05.135Z"
+}

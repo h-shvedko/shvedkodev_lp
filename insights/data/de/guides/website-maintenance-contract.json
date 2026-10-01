@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "website-maintenance-contract",
+  "entity_b": "",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Was ein Wartungsvertrag regeln muss, damit Updates, Backups und Ausfälle geklärt sind, bevor etwas passiert.",
+  "overview": "Mit dem Livegang ist eine Website nicht fertig. CMS, Plugins, Framework-Pakete, PHP-Version und Server erhalten laufend Updates. Jedes ausgelassene Update kann später zur Sicherheitslücke oder zum Kompatibilitätsproblem werden. Ein Wartungsvertrag legt fest, wer sich darum kümmert, wie schnell und zu welchen Kosten. Entscheidend ist, wie genau er die Leistung beschreibt.\n\n## Was der Vertrag regeln sollte\n\n- Updates: Welche Komponenten werden aktualisiert (Kern, Plugins, Themes, Framework und Bibliotheken, Serversoftware), in welchem Rhythmus, und wie wird mit dringenden Sicherheitsupdates außerhalb dieses Rhythmus umgegangen? Fragen Sie, ob Updates zuerst auf einer Testkopie eingespielt werden und ob die Website danach geprüft wird.\n- Backups: Was wird gesichert (Dateien, Datenbank, Uploads), wie oft, wie lange werden die Sicherungen aufbewahrt und wo liegen sie? Ein Backup auf demselben Server hilft nicht, wenn dieser Server ausfällt. Der Vertrag sollte außerdem vorsehen, dass die Wiederherstellung in festen Abständen getestet wird.\n- Monitoring: Erreichbarkeit, Ablauf von Zertifikaten und Domains, Speicherplatz, Fehlerprotokolle, fehlgeschlagene Hintergrundaufgaben und bei Shops oder Anwendungen ein Test des wichtigsten Ablaufs, etwa Bestellung oder Login. Klären Sie, wer die Meldung erhält und was nachts und am Wochenende geschieht.\n- Reaktionszeiten: die Zeit, bis jemand eine Meldung bestätigt und mit der Arbeit beginnt, abgestuft nach Schweregrad. Ein Totalausfall verlangt eine andere Reaktion als ein Tippfehler. Eine Reaktionszeit ist keine Behebungszeit; diese kann kaum ein Anbieter zusagen.\n- Bericht: ein kurzes monatliches Protokoll darüber, was aktualisiert wurde, was aufgefallen ist und was empfohlen wird.\n- Zugänge: Die Administratorzugänge zu Domain, Hosting und Code-Repository liegen bei Ihnen, und der Vertrag beschreibt die Übergabe bei Vertragsende.\n\n## Wartung oder Änderungswunsch\n\nHier entstehen die meisten Streitfälle. Wartung erhält die vorhandenen Funktionen: Updates einspielen, Fehler nach einem Update beheben, ein Backup zurückspielen, nach einem Angriff aufräumen. Ein Änderungswunsch verändert, was die Website tut oder wie sie aussieht: ein neues Formularfeld, eine neue Seitenvorlage, eine weitere Zahlungsart, die Anbindung eines weiteren Systems.\n\nDie Grauzonen sollten im Vertrag ausdrücklich genannt sein:\n\n- Ein großer Versionssprung von CMS oder Framework, der Codeanpassungen erfordert\n- Anpassungen, weil ein externer Dienst seine Schnittstelle geändert hat\n- Fehler im Code eines früheren Entwicklers\n- Inhaltspflege und kleine Textänderungen\n- Änderungen aufgrund neuer gesetzlicher Vorgaben\n\nZu jedem Punkt sollte stehen, ob er enthalten ist, über ein Stundenkontingent läuft oder gesondert angeboten wird. Auch das Kontingent braucht Regeln: Verfallen ungenutzte Stunden, und zu welchem Satz wird Mehraufwand berechnet?\n\n## Angebote vergleichen\n\nAngebote lassen sich schwer vergleichen, weil jedes andere Punkte aufführt. Tragen Sie alle in eine Tabelle mit denselben Zeilen ein:\n\n- Update-Rhythmus und ob Tests auf einer Testkopie enthalten sind\n- Backup-Häufigkeit, Aufbewahrungsdauer, Speicherort, Wiederherstellungstest\n- Was überwacht wird und zu welchen Zeiten Meldungen bearbeitet werden\n- Reaktionszeit je Schweregrad und die Zeiten, in denen sie gilt\n- Enthaltene Stunden und der Stundensatz darüber hinaus\n- Mindestlaufzeit und Kündigungsfrist\n- Was ausdrücklich ausgeschlossen ist\n\nJede leere Zelle ist eine Rückfrage. Eine niedrige Pauschale, bei der alles außer Plugin-Updates nach Stunden berechnet wird, kann über das Jahr teurer sein als eine höhere mit echtem Kontingent. Ein Rechenbeispiel mit erfundenen Zahlen: Ein Angebot kostet 80 im Monat ohne enthaltene Stunden, ein anderes 180 mit zwei Stunden. Bei einem Stundensatz von 50 kosten beide in einem Monat mit zwei Arbeitsstunden gleich viel, und mit jeder weiteren Stunde wird das erste teurer.\n\nFragen Sie auch, wer die Arbeit übernimmt, wenn Ihr Ansprechpartner im Urlaub ist, und ob das Hosting Teil des Vertrags ist oder bei einem anderen Anbieter bleibt. Davon hängt ab, wer zuständig ist, wenn der Server selbst ausfällt.\n\n## Vor der Unterschrift\n\nWer eine fremd entwickelte Website übernimmt, sollte zuerst Code, Server und Update-Stand prüfen. Ein Angebot ohne diese Prüfung ist eine Schätzung, und das zeigt sich in den ersten Monaten. Eine bezahlte Bestandsaufnahme mit schriftlicher Mängelliste ist ein sinnvoller Einstieg und dient später als Vergleichsbasis für die Monatsberichte.",
+  "personas": [
+    {
+      "key": "founder",
+      "text": "Sie erhalten eine Liste der Punkte, die ein Wartungsvertrag regeln muss, und können ein Angebot auch ohne technisches Vorwissen beurteilen und teure Lücken früh erkennen."
+    },
+    {
+      "key": "it_manager",
+      "text": "Sie prüfen Angebote anhand konkreter Kriterien: Update-Rhythmus, Aufbewahrung und Wiederherstellungstest der Backups, Umfang des Monitorings, Reaktionszeiten je Schweregrad und Übergabe der Zugänge."
+    },
+    {
+      "key": "procurement",
+      "text": "Sie bekommen ein Zeilenraster für den Vergleich mehrerer Anbieter und die Rückfragen, mit denen sichtbar wird, was eine niedrige Monatspauschale nicht abdeckt."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Worin unterscheiden sich Wartung und Änderungswunsch?",
+      "a": "Wartung hält die vorhandenen Funktionen am Laufen: Updates, Fehlerbehebung nach Updates, Backups, Wiederherstellung und Sicherheitskorrekturen. Ein Änderungswunsch verändert Funktion oder Aussehen, etwa ein neues Formular oder eine neue Schnittstelle. Der Vertrag sollte Grauzonen wie große Versionssprünge benennen und festlegen, ob sie enthalten sind, über ein Kontingent laufen oder gesondert angeboten werden."
+    },
+    {
+      "q": "Bedeutet eine zugesagte Reaktionszeit, dass der Fehler dann behoben ist?",
+      "a": "Nein. Die Reaktionszeit sagt, wie schnell jemand die Meldung bestätigt und mit der Arbeit beginnt. Wie lange die Behebung dauert, hängt von der Ursache ab, deshalb sagen die meisten Anbieter keine Behebungszeit zu. Prüfen Sie, zu welchen Zeiten die Reaktionszeit gilt und ob sie nach Schweregrad abgestuft ist, etwa für einen Totalausfall im Unterschied zu einem Darstellungsfehler."
+    },
+    {
+      "q": "Brauche ich einen Wartungsvertrag, wenn mein Hoster schon Backups macht?",
+      "a": "Die Backups des Hosters decken nur einen Teil ab. Das Einspielen und Testen von Anwendungs-Updates, die Kontrolle danach, die Überwachung von Formularen oder Bestellvorgang und die Fehlerbehebung gehören meist nicht dazu. Fragen Sie den Hoster, wie lange Backups aufbewahrt werden und wer sie zurückspielt. Ist niemand für Updates und Tests zuständig, schließt ein Wartungsvertrag genau diese Lücke."
+    }
+  ],
+  "meta_description": "Website-Wartungsvertrag: welche Updates, Backups, Überwachung und Reaktionszeiten hineingehören und wie Sie Angebote vergleichen.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.495Z",
+  "updated_at": "2026-10-01T18:58:05.138Z"
+}

@@ -1,0 +1,41 @@
+{
+  "axis": "products",
+  "entity_a": "jobhunter",
+  "entity_b": "cover-letters",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Was ein Entwurf aus dem Text der Ausschreibung leistet und welche Prüfschritte bei Ihnen bleiben, bevor Sie das Anschreiben selbst absenden.",
+  "overview": "Am Anschreiben ist oft der erste Satz das Schwierigste. JobHunter, unser eigenes Produkt für Freelancer auf Upwork, nimmt Ihnen diesen Anfang ab: Zu einer Ausschreibung entsteht ein Entwurf für das Anschreiben und für die Antworten auf die Screening-Fragen. Der Entwurf entsteht aus dem Text der Ausschreibung. Mehr geschieht nicht. JobHunter reicht keine Angebote ein. Sie übernehmen den Text, überarbeiten ihn und bewerben sich von Hand auf Upwork.\n\n## Was die Ausschreibung hergibt\n\nDie Ausschreibung liefert das Anliegen des Auftraggebers in dessen Worten. Ein Entwurf kann darauf eingehen: Das suchen Sie, und so könnte eine Antwort beginnen.\n\nWas nicht in der Ausschreibung steht, fehlt im Entwurf oder bleibt allgemein:\n\n- Das eine Projekt aus Ihrer Vergangenheit, das diesem Job am nächsten kommt, und wie es verlaufen ist.\n- Ihre Verfügbarkeit in den nächsten Wochen.\n- Eine Rückfrage an den Auftraggeber, weil in der Ausschreibung etwas nicht zusammenpasst.\n- Der Grund, weshalb Sie gerade diesen Auftrag möchten.\n\nGenau an diesen Stellen erkennt ein Auftraggeber, ob jemand seine Ausschreibung gelesen hat. Sie kommen von Ihnen.\n\n## Überarbeitung in fünf Schritten\n\n- Angaben über Sie prüfen. Jede Aussage zu Erfahrung, Werkzeugen und Ergebnissen muss so stimmen, wie sie dasteht. Sagt der Entwurf mehr, als Sie belegen können, kürzen Sie auf das Zutreffende.\n- Angaben über den Job prüfen. Hat der Entwurf die Ausschreibung richtig verstanden: das richtige Ergebnis, die richtige Technik, der richtige Umfang?\n- Einstieg neu schreiben. An den Anfang gehört das konkrete Problem des Auftraggebers oder Ihre einschlägigste Erfahrung.\n- Ein konkretes Detail ergänzen. Ein vergleichbares Projekt, eine erste Idee zum Vorgehen oder eine genaue Rückfrage.\n- Streichen. Jeder Satz, der zu jedem beliebigen Job passen würde, kann weg. Ein kurzes, genaues Anschreiben liest sich besser als ein langes, höfliches.\n\nLesen Sie das Ergebnis einmal laut. Klingt es nicht nach Ihnen, ändern Sie die Formulierungen. Spätestens im ersten Gespräch sollte der Auftraggeber die Person aus dem Anschreiben wiedererkennen.\n\n## Screening-Fragen\n\nFür die entworfenen Antworten gilt dasselbe. Auftraggeber stellen diese Fragen, um Bewerber direkt zu vergleichen, und eine allgemeine Antwort fällt dabei auf. Verlangt eine Frage etwas, das nur Sie wissen, etwa ein früheres Projekt, Ihre Arbeitsweise oder Ihre Arbeitszeiten, ersetzen Sie den Entwurf durch Ihre eigene Antwort. Der Entwurf dient dann als Hinweis, worauf die Frage zielt.\n\n## Warum das Absenden bei Ihnen bleibt\n\nEin Angebot auf Upwork ist eine geschäftliche Erklärung in Ihrem Namen. Für seinen Inhalt stehen Sie ein: für die behauptete Erfahrung, den akzeptierten Umfang, den genannten Preis. Diese Entscheidung sollte treffen, wer die Folgen trägt. Hinzu kommt ein schlichter Grund: Erst wenn Sie die Ausschreibung selbst gelesen haben, wissen Sie, ob Sie den Auftrag überhaupt möchten. Preis, Konditionen und der letzte Klick auf Upwork liegen deshalb bei Ihnen.\n\n## Der Entwurf als Ausgangspunkt\n\nDer Entwurf erspart Ihnen das leere Blatt, er ist nicht das fertige Anschreiben. Nutzen Sie ihn, um zu sehen, wie sich die Ausschreibung beantworten lässt, und machen Sie den Text dann zu Ihrem eigenen. Korrigieren Sie in jedem Entwurf dieselbe Art von Aussage, machen Sie diese Korrektur zum festen ersten Schritt Ihrer Überarbeitung. Sie überarbeiten den Text, und Sie senden ihn selbst ab.\n\n## Was hier nicht steht\n\nPreise, Tarife und weitere Einzelheiten zum Produkt beschreibt diese Seite nicht. Sie finden sie auf der Produktseite von JobHunter.",
+  "personas": [
+    {
+      "key": "freelancer",
+      "text": "Sie erhalten fünf Prüfschritte für jeden Entwurf: Angaben über sich prüfen, das Jobverständnis prüfen, den Einstieg neu schreiben, ein konkretes Detail ergänzen und Allgemeines streichen."
+    },
+    {
+      "key": "marketing_lead",
+      "text": "Bieten Sie Marketingleistungen freiberuflich an, sehen Sie, wo ein Entwurf aus der Ausschreibung endet und wo Ihre eigene Stimme, Ihre Beispiele und Ihre Rückfragen hinzukommen müssen."
+    },
+    {
+      "key": "agency_owner",
+      "text": "Für Agenturen, die sich auf Upwork bewerben, zeigt die Seite, warum eine benannte Person jede Aussage im Entwurf prüfen und das Angebot absenden sollte: Ihr Unternehmen steht für den Inhalt ein."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Worauf beruht der Entwurf für ein Anschreiben in JobHunter?",
+      "a": "Auf dem Text der Ausschreibung. Der Entwurf geht auf das ein, was der Auftraggeber sucht. Was dort nicht steht, etwa ein bestimmtes früheres Projekt von Ihnen, Ihre Verfügbarkeit oder eine Rückfrage, fehlt oder bleibt allgemein. Das ergänzen Sie beim Überarbeiten."
+    },
+    {
+      "q": "Wie viel vom Entwurf muss ich voraussichtlich umschreiben?",
+      "a": "Das hängt von der Ausschreibung ab, ein fester Anteil lässt sich nicht nennen. Rechnen Sie damit, den Einstieg neu zu schreiben, mindestens ein konkretes Detail zu ergänzen und allgemeine Sätze zu streichen. Prüfen Sie jede Aussage über Ihre Erfahrung, bevor Sie sie übernehmen. Der Entwurf ist ein Ausgangspunkt, das Anschreiben stammt von Ihnen."
+    },
+    {
+      "q": "Sendet JobHunter das Anschreiben für mich an den Auftraggeber?",
+      "a": "Nein. JobHunter reicht keine Angebote ein. Es bereitet den Entwurf des Anschreibens und der Antworten auf die Screening-Fragen vor. Sie überarbeiten beides, legen Ihren Preis fest und bewerben sich von Hand auf Upwork über Ihr eigenes Konto. Ohne Ihr Absenden erreicht nichts einen Auftraggeber."
+    }
+  ],
+  "meta_description": "JobHunter: Anschreiben entwirft einen Text aus der Ausschreibung. Sie prüfen die Angaben, ergänzen Konkretes und senden selbst.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.608Z",
+  "updated_at": "2026-10-01T18:58:05.139Z"
+}

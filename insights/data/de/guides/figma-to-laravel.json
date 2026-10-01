@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "figma-to-laravel",
+  "entity_b": "",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Was ein Anwendungsdesign über das Bild hinaus festlegen muss: Zustände, Formularregeln, Rollen und der richtige Einsatz von Livewire.",
+  "overview": "Eine Marketing-Website besteht vor allem aus Seiten, die gelesen werden. Eine Laravel-Anwendung besteht aus Bildschirmen, die benutzt werden: Menschen melden sich an, füllen Formulare aus, filtern Listen, warten auf Ergebnisse und machen Fehler. Die allgemeinen Regeln der Design-Übergabe zu Tokens, Komponenten und responsivem Verhalten stehen im Leitfaden „Von Figma zu WordPress“ und gelten hier unverändert. Diese Seite behandelt, was hinzukommt, sobald das Design eine Anwendung beschreibt.\n\n## Ein Bildschirm ist mehrere Bildschirme\n\nEin Figma-Frame zeigt einen Bildschirm in einem Zustand. In der Anwendung gibt es denselben Bildschirm mehrfach:\n\n- leer: noch keine Datensätze, der erste Besuch\n- ladend: die Daten sind unterwegs\n- gefüllt: mit einem Datensatz und mit dreihundert\n- fehlerhaft: die Anfrage ist gescheitert oder die Eingabe wurde abgelehnt\n- eingeschränkt: die Person darf sehen, aber nichts ändern\n\nFordern Sie diese Zustände je Bildschirm ein oder vereinbaren Sie für die einfachen Fälle eine allgemeine Regel. Eine Zustandsliste je Bildschirm ist die nützlichste Ergänzung zu einem Anwendungsdesign.\n\n## Blade oder Livewire\n\nBlade-Komponenten sind Bausteine, die der Server ausgibt: Button, Eingabefeld, Karte, Tabellenzeile. Jede Figma-Komponente sollte genau einer Blade-Komponente entsprechen, deren Optionen so heißen wie die Varianten in Figma, etwa Größe, Typ und Zustand. Dieses gemeinsame Vokabular hält Design und Code auch später zusammen.\n\nLivewire ergänzt Verhalten, ohne dass ein getrenntes JavaScript-Frontend nötig wird. Eine Livewire-Komponente hält ihren Zustand auf dem Server und aktualisiert einen Teil der Seite, wenn jemand tippt, klickt oder filtert. Als Faustregel gilt: Blade für alles, was nur anzeigt, Livewire dort, wo der Bildschirm ohne Neuladen reagiert, zum Beispiel bei Live-Suche, Filtern, mehrstufigen Formularen, direkter Bearbeitung in der Zeile oder voneinander abhängigen Auswahlfeldern.\n\nDas hat Folgen für das Design. Jede Livewire-Interaktion ist ein Weg zum Server und zurück. Das Design braucht deshalb eine Ladeanzeige und muss eine kurze Verzögerung vertragen. Sehr feine Interaktionen wie Ziehen und Ablegen löst ein kleines Skript im Browser besser. Kennzeichnen Sie solche Stellen früh, denn sie sind aufwendiger, als sie aussehen.\n\n## Formulare und Validierung\n\nIn Formularen steckt der meiste Aufwand. Zu jedem Formular sollte das Design oder eine Begleitnotiz beantworten:\n\n- welche Felder Pflicht sind und welche Formate und Grenzen gelten\n- wann geprüft wird: beim Verlassen des Feldes oder beim Absenden\n- wo die Fehlermeldung steht und wie sie lautet\n- dass Eingaben nach einem fehlgeschlagenen Absenden erhalten bleiben\n- was nach dem Erfolg erscheint: Meldung, Weiterleitung, nächster Schritt\n- was bei Doppelklick oder langsamer Verbindung geschieht\n\nIn Laravel werden die Regeln immer auf dem Server durchgesetzt. Die Prüfung während der Eingabe ist eine Bequemlichkeit obendrauf, kein Ersatz. Fehlermeldungen stammen aus der Anwendung. Lassen Sie sie deshalb vom Designteam schreiben oder zumindest freigeben, die längste eingeschlossen. Datumsauswahl, Datei-Upload mit Fortschrittsanzeige und durchsuchbare Auswahlfelder sind jeweils ein kleines Projekt. Entscheiden Sie, ob eine Standardkomponente genügt oder das Design eine eigene verlangt.\n\n## Angemeldete Bereiche\n\nAnmeldung, Registrierung, Passwort zurücksetzen, E-Mail-Bestätigung, Zwei-Faktor-Eingabe und die abgelaufene Sitzung fehlen im Design häufig. Die Starter-Kits von Laravel bringen funktionierende Fassungen mit. Legen Sie früh fest, ob diese optisch angepasst oder durch eigene Bildschirme ersetzt werden.\n\nRollen verändern Bildschirme. Dieselbe Seite sieht für eine Administratorin anders aus als für einen normalen Nutzer. Markieren Sie im Design, welche Elemente von einer Berechtigung abhängen und ob sie ausgeblendet oder deaktiviert gezeigt werden. Ein ausgeblendeter Button ist kein Schutz: Der Server prüft jede Aktion, gleichgültig, was der Bildschirm zeigt. Sehen Sie sich auch die Navigation der Rolle mit den wenigsten Rechten an. Ein fast leeres Menü verlangt ebenfalls eine Gestaltungsentscheidung.\n\n## Datenlastige Elemente\n\nTabellen brauchen Antworten zu Sortierung, Seitenwechsel, Filtern, Sammelaktionen und zur Darstellung auf schmalen Bildschirmen. Löschende Aktionen brauchen eine Rückfrage. Datum, Zahlen und Währungen brauchen ein Format, fehlende Werte einen Platzhalter.\n\n## Was zur Übergabe gehört\n\nNeben der Figma-Datei machen vier Unterlagen das Frontend kalkulierbar:\n\n- eine Bildschirmliste mit den Zuständen jedes Bildschirms\n- eine Feldliste je Formular mit Regeln und Meldungen\n- eine Rollenmatrix: wer sieht was, wer darf was\n- Beispieldaten in realistischer Länge und Menge\n\nFehlen sie, trifft der Entwickler diese Entscheidungen, und Sie entdecken sie erst bei der Abnahme.",
+  "personas": [
+    {
+      "key": "product_manager",
+      "text": "Sie erhalten die Liste der Zustände, Formularregeln und Rollenunterschiede, die eine Design-Datei offen lässt, und können sie vor der Entwicklung klären statt einzeln im Sprint."
+    },
+    {
+      "key": "founder",
+      "text": "Sie verstehen, warum das Frontend einer Anwendung mehr kostet als dieselbe Zahl an Marketing-Seiten und welche vier Unterlagen neben dem Design eine Schätzung belastbar machen."
+    },
+    {
+      "key": "developer",
+      "text": "Sie bekommen eine klare Trennlinie zwischen Blade- und Livewire-Komponenten und einen Fragenkatalog an das Designteam, bevor Sie Formulare und angemeldete Bereiche bauen."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Wann ist Livewire die bessere Wahl gegenüber einfachen Blade-Templates?",
+      "a": "Wenn ein Bildschirm ohne Neuladen reagieren soll: Live-Suche, Filter, mehrstufige Formulare, Bearbeitung direkt in der Zeile, voneinander abhängige Felder. Für Bildschirme, die nur Daten anzeigen oder ein einfaches Formular absenden, ist Blade schlichter, schneller gebaut und leichter zu pflegen. Die meisten Anwendungen nutzen beides."
+    },
+    {
+      "q": "Wer schreibt die Fehlermeldungen und Validierungsregeln für Formulare?",
+      "a": "Die Regeln kommen aus dem Fachbereich, denn sie beschreiben, was gültige Daten sind. Die Formulierungen sollte schreiben, wer auch die übrigen Texte der Oberfläche verantwortet, meist Design oder Produktverantwortung, und sie vor der Entwicklung freigeben. Umgesetzt wird beides auf dem Server. Schreibt sie niemand, sehen Nutzer die Standardsätze des Frameworks."
+    },
+    {
+      "q": "Müssen Anmeldung und Passwort-Zurücksetzen eigens gestaltet werden?",
+      "a": "Nein. Die Starter-Kits von Laravel enthalten funktionierende Bildschirme für Anmeldung, Registrierung, Passwort-Zurücksetzen und E-Mail-Bestätigung, die sich mit wenig Aufwand an Farben und Schrift anpassen lassen. Eigene Bildschirme lohnen sich, wenn der Ablauf abweicht, etwa bei Registrierung nur auf Einladung oder zentraler Anmeldung über ein anderes System."
+    }
+  ],
+  "meta_description": "Von Figma zu Laravel: welche Zustände, Formulare, Validierungsregeln und Login-Bereiche ein Design für Blade und Livewire klären muss.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.481Z",
+  "updated_at": "2026-10-01T18:58:05.133Z"
+}

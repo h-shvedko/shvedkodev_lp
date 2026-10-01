@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+<link rel="shortcut icon" href="/images/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="ShvedkoDev" />
+<link rel="manifest" href="/site.webmanifest" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+<link href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.min.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="/js/jquery.main.js"></script>
+<link rel="preconnect" href="//fonts.googleapis.com">
+<link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+
+<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css'>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jQuery-viewport-checker/1.8.8/jquery.viewportchecker.min.js" integrity="sha512-FRX6MYITclzDyyMmSQLgZoZTfE+GLzAQpjs15adVZMY6AqhsrBLx8UZwp4FoqrrRFWY9TiaPwja7EY5fk309vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
+
+<link href="//fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500;700&family=Saira+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+    // Google Analytics loads only after the visitor accepts cookies in the banner (footer partial).
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    function loadAnalytics() {
+        if (window.analyticsLoaded) return;
+        window.analyticsLoaded = true;
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-FY5NWV7102';
+        document.head.appendChild(script);
+        gtag('js', new Date());
+        gtag('config', 'G-FY5NWV7102');
+    }
+    try {
+        if (localStorage.getItem('cookieConsent') === 'accepted') loadAnalytics();
+    } catch (e) {}
+</script>
+<title>Laravel Development for Research and the Public Sector · ShvedkoDev</title>
+<meta name="description" content="Laravel Development for Research and the Public Sector: sector-specific problems, required building blocks and questions for a provider.">
+<link rel="canonical" href="https://shvedko.dev/insights/services/laravel-development-for-public-sector/">
+<link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/services/laravel-development-for-public-sector/">
+<link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/services/laravel-development-for-public-sector/">
+<link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/services/laravel-development-for-public-sector/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why use Laravel instead of a standard content management system?","acceptedAnswer":{"@type":"Answer","text":"A content management system suits sites that mainly publish pages. When the core is structured data with roles, workflows, search and imports, such as a library, an application process or a data portal, a framework lets the data model follow your requirements instead of bending a page system. If your need is mostly pages, a CMS is the cheaper choice."}},{"@type":"Question","name":"Can a Laravel application be hosted in our own computing centre?","acceptedAnswer":{"@type":"Answer","text":"Yes. Laravel needs a current PHP version, a database and a web server, which most computing centres and hosting providers offer. Ask the provider for a written list of server requirements and a reproducible setup, so your IT department can check feasibility before the contract and operate the system afterwards."}},{"@type":"Question","name":"What happens to the application when the project funding ends?","acceptedAnswer":{"@type":"Answer","text":"It keeps running only if operation was planned: someone responsible, a small yearly budget for updates and hosting, and documentation that lets another developer take over. Settle code ownership and handover in the contract. Without these three things, even a well-built system becomes a security risk within a few years."}}]}</script>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+<header id="header">
+    <div class="container">
+        <div class="logo">
+            <a href="/"><img src="/images/Logo.png" alt=""></a>
+        </div>
+        <input type="checkbox" id="burger-trigger" class="burger-trigger">
+        <label class="nav-opener" for="burger-trigger">Menu</label>
+        <div class="menu-holder">
+            <nav>
+                <ul id="nav" class="nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about/">About us</a></li>
+                    <li><a href="/services/">Services</a></li>
+                    <li><a href="/portfolio/">Portfolio</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/insights/">Insights</a></li>
+                    <li><a href="/contact/">Contact</a></li>
+                    <li class="lang-switch"><a href="/de/insights/services/laravel-development-for-public-sector/" hreflang="de" lang="de" title="Deutsch" data-lang-fixed><img src="/images/flag-de.svg" alt="Deutsch" width="24" height="16"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+        <main role="main" id="main" class="insight-main">
+            <div class="container">
+<div class="insight">
+<aside class="insight__aside"><nav class="insight__nav" aria-label="Sections"><h2>Sections</h2><ul><li><a href="/insights/">All pages</a></li><li><a href="/insights/guides/">Guides</a></li><li><a href="/insights/examples/">Examples</a></li><li><a href="/insights/services/" aria-current="page">Services by industry</a></li><li><a href="/insights/products/">Products</a></li></ul></nav><nav class="insight__toc" aria-label="On this page"><h2>On this page</h2><ol><li><a href="#overview">Overview</a></li><li><a href="#personas">Who this is for</a></li><li><a href="#faq">Questions and answers</a></li><li><a href="#related">Related pages</a></li></ol></nav></aside>
+<article class="insight__body">
+<header class="insight__header">
+<p class="insight__crumbs"><a href="/insights/">Insights</a> / <a href="/insights/services/">Services by industry</a></p>
+<h1>Laravel Development for Research and the Public Sector</h1>
+<p class="insight__subtitle">When a custom Laravel application fits a research or public body, what it must contain and how to check a provider's offer.</p>
+</header>
+<section class="insight__section" id="overview"><h2><span class="insight__num">1</span> Overview</h2><p>Research institutions, ministries, agencies and publicly funded programmes regularly need web applications that no standard product covers: a repository of documents or teaching materials, an application and review process, a data collection tool, a portal for a defined group of users. Laravel is an open-source PHP framework for building such applications. It carries no licence fees, runs on ordinary hosting and is widely known among developers, which matters when the system has to be maintained long after the original team has moved on.</p>
+<h3>Typical problems</h3>
+<ul><li>Funding ends, the system stays. Budgets cover the build but not the years of operation afterwards, so the application has to be cheap to run and easy to hand over.</li><li>Users are spread out and differently equipped. Schools, field offices or partner institutions may work with old devices and slow or unstable connections.</li><li>Many roles, clear responsibilities. Central editors, regional coordinators, reviewers and read-only users all need different rights, and an audit often asks who changed what.</li><li>Content in several languages, with structured metadata such as subject, level, licence and year, so that material can actually be found.</li><li>Formal requirements: accessibility, data protection, hosting location, reporting to a funder. These need to be known before the design, not after.</li><li>Dependence on one provider or on one staff member, with no documentation.</li></ul>
+<h3>What a good solution includes</h3>
+<ul><li>A data model that fits the content. For a library that means records, files, categories, languages and versions, defined together with the people who curate the material.</li><li>Roles and permissions as a core part of the system, with a log of changes.</li><li>Search and filters that work for someone who does not know the exact title.</li><li>Careful handling of files: storage separate from the application, sensible size limits, previews, and downloads that can resume or be offered in smaller variants for weak connections.</li><li>Pages that load fast and work on small screens, with little data transferred per request.</li><li>Accessibility considered in templates and components from the first screen, and tested with real assistive technology rather than only an automated checker.</li><li>Automated tests, a reproducible setup, backups with a tested restore, and written operating instructions.</li><li>Import and export in open formats, so the data can leave the system and usage figures can be reported.</li></ul>
+<h3>From practice</h3>
+<p>We built a digital library on Laravel that makes teaching materials available to schools across several islands. The general point for comparable projects is that reach is a design requirement. When users are geographically dispersed, the application has to be planned for the weakest connection and the oldest device among them, and editorial responsibility has to be organised so that material can be published centrally and found locally.</p>
+<h3>What to ask a provider</h3>
+<ul><li>Who owns the source code, and under which licence is it delivered?</li><li>Can it be hosted in our own computing centre or with a provider we choose, and what does the server need?</li><li>How are framework and security updates handled after launch, and what does that cost per year as a planning figure?</li><li>How do you test accessibility, and what do we receive as evidence?</li><li>How is personal data handled, and which questions should go to our data protection officer or a lawyer?</li><li>What documentation do editors, administrators and future developers get?</li><li>How will existing material be imported, and who cleans the metadata?</li><li>What is the smallest version that is useful on its own?</li></ul>
+<h3>Planning notes</h3>
+<p>Write down the user groups and what each must be able to do before asking for offers; this list is a better basis for comparison than a feature wish list. Plan content preparation as its own work package, because gathering, clearing rights for and describing materials usually takes longer than the software. Reserve a yearly amount for updates and hosting from the start, and name the person inside the organisation who is responsible for the system after the project ends.</p></section>
+<section class="insight__section" id="personas"><h2><span class="insight__num">2</span> Who this is for</h2><div class="insight__personas"><div class="insight__persona"><h3>Education programme lead</h3><p>You see what a digital library or learning portal needs so that teachers actually find and open materials: metadata, search, small downloads and an editorial process that matches how content is produced.</p></div><div class="insight__persona"><h3>IT manager</h3><p>You get the operational criteria for a custom Laravel application: hosting requirements, update handling, backups, documentation and ownership of the code, phrased as questions for a provider.</p></div><div class="insight__persona"><h3>Project manager</h3><p>You learn how to scope a publicly funded web application so that it survives the end of funding: user groups first, content preparation as its own package, and a named owner for operation.</p></div></div></section>
+<section class="insight__section" id="faq"><h2><span class="insight__num">3</span> Questions and answers</h2><h3>Why use Laravel instead of a standard content management system?</h3><p>A content management system suits sites that mainly publish pages. When the core is structured data with roles, workflows, search and imports, such as a library, an application process or a data portal, a framework lets the data model follow your requirements instead of bending a page system. If your need is mostly pages, a CMS is the cheaper choice.</p><h3>Can a Laravel application be hosted in our own computing centre?</h3><p>Yes. Laravel needs a current PHP version, a database and a web server, which most computing centres and hosting providers offer. Ask the provider for a written list of server requirements and a reproducible setup, so your IT department can check feasibility before the contract and operate the system afterwards.</p><h3>What happens to the application when the project funding ends?</h3><p>It keeps running only if operation was planned: someone responsible, a small yearly budget for updates and hosting, and documentation that lets another developer take over. Settle code ownership and handover in the contract. Without these three things, even a well-built system becomes a security risk within a few years.</p></section>
+<section class="insight__section" id="related"><h2><span class="insight__num">4</span> Related pages</h2><ul class="insight-list"><li><a href="/insights/services/laravel-development-for-ecommerce/">Laravel Development for E-Commerce and Retail</a><p>When custom Laravel software makes sense next to a shop system, what it must get right in retail, and how to question a provider.</p></li><li><a href="/insights/services/laravel-development-for-education/">Laravel Development for Education and E-Learning</a><p>What an education platform needs beyond content: a structured catalogue, clear roles, a usable admin area and upkeep you can afford.</p></li><li><a href="/insights/services/legacy-modernization-for-public-sector/">Legacy Modernization for Research and the Public Sector</a><p>How to keep long-lived research and public websites running safely without a risky rewrite, and what to demand from a provider.</p></li><li><a href="/insights/services/ai-integration-for-education/">AI Integration for Education and E-Learning</a><p>What AI can reliably take over in course production and assessment, where expert review has to stay, and what to ask a provider.</p></li><li><a href="/insights/services/ai-integration-for-hr/">AI Integration for HR and Recruiting</a><p>Where language models help in recruiting, how to check their output against real data, and which questions to put to a provider.</p></li><li><a href="/insights/services/ai-integration-for-marketing/">AI Integration for Marketing Teams and Agencies</a><p>Where AI saves a marketing team real hours, what a dependable integration needs, and what to ask before you sign.</p></li></ul></section>
+<section class="insight__cta"><h2>Planning a project like this?</h2><p>Tell us what you are building. You get a straight answer on scope, approach and effort.</p><p><a href="/contact/" class="button">Get in touch</a></p></section>
+<footer class="insight__note"><p>Based on our own project work. Clients are not named.</p><p>Updated: <time datetime="2026-10-01">2026-10-01</time></p></footer>
+</article>
+</div>
+            </div>
+        </main>
+<div id="footer">
+    <div class="container">
+        <div class="row-holder">
+            <div class="col-4 m-order-1">
+                <div class="logotype">
+                    <a href="/"><img src="/images/Logo.png" alt=""></a>
+                </div>
+                <ul class="contacts-list">
+                    <li><a href="/imprint/" style="width: 100px;display: block;">Imprint</a></li>
+                    <li><a href="/data-protection/" style="width: 200px;display: block;"> Data Protection</a></li>
+                    <li><a href="/insights/" style="width: 100px;display: block;">Insights</a></li>
+                </ul>
+            </div>
+            <div class="col-4 m-order-3">
+                <h3>Contact</h3>
+                <ul class="contacts-list">
+                    <li>
+                        <i class="icon icon-location2"></i>
+                        <address>Göttingen, Germany</address>
+                    </li>
+                    <li>
+                        <i class="icon icon-mail"></i>
+                        <a href="mailto:info@shvedko.dev">info@shvedko.dev</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-4 m-order-1">
+                <h3>Follow us:</h3>
+                <ul class="social-network">
+                    <li class="col">
+                        <a href="https://www.facebook.com/people/ShvedkoDev/61574820107319/" target="_blank" class="link-social-network"> <i class="icon icon-facebook1"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://x.com/ShvedkoDev" target="_blank" class="link-social-network"> <i class="icon icon-xtwitter"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://www.upwork.com/agencies/1749148191404584960/" target="_blank" class="link-social-network"> <i class="icon icon-upwork"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://www.linkedin.com/company/shvedkodev/" target="_blank" class="link-social-network"> <i class="icon icon-linkedin-square"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://www.instagram.com/shvedkodev/" target="_blank" class="link-social-network"> <i class="icon icon-instagram"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<footer class="copy">
+    <div class="container">
+        <p>&copy; ShvedkoDev 2026. All Rights Reserved.</p>
+    </div>
+</footer>
+<!-- Cookie Banner -->
+<div id="cookie-banner" style="
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #222;
+  color: #fff;
+  padding: 16px;
+  text-align: center;
+  font-size: 14px;
+  z-index: 1000;">
+    This website uses cookies for statistics, and only with your consent.
+    <a href="/data-protection/" style="color: #4caf50; text-decoration: underline; margin-left: 8px;" target="_blank">
+        Learn more
+    </a>
+    <button id="cookie-accept" style="
+    margin-left: 16px;
+    background: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;">
+        Accept
+    </button>
+    <button id="cookie-decline" style="
+    margin-left: 8px;
+    background: transparent;
+    color: white;
+    border: 1px solid #888;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;">
+        Decline
+    </button>
+</div>
+
+<script>
+    // The banner stays until the visitor decides. Analytics starts only on "accept".
+    (function () {
+        var banner = document.getElementById('cookie-banner');
+        var choice = null;
+        try { choice = localStorage.getItem('cookieConsent'); } catch (e) {}
+        if (choice) banner.style.display = 'none';
+        function decide(value) {
+            try { localStorage.setItem('cookieConsent', value); } catch (e) {}
+            banner.style.display = 'none';
+            if (value === 'accepted') loadAnalytics();
+        }
+        document.getElementById('cookie-accept').addEventListener('click', function () { decide('accepted'); });
+        document.getElementById('cookie-decline').addEventListener('click', function () { decide('declined'); });
+    })();
+</script>
+
+</body>
+</html>

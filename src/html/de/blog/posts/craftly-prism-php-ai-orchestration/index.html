@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    //= layout/head.html
+    <link rel="alternate" hreflang="en" href="https://shvedko.dev/blog/posts/craftly-prism-php-ai-orchestration/">
+    <link rel="alternate" hreflang="de" href="https://shvedko.dev/de/blog/posts/craftly-prism-php-ai-orchestration/">
+    <link rel="alternate" hreflang="x-default" href="https://shvedko.dev/blog/posts/craftly-prism-php-ai-orchestration/">
+    <title>Warum wir für unsere 9-Agenten-Orchestrierung auf Prism PHP setzen · ShvedkoDev Blog</title>
+    <meta name="description" content="Eine KI-native Forge braucht mehr als Prompts. Darum nutzt Craftly Prism, das Laravel AI SDK: planbare, anbieterunabhängige Multi-Agenten-Orchestrierung.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Warum wir für unsere 9-Agenten-Orchestrierung auf Prism PHP setzen · ShvedkoDev Blog">
+    <meta property="og:description" content="Eine KI-native Forge braucht mehr als Prompts. Darum nutzt Craftly Prism, das Laravel AI SDK: planbare, anbieterunabhängige Multi-Agenten-Orchestrierung.">
+    <meta property="og:url" content="https://shvedko.dev/de/blog/posts/craftly-prism-php-ai-orchestration/">
+    <meta property="og:site_name" content="ShvedkoDev">
+    <meta property="og:locale" content="de_DE">
+    <link rel="canonical" href="https://shvedko.dev/de/blog/posts/craftly-prism-php-ai-orchestration/">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+        //= layout/header.de.html
+        <main role="main" id="main">
+            <div class="container">
+                <article class="blog-post">
+                    <header class="blog-post__header animate-on-scroll fade-in">
+                        <div class="blog-post__meta">
+                            <a href="/de/blog/" class="blog-post__back">← Blog</a>
+                            <time datetime="2026-05-05">5. Mai 2026</time>
+                        </div>
+                        <h1>Warum wir für unsere 9-Agenten-Orchestrierung auf Prism PHP setzen</h1>
+                        <div class="blog-post__tags">
+                            <span class="tag">PHP</span>
+                            <span class="tag">Laravel</span>
+                            <span class="tag">KI</span>
+                            <span class="tag">Craftly</span>
+                            <span class="tag">Architektur</span>
+                        </div>
+                    </header>
+
+                    <div class="blog-post__body animate-on-scroll fade-in">
+                        <p><strong>TL;DR:</strong> Eine KI-native Forge zu bauen bedeutet mehr, als Prompts zu verschicken. Es geht um planbare Orchestrierung. Wir haben <a href="https://prism.echolabs.dev" target="_blank" rel="noopener">Prism</a> – das Laravel AI SDK – ins Herz von Craftly integriert, und das hat unseren Blick auf agentische PHP-Systeme verändert.</p>
+
+                        <h2>Das Problem mit rohen API-Aufrufen</h2>
+                        <p>Als wir mit dem Prototyping der 9-Agenten-Pipeline von Craftly begannen, lag der erste Schritt auf der Hand: die Anthropic-API direkt ansprechen. Ein Guzzle-Client, ein paar Umgebungsvariablen, ein Prompt-String – und an einem Nachmittag steht etwas, das funktioniert. Das Problem zeigt sich später, wenn „funktioniert“ nicht mehr reicht.</p>
+
+                        <p>Rohe API-Aufrufe binden Ihren Code an das Request-Format eines einzelnen Anbieters. Jeder Agent in der Pipeline braucht eigenen Boilerplate-Code für Retries, Timeouts und Fehlerbehandlung. Structured Output wird zur manuellen JSON-Parsing-Übung. Für Tool Calling muss das Funktionsschema jedes Mal von Hand gebaut werden. Und wenn Sie bei einem bestimmten Agenten jemals Claude gegen GPT-4 tauschen – oder in der Entwicklung ein lokales Ollama-Modell laufen lassen – wollen, schreiben Sie neu, statt zu konfigurieren.</p>
+
+                        <p>Genau dieses Problem löst Prism sauber.</p>
+
+                        <h2>Anbieterflexibilität ohne Abstraktions-Overhead</h2>
+                        <p>Prism kapselt Anthropic, OpenAI, Mistral, Gemini, Ollama und mehrere weitere Anbieter hinter einem einzigen Fluent Interface. In der Praxis heißt das: Unser <strong>MasterArchitect-Agent</strong> läuft wegen seiner starken Reasoning-Fähigkeiten auf <code>claude-sonnet-4-6</code>, während die <strong>Forge Workers</strong> auf <code>claude-haiku-4-5</code> laufen, um die Generierungskosten niedrig zu halten – und beide teilen sich identischen Orchestrierungscode. Das Modell ist nur ein Parameter.</p>
+
+                        <pre><code>$response = Prism::text()
+    ->using(Provider::Anthropic, 'claude-haiku-4-5-20251001')
+    ->withSystemPrompt($workerSystemPrompt)
+    ->withPrompt($architectureContext)
+    ->generate();</code></pre>
+
+                        <p>Die Forge Workers in einer künftigen Iteration auf einen anderen Anbieter umzustellen, erfordert die Änderung einer einzigen Zeile. Kein Refactoring, kein neuer HTTP-Client, kein angepasster Response-Parser.</p>
+
+                        <h2>Structured Output als First-Class-Konzept</h2>
+                        <p>Eine Multi-Agenten-Pipeline steht und fällt mit der Qualität der Daten, die zwischen den Agenten weitergegeben werden. Erzeugt der MasterArchitect ein Schema, das die Forge Workers nicht zuverlässig parsen können, entstehen stille Fehler – generierte Dateien, die plausibel aussehen, aber auf subtile Weise falsch sind.</p>
+
+                        <p>Dank der Structured-Output-Unterstützung von Prism definieren wir PHP-Value-Objects und lassen sie direkt vom Modell befüllen; Prism übernimmt die Schema-Generierung und die Typumwandlung der Antwort. Der MasterArchitect liefert keinen JSON-Blob zurück, den wir defensiv dekodieren müssen – er liefert ein typisiertes <code>ArchitectureSchema</code>-Objekt, das schon beim Eintreffen validiert ist.</p>
+
+                        <p>An dieser Stelle haben wir den Großteil der rund 5 % Edge-Case-Fehler beseitigt, die die frühere Version mit rohen API-Aufrufen plagten. Validierungsfehler treten jetzt an der Schema-Grenze zutage und werden nicht erst drei Agenten später entdeckt, wenn eine Migration auf eine Spalte verweist, die nie definiert wurde.</p>
+
+                        <h2>Tool Calling ohne Boilerplate</h2>
+                        <p>Der Validator-Agent – die letzte Stufe der Pipeline – muss externe Tools aufrufen: <code>php artisan route:list</code> ausführen, prüfen, ob sich die generierten Model-Beziehungen auflösen lassen, und sicherstellen, dass die Migrationen syntaktisch gültig sind. Über das Tool-Calling-Interface von Prism registrieren wir diese als First-Class-Tools mit typisierten Ein- und Ausgaben.</p>
+
+                        <p>Der Agent entscheidet, welche Tools aufgerufen werden, Prism übernimmt die Function-Call-Schleife, und unsere Tool-Implementierungen bleiben saubere PHP-Methoden statt verschachtelter Callback-Arrays. Das Ergebnis ist ein Validator, der sich wie eine Laravel-Service-Klasse liest und nicht wie ein Prompt-Engineering-Experiment.</p>
+
+                        <h2>PHP als agentische Plattform</h2>
+                        <p>Worum es im Kern geht: Das PHP-Ökosystem muss seine KI-Patterns nicht aus der Python-Welt importieren. Das Modell „Agent als Queue Worker“ lässt sich perfekt auf die Job-Infrastruktur von Laravel abbilden. Prism liefert uns die Abstraktionsschicht für die Modelle. Structured Output liefert uns den Vertrag zwischen den Agenten. Tool Calling gibt uns die Möglichkeit, über das Modell hinauszugreifen, wenn es auf überprüfbare Fakten ankommt.</p>
+
+                        <p>Das Ergebnis ist eine Pipeline, in der jeder Agent ein Laravel-Job ist: isoliert testbar, bei Fehlern wiederholbar, über Horizon beobachtbar und auf derselben Infrastruktur deploybar wie der Rest der Anwendung. Keine Python-Microservices, keine separate Orchestrierungsschicht, keine betriebliche Komplexität, die es in einem Standard-Laravel-Stack nicht ohnehin schon gibt.</p>
+
+                        <h2>Wo wir heute stehen</h2>
+                        <p>Der Laravel-Generator von Craftly braucht derzeit unter 2 Minuten Laufzeit und kostet rund <strong>0,19 $ an Modell-Inferenz pro vollständiger Anwendung</strong>. Die Kostenverteilung spiegelt die zweistufige Modellstrategie wider: Der MasterArchitect (Sonnet 4.6, anspruchsvolles Reasoning) macht den Großteil dieses Betrags aus; die Forge Workers (Haiku 4.5, Ausführung im großen Maßstab) halten die Kosten pro Datei vernachlässigbar gering.</p>
+
+                        <p>Prism war nicht die einzige Option. Wir haben geprüft, das Anthropic-SDK direkt aufzurufen, es selbst zu kapseln oder einen Python-Orchestrator über HTTP einzusetzen. Der Grund, warum wir bei Prism gelandet sind, ist einfach: Es ist die richtige Abstraktion auf der richtigen Ebene für ein Laravel-natives agentisches System. Es gibt uns Anbieterflexibilität, strukturierte Verträge zwischen den Agenten und Tool Calling – ohne eine Abhängigkeit einzuführen, die gegen das Framework arbeitet.</p>
+
+                        <p>Wenn Sie KI-gestützte Funktionen in Laravel entwickeln und dabei zu rohen HTTP-Clients greifen, sehen Sie sich zuerst Prism an. Die Ergonomie ist es wert.</p>
+
+                        <p><a href="/craftly/">Mehr über Craftly erfahren →</a> · <a href="/de/contact/">Kontakt aufnehmen →</a></p>
+                    </div>
+
+                    <footer class="blog-post__footer animate-on-scroll fade-in">
+                        <p>Verfasst von <a href="/de/about/">ShvedkoDev</a> · <a href="/de/contact/">Kontakt aufnehmen</a></p>
+                        <a href="/de/blog/" class="button outline">← Zurück zum Blog</a>
+                    </footer>
+                </article>
+            </div>
+        </main>
+        //= layout/footer.de.html
+    </div>
+</body>
+
+</html>

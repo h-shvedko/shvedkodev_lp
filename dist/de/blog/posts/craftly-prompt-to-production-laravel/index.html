@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="ShvedkoDev" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/css/main.min.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="/js/jquery.main.js"></script>
+    <link rel="preconnect" href="//fonts.googleapis.com">
+    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+    
+    <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css'>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jQuery-viewport-checker/1.8.8/jquery.viewportchecker.min.js" integrity="sha512-FRX6MYITclzDyyMmSQLgZoZTfE+GLzAQpjs15adVZMY6AqhsrBLx8UZwp4FoqrrRFWY9TiaPwja7EY5fk309vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
+    
+    <link href="//fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500;700&family=Saira+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        // Google Analytics loads only after the visitor accepts cookies in the banner (footer partial).
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        function loadAnalytics() {
+            if (window.analyticsLoaded) return;
+            window.analyticsLoaded = true;
+            var script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=G-FY5NWV7102';
+            document.head.appendChild(script);
+            gtag('js', new Date());
+            gtag('config', 'G-FY5NWV7102');
+        }
+        try {
+            if (localStorage.getItem('cookieConsent') === 'accepted') loadAnalytics();
+        } catch (e) {}
+    </script>
+    <link rel="alternate" hreflang="en" href="https://shvedko.dev/blog/posts/craftly-prompt-to-production-laravel/">
+    <link rel="alternate" hreflang="de" href="https://shvedko.dev/de/blog/posts/craftly-prompt-to-production-laravel/">
+    <link rel="alternate" hreflang="x-default" href="https://shvedko.dev/blog/posts/craftly-prompt-to-production-laravel/">
+    <title>Vom Prompt zur Produktion: Laravel-App in unter 2 Minuten · ShvedkoDev Blog</title>
+    <meta name="description" content="Ein Rundgang durch Craftlys Laravel-Pipeline: vom Prompt in Alltagssprache zur laufenden Laravel-Sail-App mit 56 Dateien und 15 CRUD-Views.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Vom Prompt zur Produktion: Laravel-App in unter 2 Minuten · ShvedkoDev Blog">
+    <meta property="og:description" content="Ein Rundgang durch Craftlys Laravel-Pipeline: vom Prompt in Alltagssprache zur laufenden Laravel-Sail-App mit 56 Dateien und 15 CRUD-Views.">
+    <meta property="og:url" content="https://shvedko.dev/de/blog/posts/craftly-prompt-to-production-laravel/">
+    <meta property="og:site_name" content="ShvedkoDev">
+    <meta property="og:locale" content="de_DE">
+    <link rel="canonical" href="https://shvedko.dev/de/blog/posts/craftly-prompt-to-production-laravel/">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+        <header id="header">
+            <div class="container">
+                <div class="logo">
+                    <a href="/de/"><img src="/images/Logo.png" alt=""></a>
+                </div>
+                <input type="checkbox" id="burger-trigger" class="burger-trigger">
+                <label class="nav-opener" for="burger-trigger">Menü</label>
+                <div class="menu-holder">
+                    <nav>
+                        <ul id="nav" class="nav">
+                            <li class="active"><a href="/de/">Start</a></li>
+                            <li><a href="/de/about/">Über uns</a></li>
+                            <li><a href="/de/services/">Leistungen</a></li>
+                            <li><a href="/de/portfolio/">Portfolio</a></li>
+                            <li><a href="/de/blog/">Blog</a></li>
+                            <li><a href="/de/insights/">Insights</a></li>
+                            <li><a href="/de/contact/">Kontakt</a></li>
+                            <li class="lang-switch"><a href="/" hreflang="en" lang="en" title="English"><img src="/images/flag-en.svg" alt="English" width="24" height="16"></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main role="main" id="main">
+            <div class="container">
+                <article class="blog-post">
+                    <header class="blog-post__header animate-on-scroll fade-in">
+                        <div class="blog-post__meta">
+                            <a href="/de/blog/" class="blog-post__back">← Blog</a>
+                            <time datetime="2026-04-19">19. April 2026</time>
+                        </div>
+                        <h1>Vom Prompt zur Produktion: Wie Craftly in unter 2 Minuten eine vollständige Laravel-App generiert</h1>
+                        <div class="blog-post__tags">
+                            <span class="tag">KI</span>
+                            <span class="tag">Laravel</span>
+                            <span class="tag">Produkt</span>
+                            <span class="tag">PHP</span>
+                            <span class="tag">Demo</span>
+                        </div>
+                    </header>
+
+                    <div class="blog-post__body animate-on-scroll fade-in">
+                        <p>Die meisten KI-Coding-Demos enden bei einer einzelnen Datei oder einer Funktion. Craftly geht weiter: Aus einem einzigen Prompt in Alltagssprache entsteht eine vollständige, lauffähige Laravel-Anwendung – Routen, Models, Migrationen, Controller, Views – samt Live-Vorschau in Laravel Sail. In unter zwei Minuten. Für etwa 19 Cent.</p>
+
+                        <p>So läuft eine einzelne Generierung tatsächlich ab.</p>
+
+                        <h2>Schritt 1 – Der Prompt</h2>
+                        <p>Ein Kunde tippt zum Beispiel Folgendes ein:</p>
+
+                        <p><em>„Eine kleine Event-Buchungs-App für ein Yogastudio. Kursleiter können Kurse anlegen, Teilnehmer können sich anmelden, der Admin sieht die Buchungen pro Kurs.“</em></p>
+
+                        <p>Das ist die gesamte Eingabe. Kein Schema, keine Wireframes, keine Framework-Flags. Der Prompt landet beim <strong>RequirementsEngineer</strong>-Agenten von Craftly, der ihn zu einer strukturierten Spezifikation erweitert: Entitäten (Instructor, Class, Booking, Student), Beziehungen, Rollen und das Minimum an Seiten, das nötig ist, um die beschriebenen Abläufe abzudecken.</p>
+
+                        <h2>Schritt 2 – Architektur</h2>
+                        <p>Die strukturierte Spezifikation geht an den <strong>MasterArchitect</strong>, der die Anwendung plant: Laravel 12 auf PHP 8.4, Breeze für die Authentifizierung, Eloquent-Models mit den richtigen Beziehungen und eine Routenübersicht, die zu den User Stories passt. Diese Stufe läuft auf Sonnet 4.6 – hier zählt das Reasoning mehr als die reine Ausgabegeschwindigkeit.</p>
+
+                        <h2>Schritt 3 – Die Forge</h2>
+                        <p>Der Plan fließt in den <strong>LaravelForge</strong>-Worker, der die Dateien eine nach der anderen ausgibt. Eine typische kleine App umfasst rund 56 Dateien: Migrationen, Models, Factories, Seeder, Controller, Form Requests, Blade-Views (15 CRUD-Ansichten sind üblich), Routendateien und Konfigurationsanpassungen. Jede Datei wird in den Browser gestreamt, während sie geschrieben wird – der Kunde sieht also in Echtzeit, wie die Codebasis Gestalt annimmt, statt auf ein fertiges Paket zu warten.</p>
+
+                        <p>Diese Phase läuft auf Haiku 4.5 – klein, schnell, günstig –, weil die schwere Denkarbeit zu diesem Zeitpunkt bereits erledigt ist. Der Worker muss der Architektur nur präzise folgen.</p>
+
+                        <h2>Schritt 4 – Live-Vorschau</h2>
+                        <p>Die generierte Codebasis startet in Laravel Sail. Der Kunde kann sich durch die echte App klicken, sich einloggen, einen Kurs anlegen, ihn buchen und zusehen, wie echte Daten durch echte Migrationen fließen. Wenn etwas nicht passt – Farben, Texte, ein fehlendes Feld –, nimmt der <strong>Iteration</strong>-Agent einen Folge-Prompt entgegen und erzeugt präzise Patches, statt die gesamte App neu zu generieren.</p>
+
+                        <h2>Die Zahlen</h2>
+                        <p>Im Durchschnitt ergibt eine kleine bis mittelgroße Laravel-Generierung:</p>
+                        <ul>
+                            <li>~56 geschriebene Dateien</li>
+                            <li>~15 gerenderte CRUD-Views</li>
+                            <li>Unter 2 Minuten Laufzeit</li>
+                            <li>~0,19 $ Kosten beim Modellanbieter pro vollständiger Generierung</li>
+                        </ul>
+
+                        <p>Die Kosten überraschen die meisten. Die Kombination aus Sonnet für die Architektur und Haiku für den Großteil der Arbeit auf Dateiebene hält die Rechnung niedrig und bewahrt die Qualität dort, wo es wirklich darauf ankommt.</p>
+
+                        <h2>Warum das für Laravel-Teams wichtig ist</h2>
+                        <p>Für freiberufliche Entwickler oder eine kleine Agentur ist das Interessante nicht „KI hat den Code geschrieben“, sondern dass die generierte App ein vernünftiger Ausgangspunkt auf Basis von Laravel 12 ist – Konventionen eingehalten, Migrationen sauber, keine exotischen Pakete –, sodass Sie sie klonen, in Ihrem Editor öffnen und weiterarbeiten können. Craftly ist eine Forge, keine Blackbox.</p>
+
+                        <p>Wir haben die Pipeline gezielt für das PHP-Ökosystem gebaut, weil die 77 % des Webs, die mit PHP laufen, dieselbe Qualität an KI-Tooling verdienen, die die JavaScript-Welt seit zwei Jahren genießt.</p>
+
+                        <h2>Probieren Sie es aus</h2>
+                        <p>Die Laravel-Pipeline von Craftly ist live, und wir nehmen jetzt die ersten Nutzer auf. Wenn Sie sehen möchten, wie aus Ihrem eigenen Prompt eine laufende App wird: Die Warteliste ist geöffnet.</p>
+
+                        <p><a href="/craftly/">Live-Demo ausprobieren →</a></p>
+                    </div>
+
+                    <footer class="blog-post__footer animate-on-scroll fade-in">
+                        <p>Verfasst von <a href="/de/about/">ShvedkoDev</a> · <a href="/de/contact/">Kontakt aufnehmen</a></p>
+                        <a href="/de/blog/" class="button outline">← Zurück zum Blog</a>
+                    </footer>
+                </article>
+            </div>
+        </main>
+        <div id="footer">
+            <div class="container">
+                <div class="row-holder">
+                    <div class="col-4 m-order-1">
+                        <div class="logotype">
+                            <a href="/de/"><img src="/images/Logo.png" alt=""></a>
+                        </div>
+                        <ul class="contacts-list">
+                            <li><a href="/de/imprint/" style="width: 100px;display: block;">Impressum</a></li>
+                            <li><a href="/de/data-protection/" style="width: 200px;display: block;"> Datenschutz</a></li>
+                            <li><a href="/de/insights/" style="width: 100px;display: block;">Insights</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-4 m-order-3">
+                        <h3>Kontakt</h3>
+                        <ul class="contacts-list">
+                            <li>
+                                <i class="icon icon-location2"></i>
+                                <address>Göttingen, Deutschland</address>
+                            </li>
+                            <li>
+                                <i class="icon icon-mail"></i>
+                                <a href="mailto:info@shvedko.dev">info@shvedko.dev</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-4 m-order-1">
+                        <h3>Folgen Sie uns:</h3>
+                        <ul class="social-network">
+                            <li class="col">
+                                <a href="https://www.facebook.com/people/ShvedkoDev/61574820107319/" target="_blank" class="link-social-network"> <i class="icon icon-facebook1"></i></a>
+                            </li>
+                            <li class="col">
+                                <a href="https://x.com/ShvedkoDev" target="_blank" class="link-social-network"> <i class="icon icon-xtwitter"></i></a>
+                            </li>
+                            <li class="col">
+                                <a href="https://www.upwork.com/agencies/1749148191404584960/" target="_blank" class="link-social-network"> <i class="icon icon-upwork"></i></a>
+                            </li>
+                            <li class="col">
+                                <a href="https://www.linkedin.com/company/shvedkodev/" target="_blank" class="link-social-network"> <i class="icon icon-linkedin-square"></i></a>
+                            </li>
+                            <li class="col">
+                                <a href="https://www.instagram.com/shvedkodev/" target="_blank" class="link-social-network"> <i class="icon icon-instagram"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <footer class="copy">
+            <div class="container">
+                <p>&copy; ShvedkoDev 2026. Alle Rechte vorbehalten.</p>
+            </div>
+        </footer>
+        <!-- Cookie Banner -->
+        <div id="cookie-banner" style="
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: #222;
+          color: #fff;
+          padding: 16px;
+          text-align: center;
+          font-size: 14px;
+          z-index: 1000;">
+            Diese Website verwendet Cookies für Statistiken, und nur mit Ihrer Einwilligung.
+            <a href="/de/data-protection/" style="color: #4caf50; text-decoration: underline; margin-left: 8px;" target="_blank">
+                Mehr erfahren
+            </a>
+            <button id="cookie-accept" style="
+            margin-left: 16px;
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 4px;">
+                Akzeptieren
+            </button>
+            <button id="cookie-decline" style="
+            margin-left: 8px;
+            background: transparent;
+            color: white;
+            border: 1px solid #888;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 4px;">
+                Ablehnen
+            </button>
+        </div>
+        
+        <script>
+            // The banner stays until the visitor decides. Analytics starts only on "accept".
+            (function () {
+                var banner = document.getElementById('cookie-banner');
+                var choice = null;
+                try { choice = localStorage.getItem('cookieConsent'); } catch (e) {}
+                if (choice) banner.style.display = 'none';
+                function decide(value) {
+                    try { localStorage.setItem('cookieConsent', value); } catch (e) {}
+                    banner.style.display = 'none';
+                    if (value === 'accepted') loadAnalytics();
+                }
+                document.getElementById('cookie-accept').addEventListener('click', function () { decide('accepted'); });
+                document.getElementById('cookie-decline').addEventListener('click', function () { decide('declined'); });
+            })();
+        </script>
+    </div>
+</body>
+
+</html>

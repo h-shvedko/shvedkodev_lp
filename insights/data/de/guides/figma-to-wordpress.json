@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "figma-to-wordpress",
+  "entity_b": "",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Was zwischen fertiger Figma-Datei und einem WordPress-Theme geklärt sein muss, damit die Redaktion das Design nicht versehentlich zerlegt.",
+  "overview": "Eine Figma-Datei zeigt, wie eine Website aussehen soll. Ein WordPress-Theme muss zusätzlich festlegen, wie sie sich verhält, wenn die Redaktion eine Überschrift einträgt, die doppelt so lang ist wie im Entwurf, und das auf einer Bildschirmbreite, die niemand gezeichnet hat. In dieser Lücke steckt der größte Teil der Arbeit, und dort entstehen die meisten Enttäuschungen.\n\n## Erst die Tokens, dann die Seiten\n\nDesign-Tokens sind die benannten Grundwerte eines Designs: Farben, Schriftgrößen, Abstände, Radien, Schatten. In einem Block-Theme gehören sie in die Datei theme.json. Von dort erscheinen sie als Farbpalette, Schriftgrößen und Abstandsstufen in der Seitenleiste des Editors. Arbeitet die Figma-Datei durchgehend mit Variablen und Stilen, ist die Übertragung fast mechanisch. Enthält sie vierzehn leicht unterschiedliche Grautöne und von Hand eingetippte Abstände, muss vor dem ersten Template jemand entscheiden, welche Werte gelten. Bitten Sie das Designteam um diese Bereinigung. In Figma ist sie billiger als im Code.\n\n## Aus Komponenten werden Blöcke\n\nJedes wiederkehrende Element, etwa Karte, Teaser, Kundenstimme oder Handlungsaufruf, wird zu einem von drei Dingen:\n\n- einer Block-Vorlage aus Standardblöcken, wenn der Aufbau einfach ist und die Redaktion ihn umstellen darf\n- einem eigenen Block, wenn die Struktur fest bleiben soll und nur bestimmte Felder bearbeitbar sind\n- einem Template-Teil für alles, was es nur einmal gibt, etwa Kopf- und Fußbereich\n\nMaßgeblich ist, wer das Element später pflegt, nicht wie es aussieht. Halten Sie je Komponente fest, welche Felder änderbar sind, welche optional, welche Grenzen gelten (Textlänge, Bildformat) und welche Varianten es gibt. Eine Komponente mit einer solchen Liste wird einmal gebaut und wiederverwendet. Ohne Liste entsteht sie für jede Seite neu.\n\n## Responsives Verhalten\n\nEntwürfe liegen meist in zwei oder drei Breiten vor, der Browser zeigt alle dazwischen. Klären Sie je Abschnitt: Stapeln sich die Spalten, und in welcher Reihenfolge? Wird das Bild beschnitten oder skaliert? Ab welcher Breite klappt die Navigation ein? Fließende Schriftgrößen und Abstände, die mit dem Bildschirm mitwachsen, ersparen viele Sonderfälle. Sie brauchen aber einen abgestimmten Kleinst- und Größtwert.\n\n## Die Arbeit im Editor\n\nEin Theme, das am ersten Tag dem Entwurf entspricht und nach einer Woche Redaktionsarbeit nicht mehr, hat sein Ziel verfehlt. Prüfen Sie: Zeigt der Editor annähernd das, was Besucher sehen? Werden nur die Markenfarben und die definierten Größen angeboten? Sind Blöcke gesperrt, die nicht verschoben werden sollen? Tragen die Vorlagen verständliche Namen? Testen Sie mit echten Inhalten: der längsten Überschrift, einem fehlenden Bild, einer Liste mit einem und mit zwölf Einträgen.\n\n## Wo Details verloren gehen\n\n- nie gezeichnete Zustände: Hover, Fokus, Fehler, leer, lädt\n- echte Inhalte, die länger oder kürzer sind als der Platzhaltertext oder ganz fehlen\n- Abstände nach Augenmaß statt nach System\n- Schriften: Lizenz, Dateiformate, Ersatzschrift, Ladeverhalten\n- Bildformate und die Frage, was bei einem abweichenden Upload geschieht\n- Animationen, die besprochen, aber nicht dokumentiert wurden\n- Barrierefreiheit: Kontrast, Fokusreihenfolge, Überschriftenebenen\n\nDagegen hilft Unspektakuläres: eine kurze Übergabenotiz je Komponente, ein Satz echter Beispieltexte, eine gemeinsame Liste offener Fragen und eine Abnahme im Browser in mehreren Breiten, bevor die Inhalte eingepflegt werden.\n\n## Handarbeit oder KI-gestützte Generierung\n\nKI-Werkzeuge, die eine Figma-Datei lesen, liefern schnell Markup und Stile für einen Abschnitt. Stark sind sie beim Wiederholbaren: Tokens übertragen, Block-Markup entwerfen, Varianten erzeugen. Schwach sind sie genau an den oben genannten Stellen. Sie bilden den sichtbaren Rahmen nach, oft mit festen Pixelwerten, und wissen nicht, welche Felder die Redaktion braucht, was bei langen Texten geschieht oder wie die vorhandenen Blöcke des Themes heißen.\n\nSinnvoll ist diese Aufteilung: Die Generierung liefert den Entwurf, ein Entwickler verantwortet die Struktur, also theme.json, Block-Entscheidungen, Einschränkungen im Editor, Barrierefreiheit und Ladezeit, und prüft jedes generierte Stück nach derselben Liste wie handgeschriebenen Code. Bei sauber aufgebauten Design-Dateien ist die Zeitersparnis spürbar, bei unaufgeräumten gering. Die Bereinigung verschwindet nicht, sie verlagert sich nur.",
+  "personas": [
+    {
+      "key": "marketing_lead",
+      "text": "Sie wissen, was Sie vor Baubeginn einfordern sollten, damit Ihr Team später im Editor neue Seiten im Markendesign anlegt, ohne für jedes Layout einen Entwickler zu brauchen."
+    },
+    {
+      "key": "agency_owner",
+      "text": "Sie erhalten eine Liste der Übergabelücken, die zwischen Designteam und WordPress-Umsetzung Nacharbeit auslösen, und eine realistische Einschätzung, wo KI-Generierung Zeit spart."
+    },
+    {
+      "key": "project_manager",
+      "text": "Aus den Abschnitten lässt sich eine Übergabe-Checkliste ableiten: bereinigte Tokens, bearbeitbare Felder je Komponente, Verhalten zwischen den Breakpoints, Abnahme im Browser."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Muss ein Figma-Design vorbereitet werden, bevor daraus ein WordPress-Theme entsteht?",
+      "a": "In den meisten Fällen ja. Farben, Schriftgrößen und Abstände sollten als benannte Variablen oder Stile vorliegen, wiederkehrende Elemente als Komponenten mit Varianten, und zu jeder Komponente gehört ein Hinweis, was die Redaktion ändern darf. Ohne diese Vorarbeit lässt sich das Design trotzdem umsetzen, nur trifft dann der Entwickler diese Entscheidungen allein."
+    },
+    {
+      "q": "Kann ein KI-Werkzeug aus einer Figma-Datei ein fertiges WordPress-Theme erzeugen?",
+      "a": "Es liefert einen brauchbaren ersten Entwurf für Abschnitte und Stile. Ein fertiges Theme entsteht so nicht, weil die Datei nicht enthält, was ein Theme wissen muss: welche Felder bearbeitbar sind, wie sich Layouts zwischen den gezeichneten Breiten verhalten und was bei langen oder fehlenden Inhalten geschieht. Struktur und Prüfung bleiben Aufgabe eines Entwicklers."
+    },
+    {
+      "q": "Sollte jede Komponente aus dem Design ein eigener Block werden?",
+      "a": "Nein. Einfache Layouts, die die Redaktion umstellen darf, funktionieren gut als Block-Vorlagen aus Standardblöcken und sind günstiger in Bau und Pflege. Ein eigener Block lohnt sich, wenn die Struktur fest bleiben muss, nur einzelne Felder bearbeitbar sein sollen oder das Element Daten einbindet, etwa aktuelle Beiträge oder Termine."
+    }
+  ],
+  "meta_description": "Von Figma zu WordPress ohne Detailverlust: Design-Tokens, Blöcke, responsives Verhalten, Editor und der sinnvolle Einsatz von KI.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.481Z",
+  "updated_at": "2026-10-01T18:58:05.133Z"
+}

@@ -12,7 +12,17 @@ jQuery(window).on('load', function() {
     initHeader();
     initActiveNav();
     initGA4Tracking();
+    initLangSwitch();
 });
+
+// Points the header language link at the same page in the other language.
+// German pages live under /de/ with the same path.
+function initLangSwitch() {
+    $('.lang-switch a').not('[data-lang-fixed]').each(function() {
+        var path = window.location.pathname;
+        this.href = /^\/de(\/|$)/.test(path) ? (path.replace(/^\/de/, '') || '/') : '/de' + path;
+    });
+}
 
 
 function animateOnScroll() {

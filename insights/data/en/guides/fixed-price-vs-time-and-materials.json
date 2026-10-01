@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "fixed-price-vs-time-and-materials",
+  "entity_b": "",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "How to choose the contract model for a web project by asking who carries the risk and how changes are paid for.",
+  "overview": "The contract model decides who carries the risk of what nobody knows yet. With a fixed price the provider carries the estimating risk, adds a buffer for it and has a reason to defend the agreed scope. With time and materials you pay for the hours actually worked, carry the cost risk yourself and gain the freedom to change direction. Which one fits depends on how well the work can be described in advance.\n\n## When a fixed price works\n\nA fixed price fits when both sides could later agree, without discussion, whether the work is done.\n\n- The scope is known and unlikely to change during the project\n- There are written requirements with acceptance criteria\n- Few external dependencies exist, or they are documented\n- The project is short enough that the market and your plans will not shift in the meantime\n\nTypical cases are a company website with defined page types, a migration with a complete inventory, or an integration with a well-documented interface. The offer should contain the specification, a list of exclusions, the assumptions made, the number of feedback rounds, your own duties such as delivering content by a date, and the acceptance procedure.\n\nAn illustration with invented numbers: a provider estimates 200 hours and quotes a fixed price based on 240 to cover uncertainty. If the work takes 190 hours, you paid for risk that did not occur. If it takes 280, the provider loses 40 hours and will look for ways to limit the work.\n\n## When time and materials is safer\n\nIf the scope cannot be described reliably, a fixed price is a number without a basis. This applies to a new product whose features will change after first user feedback, to legacy code nobody has examined, to integrations with poorly documented systems and to ongoing development after launch.\n\nTime and materials needs its own safeguards:\n\n- A budget ceiling per phase that may not be exceeded without your approval\n- Short billing intervals with itemised time records\n- A prioritised task list, with an estimate for each larger task before work begins\n- A demonstration of working results at regular intervals\n- The right to pause or stop at the end of each interval\n\n## Hybrid models\n\nMany projects are best served by a combination.\n\n- A paid discovery phase at a fixed price that produces the specification and a reliable estimate, followed by a fixed price for the build\n- Fixed prices per milestone or work package instead of one price for everything\n- Time and materials with a ceiling\n- A fixed price for the well-understood core and time and materials for the uncertain parts, such as an integration with an old system\n- A monthly allowance of hours for further development after launch\n\n## How scope changes are handled\n\nIn a fixed-price contract every change needs a defined procedure: a written description, its effect on price and deadline, and your approval before work starts. A swap is often possible, where a new requirement replaces a planned one of similar size. Without a procedure, changes are either absorbed silently at the expense of quality or lead to a dispute at acceptance.\n\nWith time and materials a change is a reordering of the task list. It causes no negotiation, but it uses budget, and many small additions add up unnoticed. Someone on your side must decide what gets in and what waits, and must look at the consumed budget every time.\n\n## Questions that lead to the decision\n\n- Can you write down what finished means for each feature?\n- How likely is it that requirements change during the project?\n- Does the work depend on systems or people outside the provider's control?\n- Do you have a hard budget limit, or is flexibility worth more to you?\n- Do you have time to prioritise and review every one or two weeks?\n\nA clear yes to the first question and a hard budget limit point to a fixed price; likely changes or outside dependencies point to time and materials or a hybrid. The contract type can also affect acceptance and warranty, so have a lawyer review the agreement.",
+  "personas": [
+    {
+      "key": "founder",
+      "text": "You can decide which pricing model suits your project stage and know which safeguards to ask for, such as a budget ceiling or a paid discovery phase, before you sign."
+    },
+    {
+      "key": "procurement",
+      "text": "You see what a fixed-price offer must contain to be comparable: specification, exclusions, assumptions, feedback rounds, acceptance procedure and the rules for change requests."
+    },
+    {
+      "key": "project_manager",
+      "text": "You get a workable procedure for scope changes in both models: written change requests with effect on price and deadline, or reprioritisation with a regular look at consumed budget."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Is a fixed price always the cheaper option for the client?",
+      "a": "No. A fixed price contains a buffer for the provider's estimating risk, and you pay it whether or not the risk occurs. It gives you cost certainty, not the lowest cost. With a clear, stable scope that certainty is worth it. With an unclear scope the buffer grows, or the changes that follow are billed separately, and the total can end up higher than with time and materials."
+    },
+    {
+      "q": "How do I keep costs under control with time and materials?",
+      "a": "Agree a budget ceiling per phase that cannot be exceeded without your written approval, ask for itemised time records at short intervals and request an estimate for each larger task before it starts. Review working results regularly and keep the right to pause at the end of each interval. Name one person on your side who decides on priorities."
+    },
+    {
+      "q": "What happens when requirements change in a fixed-price project?",
+      "a": "A change goes through the procedure agreed in the contract: it is described in writing, the provider states the effect on price and deadline, and work begins only after your approval. Sometimes a new requirement can replace a planned one of similar size without changing the price. If no procedure was agreed, settle one before the first change is implemented."
+    }
+  ],
+  "meta_description": "Fixed Price vs Time and Materials: when each contract model fits a web project, which hybrids exist and how scope changes are paid.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.506Z",
+  "updated_at": "2026-10-01T18:58:05.144Z"
+}

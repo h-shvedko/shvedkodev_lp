@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+<link rel="shortcut icon" href="/images/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="ShvedkoDev" />
+<link rel="manifest" href="/site.webmanifest" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+<link href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.min.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="/js/jquery.main.js"></script>
+<link rel="preconnect" href="//fonts.googleapis.com">
+<link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+
+<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css'>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jQuery-viewport-checker/1.8.8/jquery.viewportchecker.min.js" integrity="sha512-FRX6MYITclzDyyMmSQLgZoZTfE+GLzAQpjs15adVZMY6AqhsrBLx8UZwp4FoqrrRFWY9TiaPwja7EY5fk309vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
+
+<link href="//fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500;700&family=Saira+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+    // Google Analytics loads only after the visitor accepts cookies in the banner (footer partial).
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    function loadAnalytics() {
+        if (window.analyticsLoaded) return;
+        window.analyticsLoaded = true;
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-FY5NWV7102';
+        document.head.appendChild(script);
+        gtag('js', new Date());
+        gtag('config', 'G-FY5NWV7102');
+    }
+    try {
+        if (localStorage.getItem('cookieConsent') === 'accepted') loadAnalytics();
+    } catch (e) {}
+</script>
+<title>Requirements Specification Example · ShvedkoDev</title>
+<meta name="description" content="Requirements Specification Example for a small web application: context, functional and non-functional requirements, acceptance criteria.">
+<link rel="canonical" href="https://shvedko.dev/insights/examples/requirements-specification/">
+<link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/examples/requirements-specification/">
+<link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/examples/requirements-specification/">
+<link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/examples/requirements-specification/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How long should a requirements specification for a small web application be?","acceptedAnswer":{"@type":"Answer","text":"Five to ten pages are usually enough. Length is not the measure. What matters is that every requirement has a number, describes one behaviour, carries a priority and can be checked at acceptance. A short document with twenty testable requirements is worth more than forty pages of description."}},{"@type":"Question","name":"What is the difference between a Lastenheft and a Pflichtenheft?","acceptedAnswer":{"@type":"Answer","text":"The Lastenheft is written by the client and states what is needed and why. The Pflichtenheft is written by the supplier and states how the requirements will be implemented. In small projects the second document is often replaced by a detailed proposal that refers to the requirement numbers."}},{"@type":"Question","name":"Do I have to specify the technology in the requirements specification?","acceptedAnswer":{"@type":"Answer","text":"No. Describe the results and name only real constraints, for example an existing system the application has to connect to, a required hosting location or a platform your team already maintains. The choice of framework and architecture is part of the supplier's answer, and you can ask them to justify it."}}]}</script>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+<header id="header">
+    <div class="container">
+        <div class="logo">
+            <a href="/"><img src="/images/Logo.png" alt=""></a>
+        </div>
+        <input type="checkbox" id="burger-trigger" class="burger-trigger">
+        <label class="nav-opener" for="burger-trigger">Menu</label>
+        <div class="menu-holder">
+            <nav>
+                <ul id="nav" class="nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about/">About us</a></li>
+                    <li><a href="/services/">Services</a></li>
+                    <li><a href="/portfolio/">Portfolio</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/insights/">Insights</a></li>
+                    <li><a href="/contact/">Contact</a></li>
+                    <li class="lang-switch"><a href="/de/insights/examples/requirements-specification/" hreflang="de" lang="de" title="Deutsch" data-lang-fixed><img src="/images/flag-de.svg" alt="Deutsch" width="24" height="16"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+        <main role="main" id="main" class="insight-main">
+            <div class="container">
+<div class="insight">
+<aside class="insight__aside"><nav class="insight__nav" aria-label="Sections"><h2>Sections</h2><ul><li><a href="/insights/">All pages</a></li><li><a href="/insights/guides/">Guides</a></li><li><a href="/insights/examples/" aria-current="page">Examples</a></li><li><a href="/insights/services/">Services by industry</a></li><li><a href="/insights/products/">Products</a></li></ul></nav><nav class="insight__toc" aria-label="On this page"><h2>On this page</h2><ol><li><a href="#overview">Overview</a></li><li><a href="#example">Example</a></li><li><a href="#personas">Who this is for</a></li><li><a href="#faq">Questions and answers</a></li><li><a href="#related">Related pages</a></li></ol></nav></aside>
+<article class="insight__body">
+<header class="insight__header">
+<p class="insight__crumbs"><a href="/insights/">Insights</a> / <a href="/insights/examples/">Examples</a></p>
+<h1>Requirements Specification Example</h1>
+<p class="insight__subtitle">A complete, fictional requirements specification for a small booking application that you can adapt section by section for your own project.</p>
+</header>
+<section class="insight__section" id="overview"><h2><span class="insight__num">1</span> Overview</h2><p>A requirements specification describes what a web application has to do, written from the point of view of the organisation that commissions it. In German-speaking projects it is called the Lastenheft. The client writes it, and the supplier answers with a proposal or a functional specification (Pflichtenheft) that explains how each requirement will be met. The document is the basis for comparable quotes, for the contract and, at the end, for deciding whether the delivered application is accepted.</p>
+<p>For a small web application the document does not need to be long. Five to ten pages are usually enough, as long as every requirement can be checked.</p>
+<h3>What the document must contain</h3>
+<ul><li>Context: who you are, how the work is done today, and what goes wrong. A developer who understands the problem will propose better solutions than one who only receives a feature list.</li><li>Goals: the few results the application must achieve, stated so that you can tell later whether they were reached.</li><li>Users and roles: who uses the application, how often, on which devices, and what each role may see and change.</li><li>Functional requirements: what the application does. Give every requirement its own number and describe one behaviour per number.</li><li>Non-functional requirements: how well it does it. Loading time, supported browsers, accessibility, data protection, backups, hosting location, languages.</li><li>Out of scope: what is deliberately not part of this project. This section prevents more disputes than any other.</li><li>Acceptance criteria: the concrete checks that decide whether the work is finished.</li><li>Open questions: everything you have not decided yet, with the name of the person who will decide.</li></ul>
+<h3>How to write a requirement</h3>
+<p>Describe the result, not the technology. &quot;A customer can cancel a booking up to 24 hours before pick-up without calling us&quot; is a requirement. &quot;Use a React calendar component&quot; is a solution, and it removes the supplier's freedom to suggest something cheaper or more robust. Exceptions are real constraints, such as an existing accounting system that the application must exchange data with. State those as constraints and say why they exist.</p>
+<p>Mark the priority of each requirement. Three levels are enough: must, should, could. When the quote is higher than your budget, the priorities tell both sides where to cut without endangering the purpose of the project.</p>
+<h3>Common mistakes</h3>
+<ul><li>Adjectives instead of measures. &quot;Fast&quot;, &quot;modern&quot; and &quot;user-friendly&quot; cannot be tested. Write what a user must be able to do and how long it may take.</li><li>Missing roles and permissions. Who may delete a record, who may see prices, and who may export customer data are questions that become expensive when they appear during development.</li><li>No statement about existing data. If customer lists, products or old bookings have to be imported, say how many records there are and in what form.</li><li>Forgetting the unhappy paths. What happens when a payment fails, an item is double-booked or an e-mail cannot be delivered?</li><li>Acceptance criteria that only repeat the requirements. A criterion names a situation, an action and the expected result.</li><li>Treating the document as final. Requirements change once people see a first version. Agree in advance how changes are requested, estimated and approved.</li></ul>
+<h3>How to use the example</h3>
+<p>Copy the structure and replace the content. Keep the numbering, because it lets you refer to a requirement in quotes, in meetings and in the acceptance record. If personal data is processed, involve your data protection officer early; questions of contract law and liability belong with a lawyer, not in a template.</p></section>
+<section class="insight__section" id="example"><h2><span class="insight__num">2</span> Example</h2><div class="insight__example"><p>The following requirements specification is entirely invented. Brackenfold Tool Hire, the people named and all figures are fictional and serve only to show the structure and level of detail.</p>
+<p>Requirements Specification: Online Booking for Brackenfold Tool Hire<br>Version 1.0, prepared by Imogen Tarrant (Operations Manager)</p>
+<h3>1. Context</h3>
+<p>Brackenfold Tool Hire rents out construction and garden equipment from two depots. We have 14 employees and around 380 hire items. Bookings are taken by phone and e-mail and entered into a shared spreadsheet. In the last season we counted 37 double bookings, and staff spend roughly two hours a day answering availability questions.</p>
+<h3>2. Goals</h3>
+<ul><li>Customers can check availability and book online without calling us.</li><li>Double bookings no longer occur.</li><li>Phone time spent on availability questions drops by at least half within six months of launch.</li></ul>
+<h3>3. Users and roles</h3>
+<ul><li>Customer: private or trade, mostly on a phone, books a few times a year.</li><li>Depot staff (8 people): confirm handover and return, record damage.</li><li>Administrator (2 people): maintain items, prices and user accounts.</li></ul>
+<h3>4. Functional requirements</h3>
+<ul><li>F-01 (must): A customer can search items by category and see availability for a chosen date range and depot.</li><li>F-02 (must): A customer can book one or more items and receives a confirmation by e-mail.</li><li>F-03 (must): The system prevents an item from being booked twice for overlapping periods.</li><li>F-04 (must): A customer can cancel free of charge up to 24 hours before pick-up.</li><li>F-05 (must): Depot staff can mark an item as handed over, returned or in repair.</li><li>F-06 (should): Trade customers can log in and see their past bookings and invoices.</li><li>F-07 (should): The deposit is paid online by card at the time of booking.</li><li>F-08 (could): Customers receive a reminder by e-mail the day before return.</li></ul>
+<h3>5. Non-functional requirements</h3>
+<ul><li>N-01: The availability search shows results within 2 seconds on a normal mobile connection.</li><li>N-02: The application works on current versions of Chrome, Safari, Firefox and Edge, on phones and desktops.</li><li>N-03: Personal data is stored on servers within the EU; a daily backup is kept for 30 days.</li><li>N-04: Customer-facing pages meet WCAG 2.1 level AA.</li><li>N-05: Administrators can change items and prices without help from a developer.</li></ul>
+<h3>6. Out of scope</h3>
+<ul><li>Delivery route planning.</li><li>Integration with the accounting software (planned for a later phase).</li><li>A native mobile app.</li></ul>
+<h3>7. Existing data</h3>
+<p>About 380 items and 1,150 customer records exist as spreadsheets and must be imported once.</p>
+<h3>8. Acceptance criteria</h3>
+<ul><li>A-01: Two test users try to book the same item for overlapping dates at the same time; exactly one booking succeeds and the other user sees a clear message.</li><li>A-02: A test customer completes a booking on a phone in under 3 minutes without assistance.</li><li>A-03: A cancellation 25 hours before pick-up is accepted; one 23 hours before is refused with an explanation.</li><li>A-04: All 380 items are imported with correct category, depot and daily rate, checked on a sample of 40.</li><li>A-05: An administrator changes a price and the new price appears in the search immediately.</li></ul>
+<h3>9. Open questions</h3>
+<ul><li>Which payment provider is used for deposits? Decision: Callum Reddish (Finance), by 15 March.</li><li>Do trade customers get individual price lists? Decision: Imogen Tarrant, by 22 March.</li></ul></div></section>
+<section class="insight__section" id="personas"><h2><span class="insight__num">3</span> Who this is for</h2><div class="insight__personas"><div class="insight__persona"><h3>Founder</h3><p>You see how to turn an idea for an internal tool or customer portal into a document that developers can quote on, without having to decide on technology yourself.</p></div><div class="insight__persona"><h3>Project manager</h3><p>You get a numbered structure with priorities and testable acceptance criteria that carries through from the request for quotes to the final acceptance meeting.</p></div><div class="insight__persona"><h3>Procurement lead</h3><p>You receive a format that makes quotes from several suppliers comparable, because each one has to answer the same numbered requirements and state what is excluded.</p></div></div></section>
+<section class="insight__section" id="faq"><h2><span class="insight__num">4</span> Questions and answers</h2><h3>How long should a requirements specification for a small web application be?</h3><p>Five to ten pages are usually enough. Length is not the measure. What matters is that every requirement has a number, describes one behaviour, carries a priority and can be checked at acceptance. A short document with twenty testable requirements is worth more than forty pages of description.</p><h3>What is the difference between a Lastenheft and a Pflichtenheft?</h3><p>The Lastenheft is written by the client and states what is needed and why. The Pflichtenheft is written by the supplier and states how the requirements will be implemented. In small projects the second document is often replaced by a detailed proposal that refers to the requirement numbers.</p><h3>Do I have to specify the technology in the requirements specification?</h3><p>No. Describe the results and name only real constraints, for example an existing system the application has to connect to, a required hosting location or a platform your team already maintains. The choice of framework and architecture is part of the supplier's answer, and you can ask them to justify it.</p></section>
+<section class="insight__section" id="related"><h2><span class="insight__num">5</span> Related pages</h2><ul class="insight-list"><li><a href="/insights/examples/acceptance-test-plan/">Acceptance Test Plan Example</a><p>A worked plan with test cases, roles and sign-off rules that shows how a client checks a web project before approving it.</p></li><li><a href="/insights/examples/maintenance-sla/">Maintenance SLA Example</a><p>See how a website maintenance agreement defines priorities, response times and exclusions so that both sides can check what was promised.</p></li><li><a href="/insights/examples/user-story/">User Story Example</a><p>Six finished user stories with acceptance criteria for one feature, showing how to write requirements a developer can estimate and you can test.</p></li><li><a href="/insights/examples/web-development-rfp/">Web Development RFP Example</a><p>A filled-in request for proposal that gets you comparable offers from several web development providers instead of five different guesses.</p></li><li><a href="/insights/examples/web-project-brief/">Web Project Brief Example</a><p>A one-page fictional brief with goals, audience, scope, budget frame and timeline that you can rewrite for your own website project.</p></li></ul></section>
+<section class="insight__cta"><h2>Planning a project like this?</h2><p>Tell us what you are building. You get a straight answer on scope, approach and effort.</p><p><a href="/contact/" class="button">Get in touch</a></p></section>
+<footer class="insight__note"><p>The example on this page is invented for illustration. The company, people and figures are fictional.</p><p>Updated: <time datetime="2026-10-01">2026-10-01</time></p></footer>
+</article>
+</div>
+            </div>
+        </main>
+<div id="footer">
+    <div class="container">
+        <div class="row-holder">
+            <div class="col-4 m-order-1">
+                <div class="logotype">
+                    <a href="/"><img src="/images/Logo.png" alt=""></a>
+                </div>
+                <ul class="contacts-list">
+                    <li><a href="/imprint/" style="width: 100px;display: block;">Imprint</a></li>
+                    <li><a href="/data-protection/" style="width: 200px;display: block;"> Data Protection</a></li>
+                    <li><a href="/insights/" style="width: 100px;display: block;">Insights</a></li>
+                </ul>
+            </div>
+            <div class="col-4 m-order-3">
+                <h3>Contact</h3>
+                <ul class="contacts-list">
+                    <li>
+                        <i class="icon icon-location2"></i>
+                        <address>Göttingen, Germany</address>
+                    </li>
+                    <li>
+                        <i class="icon icon-mail"></i>
+                        <a href="mailto:info@shvedko.dev">info@shvedko.dev</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-4 m-order-1">
+                <h3>Follow us:</h3>
+                <ul class="social-network">
+                    <li class="col">
+                        <a href="https://www.facebook.com/people/ShvedkoDev/61574820107319/" target="_blank" class="link-social-network"> <i class="icon icon-facebook1"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://x.com/ShvedkoDev" target="_blank" class="link-social-network"> <i class="icon icon-xtwitter"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://www.upwork.com/agencies/1749148191404584960/" target="_blank" class="link-social-network"> <i class="icon icon-upwork"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://www.linkedin.com/company/shvedkodev/" target="_blank" class="link-social-network"> <i class="icon icon-linkedin-square"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://www.instagram.com/shvedkodev/" target="_blank" class="link-social-network"> <i class="icon icon-instagram"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<footer class="copy">
+    <div class="container">
+        <p>&copy; ShvedkoDev 2026. All Rights Reserved.</p>
+    </div>
+</footer>
+<!-- Cookie Banner -->
+<div id="cookie-banner" style="
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #222;
+  color: #fff;
+  padding: 16px;
+  text-align: center;
+  font-size: 14px;
+  z-index: 1000;">
+    This website uses cookies for statistics, and only with your consent.
+    <a href="/data-protection/" style="color: #4caf50; text-decoration: underline; margin-left: 8px;" target="_blank">
+        Learn more
+    </a>
+    <button id="cookie-accept" style="
+    margin-left: 16px;
+    background: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;">
+        Accept
+    </button>
+    <button id="cookie-decline" style="
+    margin-left: 8px;
+    background: transparent;
+    color: white;
+    border: 1px solid #888;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;">
+        Decline
+    </button>
+</div>
+
+<script>
+    // The banner stays until the visitor decides. Analytics starts only on "accept".
+    (function () {
+        var banner = document.getElementById('cookie-banner');
+        var choice = null;
+        try { choice = localStorage.getItem('cookieConsent'); } catch (e) {}
+        if (choice) banner.style.display = 'none';
+        function decide(value) {
+            try { localStorage.setItem('cookieConsent', value); } catch (e) {}
+            banner.style.display = 'none';
+            if (value === 'accepted') loadAnalytics();
+        }
+        document.getElementById('cookie-accept').addEventListener('click', function () { decide('accepted'); });
+        document.getElementById('cookie-decline').addEventListener('click', function () { decide('declined'); });
+    })();
+</script>
+
+</body>
+</html>

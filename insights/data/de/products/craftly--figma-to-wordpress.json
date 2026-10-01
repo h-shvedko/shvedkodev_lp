@@ -1,0 +1,41 @@
+{
+  "axis": "products",
+  "entity_a": "craftly",
+  "entity_b": "figma-to-wordpress",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "So bereiten Sie eine Figma-Datei für ein WordPress-Theme vor, ergänzen, was das Design offen lässt, und prüfen das Ergebnis.",
+  "overview": "Ein Figma-Entwurf legt fest, wie eine Website aussehen soll. Ein WordPress-Theme muss darüber hinaus wissen, was sich bearbeiten lässt, was sich wiederholt und was bei Fensterbreiten geschieht, die niemand gezeichnet hat. Craftly kann von einem Figma-Design ausgehen und daraus den PHP-Code eines Themes schreiben. Wie nah das Ergebnis am Entwurf liegt, hängt stark vom Zustand der Datei ab und von dem, was Sie im Gespräch ergänzen.\n\n## Die Datei vorbereiten\n\nRäumen Sie die Datei auf, bevor Sie sie übergeben. Einem menschlichen Entwickler würden dieselben Punkte helfen.\n\n- Verwenden Sie Farb- und Textstile durchgehend. Zehn leicht verschiedene Grautöne werfen die Frage auf, welche gemeint sind.\n- Legen Sie wiederkehrende Elemente wie Schaltflächen, Karten und Kopfbereich als Komponenten an, nicht als Kopien.\n- Benennen Sie Rahmen und Ebenen sinnvoll. „Frame 212“ sagt niemandem etwas.\n- Zeichnen Sie jeden Seitentyp mindestens in einer Smartphone- und einer Desktop-Breite.\n- Zeichnen Sie die Zustände mit: geöffnetes mobiles Menü, Mauszeiger über einem Element, Formular mit Fehler, Suche ohne Treffer.\n- Setzen Sie realistische Inhalte ein. Aus der Überschrift mit drei Wörtern werden im Betrieb zwölf.\n- Löschen Sie verworfene Entwürfe oder kennzeichnen Sie eindeutig, welche Rahmen gelten.\n\n## Sagen, was der Entwurf nicht zeigt\n\nErgänzen Sie im Gespräch mit Craftly:\n\n- welche Bereiche die Redaktion in WordPress ändert und welche fest sind,\n- welche Abschnitte wachsende Listen sind, etwa Beiträge, Referenzen oder Teammitglieder, und wie ein einzelner Eintrag aufgebaut ist,\n- wohin Schaltflächen und Links führen,\n- was zwischen den gezeichneten Breiten geschehen soll, zum Beispiel ob aus drei Spalten zwei werden oder eine,\n- welche Seitentypen es über die gezeichneten hinaus gibt: Fehlerseite, Suchergebnisse, Rechtstexte.\n\n## Was Sie erhalten\n\nDas Ergebnis ist ein WordPress-Theme als gewöhnlicher PHP-Code, den der Eigentümer behalten und bearbeiten kann, kein Layout in einem Baukasten. Abweichungen vom Entwurf werden deshalb im Code behoben: über eine genauere Beschreibung oder durch eine Entwicklerin oder einen Entwickler.\n\n## Prüfliste für das Ergebnis\n\nAussehen\n\n- Legen Sie Entwurf und Seite in den gezeichneten Breiten nebeneinander. Vergleichen Sie Abstände, Schriftgrößen und Farben.\n- Ziehen Sie das Browserfenster langsam von schmal nach breit und achten Sie auf Stellen, an denen sich etwas überlagert oder umbricht.\n- Prüfen Sie die Schriften: richtige Familie, richtige Schnitte, auf jeder Seite geladen.\n\nVerhalten mit echten Inhalten\n\n- Geben Sie lange und kurze Überschriften ein, Einträge ohne Bild, eine Liste mit einem und eine mit dreißig Einträgen. Die Zahlen dienen nur der Veranschaulichung; nehmen Sie, was für Ihre Website ein Extremfall ist.\n- Öffnen Sie das Menü auf dem Smartphone und navigieren Sie damit.\n- Senden Sie jedes Formular einmal richtig und einmal fehlerhaft ab.\n\nBearbeitung\n\n- Lassen Sie eine Redakteurin oder einen Redakteur in jedem Abschnitt Text und Bild ändern. Was sich entgegen Ihrer Vorgabe nicht ändern lässt, kommt auf die Liste.\n- Prüfen Sie, ob sich das Layout bei normaler Bedienung zerstören lässt.\n\nQualität unter der Oberfläche\n\n- Bedienen Sie die Seite nur mit der Tastatur. Prüfen Sie Alternativtexte der Bilder und den Kontrast der Schrift.\n- Sehen Sie sich die Dateigrößen der Bilder an und wie schnell sich Seiten im Mobilfunknetz aufbauen.\n- Lassen Sie den Code lesen: Ist er so gegliedert, dass eine spätere Änderung an einem Abschnitt dort bleibt?\n\n## Mit Abweichungen umgehen\n\nHalten Sie jede Abweichung in derselben Form fest: Seite, Abschnitt, Fensterbreite, Soll laut Entwurf, Ist im Theme. Eine solche Liste lässt sich abarbeiten, im weiteren Gespräch oder durch die Entwicklung. Mit dem Satz „sieht nicht aus wie im Design“ kann niemand arbeiten.\n\nLegen Sie außerdem fest, was überhaupt als Abweichung gilt. Ein Entwurf steht in festen Breiten, eine Website ist fließend. Stimmen Sie vorab mit der Gestaltung ab, welche Unterschiede in Ordnung sind.\n\nUnterstützte Figma-Funktionen, Preise und Auslieferung finden Sie auf der Produktseite von Craftly.",
+  "personas": [
+    {
+      "key": "project_manager",
+      "text": "Sie erhalten eine Vorbereitungsliste für die Design-Datei und eine Abnahmeliste für das Theme. Die Übergabe zwischen Gestaltung, Generierung und Prüfung folgt damit festen Punkten statt Eindrücken."
+    },
+    {
+      "key": "agency_owner",
+      "text": "Sie können abschätzen, wohin sich der Aufwand verschiebt: weniger Nachbau von Hand, mehr Vorbereitung der Datei und geordnete Prüfung, dazu Entwicklungsstunden für die Abweichungen, die bleiben."
+    },
+    {
+      "key": "developer",
+      "text": "Sie sehen, welche Lücken eine Figma-Datei üblicherweise lässt, von bearbeitbaren Bereichen bis zu Zwischenbreiten, und was Sie an einem generierten Theme prüfen, bevor Sie den Code verantworten."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Muss ich meine Figma-Datei für Craftly besonders vorbereiten?",
+      "a": "Ein besonderes Format ist hier nicht beschrieben, aber eine aufgeräumte Datei führt zu einem besseren Ergebnis: durchgehende Farb- und Textstile, Komponenten statt Kopien, benannte Ebenen, jeder Seitentyp in Smartphone- und Desktop-Breite, gezeichnete Zustände wie das geöffnete Menü und realistische Inhalte. Weitere Anforderungen stehen auf der Produktseite von Craftly."
+    },
+    {
+      "q": "Sieht das erzeugte WordPress-Theme genau so aus wie mein Figma-Design?",
+      "a": "Gehen Sie nicht davon aus, sondern prüfen Sie es. Ein Entwurf steht in wenigen festen Breiten, eine Website muss in jeder Breite und mit Inhalten jeder Länge funktionieren. Vergleichen Sie beides nebeneinander, testen Sie die Zwischenbreiten und halten Sie Abweichungen mit Seite, Abschnitt und Breite fest. Sie werden dann im Code behoben."
+    },
+    {
+      "q": "Welche Angaben fehlen in einem Figma-Design für ein WordPress-Theme?",
+      "a": "Welche Inhalte die Redaktion ändern darf, welche Abschnitte wachsende Listen sind, wohin Links führen, wie sich das Layout zwischen den gezeichneten Breiten verhält und welche Seiten niemand gezeichnet hat, etwa Fehlerseite oder Suchergebnisse. Sagen Sie das im Gespräch, sonst muss es geraten werden."
+    }
+  ],
+  "meta_description": "Craftly: von Figma zu WordPress. Die Design-Datei vorbereiten, Lücken des Entwurfs benennen und das erzeugte Theme Punkt für Punkt prüfen.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.607Z",
+  "updated_at": "2026-10-01T18:58:05.138Z"
+}

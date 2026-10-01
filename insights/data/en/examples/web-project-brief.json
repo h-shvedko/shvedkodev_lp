@@ -1,0 +1,41 @@
+{
+  "axis": "examples",
+  "entity_a": "web-project-brief",
+  "entity_b": "",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "A one-page fictional brief with goals, audience, scope, budget frame and timeline that you can rewrite for your own website project.",
+  "overview": "A web project brief is the short document you send to a developer or agency before anyone writes a quote. It fits on one or two pages and answers the questions every supplier will ask in the first call anyway: what you want to achieve, for whom, how much is to be built, what is fixed, how much you can spend and by when it has to be live. It is not a specification. Its job is to let a developer judge within ten minutes whether the project suits them and to give you answers that can be compared.\n\n## What a brief must contain\n\n- About you: two or three sentences on what your organisation does and who is responsible for the project.\n- Why now: the reason for the project. An outdated design, a system nobody can maintain, a new service, too few enquiries.\n- Goals: what should be different after launch, ideally with a figure you already measure today.\n- Audience: who visits the site, what they are looking for and on which device.\n- Scope: the pages, functions and languages you expect, split into what is required and what would be nice to have.\n- Constraints: things that are fixed, such as an existing brand, a booking tool, a domain, legal texts or a system your team already knows.\n- Content: who supplies texts and photos. This is the most frequent cause of delays.\n- Budget frame: a range, not a single number.\n- Timeline: the desired launch date and the reason behind it.\n- Process: who decides, how many suppliers you are asking, and by when you want an answer.\n\n## Why the budget belongs in the brief\n\nMany clients leave the budget out because they fear every quote will then land exactly on that figure. In practice the opposite problem is more common: without a frame, one supplier quotes a template site and another a custom build, and the two cannot be compared. A range tells suppliers which kind of solution to propose. If you truly have no idea, say so and ask for a small, a medium and a large option.\n\n## Common mistakes\n\n- Describing the solution instead of the goal. \"We need a slider on the home page\" hides the actual wish, which may be to show three services at a glance.\n- A goal nobody can check. \"A more modern presence\" is a taste. \"Twice as many quote requests through the site\" is a goal.\n- Listing every wish at the same priority. Mark what is required for launch and what can follow later.\n- Forgetting the time after launch. Say who will edit content and whether you expect maintenance, hosting and support from the same supplier.\n- No decision-maker named. If three people have to agree, suppliers will plan more feedback rounds, and that affects price and timeline.\n- Sending a list of websites you like without saying what you like about them.\n\n## How to use the example\n\nReplace the content with your own and keep each section short. If you cannot fill a section, write that it is open; an honest gap is more useful than a guess. Send the same brief to every supplier and ask them to state what is not included in their price. For a larger web application, the brief is the first step and a requirements specification follows once you have chosen a partner. The figures in the example are invented for illustration and are not a price guide.",
+  "personas": [
+    {
+      "key": "founder",
+      "text": "You get a short structure for describing your website project so that developers can answer with a realistic quote instead of a long list of counter-questions."
+    },
+    {
+      "key": "marketing_lead",
+      "text": "You see how to phrase goals, audience and content responsibilities in a way that ties the relaunch to enquiries and not only to a new look."
+    },
+    {
+      "key": "agency_owner",
+      "text": "You can hand this example to clients who arrive with a one-line request, and receive the information you need for an estimate before the first meeting."
+    }
+  ],
+  "faq": [
+    {
+      "q": "How long should a web project brief be?",
+      "a": "One to two pages. The brief should be readable in ten minutes and cover goals, audience, scope, constraints, budget frame and timeline. Details such as exact page layouts or field lists do not belong here; they are worked out with the supplier you choose."
+    },
+    {
+      "q": "Should I really state my budget in the brief?",
+      "a": "Yes, as a range. Without it, suppliers guess the size of solution you expect and their quotes cannot be compared. A range does not oblige you to spend the upper figure. You can also ask for the price to be split into required and optional parts so you can see what each part costs."
+    },
+    {
+      "q": "What is the difference between a project brief and a requirements specification?",
+      "a": "The brief is a short overview for the first contact and for rough quotes. A requirements specification is longer, numbers every requirement and defines acceptance criteria; it is the basis for a contract. A simple company website often needs only a brief, while a web application needs both."
+    }
+  ],
+  "meta_description": "Web Project Brief Example with goals, audience, scope, constraints, budget frame and timeline, ready to adapt before you ask for quotes.",
+  "example_body": "This brief is entirely invented. Pellwick Stair & Joinery, the people named and all figures, including the budget, are fictional and only illustrate the level of detail a developer needs.\n\nProject Brief: New Website for Pellwick Stair & Joinery\nSent by Rosalind Achterberg, Managing Director\n\n## About us\n\nPellwick Stair & Joinery designs and builds bespoke wooden staircases for private homes and small developers. We are a workshop of 9 people and complete around 60 staircases a year. I am responsible for this project and make the final decisions together with our workshop lead, Desmond Kiley.\n\n## Why now\n\nOur current site is seven years old, is hard to read on a phone and can only be edited by the person who built it, who is no longer available. We receive about 6 enquiries a month through the site, and most of them lack the information we need to quote.\n\n## Goals\n\n- Raise qualified enquiries through the site from about 6 to 12 a month within a year of launch.\n- Receive each enquiry with floor height, staircase type and rough budget, so we can answer without a first phone call.\n- Be able to add new projects to the portfolio ourselves.\n\n## Audience\n\n- Homeowners planning a renovation, usually browsing on a phone in the evening, looking for photos and a price indication.\n- Architects and small developers, on a desktop, looking for technical details and lead times.\n\n## Scope\n\nRequired for launch:\n- Home, About, Process, Contact.\n- Portfolio with about 25 projects, filterable by staircase type.\n- A guided enquiry form with photo upload.\n- English only.\n\nNice to have, can follow later:\n- A rough price estimator.\n- A downloads area with technical data sheets for architects.\n\n## Constraints\n\n- Logo, colours and typeface exist and stay as they are.\n- The domain stays; existing addresses of important pages must redirect correctly.\n- We want to edit texts and projects without a developer.\n- Enquiries must arrive in our shared mailbox.\n\n## Content\n\nWe supply all texts by the end of week 3. Professional photos exist for 18 projects; 7 more will be photographed in May.\n\n## Budget frame\n\nBetween 9,000 and 14,000 pounds for design, build and launch. Please show required and nice-to-have items separately, and state monthly costs for hosting and maintenance.\n\n## Timeline\n\nLaunch by 1 September, before our autumn trade fair on 19 September. We can give feedback within three working days.\n\n## Process\n\nWe are asking three suppliers. Please send a rough quote and two comparable projects by 28 April. We will decide by 9 May.",
+  "generated_at": "2026-10-01T15:01:27.216Z",
+  "updated_at": "2026-10-01T18:58:05.143Z"
+}

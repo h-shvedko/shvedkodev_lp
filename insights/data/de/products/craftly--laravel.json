@@ -1,0 +1,41 @@
+{
+  "axis": "products",
+  "entity_a": "craftly",
+  "entity_b": "laravel",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Was Sie für eine Laravel-Anwendung beschreiben müssen, was Sie als Ergebnis erhalten und wie die Entwicklung danach weitergeht.",
+  "overview": "Eine Website zeigt Inhalte. Eine Laravel-Anwendung verwaltet Daten, unterscheidet Benutzer und setzt Regeln durch. Deshalb hängt bei Craftly hier besonders viel an Ihrer Beschreibung: Ein Multi-Agenten-System schreibt den PHP-Code aus dem, was Sie im Gespräch angeben. Was dort fehlt, wird geraten oder fehlt später auch in der Anwendung.\n\n## Was in die Beschreibung gehört\n\nSchreiben Sie den Text, bevor Sie das Gespräch beginnen. Fachbegriffe brauchen Sie nicht. Als Veranschaulichung dient im Folgenden eine erfundene Geräteverwaltung für einen Handwerksbetrieb.\n\n- Die Dinge, die verwaltet werden: Geräte, Ausleihen, Mitarbeitende. Dazu jeweils die Felder und welche davon Pflicht sind.\n- Die Rollen: Wer darf was sehen, anlegen, ändern und löschen? Was sieht die Werkstattleitung, was der einzelne Monteur?\n- Die Abläufe in Einzelschritten: Ein Gerät wird ausgeliehen, zurückgegeben, als defekt gemeldet. Wer bekommt wann eine Nachricht?\n- Die Regeln als überprüfbare Sätze: Ein Gerät kann nicht gleichzeitig zweimal ausgeliehen sein. Ein defektes Gerät lässt sich nicht ausleihen.\n- Die Sonderfälle: falsche Eingabe, fehlende Berechtigung, leere Liste, ein Mitarbeiter verlässt den Betrieb und hat noch Geräte.\n\nGibt es bereits ein Figma-Design der Bildschirme, kann Craftly davon ausgehen. Das Design ersetzt die Beschreibung nicht. Es zeigt, wie eine Maske aussieht, aber nicht, welche Regel dahinter gilt.\n\nEin einfacher Test: Lassen Sie jemanden den Text lesen, der das Vorhaben nicht kennt. Jede Rückfrage zeigt eine Lücke.\n\n## Was Sie erhalten\n\nSie erhalten eine Laravel-Anwendung als gewöhnlichen PHP-Code. Craftly ist kein Baukasten, in dem die Anwendung als Konfiguration liegt. Der Code gehört in die Hand des Eigentümers, der ihn behalten und bearbeiten kann. Jede Person, die Laravel beherrscht, kann ihn mit üblichen Werkzeugen lesen und ändern.\n\nWas ein generiertes Projekt im Einzelnen umfasst und auf welchem Weg Sie es bekommen, steht auf der Produktseite von Craftly. Klären Sie das, bevor Sie Termine zusagen.\n\n## Die erste Prüfung\n\nPrüfen Sie die Anwendung gegen Ihre Beschreibung, bevor jemand darauf aufbaut.\n\n- Spielen Sie jeden Ablauf mit jeder Rolle durch, auch mit einer Rolle, die abgewiesen werden muss.\n- Versuchen Sie, jede Regel absichtlich zu verletzen.\n- Füllen Sie Formulare mit Unsinn, lassen Sie Pflichtfelder leer, senden Sie doppelt ab.\n- Lassen Sie eine Entwicklerin oder einen Entwickler die Datenstruktur ansehen. Sie lässt sich später am schwersten ändern, sobald echte Datensätze vorhanden sind.\n\nHalten Sie jede Abweichung mit Bildschirm, Rolle und erwartetem Verhalten fest. Diese Liste ist entweder die Grundlage für eine genauere Beschreibung oder der Arbeitsauftrag an die Entwicklung.\n\n## So geht es danach weiter\n\nAb hier ist es ein normales Laravel-Projekt mit den üblichen Pflichten.\n\n- Legen Sie den Code vom ersten Tag an in eine Versionsverwaltung. So bleibt jede Änderung nachvollziehbar und lässt sich zurücknehmen.\n- Trennen Sie Testumgebung und Live-Betrieb. Änderungen kommen zuerst in den Test.\n- Lassen Sie Anmeldung, Berechtigungen, personenbezogene Daten und Zahlungen prüfen, bevor echte Daten hineinkommen.\n- Planen Sie Anbindungen an vorhandene Systeme, etwa Buchhaltung, E-Mail-Versand oder Zahlungsanbieter, als eigene Entwicklungsaufgabe ein.\n- Legen Sie fest, wer Aktualisierungen einspielt. Laravel und die verwendeten Pakete erscheinen regelmäßig in neuen Versionen, die installiert und getestet werden müssen.\n- Datenschutz- und Vertragsfragen klären Sie mit Ihrer oder Ihrem Datenschutzbeauftragten beziehungsweise mit einer Rechtsanwältin oder einem Rechtsanwalt.\n\nWenn Sie weiter generieren und zugleich von Hand ändern möchten, informieren Sie sich vorher auf der Produktseite, wie beides zusammenpasst.\n\n## Wofür sich der Weg eignet\n\nGut geeignet sind Vorhaben, deren Regeln sich aussprechen lassen: interne Werkzeuge, Kundenportale, eine erste Fassung eines Produkts zum Durchklicken. Sind die Regeln im Unternehmen noch strittig, klären Sie das zuerst. Diese Entscheidung nimmt Ihnen weder ein Generator noch ein Entwicklungsteam ab.",
+  "personas": [
+    {
+      "key": "founder",
+      "text": "Sie erhalten eine Gliederung, mit der Sie Ihre Produktidee als Daten, Rollen, Abläufe und Regeln beschreiben, und sehen, welche Prüf- und Wartungsarbeit nach dem Generieren auf Sie zukommt."
+    },
+    {
+      "key": "operations_lead",
+      "text": "Sie sehen, wie Sie einen internen Ablauf mit Rollen, Schritten und Sonderfällen so genau formulieren, dass daraus ein Werkzeug entstehen kann, und wie Sie das Ergebnis am Arbeitsalltag messen."
+    },
+    {
+      "key": "cto",
+      "text": "Sie erfahren, was bei Ihnen ankommt: gewöhnlicher Laravel-Code, der in die Versionsverwaltung gehört, eine Prüfung von Sicherheit und Datenstruktur braucht und danach wie jedes Projekt gepflegt wird."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Wie genau muss ich die Laravel-Anwendung beschreiben?",
+      "a": "So genau, dass eine unbeteiligte Person keine Rückfragen mehr hat. Nennen Sie die verwalteten Daten mit ihren Feldern, die Rollen mit ihren Rechten, jeden Ablauf in Einzelschritten, die Regeln und das Verhalten im Fehlerfall. Fachsprache ist nicht nötig. Fehlende Regeln sind der häufigste Grund, warum sich eine generierte Anwendung anders verhält als erwartet."
+    },
+    {
+      "q": "Kann unser eigenes Entwicklungsteam die generierte Anwendung weiterführen?",
+      "a": "Ja. Das Projekt ist gewöhnlicher PHP-Code, den der Eigentümer behalten und bearbeiten kann. Wer Laravel kennt, arbeitet daran mit den üblichen Werkzeugen. Legen Sie den Code sofort in eine Versionsverwaltung und lassen Sie Datenstruktur, Anmeldung und Berechtigungen prüfen, bevor echte Daten erfasst werden."
+    },
+    {
+      "q": "Bindet Craftly die Anwendung an unsere vorhandenen Systeme an?",
+      "a": "Zu Anbindungen an bestimmte Fremdsysteme macht diese Seite keine Zusage. Planen Sie Schnittstellen zu Buchhaltung, Zahlungsanbieter oder E-Mail-Versand deshalb als eigene Entwicklungsarbeit am generierten Code ein und sehen Sie auf der Produktseite von Craftly nach, was aktuell zum Umfang gehört."
+    }
+  ],
+  "meta_description": "Craftly für Laravel: welche Angaben die Beschreibung braucht, was für ein Code-Projekt entsteht und wie Sie es danach weiterentwickeln.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.607Z",
+  "updated_at": "2026-10-01T18:58:05.139Z"
+}

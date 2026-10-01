@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "laravel-development-cost",
+  "entity_b": "",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "What makes a custom Laravel application expensive, and which decisions lower the bill before development even starts.",
+  "overview": "A custom Laravel application has no list price, because you are not buying a product. You are paying for the hours it takes to turn your processes into working software, and afterwards for keeping that software running. The useful question is therefore not what Laravel costs, but which parts of your project consume those hours. Six of them account for most of any estimate.\n\n## The six cost drivers\n\n- Scope: every screen, user role, rule and exception takes time to build. Roles and exceptions are the parts that get underestimated. A booking form is small. A booking form with three approval levels, substitutes and a cancellation policy is not.\n- Integrations: connecting to a payment provider, an accounting package, a CRM or a central login is never only the connection. Each one needs error handling, retries and a plan for the day the other system is down or changes its interface. A modern, well-documented interface is cheap to connect. A nightly file export from an old system is expensive.\n- Data migration: existing records have to be cleaned before they can move. Duplicates, empty required fields and formats that changed over the years only show up when someone looks at the real data.\n- Testing: automated tests add effort during the build and save effort with every later change. Leaving them out makes the first invoice smaller and every following one larger.\n- Hosting: a single server is enough for many internal tools. High availability, a separate staging environment or requirements about where data is stored raise both the setup effort and the monthly cost.\n- Maintenance: Laravel and the packages it relies on are updated regularly, and each major version receives security fixes for a limited time only. Plan a recurring budget for updates, monitoring, backups and small changes.\n\n## Three scope tiers, as an illustration\n\nThe scenarios and figures below are invented. They are given in units of effort rather than money, so they show proportions only. They are not prices.\n\n- Small: a workshop with eight employees replaces a shared spreadsheet with an internal job tracker. One user role, no integrations, a one-off import of 400 rows. Call this 1 unit of effort.\n- Medium: a training provider builds a customer portal with course booking, online payment, invoices passed to its accounting software and two user roles. Roughly 4 to 5 units. Most of the difference comes from the two integrations and the role logic, not from the number of screens.\n- Large: a wholesaler builds an ordering platform with customer-specific prices, a live connection to its inventory system, twelve years of order history to migrate and four roles. 12 units or more, plus a discovery phase before anyone can estimate with confidence.\n\n## How to reduce the cost\n\n- Describe processes, not features. \"A dispatcher assigns a job to a technician\" can be estimated. \"Job management\" cannot.\n- Separate must-have from nice-to-have and launch with the first group. Features you add after real use are usually smaller than the ones you imagined beforehand.\n- Use what Laravel and its ecosystem already provide for login, payments, background jobs and admin screens instead of commissioning custom versions.\n- Hand over a sample of real data early, so migration problems appear in the estimate and not in week ten.\n- Name one person who is allowed to decide. Waiting for answers, and reversing them later, is among the most expensive things in a project.\n- Ask whether old data really has to move. Keeping it in a read-only archive is often enough.\n\n## What to ask for in a quote\n\nAsk for an estimate broken down by the six drivers above, with the assumptions written out. A single total hides where the risk sits. Ask separately what the first year after launch costs: hosting, updates, support and a small reserve for changes. If one quote is far lower than the others, compare the assumptions line by line. Usually something is missing, most often testing, migration or maintenance.",
+  "personas": [
+    {
+      "key": "founder",
+      "text": "You get a way to judge whether your idea is a small, medium or large build before you talk to anyone, and a list of decisions that keep the first version affordable without making it useless."
+    },
+    {
+      "key": "procurement",
+      "text": "You get six line items to request in every quote and the questions that expose missing assumptions, so that offers from different suppliers can be compared on the same basis."
+    },
+    {
+      "key": "project_manager",
+      "text": "You see where estimates usually go wrong, namely roles, exceptions, integrations and old data, and what to prepare on your side so that the supplier can estimate instead of guess."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Can I get a fixed price for a Laravel project?",
+      "a": "Yes, if the scope is described precisely enough. A fixed price covers what is written down, and everything else becomes a change request. If the scope is still unclear, a short paid discovery phase that ends with a specification and a fixed price is the safer route. The alternative is to work in stages, each with its own budget cap."
+    },
+    {
+      "q": "Why do two quotes for the same project differ so much?",
+      "a": "Usually because they rest on different assumptions, not because one supplier is far more efficient. One quote may include automated tests, data migration, a staging environment and a year of maintenance, while the other covers only the build. Ask both suppliers to list what is included and what is excluded, then compare those lists before you compare totals."
+    },
+    {
+      "q": "How much should I budget for maintenance after launch?",
+      "a": "There is no figure that fits every project. The amount depends on how many integrations can break, how often you want changes and how quickly problems must be fixed. Ask for maintenance as a separate offer that names its parts: framework and package updates, monitoring, backups and response times. Keep new features in a separate budget."
+    }
+  ],
+  "meta_description": "Laravel Development Cost explained: six cost drivers, three invented scope tiers and practical ways to lower your project budget.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:01:27.220Z",
+  "updated_at": "2026-10-01T18:58:05.145Z"
+}

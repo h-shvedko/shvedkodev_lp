@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    //= layout/head.html
+    <link rel="alternate" hreflang="en" href="https://shvedko.dev/blog/posts/fsm-bildungsplattform-laravel/">
+    <link rel="alternate" hreflang="de" href="https://shvedko.dev/de/blog/posts/fsm-bildungsplattform-laravel/">
+    <link rel="alternate" hreflang="x-default" href="https://shvedko.dev/blog/posts/fsm-bildungsplattform-laravel/">
+    <title>Fallstudie: FSM Digital Library mit Laravel und Livewire · ShvedkoDev Blog</title>
+    <meta name="description" content="Wie wir mit Laravel 12, Livewire 3 und FilamentPHP eine digitale Bibliothek gebaut haben, die über 2.000 Bücher an Schulen in Mikronesien bringt.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Fallstudie: FSM Digital Library mit Laravel und Livewire · ShvedkoDev Blog">
+    <meta property="og:description" content="Wie wir mit Laravel 12, Livewire 3 und FilamentPHP eine digitale Bibliothek gebaut haben, die über 2.000 Bücher an Schulen in Mikronesien bringt.">
+    <meta property="og:url" content="https://shvedko.dev/de/blog/posts/fsm-bildungsplattform-laravel/">
+    <meta property="og:site_name" content="ShvedkoDev">
+    <meta property="og:locale" content="de_DE">
+    <link rel="canonical" href="https://shvedko.dev/de/blog/posts/fsm-bildungsplattform-laravel/">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+        //= layout/header.de.html
+        <main role="main" id="main">
+            <div class="container">
+                <article class="blog-post">
+                    <header class="blog-post__header animate-on-scroll fade-in">
+                        <div class="blog-post__meta">
+                            <a href="/de/blog/" class="blog-post__back">← Blog</a>
+                            <time datetime="2026-03-15">15. März 2026</time>
+                        </div>
+                        <h1>Fallstudie: FSM Digital Library – 2.000 Bücher für Schulen auf den Pazifikinseln</h1>
+                        <div class="blog-post__tags">
+                            <span class="tag">Laravel</span>
+                            <span class="tag">Livewire</span>
+                            <span class="tag">FilamentPHP</span>
+                            <span class="tag">Fallstudie</span>
+                            <span class="tag">Docker</span>
+                        </div>
+                    </header>
+
+                    <div class="blog-post__body animate-on-scroll fade-in">
+                        <p>Die Föderierten Staaten von Mikronesien erstrecken sich über mehr als 600 Inseln im Westpazifik. Kinder in ihrer Muttersprache zu unterrichten – Chuukesisch, Pohnpeanisch, Kosraeanisch oder Yapesisch – ist für den Erhalt der Kultur entscheidend. Das Problem: In diesen Sprachen gibt es so gut wie keine digitalen Lehrmaterialien, und die Verteilung auf abgelegene Inseln ist schwierig.</p>
+
+                        <p>Das Projekt FSM VLA Curriculum wollte das mit einer digitalen Bibliotheksplattform ändern. Wir haben das Full-Stack-System von September 2025 bis Januar 2026 konzipiert und entwickelt.</p>
+
+                        <h2>Die Anforderungen</h2>
+                        <p>Die Plattform sollte:</p>
+                        <ul>
+                            <li>Mehr als 2.000 Lehrbücher (PDFs + Metadaten) hosten und bereitstellen</li>
+                            <li>Mehrsprachige Filterung (Fach, Klassenstufe, Sprache, Typ, Jahr) mit Echtzeitsuche unterstützen</li>
+                            <li>Ein Admin-Dashboard für Content-Manager ohne technischen Hintergrund bieten</li>
+                            <li>Analysedaten erfassen – Aufrufe, Downloads, Suchanfragen, Filternutzung</li>
+                            <li>Auf bescheidenem Hosting laufen und auch über langsame Internetverbindungen erreichbar sein</li>
+                            <li>Langfristig von einem kleinen Team wartbar sein</li>
+                        </ul>
+
+                        <h2>Tech-Stack</h2>
+                        <p>Ausschlaggebend für die Auswahl waren die vorhandene PHP-Erfahrung des Teams und der Bedarf an einer umfangreichen Admin-Oberfläche, ohne diese von Grund auf neu zu bauen:</p>
+                        <ul>
+                            <li><strong>Laravel 12.x</strong> – primäres Framework, Routing, Authentifizierung, Eloquent ORM</li>
+                            <li><strong>Livewire 3.x</strong> – Echtzeitsuche und Filterung, ohne JavaScript-APIs zu schreiben</li>
+                            <li><strong>Alpine.js</strong> – leichtgewichtige Interaktivität für UI-Komponenten</li>
+                            <li><strong>FilamentPHP</strong> – voll ausgestattetes Admin-Panel für mehr als 2.000 Buchdatensätze, Metadaten und Benutzerverwaltung</li>
+                            <li><strong>Tailwind CSS</strong> – Utility-First-Styling über drei eigenständige UI-Templates hinweg</li>
+                            <li><strong>MySQL</strong> – relationale Speicherung für Bücher, Kategorien, Nutzerinteraktionen</li>
+                            <li><strong>Docker</strong> – containerisierte lokale Entwicklung und Deployment</li>
+                        </ul>
+
+                        <h2>Zentrale technische Entscheidungen</h2>
+
+                        <h3>Livewire für die Suche</h3>
+                        <p>Statt einer separaten Vue- oder React-SPA haben wir die reaktiven Komponenten von Livewire 3 für die Suche mit mehreren Filtern eingesetzt. Jeder Filter aktualisiert den State der Livewire-Komponente und rendert die Bücherliste neu, ohne die Seite vollständig neu zu laden. So blieb die Architektur monolithisch, und Deployment und Wartung auf Shared Hosting wurden deutlich einfacher.</p>
+
+                        <h3>FilamentPHP für den Admin-Bereich</h3>
+                        <p>Im Admin-Dashboard sollten Content-Manager PDFs hochladen, Metadaten bearbeiten, Nutzerbewertungen verwalten und Analysedaten einsehen können – alles ohne Beteiligung von Entwicklern. Das Resource-System von FilamentPHP hat das mit minimalem eigenem Code gelöst. Das Content-Team war an einem einzigen Nachmittag eingearbeitet.</p>
+
+                        <h3>Drei UI-Templates</h3>
+                        <p>Der Kunde wünschte sich, dass die Bibliothek dem Bildungskontext angemessen seriös wirkt. Wir haben drei responsive Templates entwickelt – Academic, Material und Modern –, zwischen denen im Admin-Bereich gewechselt werden kann. Jedes Template überträgt dieselben zugrunde liegenden Daten in eine andere visuelle Sprache.</p>
+
+                        <h2>Wirkung</h2>
+                        <p>Die Plattform hat Lehrkräften in abgelegenen Gemeinden der Pazifikinseln erfolgreich digitalen Zugang zu mehr als 2.000 Bildungsressourcen verschafft. Für viele Schulen standen damit zum ersten Mal muttersprachliche Unterrichtsmaterialien in einem durchsuchbaren digitalen Format zur Verfügung.</p>
+
+                        <p>Das Projekt ist live unter <a href="https://micronesian.school" target="_blank" rel="noopener">micronesian.school</a>.</p>
+                    </div>
+
+                    <footer class="blog-post__footer animate-on-scroll fade-in">
+                        <p>Verfasst von <a href="/de/about/">ShvedkoDev</a> · <a href="/de/contact/">Kontakt aufnehmen</a></p>
+                        <a href="/de/blog/" class="button outline">← Zurück zum Blog</a>
+                    </footer>
+                </article>
+            </div>
+        </main>
+        //= layout/footer.de.html
+    </div>
+</body>
+
+</html>

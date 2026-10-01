@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "fixed-price-vs-time-and-materials",
+  "entity_b": "",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "So wählen Sie das Vertragsmodell für Ihr Webprojekt: Wer trägt welches Risiko, und wie werden Änderungen bezahlt?",
+  "overview": "Das Vertragsmodell entscheidet, wer das Risiko dessen trägt, was noch niemand weiß. Beim Festpreis trägt der Anbieter das Schätzrisiko, kalkuliert dafür einen Puffer ein und hat Grund, den vereinbarten Umfang zu verteidigen. Bei der Abrechnung nach Aufwand zahlen Sie die tatsächlich geleisteten Stunden, tragen das Kostenrisiko selbst und können dafür die Richtung ändern. Keines der Modelle ist von sich aus günstiger. Es kommt darauf an, wie gut sich die Arbeit vorab beschreiben lässt.\n\n## Wann ein Festpreis funktioniert\n\nEin Festpreis passt, wenn beide Seiten später ohne Diskussion feststellen können, ob die Leistung erbracht ist.\n\n- Der Umfang ist bekannt und ändert sich voraussichtlich nicht\n- Es gibt schriftliche Anforderungen mit Abnahmekriterien\n- Äußere Abhängigkeiten sind gering oder dokumentiert\n- Das Projekt ist kurz genug, dass sich Ihre Pläne unterwegs nicht verschieben\n\nTypische Fälle sind eine Unternehmenswebsite mit festgelegten Seitentypen, eine Migration mit vollständiger Bestandsliste oder eine Anbindung an eine gut dokumentierte Schnittstelle. Das Angebot sollte die Leistungsbeschreibung, eine Liste der Ausschlüsse, die getroffenen Annahmen, die Zahl der Korrekturschleifen, Ihre Mitwirkungspflichten wie die Lieferung von Inhalten zu einem Termin und das Abnahmeverfahren enthalten.\n\nEin Rechenbeispiel mit erfundenen Zahlen: Ein Anbieter schätzt 200 Stunden und kalkuliert den Festpreis mit 240, um die Unsicherheit abzudecken. Dauert die Arbeit 190 Stunden, haben Sie ein Risiko bezahlt, das nicht eingetreten ist. Dauert sie 280, verliert der Anbieter 40 Stunden und wird versuchen, den Aufwand zu begrenzen. Beides ist im Modell angelegt.\n\n## Wann die Abrechnung nach Aufwand sicherer ist\n\nLässt sich der Umfang nicht verlässlich beschreiben, ist ein Festpreis eine Zahl ohne Grundlage. Das gilt für ein neues Produkt, dessen Funktionen sich nach den ersten Rückmeldungen ändern, für Altcode, den noch niemand geprüft hat, für Anbindungen an schlecht dokumentierte Systeme und für die laufende Weiterentwicklung.\n\nDie Abrechnung nach Aufwand braucht eigene Sicherungen:\n\n- Eine Budgetobergrenze je Phase, die nur mit Ihrer Freigabe überschritten wird\n- Kurze Abrechnungsintervalle mit aufgeschlüsselten Zeitnachweisen\n- Eine priorisierte Aufgabenliste und eine Schätzung für jede größere Aufgabe vor Beginn\n- Regelmäßige Vorführung lauffähiger Ergebnisse\n- Das Recht, am Ende jedes Intervalls zu pausieren oder aufzuhören\n\n## Mischformen\n\nVielen Projekten dient eine Kombination am besten.\n\n- Eine bezahlte Konzeptphase zum Festpreis, die Leistungsbeschreibung und belastbare Schätzung liefert, danach ein Festpreis für die Umsetzung\n- Festpreise je Meilenstein oder Arbeitspaket statt eines Gesamtpreises\n- Abrechnung nach Aufwand mit Obergrenze\n- Festpreis für den gut verstandenen Kern, Aufwand für die unsicheren Teile, etwa die Anbindung eines Altsystems\n- Ein monatliches Stundenkontingent für die Weiterentwicklung nach dem Livegang\n\n## Wie Änderungen behandelt werden\n\nIm Festpreisvertrag braucht jede Änderung ein festes Verfahren: schriftliche Beschreibung, Auswirkung auf Preis und Termin, Ihre Freigabe vor Arbeitsbeginn. Vereinbaren Sie es im Vertrag und nicht erst, wenn die erste Änderung ansteht. Oft ist ein Tausch möglich, bei dem eine neue Anforderung eine geplante von ähnlicher Größe ersetzt. Ohne Verfahren werden Änderungen stillschweigend auf Kosten der Qualität aufgefangen oder führen bei der Abnahme zum Streit.\n\nBei der Abrechnung nach Aufwand ist eine Änderung eine neue Reihenfolge in der Aufgabenliste. Sie löst keine Verhandlung aus, verbraucht aber Budget, und viele kleine Ergänzungen summieren sich unbemerkt. Auf Ihrer Seite muss jemand entscheiden, was hineinkommt und was wartet, und dabei jedes Mal auf das verbrauchte Budget schauen.\n\n## Fragen, die zur Entscheidung führen\n\n- Können Sie für jede Funktion aufschreiben, was fertig bedeutet?\n- Wie wahrscheinlich ändern sich Anforderungen während des Projekts?\n- Hängt die Arbeit von Systemen oder Personen ab, die der Anbieter nicht steuert?\n- Haben Sie eine harte Budgetgrenze, oder ist Ihnen Beweglichkeit mehr wert?\n- Haben Sie Zeit, alle ein bis zwei Wochen zu priorisieren und Ergebnisse zu prüfen?\n\nKlare Antworten auf die erste und vierte Frage sprechen für einen Festpreis, Unsicherheit bei der zweiten und dritten für Aufwand oder eine Mischform. Ob ein Werk- oder ein Dienstvertrag vorliegt, wirkt sich auf Abnahme und Gewährleistung aus; lassen Sie den Vertrag deshalb anwaltlich prüfen.",
+  "personas": [
+    {
+      "key": "founder",
+      "text": "Sie können entscheiden, welches Abrechnungsmodell zum Stand Ihres Projekts passt, und wissen, welche Sicherungen Sie vor der Unterschrift verlangen, etwa eine Budgetobergrenze oder eine bezahlte Konzeptphase."
+    },
+    {
+      "key": "procurement",
+      "text": "Sie sehen, was ein Festpreisangebot enthalten muss, um vergleichbar zu sein: Leistungsbeschreibung, Ausschlüsse, Annahmen, Korrekturschleifen, Abnahmeverfahren und Regeln für Änderungen."
+    },
+    {
+      "key": "project_manager",
+      "text": "Sie erhalten ein praktikables Vorgehen für Änderungen in beiden Modellen: schriftliche Änderungsanträge mit Auswirkung auf Preis und Termin oder Neupriorisierung mit Blick auf das verbrauchte Budget."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Ist ein Festpreis für den Auftraggeber immer die günstigere Lösung?",
+      "a": "Nein. Im Festpreis steckt ein Puffer für das Schätzrisiko des Anbieters, und Sie zahlen ihn unabhängig davon, ob das Risiko eintritt. Sie erhalten Kostensicherheit, nicht den niedrigsten Preis. Bei klarem, stabilem Umfang lohnt sich das. Bei unklarem Umfang wächst der Puffer, oder spätere Änderungen werden gesondert berechnet, und die Summe kann höher ausfallen als bei der Abrechnung nach Aufwand."
+    },
+    {
+      "q": "Wie behalte ich bei der Abrechnung nach Aufwand die Kosten im Griff?",
+      "a": "Vereinbaren Sie eine Budgetobergrenze je Phase, die nur mit Ihrer schriftlichen Freigabe überschritten wird, verlangen Sie aufgeschlüsselte Zeitnachweise in kurzen Abständen und eine Schätzung für jede größere Aufgabe vor Beginn. Lassen Sie sich regelmäßig lauffähige Ergebnisse zeigen und behalten Sie das Recht, am Ende jedes Intervalls zu pausieren. Benennen Sie eine Person, die über Prioritäten entscheidet."
+    },
+    {
+      "q": "Was geschieht, wenn sich im Festpreisprojekt die Anforderungen ändern?",
+      "a": "Die Änderung läuft über das im Vertrag vereinbarte Verfahren: Sie wird schriftlich beschrieben, der Anbieter nennt die Auswirkung auf Preis und Termin, und die Arbeit beginnt erst nach Ihrer Freigabe. Manchmal kann eine neue Anforderung eine geplante von ähnlicher Größe ersetzen, ohne dass sich der Preis ändert. Fehlt ein solches Verfahren, sollten Sie es vor der ersten Änderung festlegen."
+    }
+  ],
+  "meta_description": "Festpreis vs. Abrechnung nach Aufwand: wann welches Vertragsmodell zum Webprojekt passt und wie Änderungen jeweils bezahlt werden.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.483Z",
+  "updated_at": "2026-10-01T18:58:05.134Z"
+}

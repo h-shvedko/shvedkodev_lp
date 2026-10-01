@@ -1,0 +1,41 @@
+{
+  "axis": "services",
+  "entity_a": "saas-development",
+  "entity_b": "marketing",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Was eine Marketing-SaaS im Unterbau braucht: Mandantentrennung, Rollen, Freigaben und geplante Aufgaben, die pünktlich laufen und Fehler sichtbar machen.",
+  "overview": "Marketing-Teams und Agenturen lassen aus zwei Gründen eigene Software bauen. Entweder ist ein internes Werkzeug seinen Tabellen entwachsen und soll mehreren Teams oder Kunden dienen. Oder die Agentur möchte eine wiederholbare Leistung zu einem Produkt machen, das Kunden im Abonnement nutzen. In beiden Fällen entsteht eine SaaS: eine Anwendung, die von vielen getrennten Konten genutzt wird und dauerhaft läuft.\n\n## Typische Probleme in Marketing-Teams und Agenturen\n\n- Kundendaten dürfen sich nicht vermischen. Wer in der Agentur fünf Kunden betreut, braucht Zugriff auf genau diese fünf. Ein Kunde darf nie Entwürfe, Zahlen oder verknüpfte Konten eines anderen sehen.\n- Freigaben gehören zur Arbeit. Inhalte gehen vom Verfasser über die Prüfung zum Kunden, und im E-Mail-Verlauf geht verloren, welche Fassung freigegeben wurde.\n- Vieles geschieht zeitversetzt: Beiträge sind geplant, Berichte entstehen über Nacht, Kampagnen starten an einem Stichtag. Scheitert der geplante Schritt unbemerkt, fällt es erst auf, wenn der Kunde nachfragt.\n- Das Produkt hängt an fremden Plattformen wie sozialen Netzwerken, Werbe- und Versanddiensten. Deren Schnittstellen ändern sich, begrenzen die Zahl der Anfragen und entziehen Zugriffsrechte.\n- Zeitzonen: Ein Beitrag für neun Uhr morgens soll um neun Uhr beim Publikum erscheinen, nicht nach der Uhr des Servers.\n- Eine erste Fassung für einen einzelnen Kunden enthält dessen Annahmen und lässt sich nur mühsam für einen zweiten öffnen.\n\n## Was eine gute Lösung enthält\n\n- Mandantenfähigkeit vom ersten Tag an. Jeder Datensatz gehört zu einem Workspace, und die Trennung wird an einer zentralen Stelle im Code durchgesetzt, nicht in jeder Ansicht einzeln bedacht. Das ist zu Beginn deutlich günstiger als ein späterer Umbau.\n- Workspaces und Rollen. Eine Person kann mehreren Workspaces angehören und in jedem eine andere Rolle haben: Inhaber, Redakteur, Prüfer, Kunde mit Lese- oder Freigaberecht. Einladungen und der Entzug von Zugängen sind einfach und werden protokolliert.\n- Ein Freigabeablauf mit klaren Zuständen, etwa Entwurf, in Prüfung, freigegeben, geplant, veröffentlicht, fehlgeschlagen, samt Verlauf, wer was geändert hat.\n- Zeitplanung mit einem Hintergrund-Worker. Veröffentlichungen, Importe und Berichte laufen als Aufgaben in einer Warteschlange außerhalb des Seitenaufrufs, mit Wiederholungen, einer Obergrenze für Versuche und einer sichtbaren Liste fehlgeschlagener Aufgaben. Nutzer sehen den Fehler und seinen Grund und können den Vorgang erneut anstoßen.\n- Anbindungen, die mit Störungen rechnen: Abgelaufene Zugriffsrechte führen zu einer klaren Aufforderung, das Konto neu zu verbinden. Anfragegrenzen werden eingehalten. Jede fremde Plattform ist gekapselt, sodass eine Änderung dort nur einen Teil des Codes betrifft.\n- Abonnementabrechnung über einen Zahlungsdienstleister, mit Tarifen und Grenzen je Workspace, sofern das Produkt verkauft wird.\n- Betrieb: Überwachung, Datensicherung, Datenexport je Workspace und Löschung eines Workspace auf Wunsch. Verträge zur Auftragsverarbeitung und Datenschutzbestimmungen gehören in anwaltliche Hand.\n\n## Eine sinnvolle erste Fassung\n\nKürzen Sie Funktionen, nicht das Fundament. Eine fremde Plattform statt fünf und ein Bericht statt zehn sind in Ordnung. Mandantentrennung, Rollen und Warteschlange sind der falsche Ort zum Sparen, weil jede spätere Funktion darauf aufbaut.\n\n## Fragen an den Anbieter\n\n- Wie werden die Daten verschiedener Kunden getrennt, und wie wird das getestet?\n- Was passiert, wenn eine geplante Aufgabe nachts um drei scheitert, und wer erfährt davon?\n- Wie gehen Sie mit Änderungen und Anfragegrenzen der fremden Plattformen um, von denen wir abhängen?\n- Kann eine Person in mehreren Workspaces mit unterschiedlichen Rollen arbeiten?\n- Was lässt die erste Fassung weg, und was kostet es, das später zu ergänzen?\n- Wem gehört der Quellcode, und wie sind Hosting, Überwachung und Datensicherung geregelt?\n\n## Erfahrung hinter dieser Seite\n\nShvedkoDev hat eine mandantenfähige Plattform für Social-Media-Management gebaut, mit Workspaces, Rollen, Zeitplanung und einem Hintergrund-Worker für Aufgaben. Die Punkte oben zu Trennung, Rollen und Warteschlangen stammen aus dieser Art von System.",
+  "personas": [
+    {
+      "key": "agency_owner",
+      "text": "Sie sehen, was es bedeutet, eine wiederholbare Leistung in ein Abonnementprodukt zu überführen: Kunden sauber trennen, ihnen Freigaberechte geben und geplante Abläufe verlässlich machen."
+    },
+    {
+      "key": "product_manager",
+      "text": "Sie erhalten eine Richtschnur für den Zuschnitt der ersten Fassung: welche Funktionen warten können und welche Grundlagen wie Mandantentrennung, Rollen und Warteschlange von Beginn an dazugehören."
+    },
+    {
+      "key": "cto",
+      "text": "Sie bekommen die Architekturpunkte, die in einem Angebot zu prüfen sind: zentrale Durchsetzung der Mandantengrenzen, Aufgaben in der Warteschlange mit Wiederholung und sichtbaren Fehlern sowie gekapselte Anbindungen fremder Plattformen."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Was bedeutet mandantenfähig, und warum ist das für ein Agenturwerkzeug wichtig?",
+      "a": "Mandantenfähig heißt: Eine laufende Anwendung bedient viele getrennte Konten, hier Workspaces genannt, und jedes sieht nur die eigenen Daten. Für eine Agentur ist das die Grundzusage an jeden Kunden: Entwürfe, Berichte und verknüpfte Konten bleiben bei ihm. Die Trennung sollte zentral im Code durchgesetzt und durch Tests abgesichert sein, denn eine einzige vergessene Prüfung genügt, um einem Kunden fremde Daten zu zeigen."
+    },
+    {
+      "q": "Warum braucht eine Zeitplanung einen Hintergrund-Worker?",
+      "a": "Ein geplanter Beitrag oder ein nächtlicher Bericht muss laufen, wenn niemand die Seite geöffnet hat. Ein Hintergrund-Worker ist ein eigener Prozess, der solche Aufgaben zum richtigen Zeitpunkt aus einer Warteschlange holt, sie wiederholt, wenn ein fremder Dienst kurz nicht erreichbar ist, und endgültig gescheiterte festhält. Ohne ihn hinge geplante Arbeit davon ab, dass jemand die Website aufruft, und Fehler blieben unbemerkt."
+    },
+    {
+      "q": "Eigene SaaS bauen oder ein vorhandenes Werkzeug nutzen?",
+      "a": "Deckt ein vorhandenes Werkzeug Ihren Ablauf ab, nutzen Sie es. Eigene Software zu betreiben ist eine dauerhafte Verpflichtung. Der Eigenbau lohnt sich, wenn Ihr Ablauf selbst das Verkaufte ist, wenn vorhandene Werkzeuge Ihre Freigabeschritte oder Kundenstruktur nicht abbilden oder wenn Sie das Werkzeug unter eigenem Namen anbieten wollen. Notieren Sie drei Dinge, die vorhandene Werkzeuge nicht leisten. Ist die Liste schwach, bauen Sie nicht."
+    }
+  ],
+  "meta_description": "SaaS-Entwicklung für Marketing-Teams und Agenturen: Mandantentrennung, Rollen, Zeitplanung und die richtigen Fragen an Anbieter.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.613Z",
+  "updated_at": "2026-10-01T18:58:05.142Z"
+}

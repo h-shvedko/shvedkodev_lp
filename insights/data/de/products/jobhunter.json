@@ -1,0 +1,41 @@
+{
+  "axis": "products",
+  "entity_a": "jobhunter",
+  "entity_b": "",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Welche Schritte der Auftragssuche auf Upwork JobHunter übernimmt und warum Lesen, Überarbeiten und Bewerben bei Ihnen bleiben.",
+  "overview": "JobHunter ist unser eigenes Produkt für Freelancer, die Aufträge über Upwork suchen. Es nimmt Ihnen den wiederkehrenden Teil der Suche ab: Neue Ausschreibungen werden nach Zeitplan abgerufen, vorgefiltert und einzeln per KI bewertet. Dazu entstehen ein Entwurf für das Anschreiben und Entwürfe für die Antworten auf die Auswahlfragen, und Sie werden benachrichtigt. Eines tut JobHunter ausdrücklich nicht: Es reicht keine Bewerbungen ein. Sie bewerben sich selbst auf Upwork, mit Ihrem eigenen Konto.\n\n## Der Ablauf\n\n- Abrufen: Neue Ausschreibungen werden nach Zeitplan geholt. Sie müssen die Suche nicht offen halten und immer wieder neu laden.\n- Vorfiltern: Was offensichtlich nicht passt, wird vorab aussortiert.\n- Bewerten: Jede verbleibende Ausschreibung erhält eine KI-Bewertung. Daraus ergibt sich eine Reihenfolge, in der Sie lesen können.\n- Entwerfen: Sie erhalten einen Entwurf für das Anschreiben und für die Antworten auf die Auswahlfragen.\n- Benachrichtigen: Sie erfahren, wenn etwas zur Durchsicht bereitliegt.\n\n## Wo die Automatisierung endet\n\n- Es wird nichts in Ihrem Namen an Auftraggeber gesendet.\n- Die Bewertung ist ein Hinweis, womit Sie anfangen sollten, kein Urteil über den Auftrag.\n- Honorar, Verhandlung und Gespräche mit Auftraggebern führt das Produkt nicht.\n- Ihre Referenzen und Arbeitsproben ersetzt es nicht.\n\n## Für wen es sich eignet\n\nJobHunter passt zu Freelancern, die wissen, welche Aufträge sie suchen, und denen das Suchen, Lesen und Vorformulieren die Zeit nimmt. Am meisten nützt es, wenn Sie sich regelmäßig bewerben und Ihre Bewerbungen einem erkennbaren Muster folgen: ähnliche Leistungen, ähnliche Auftraggeber, ähnliche Fragen.\n\n## Für wen es sich nicht eignet\n\n- Für Freelancer, die Upwork nicht nutzen. JobHunter ist für diese Plattform gebaut.\n- Für alle, die sich massenhaft bewerben möchten, ohne die Ausschreibungen zu lesen. Dafür ist das Produkt nicht gedacht.\n- Für Selbstständige, die ihr Angebot noch nicht geklärt haben. Eine Lesereihenfolge hilft erst, wenn Sie wissen, was für Sie ein guter Auftrag ist.\n\n## Ihre Aufgaben\n\n- Die Ausschreibung selbst lesen. Ob Sie diesen Auftraggeber und dieses Projekt wollen, sagt Ihnen keine Bewertung.\n- Den Entwurf überarbeiten. Prüfen Sie jede Aussage über Ihre Erfahrung. Ein Entwurf kann etwas allgemeiner formulieren, als es auf Sie zutrifft, und die Bewerbung trägt Ihren Namen.\n- Auswahlfragen dort selbst beantworten, wo nur Sie die Antwort kennen, etwa zu Verfügbarkeit oder einem vergleichbaren Projekt.\n- Das Honorar festlegen und die Bewerbung auf Upwork selbst absenden.\n- Die Nutzungsbedingungen von Upwork einhalten. Lesen Sie die aktuelle Fassung selbst. Die Verantwortung für Ihr Konto liegt bei Ihnen.\n\n## So prüfen Sie den Nutzen\n\nVerlassen Sie sich in den ersten Wochen nicht auf die Bewertungen, sondern stellen Sie sie neben Ihr eigenes Urteil.\n\n- Ordnen Sie dieselben Ausschreibungen selbst und vergleichen Sie. Wo beides auseinanderliegt, lohnt die Frage nach dem Grund.\n- Sehen Sie nach, was der Vorfilter aussortiert hat. Ein Filter, der passende Aufträge verbirgt, kostet mehr, als er spart.\n- Achten Sie darauf, wie viel von einem Entwurf nach Ihrer Überarbeitung übrig bleibt. Schreiben Sie jedes Mal fast alles neu, hilft der Entwurf noch nicht.\n- Beobachten Sie, ob Sie auf die Benachrichtigungen reagieren oder beginnen, sie zu übergehen.\n\nZahlen zum Marktplatz nennt diese Seite nicht. Wie viele Ausschreibungen erscheinen oder wie Auftraggeber reagieren, veröffentlichen wir nicht.\n\nPreise, Tarife, Benachrichtigungswege, Abrufintervalle und die Einstellmöglichkeiten der Filter stehen nicht auf dieser Seite. Sehen Sie dazu vor einer Entscheidung auf der Produktseite von JobHunter nach.",
+  "personas": [
+    {
+      "key": "freelancer",
+      "text": "Sie sehen, welche Schritte Ihrer Auftragssuche auf Upwork JobHunter übernimmt, nämlich Abrufen, Vorfiltern, Bewerten und Entwerfen, und welche bei Ihnen bleiben: lesen, überarbeiten und die Bewerbung selbst absenden."
+    },
+    {
+      "key": "developer",
+      "text": "Als Entwickler, der freiberuflich über Upwork arbeitet, können Sie abwägen, ob Abruf nach Zeitplan und KI-Bewertung Ihnen die Suche zwischen zwei Projekten abnehmen, und wie Sie die Bewertung an Ihrem eigenen Urteil messen."
+    },
+    {
+      "key": "agency_owner",
+      "text": "Wenn Ihre kleine Agentur Aufträge über Upwork gewinnt, erfahren Sie, an welcher Stelle JobHunter Ausschreibungen und Entwürfe vorbereitet und warum weiterhin jemand aus Ihrem Team jede Bewerbung liest und absendet."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Verschickt JobHunter Bewerbungen auf Upwork automatisch?",
+      "a": "Nein. JobHunter reicht keine Bewerbungen ein. Es ruft Ausschreibungen ab, filtert vor, bewertet sie, entwirft Anschreiben und Antworten auf Auswahlfragen und benachrichtigt Sie. Lesen, überarbeiten und bewerben müssen Sie selbst, und zwar direkt auf Upwork mit Ihrem eigenen Konto."
+    },
+    {
+      "q": "Muss ich die Entwürfe für das Anschreiben noch überarbeiten?",
+      "a": "Ja. Der Entwurf erspart Ihnen das leere Blatt, kann Ihre Erfahrung aber allgemeiner darstellen, als es zutrifft. Prüfen Sie jede Aussage, ergänzen Sie, was nur Sie wissen, und passen Sie den Ton an. Die Bewerbung geht unter Ihrem Namen hinaus, für den Inhalt stehen Sie ein."
+    },
+    {
+      "q": "Wie viel Gewicht sollte ich der KI-Bewertung einer Ausschreibung geben?",
+      "a": "Nutzen Sie sie als Lesereihenfolge, nicht als Entscheidung. Zur Kontrolle ordnen Sie einige Ausschreibungen selbst und vergleichen das mit den Bewertungen. Weichen beide oft voneinander ab, vertrauen Sie Ihrem eigenen Urteil und lesen Sie auch weiter unten in der Liste. Ob Sie sich bewerben, entscheiden immer Sie."
+    }
+  ],
+  "meta_description": "Was JobHunter für Freelancer auf Upwork automatisiert und was nicht: Vorauswahl, Bewertung und Entwürfe, die Bewerbung bleibt bei Ihnen.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:01:27.214Z",
+  "updated_at": "2026-10-01T18:58:05.140Z"
+}

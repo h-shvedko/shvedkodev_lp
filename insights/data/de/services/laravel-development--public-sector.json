@@ -1,0 +1,41 @@
+{
+  "axis": "services",
+  "entity_a": "laravel-development",
+  "entity_b": "public-sector",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Wann eine individuelle Laravel-Anwendung zu Forschung und Verwaltung passt, was sie enthalten muss und wie Sie Angebote prüfen.",
+  "overview": "Forschungseinrichtungen, Ministerien, Behörden und öffentlich geförderte Programme brauchen immer wieder Webanwendungen, die kein Standardprodukt abdeckt: eine Sammlung von Dokumenten oder Unterrichtsmaterialien, ein Antrags- und Begutachtungsverfahren, ein Werkzeug zur Datenerhebung, ein Portal für einen festen Nutzerkreis. Laravel ist ein quelloffenes PHP-Framework für solche Anwendungen. Es kostet keine Lizenzgebühren, läuft auf üblichem Hosting und ist unter Entwicklern weit verbreitet. Das zählt, wenn das System noch gepflegt werden muss, lange nachdem das ursprüngliche Team weitergezogen ist. Diese Seite beschreibt typische Probleme der Branche, die Bestandteile einer guten Lösung und die Fragen an einen Anbieter.\n\n## Typische Probleme\n\n- Die Förderung endet, das System bleibt. Mittel decken den Aufbau, aber nicht die Jahre des Betriebs danach. Die Anwendung muss also günstig zu betreiben und leicht zu übergeben sein.\n- Die Nutzer sind verstreut und unterschiedlich ausgestattet. Schulen, Außenstellen oder Partnereinrichtungen arbeiten teils mit alten Geräten und langsamen oder instabilen Verbindungen.\n- Viele Rollen, klare Zuständigkeiten. Zentrale Redaktion, regionale Koordination, Gutachter und rein lesende Nutzer brauchen unterschiedliche Rechte, und bei einer Prüfung wird gefragt, wer was geändert hat.\n- Inhalte in mehreren Sprachen mit strukturierten Metadaten wie Fach, Stufe, Lizenz und Jahr, damit Material auch gefunden wird.\n- Formale Anforderungen: Barrierefreiheit, Datenschutz, Ort des Hostings, Berichte an den Mittelgeber. Sie müssen vor dem Entwurf bekannt sein, nicht danach.\n- Abhängigkeit von einem Anbieter oder einer einzelnen Person, ohne Dokumentation.\n\n## Was eine gute Lösung enthält\n\n- Ein Datenmodell, das zum Inhalt passt. Für eine Bibliothek sind das Einträge, Dateien, Kategorien, Sprachen und Versionen, festgelegt gemeinsam mit den Menschen, die das Material betreuen.\n- Rollen und Rechte als fester Bestandteil des Systems, mit einem Änderungsprotokoll.\n- Suche und Filter, die auch funktionieren, wenn jemand den genauen Titel nicht kennt.\n- Sorgfältiger Umgang mit Dateien: Speicherung getrennt von der Anwendung, sinnvolle Größengrenzen, Vorschauen und Downloads, die sich fortsetzen lassen oder in kleineren Varianten angeboten werden.\n- Seiten, die schnell laden und auf kleinen Bildschirmen funktionieren, mit geringer Datenmenge je Aufruf.\n- Barrierefreiheit von der ersten Ansicht an in Vorlagen und Komponenten, geprüft mit echten Hilfsmitteln und nicht nur mit einem automatischen Prüfwerkzeug.\n- Automatisierte Tests, ein reproduzierbarer Aufbau, Sicherungen mit erprobter Wiederherstellung und ein schriftliches Betriebshandbuch.\n- Import und Export in offenen Formaten, damit die Daten das System verlassen können und sich Nutzungszahlen berichten lassen.\n\n## Aus der Praxis\n\nWir haben mit Laravel eine digitale Bibliothek gebaut, die Unterrichtsmaterialien für Schulen auf mehreren Inseln bereitstellt. Für vergleichbare Vorhaben gilt allgemein: Reichweite ist eine Anforderung an den Entwurf. Sind die Nutzer räumlich verteilt, muss die Anwendung für die schwächste Verbindung und das älteste Gerät unter ihnen geplant werden, und die redaktionelle Verantwortung ist so zu ordnen, dass Material zentral veröffentlicht und vor Ort gefunden werden kann.\n\n## Fragen an den Anbieter\n\n- Wem gehört der Quellcode, und unter welcher Lizenz wird er geliefert?\n- Kann die Anwendung im eigenen Rechenzentrum oder bei einem Hoster unserer Wahl laufen, und was braucht der Server?\n- Wie werden Framework- und Sicherheitsupdates nach dem Start behandelt, und mit welchem jährlichen Betrag sollten wir planen?\n- Wie prüfen Sie Barrierefreiheit, und was erhalten wir als Nachweis?\n- Wie wird mit personenbezogenen Daten umgegangen, und welche Fragen gehören zu unseren Datenschutzbeauftragten oder in eine Rechtsberatung?\n- Welche Dokumentation erhalten Redaktion, Administration und künftige Entwickler?\n- Wie wird vorhandenes Material importiert, und wer bereinigt die Metadaten?\n- Was ist die kleinste Fassung, die für sich schon nützlich ist?\n\n## Hinweise zur Planung\n\nHalten Sie vor der Angebotsanfrage fest, welche Nutzergruppen es gibt und was jede können muss. Diese Liste ist eine bessere Vergleichsgrundlage als eine Wunschliste von Funktionen. Planen Sie die Aufbereitung der Inhalte als eigenes Arbeitspaket, denn Material zu sammeln, Rechte zu klären und es zu beschreiben dauert meist länger als die Software. Sehen Sie von Anfang an einen jährlichen Betrag für Updates und Hosting vor, und benennen Sie die Person in Ihrer Einrichtung, die nach Projektende für das System verantwortlich ist.",
+  "personas": [
+    {
+      "key": "educator",
+      "text": "Sie sehen, was eine digitale Bibliothek oder ein Lernportal braucht, damit Lehrkräfte Material tatsächlich finden und öffnen: Metadaten, Suche, kleine Downloads und ein Redaktionsablauf, der zur Entstehung der Inhalte passt."
+    },
+    {
+      "key": "it_manager",
+      "text": "Sie erhalten die betrieblichen Kriterien für eine individuelle Laravel-Anwendung: Anforderungen an das Hosting, Updates, Sicherungen, Dokumentation und Rechte am Code, formuliert als Fragen an den Anbieter."
+    },
+    {
+      "key": "project_manager",
+      "text": "Sie erfahren, wie Sie eine öffentlich geförderte Webanwendung so zuschneiden, dass sie das Förderende übersteht: zuerst die Nutzergruppen, die Inhalte als eigenes Arbeitspaket und eine benannte Zuständigkeit für den Betrieb."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Warum Laravel und nicht ein übliches Content-Management-System?",
+      "a": "Ein Content-Management-System passt zu Angeboten, die vor allem Seiten veröffentlichen. Stehen strukturierte Daten mit Rollen, Abläufen, Suche und Importen im Mittelpunkt, etwa bei einer Bibliothek, einem Antragsverfahren oder einem Datenportal, folgt das Datenmodell mit einem Framework Ihren Anforderungen. Geht es überwiegend um Seiten, ist ein CMS die günstigere Wahl."
+    },
+    {
+      "q": "Kann eine Laravel-Anwendung im eigenen Rechenzentrum betrieben werden?",
+      "a": "Ja. Laravel braucht eine aktuelle PHP-Version, eine Datenbank und einen Webserver, was die meisten Rechenzentren und Hoster anbieten. Verlangen Sie vom Anbieter eine schriftliche Liste der Serveranforderungen und einen reproduzierbaren Aufbau, damit Ihre IT die Machbarkeit vor Vertragsschluss prüfen und das System später betreiben kann."
+    },
+    {
+      "q": "Was geschieht mit der Anwendung, wenn die Projektförderung endet?",
+      "a": "Sie läuft nur weiter, wenn der Betrieb geplant wurde: eine zuständige Person, ein kleiner jährlicher Betrag für Updates und Hosting und eine Dokumentation, mit der andere Entwickler übernehmen können. Regeln Sie Rechte am Code und Übergabe im Vertrag. Fehlen diese drei Dinge, wird auch ein gut gebautes System in wenigen Jahren zum Sicherheitsrisiko."
+    }
+  ],
+  "meta_description": "Laravel-Entwicklung für Forschung und öffentliche Hand: typische Hürden, nötige Bausteine und Fragen an den Anbieter vor der Vergabe.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.611Z",
+  "updated_at": "2026-10-01T18:58:05.141Z"
+}

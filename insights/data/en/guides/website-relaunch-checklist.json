@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "website-relaunch-checklist",
+  "entity_b": "",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "Rebuild or redesign your site and keep the search rankings and enquiries the old one earned.",
+  "overview": "A relaunch replaces a site that search engines and visitors already know. Rankings and leads are lost when addresses change without redirects, when content that brought visitors disappears, or when forms and tracking silently stop working. All three are avoidable with a checklist that starts well before the design work.\n\n## Before the build\n\nURL inventory\n- Export every address of the current site: from a crawl, from the sitemap, from the search engine's webmaster tool and from your analytics.\n- Mark the pages that bring search visitors, the pages that other sites link to, and the pages on which enquiries or sales happen. These are the pages you must not lose.\n- Save the current figures as a baseline: visits from search per page, enquiries per month, loading times of the main page types.\n\nContent parity\n- Decide for every page: keep, merge, rewrite or remove.\n- For pages that rank, carry over the title, headings and main text, or improve them deliberately. Shortening a ranking page to fit a new layout is a frequent cause of lost traffic.\n- Carry over image descriptions, downloads, structured data and internal links.\n\n## During the build\n\nRedirects\n- Create a table with one row per old address and its new address.\n- Use permanent redirects, and point each old page to its closest equivalent, not to the home page.\n- Avoid chains: an old address should reach the final one in a single step.\n- Include old addresses that were already redirecting, files such as PDFs, and variants with and without trailing slash.\n\nTracking and forms\n- List every conversion that is measured today: form submissions, phone and email clicks, purchases, newsletter sign-ups. Rebuild each one and test it.\n- Check that the consent banner works and that tracking respects it. Have a lawyer or data protection officer confirm the legal requirements.\n- Submit every form on the test system and confirm that the message arrives in the right inbox or system.\n\nPerformance\n- Measure loading time on a mid-range phone, not only on an office computer.\n- Compress and correctly size images, load fonts and scripts sparingly, and compare the results with your baseline.\n\nTest system\n- Keep it out of search engines with password protection. Write down that any block must be removed at launch.\n\n## Launch day\n\n- Choose a quiet weekday morning with the team available, not a Friday afternoon.\n- Take a full backup of the old site and keep it reachable for comparison.\n- Remove search engine blocks left from the test system: noindex settings and robots rules.\n- Test a sample of redirects from the table, including the most important pages.\n- Check the security certificate, the canonical addresses and the error page.\n- Submit the new sitemap to the search engine's webmaster tool.\n- Send a real enquiry through every form and place a test order if you sell online.\n- Confirm that tracking records these test actions.\n\n## After launch\n\n- Day 1 to 7: check daily for pages not found and add missing redirects. Watch enquiries: a sudden drop to zero usually means a broken form, not less interest.\n- Week 2 to 6: compare search visits and positions per page with the baseline. Some fluctuation in the first weeks is normal; a steady decline on individual pages points to missing content or a wrong redirect.\n- Keep redirects in place permanently, and keep the old domain registered if the domain changed.\n- Update the addresses in external profiles, advertising campaigns, email signatures and printed material where they point to changed pages.\n\n## Who owns what\n\nAssign one named person to each of these lists: redirect table, content, tracking, launch-day checks. Relaunches rarely fail from lack of skill. They fail because each party assumed another one was handling the redirects.",
+  "personas": [
+    {
+      "key": "marketing_lead",
+      "text": "You get the steps that protect search visibility and lead flow during a relaunch, and the baseline figures to record so you can prove afterwards that nothing was lost."
+    },
+    {
+      "key": "project_manager",
+      "text": "You get a checklist ordered by project phase, with clear deliverables such as the redirect table and conversion list, and the roles that need an owner."
+    },
+    {
+      "key": "ecommerce_manager",
+      "text": "You get the checks that keep product and category pages findable and the checkout measurable after a rebuild, including test orders on launch day."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Will my site lose rankings after a relaunch?",
+      "a": "Short-term fluctuation is common while search engines process the changes. Lasting losses usually have a concrete cause: missing or wrong redirects, removed or shortened content on pages that ranked, or a block for search engines left over from the test system. Each of these is covered by the checklist and can be corrected if found early."
+    },
+    {
+      "q": "How long should redirects stay in place?",
+      "a": "Permanently, as far as practical. Old addresses live on in bookmarks, in links from other websites, in emails and in printed material for years. Redirects cost almost nothing to keep, and removing them later brings back the errors you avoided at launch."
+    },
+    {
+      "q": "Do I need redirects if only the design changes?",
+      "a": "Not if every address stays exactly the same. Check this rather than assume it: a new system or theme often changes address structure, trailing slashes, category paths or file locations without anyone deciding to. Compare the old URL inventory with the new site before launch."
+    }
+  ],
+  "meta_description": "Website Relaunch Checklist for keeping rankings and leads: URL inventory, redirects, content parity, tracking and launch-day checks.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.516Z",
+  "updated_at": "2026-10-01T18:58:05.145Z"
+}

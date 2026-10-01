@@ -1,0 +1,41 @@
+{
+  "axis": "services",
+  "entity_a": "wordpress-development",
+  "entity_b": "marketing",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Was Marketing-Teams und Agenturen von einer WordPress-Umsetzung erwarten sollten, damit Redakteure Seiten ohne Entwickler veröffentlichen können.",
+  "overview": "Marketing-Teams und Agenturen setzen WordPress vor allem aus einem Grund ein: Wer die Botschaft verantwortet, soll sie auch selbst veröffentlichen können. Ob das gelingt, hängt weniger von WordPress ab als von der Art der Umsetzung. Zwei Websites auf derselben Software können sich völlig darin unterscheiden, wie schnell eine Kampagnenseite online ist und wie oft das Layout dabei Schaden nimmt.\n\n## Typische Probleme in Marketing-Teams und Agenturen\n\n- Freigegebenes Design und fertige Website weichen voneinander ab. Abstände, Schriftgrößen und mobile Ansichten stimmen nur ungefähr, und die Korrekturschleifen verbrauchen den Zeitplan.\n- Jede neue Landingpage braucht einen Entwickler, weil das Theme nur feste Vorlagen kennt.\n- Oder umgekehrt: Ein Page-Builder erlaubt alles. Nach einem Jahr gleicht keine Seite der anderen, und die Website ist langsam.\n- Für jeden kleinen Wunsch kam ein Plugin dazu. Updates verursachen nun Fehler und werden aufgeschoben, was ein Sicherheitsrisiko ist.\n- Tracking, Einwilligungsbanner und Formularanbindungen wurden am Ende angeflanscht und stören sich gegenseitig.\n- Agenturen bauen Kopfbereich, Einstiegsbild und Kontaktbereich für jeden Kunden neu und rechnen Stunden ab, die keinen Mehrwert schaffen.\n- Nach der Übergabe kann der Kunde die Website nicht pflegen, oder die Agentur hängt an einem Aufbau, den nur eine Person versteht.\n\n## Was eine gute Lösung enthält\n\nDen Kern bildet ein individuelles Theme mit einem festgelegten Satz von Blöcken, die das Designsystem abbilden: Einstiegsbereich, Text mit Bild, Kundenstimme, Preistabelle, Handlungsaufruf, Formular. Redakteure kombinieren diese Blöcke frei, doch Farben, Schrift und Abstände sind im Block festgelegt. So bleibt der Inhalt frei und die Marke geschützt.\n\nDazu gehören außerdem:\n\n- Designwerte wie Farben, Schriftgrößen und Abstände an einer zentralen Stelle, damit eine Markenanpassung eine Datei betrifft und nicht fünfzig Vorlagen.\n- So wenige Plugins wie möglich, jedes mit einer benannten Begründung.\n- Eine Staging-Kopie der Website, auf der Updates und neue Seiten vor der Veröffentlichung geprüft werden.\n- Ladezeit als Anforderung: Bildgrößen, Ladeverhalten, keine ungenutzten Skripte.\n- Grundlagen für Suchmaschinen im Theme: saubere Überschriften, pflegbare Titel und Beschreibungen, Weiterleitungen, Sitemap.\n- Formulare mit Anbindung an CRM oder Newsletter-Werkzeug und Tracking, das erst nach Einwilligung lädt. Die rechtliche Bewertung von Einwilligung und Datenschutztexten gehört zu einer Anwältin, einem Anwalt oder Ihrem Datenschutzbeauftragten.\n- Rollen für Redakteure, eine kurze schriftliche Anleitung zu den Blöcken und Versionsverwaltung für den Code.\n\nFür Agenturen kommt ein Punkt hinzu: eine Übergabe, die den Kunden unabhängig macht. Das heißt dokumentierte Blöcke, Code in einem Repository mit Zugriff für den Kunden und keine Lizenz, die mit dem Vertrag endet.\n\n## Fragen an den Anbieter\n\n- Welche Seiten können unsere Redakteure ohne Sie bauen, und dürfen wir das vor dem Start auf einer Testumgebung ausprobieren?\n- Wie stellen Sie sicher, dass das Ergebnis dem Design entspricht, und wer prüft die mobile Ansicht?\n- Welche Plugins werden installiert und wozu jedes einzelne?\n- Wie laufen Updates nach dem Start, und gibt es eine Staging-Umgebung?\n- Wie werden spätere Designänderungen umgesetzt, etwa eine neue Markenfarbe?\n- Für Agenturen: Arbeiten Sie als White-Label-Partner, und was erhalten wir bei der Übergabe?\n- Wo setzen Sie Automatisierung oder KI in der Umsetzung ein, und wer prüft deren Ergebnis?\n\n## Erfahrung hinter dieser Seite\n\nShvedkoDev hat eine Pipeline gebaut, die Figma-Designs und Briefings in Alltagssprache in WordPress-Themes überführt. Die Hinweise oben stammen aus dieser Art von Arbeit: Bei der Übergabe vom Design zum Code gehen Details am leichtesten verloren. Deshalb sollten Designwerte und Blockliste vereinbart sein, bevor die erste Zeile des Themes geschrieben wird.",
+  "personas": [
+    {
+      "key": "marketing_lead",
+      "text": "Sie sehen, was eine Website, auf der Ihr Team frei veröffentlichen kann, von einer unterscheidet, die für jede Kampagnenseite einen Entwickler braucht, und was Sie vor dem Start verlangen sollten."
+    },
+    {
+      "key": "agency_owner",
+      "text": "Sie erkennen, wo in der Umsetzung Stunden für Wiederholungsarbeit verloren gehen, was eine saubere Übergabe an Ihre Kunden enthält und was mit einem White-Label-Entwicklungspartner zu klären ist."
+    },
+    {
+      "key": "project_manager",
+      "text": "Sie erhalten eine Liste von Lieferbestandteilen für den Leistungsumfang: Blockliste, Staging-Umgebung, Plugin-Liste, Redaktionsanleitung und Übergabe, dazu Fragen, die Korrekturschleifen zwischen Design und Umsetzung verringern."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Page-Builder oder individuelles Block-Theme: Was passt besser?",
+      "a": "Ein Page-Builder ist schnell eingerichtet und passt zu kleinen Websites, die eine Person pflegt. Für ein Team, das häufig veröffentlicht, ist ein individuelles Theme mit festem Satz von Blöcken meist die bessere Wahl: Redakteure stellen Seiten weiterhin selbst zusammen, das Design bleibt einheitlich, und die Seiten laden in der Regel schneller, weil nur der benötigte Code ausgeliefert wird. Lassen Sie sich beide Wege an einer Ihrer echten Seiten zeigen."
+    },
+    {
+      "q": "Wie bleibt die fertige Website dem Figma-Design treu?",
+      "a": "Vereinbaren Sie zuerst die Designwerte: Farben, Schriftgrößen, Abstände und Umbruchpunkte, aus der Designdatei übernommen und im Theme an einer Stelle hinterlegt. Danach folgt die Liste der Blöcke mit ihren Varianten. Prüfen Sie jeden Block auf Desktop und Mobilgerät, bevor ganze Seiten entstehen. Korrekturen am Block sind günstig, Korrekturen an fertigen Seiten vervielfachen sich."
+    },
+    {
+      "q": "Was sollte eine Agentur bei der Übergabe eines WordPress-Projekts erhalten?",
+      "a": "Zugriff auf das Code-Repository, die Liste der Plugins mit Lizenzen und Lizenzinhabern, Zugangsdaten für Verwaltung und Hosting, eine kurze Anleitung zu den Blöcken für Redakteure und Hinweise dazu, wie Updates und Veröffentlichungen ablaufen. Damit kann der Kunde oder ein anderer Entwickler die Website pflegen. Hängt etwas an einer Lizenz oder einem Konto, das mit dem Vertrag endet, gehört das vorab schriftlich festgehalten."
+    }
+  ],
+  "meta_description": "WordPress-Entwicklung für Marketing-Teams und Agenturen: was eine Umsetzung enthält, damit Redakteure selbst veröffentlichen.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.614Z",
+  "updated_at": "2026-10-01T18:58:05.142Z"
+}

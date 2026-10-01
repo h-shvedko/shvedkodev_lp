@@ -1,0 +1,41 @@
+{
+  "axis": "products",
+  "entity_a": "craftly",
+  "entity_b": "figma-to-wordpress",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "How to prepare a Figma file for generating a WordPress theme, what the design leaves open, and a checklist for the result.",
+  "overview": "A Figma file shows what a site should look like. A WordPress theme also has to know what can be edited, what repeats and what happens at widths the designer never drew. Craftly can start from a Figma design and write the PHP code of a theme from it. How close the result comes depends a good deal on the state of the file and on what you add in the conversation.\n\n## Prepare the file\n\nTidy the design before you hand it over. These points help a human developer in the same way.\n\n- Use colour and text styles consistently. Ten slightly different greys in the file raise the question of which ones are meant.\n- Build recurring elements such as buttons, cards and the header as components, not as copies.\n- Give frames and layers meaningful names. \"Frame 212\" tells nobody what it is.\n- Draw each page type at a phone width and a desktop width at least.\n- Include the states: open mobile menu, hover, form with an error, empty search result.\n- Fill the design with realistic content. A headline of three words in the design becomes one of twelve in real life.\n- Remove abandoned drafts, or mark clearly which frames are valid.\n\n## Say what the design cannot show\n\nAdd this in the conversation with Craftly:\n\n- Which parts editors change in WordPress and which are fixed.\n- Which sections are lists that grow, such as articles, references or team members, and what a single entry looks like.\n- Where buttons and links lead.\n- What should happen between the drawn widths, for example whether three columns become two or one.\n- Which page types exist beyond the drawn ones, such as the error page, search results and the legal pages.\n\n## What you receive\n\nThe result is a WordPress theme as ordinary PHP code that the owner can keep and edit. It is not a builder layout. Deviations from the design are therefore corrected in code, either through a more precise description or by a developer.\n\n## Checklist for the result\n\nAppearance\n\n- Put design and page side by side at the drawn widths and compare spacing, font sizes and colours.\n- Drag the browser window slowly from narrow to wide. Look for the widths where something overlaps or breaks.\n- Check fonts: the right family, the right weights, loaded on every page.\n\nBehaviour with real content\n\n- Enter long and short headlines, entries without an image, a list with one entry and one with thirty. The numbers are only an illustration; use whatever is extreme for your site.\n- Open the menu on a phone and navigate with it.\n- Submit each form correctly and incorrectly.\n\nEditing\n\n- Have an editor change text and image in every section. Anything they cannot change, although you said it should be editable, goes on the list.\n- Check that editors cannot destroy the layout through normal use.\n\nQuality behind the surface\n\n- Operate the page with the keyboard alone, and check that images have alternative texts and that text contrast is sufficient.\n- Look at image file sizes and at how quickly pages build up on a mobile connection.\n- Ask a developer to read the code: is it structured so that a later change to one section stays local?\n\n## Dealing with deviations\n\nRecord each one in the same form: page, section, window width, what the design shows, what the theme does. A list in this form can be worked through, in a further conversation or by a developer. \"Does not look like the design\" cannot.\n\nAlso decide what is a deviation at all. A design is drawn at fixed widths, a website is fluid. Agree with the designer beforehand which differences are acceptable.\n\nFor supported Figma features, prices and delivery, see the Craftly product site.",
+  "personas": [
+    {
+      "key": "project_manager",
+      "text": "You get a preparation list for the design file and an acceptance checklist for the theme, so that handover between design, generation and review follows fixed points instead of impressions."
+    },
+    {
+      "key": "agency_owner",
+      "text": "You can estimate where time shifts in a design-to-theme project: away from manual rebuilding, towards file preparation and structured checking, plus developer hours for the deviations that remain."
+    },
+    {
+      "key": "developer",
+      "text": "You see which gaps a Figma file typically leaves, from editable areas to in-between widths, and what to review in a generated theme before you take responsibility for its code."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Does my Figma file need special preparation before Craftly can use it?",
+      "a": "This page does not describe a required format, but a tidy file helps: consistent colour and text styles, components instead of copies, named layers, phone and desktop versions of each page type, drawn states such as the open menu, and realistic content. Remove outdated drafts. For any requirements beyond that, check the Craftly product site."
+    },
+    {
+      "q": "Will the generated WordPress theme look exactly like the Figma design?",
+      "a": "Do not assume that; check it. A design is drawn at a few fixed widths, while a website has to work at every width and with content of any length. Compare both side by side, test the widths in between and record deviations by page, section and width. Those are then corrected in the code."
+    },
+    {
+      "q": "What can a Figma design not tell Craftly about the site?",
+      "a": "Which content editors may change, which sections are growing lists, where links lead, how the layout behaves between the drawn widths, and which pages exist that nobody drew, such as the error page or search results. Say these things in the conversation, otherwise they have to be guessed."
+    }
+  ],
+  "meta_description": "Craftly Figma to WordPress: prepare the design file, say what the design cannot show, then check the generated theme point by point.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.616Z",
+  "updated_at": "2026-10-01T18:58:05.145Z"
+}

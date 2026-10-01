@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "laravel-development-cost",
+  "entity_b": "",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Woraus sich der Preis einer individuellen Laravel-Anwendung zusammensetzt und wo Sie Aufwand sparen, ohne am Ergebnis zu sparen.",
+  "overview": "Für eine individuelle Laravel-Anwendung gibt es keinen Listenpreis. Sie bezahlen die Arbeitszeit, die nötig ist, um Ihre Abläufe in Software zu übersetzen, und danach den laufenden Betrieb. Wer ein Angebot beurteilen will, muss deshalb wissen, wo diese Arbeitszeit entsteht. Sechs Posten bestimmen fast jede Kalkulation.\n\n## Die sechs Kostentreiber\n\n- Umfang: Jede Maske, jede Benutzerrolle und jede Sonderregel kostet Zeit. Unterschätzt werden vor allem die Ausnahmen. Ein Urlaubsantrag ist schnell gebaut, ein Urlaubsantrag mit Vertretungsregel, zweistufiger Freigabe und Übertrag von Resturlaub nicht.\n- Schnittstellen: Die Anbindung an Warenwirtschaft, Buchhaltung, Zahlungsanbieter oder ein zentrales Login besteht nie nur aus der Verbindung selbst. Hinzu kommen Fehlerbehandlung, Wiederholungsversuche und die Frage, was geschieht, wenn das andere System ausfällt oder sich ändert. Eine gut dokumentierte Schnittstelle ist günstig anzubinden, ein nächtlicher Dateiexport aus einem Altsystem ist teuer.\n- Datenmigration: Bestandsdaten müssen vor der Übernahme bereinigt werden. Dubletten, leere Pflichtfelder und über Jahre gewachsene Schreibweisen zeigen sich erst, wenn jemand die echten Daten ansieht.\n- Tests: Automatisierte Tests erhöhen den Aufwand beim Bau und senken ihn bei jeder späteren Änderung. Wer sie streicht, spart nichts, sondern verschiebt die Kosten in die Zukunft.\n- Hosting: Für viele interne Werkzeuge genügt ein einzelner Server. Hohe Verfügbarkeit, eine getrennte Testumgebung oder Vorgaben zum Speicherort der Daten erhöhen den Einrichtungsaufwand und die monatlichen Kosten.\n- Wartung: Laravel und die verwendeten Pakete werden laufend aktualisiert, und jede Hauptversion erhält nur für begrenzte Zeit Sicherheitsupdates. Planen Sie ein festes Budget für Updates, Überwachung, Backups und kleine Anpassungen ein.\n\n## Drei Größenordnungen als Illustration\n\nDie folgenden Szenarien und Zahlen sind erfunden. Sie sind in Aufwandseinheiten statt in Euro angegeben und zeigen nur Verhältnisse, keine Preise.\n\n- Klein: Ein Handwerksbetrieb mit zwölf Beschäftigten ersetzt seine Tabellenkalkulation durch eine interne Auftragsübersicht. Eine Rolle, keine Schnittstelle, einmaliger Import von 600 Zeilen. Das entspricht 1 Einheit.\n- Mittel: Eine Hausverwaltung baut ein Mieterportal mit Schadensmeldung, Dokumentenablage, Anbindung an die Buchhaltungssoftware und drei Rollen. Etwa 4 bis 5 Einheiten. Der Unterschied entsteht vor allem durch die Schnittstelle und die Rechte, weniger durch die Zahl der Masken.\n- Groß: Ein Großhändler baut ein Bestellportal mit kundenindividuellen Preisen, laufendem Abgleich mit der Warenwirtschaft und der Übernahme von zehn Jahren Bestellhistorie. 12 Einheiten oder mehr, dazu eine Konzeptphase, bevor eine belastbare Schätzung überhaupt möglich ist.\n\n## So senken Sie die Kosten\n\n- Beschreiben Sie Abläufe statt Funktionen. „Die Disposition weist einem Monteur einen Auftrag zu“ lässt sich schätzen, „Auftragsverwaltung“ nicht.\n- Trennen Sie Muss von Kann und starten Sie mit dem Muss. Was Sie nach den ersten Wochen im Betrieb ergänzen, fällt meist kleiner aus als das, was Sie sich vorher ausgemalt haben.\n- Nutzen Sie vorhandene Bausteine für Anmeldung, Zahlung, Hintergrundaufgaben und Verwaltungsoberflächen, statt Eigenentwicklungen zu beauftragen.\n- Liefern Sie früh einen Auszug echter Daten. Dann stehen die Probleme der Migration im Angebot und nicht in der zehnten Projektwoche.\n- Benennen Sie eine Person, die entscheiden darf. Warten auf Antworten und nachträglich geänderte Entscheidungen gehören zu den teuersten Posten eines Projekts.\n- Prüfen Sie, ob Altdaten wirklich umziehen müssen. Oft reicht ein Archiv, in dem man nur noch lesen kann.\n\n## Was ein Angebot enthalten sollte\n\nBitten Sie um eine Schätzung, die nach den sechs Kostentreibern gegliedert ist und ihre Annahmen schriftlich nennt. Eine einzelne Gesamtsumme verbirgt, wo das Risiko liegt. Fragen Sie gesondert nach den Kosten des ersten Jahres nach dem Start: Hosting, Updates, Support und eine kleine Reserve für Änderungen. Liegt ein Angebot weit unter den anderen, vergleichen Sie die Annahmen Zeile für Zeile. Meist fehlt etwas, am häufigsten Tests, Migration oder Wartung.",
+  "personas": [
+    {
+      "key": "founder",
+      "text": "Sie können vor dem ersten Gespräch einordnen, ob Ihr Vorhaben ein kleines, mittleres oder großes Projekt ist, und wissen, mit welchen Entscheidungen die erste Version bezahlbar bleibt, ohne unbrauchbar zu werden."
+    },
+    {
+      "key": "procurement",
+      "text": "Sie erhalten sechs Positionen, die Sie in jedem Angebot abfragen können, und die Fragen, mit denen fehlende Annahmen sichtbar werden. So lassen sich Angebote verschiedener Anbieter auf gleicher Grundlage vergleichen."
+    },
+    {
+      "key": "it_manager",
+      "text": "Sie sehen, welche Vorgaben aus Ihrem Haus den Aufwand treiben, etwa Schnittstellen zu Altsystemen, Testumgebungen und Verfügbarkeit, und was Sie für Betrieb und Wartung nach dem Start einplanen müssen."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Kann ich für ein Laravel-Projekt einen Festpreis bekommen?",
+      "a": "Ja, wenn der Umfang genau genug beschrieben ist. Ein Festpreis gilt für das, was schriftlich festgehalten wurde, alles Weitere wird als Änderung gesondert berechnet. Ist der Umfang noch unklar, ist eine kurze bezahlte Konzeptphase sinnvoller, an deren Ende ein Pflichtenheft und ein Festpreis stehen. Alternativ arbeiten Sie in Etappen mit jeweils eigener Budgetobergrenze."
+    },
+    {
+      "q": "Warum liegen zwei Angebote für dasselbe Projekt so weit auseinander?",
+      "a": "Meist, weil sie auf unterschiedlichen Annahmen beruhen, und nicht, weil ein Anbieter so viel schneller arbeitet. Das eine Angebot enthält automatisierte Tests, Datenmigration, eine Testumgebung und ein Jahr Wartung, das andere nur die Entwicklung. Lassen Sie sich von beiden auflisten, was enthalten und was ausgeschlossen ist, und vergleichen Sie erst diese Listen und dann die Summen."
+    },
+    {
+      "q": "Wie viel Budget sollte ich für die Wartung nach dem Start einplanen?",
+      "a": "Einen Wert, der für jedes Projekt passt, gibt es nicht. Die Höhe hängt davon ab, wie viele Schnittstellen ausfallen können, wie oft Sie Änderungen wünschen und wie schnell Störungen behoben sein müssen. Lassen Sie sich die Wartung als eigenes Angebot mit benannten Bestandteilen geben: Updates von Framework und Paketen, Überwachung, Backups und Reaktionszeiten. Neue Funktionen gehören in ein getrenntes Budget."
+    }
+  ],
+  "meta_description": "Kosten der Laravel-Entwicklung im Überblick: sechs Kostentreiber, drei erfundene Beispielprojekte und Wege zu einem kleineren Budget.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:01:27.213Z",
+  "updated_at": "2026-10-01T18:58:05.136Z"
+}

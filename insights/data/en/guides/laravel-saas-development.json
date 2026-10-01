@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "laravel-saas-development",
+  "entity_b": "",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "Make the few SaaS decisions that are costly to reverse, such as tenancy, billing unit and permissions, before the first customer signs up.",
+  "overview": "A SaaS product is one application that many customers use at once, each seeing only their own data and each paying on a recurring basis. Laravel covers most of the groundwork: login, background jobs, scheduled tasks, mail, and official packages for subscription billing. Building features is therefore rarely the hard part. The hard part is a handful of structural decisions that are cheap on day one and expensive once real customer data exists.\n\n## Multi-tenancy: how customers are separated\n\nA tenant is one customer account, usually a company with several users. There are three common models.\n\n- Shared database: all tenants are in the same tables, and every record carries a tenant ID. Cheapest to run and simplest to update. The risk is a query that forgets the tenant filter, so the filter must be applied automatically and verified by tests.\n- One database per tenant: stronger separation, simple export, backup and deletion per customer, and possible storage in a specific region. In exchange, every database change has to be rolled out to all tenants, and reports across customers become harder.\n- One installation per tenant: full isolation for customers with strict requirements, at the highest operating cost.\n\nMost products start well with a shared database. Choose separate databases if customers will contractually demand separation or individual restore. Switching later means migrating live data. Decide at the same time how a tenant is recognised: by subdomain, by the customer's own domain, or by selection after login.\n\n## Users and accounts\n\nCan one person belong to several tenants with the same login, for instance a consultant working for three clients? If so, roles belong to the membership and not to the user. Adding this afterwards touches nearly every screen, so settle it early.\n\n## Roles and permissions\n\nStart with a small number of fixed roles, such as owner, administrator and member, and check permissions in one central place rather than scattered across pages. Ask whether customers will later want to define their own roles; if that is likely, design permissions as individual abilities from the start. Plan a way for your support staff to view an account as the customer sees it, with a log of every such access.\n\n## Subscription billing\n\nPayment handling is delegated to a billing provider, which Laravel connects to through its billing packages. The decisions that remain are yours:\n\n- What is the billing unit: a flat price per account, per user, or by usage? Changing it later means changing contracts, not only code.\n- Is there a trial, and what happens when it ends without a payment method?\n- What happens on a failed payment: how many reminders, how long a grace period, then read-only or locked?\n- How are upgrades and downgrades in mid-period settled?\n- Where are plan limits enforced? Define what each plan allows in one central place.\n\nThe subscription status in your application has to follow the provider's notifications, not the result of the checkout page. Invoicing and tax rules for customers in different countries should be clarified with a tax adviser before the first sale.\n\n## Queues and background work\n\nEverything that takes time or depends on another system runs in the background: emails, imports, exports, report generation, incoming billing notifications. Two points are specific to SaaS. Each job must know which tenant it belongs to, and one customer starting a huge import must not hold up everyone else, which calls for separate queues or limits per tenant.\n\n## Onboarding\n\nThe path from registration to the first useful result decides whether a trial turns into a subscription. Plan it as a feature: registration with as few fields as possible, example data or a guided first step, inviting colleagues, and importing existing data.\n\n## Decide before launch\n\n- tenancy model and how tenants are identified\n- whether a user can belong to several accounts\n- billing unit and plan structure\n- export and complete deletion of a customer's data on contract end\n- an audit log of who changed what\n\nContract terms, data processing agreements and privacy obligations need a lawyer, not a developer.",
+  "personas": [
+    {
+      "key": "founder",
+      "text": "You see which decisions to settle before development starts, because changing them later means migrating customer data or rewriting contracts: tenancy model, billing unit, and whether one user can belong to several accounts."
+    },
+    {
+      "key": "cto",
+      "text": "You get the trade-offs between shared database, database per tenant and separate installations, plus the SaaS-specific points for queues, permission checks and keeping subscription status in step with the billing provider."
+    },
+    {
+      "key": "product_manager",
+      "text": "You get the product questions that development cannot answer for you: trial and failed-payment rules, plan limits, fixed or customer-defined roles, and the onboarding path from registration to the first useful result."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Should every customer of a SaaS product get a separate database?",
+      "a": "Not by default. A shared database with a tenant ID on every record is cheaper to operate and easier to update, and it is sufficient for most products if the tenant filter is applied automatically and tested. Separate databases are worth their extra operating effort when customers demand contractual separation, individual restore or storage in a particular region."
+    },
+    {
+      "q": "Why is Laravel a reasonable choice for building a SaaS product?",
+      "a": "It ships with the parts every SaaS needs: authentication, queues, scheduled tasks, mail and notifications, plus official packages for subscription billing. That leaves the budget for the product itself. Its limits are the same as for any single application: very high load or unusual real-time requirements need additional architecture, which should be judged on your concrete case."
+    },
+    {
+      "q": "Can the pricing model of a SaaS be changed after launch?",
+      "a": "Prices and plan contents are easy to change if plan limits are defined in one central place. Changing the billing unit, for example from a flat fee to a price per user or by usage, is harder: the application must start counting something it did not count before, and existing customers need a transition rule. Decide the unit early and keep the plans themselves flexible."
+    }
+  ],
+  "meta_description": "SaaS Development with Laravel: choose tenancy, billing unit, roles and queues well, because these decisions are costly to change after launch.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.511Z",
+  "updated_at": "2026-10-01T18:58:05.145Z"
+}

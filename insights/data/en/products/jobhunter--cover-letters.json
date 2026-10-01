@@ -1,0 +1,41 @@
+{
+  "axis": "products",
+  "entity_a": "jobhunter",
+  "entity_b": "cover-letters",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "What a cover letter drafted from the job posting gives you, and a checklist for the editing that remains your job before you send it.",
+  "overview": "The hardest part of a cover letter is often the first sentence. JobHunter, our own product for freelancers on Upwork, removes that hurdle: for a job posting it drafts a cover letter and answers to the screening questions. The draft is built from the text of the posting. It stops there. JobHunter does not submit proposals; you take the text, revise it and apply manually on Upwork.\n\n## What the posting can and cannot supply\n\nThe posting supplies the client's problem in the client's words. A draft can respond to it: this is what you asked for, and this is how a reply could begin.\n\nWhat the posting does not contain cannot appear in the draft, or appears only as a general statement:\n\n- The one project from your past that resembles this job most closely, and what happened in it.\n- Your availability in the coming weeks.\n- A question you would ask the client because something in the posting does not add up.\n- Your reason for wanting this job in particular.\n\nThese are the parts a client notices, and they are the parts you add.\n\n## An editing pass in five steps\n\n- Check the facts about yourself. Every claim about experience, tools and results must be true as stated. If the draft says more than you can back up, cut it down to what is accurate.\n- Check the facts about the job. Confirm that the draft understood the posting: the right deliverable, the right technology, the right scope.\n- Rewrite the opening. Put the client's specific problem or your most relevant experience first.\n- Add one concrete detail. A comparable project, a first idea for the approach or a precise question shows that a person read the posting.\n- Cut. Remove every sentence that would fit any job. A shorter letter that is specific reads better than a long one that is polite.\n\nRead the result aloud once. If it does not sound like you, change the wording until it does. Clients may later talk to you in a call, and the letter should match the person they meet.\n\n## Screening questions\n\nThe drafted answers deserve the same care. Clients ask these questions to compare candidates directly, so a general answer stands out. Where a question asks for something only you know, such as a past project, your process or your working hours, replace the draft with your own answer and treat the draft as a note on what the question is after.\n\n## Why sending stays with you\n\nA proposal is a commercial offer made in your name. Its content binds you: the experience you claim, the scope you accept, the rate you set. That decision should be taken by the person who carries the consequences. There is also a simpler reason: only after reading the posting yourself do you know whether you want the job at all. Rate, terms and the final click on Upwork are therefore yours.\n\n## Treating the draft as a starting point\n\nThe draft saves you the blank page; it is not the finished letter. Use it to see how the posting can be answered, then make the text your own. If you find yourself correcting the same kind of statement in every draft, make that correction a fixed first step of your editing pass. You edit the text, and you send it yourself.\n\n## Not covered here\n\nPricing, plans and further product details are not described on this page. See the JobHunter product site for those.",
+  "personas": [
+    {
+      "key": "freelancer",
+      "text": "You get a five-step editing pass for every draft: verify claims about yourself, verify the job was understood, rewrite the opening, add one concrete detail and cut what would fit any job."
+    },
+    {
+      "key": "marketing_lead",
+      "text": "If you sell marketing services as a freelancer, you see where a draft built from the posting ends and where your own voice, examples and questions to the client have to come in."
+    },
+    {
+      "key": "agency_owner",
+      "text": "For an agency that applies on Upwork, the page shows why a named person should verify every claim in a draft and submit the proposal: it is a commercial offer that binds your business."
+    }
+  ],
+  "faq": [
+    {
+      "q": "What is a JobHunter cover letter draft based on?",
+      "a": "On the text of the job posting. The draft responds to what the client asks for. Anything the posting does not contain, such as a specific past project of yours, your availability or a question to the client, is missing or only general, and you add it while editing."
+    },
+    {
+      "q": "How much of the draft should I expect to rewrite?",
+      "a": "That depends on the posting, so no fixed share can be given. Plan to rewrite the opening, add at least one concrete detail and delete general sentences. Check every statement about your experience before you keep it. The draft is a starting point; the letter you send is yours."
+    },
+    {
+      "q": "Does JobHunter send the cover letter to the client for me?",
+      "a": "No. JobHunter does not submit proposals. It prepares the draft letter and draft answers to the screening questions. You revise them, set your rate and apply manually on Upwork with your own account. Nothing reaches a client without you sending it."
+    }
+  ],
+  "meta_description": "JobHunter Cover Letters drafts a letter from the job posting. You check the claims, add specifics and send it yourself.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.620Z",
+  "updated_at": "2026-10-01T18:58:05.146Z"
+}

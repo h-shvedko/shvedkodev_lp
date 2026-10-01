@@ -1,0 +1,41 @@
+{
+  "axis": "services",
+  "entity_a": "ai-integration",
+  "entity_b": "marketing",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Welche Aufgaben sich für KI im Marketing eignen, was eine belastbare Integration braucht und was Sie Anbieter fragen sollten.",
+  "overview": "In den meisten Marketing-Teams und Agenturen wird KI längst genutzt, nur eben nebenher: Jemand öffnet ein Chatfenster, kopiert ein Briefing hinein und trägt das Ergebnis von Hand ins Redaktionssystem. Das spart einzelne Minuten, ändert aber nichts am Ablauf. Von Integration lässt sich erst sprechen, wenn die KI die nötigen Informationen selbst erhält, das Ergebnis dort ablegt, wo es gebraucht wird, und eine Freigabe fest eingeplant ist.\n\n## Typische Probleme in Marketing und Agenturalltag\n\n- Texte klingen austauschbar, weil das Modell weder Markenton noch Produktfakten noch frühere Kampagnen kennt.\n- Jede Person formuliert ihre Eingaben anders. Die Qualität hängt davon ab, wer gerade arbeitet.\n- Kundendaten landen in frei verfügbaren Werkzeugen, ohne dass geklärt wurde, ob das zulässig ist.\n- Nach dem Entwurf folgt dieselbe Handarbeit wie zuvor: formatieren, verschlagworten, hochladen.\n- Es ist nicht nachvollziehbar, was aus welcher Quelle erzeugt und von wem freigegeben wurde.\n- Die laufenden Kosten lassen sich keinem Kunden und keiner Kampagne zuordnen.\n\n## Was eine gute Lösung enthält\n\nDer Ausgangspunkt ist eine einzelne, wiederkehrende Aufgabe mit klarer Eingabe und prüfbarem Ergebnis. Geeignet sind etwa der erste Entwurf einer Landingpage aus einem Briefing, Anzeigenvarianten innerhalb fester Zeichengrenzen, Zusammenfassungen von Kampagnenberichten, die Verschlagwortung eingehender Medien oder Seitenentwürfe aus einer strukturierten Beschreibung.\n\nUm diese Aufgabe herum gehören folgende Bausteine:\n\n- Kontext wird automatisch geladen: Markenton, freigegebene Aussagen, Produktdaten und unerwünschte Formulierungen kommen aus dem System, nicht aus dem Gedächtnis der Mitarbeitenden.\n- Mehrere kleine Schritte statt einer großen Anweisung. Ein Schritt plant, einer schreibt, einer prüft gegen die Regeln. So werden Fehler sichtbar und einzelne Schritte bleiben austauschbar.\n- Eine menschliche Freigabe vor jeder Veröffentlichung und vor jedem Versand an Kunden, mit Entwurf und Quellen nebeneinander.\n- Ausgabe im Format des Zielsystems, sodass das Ergebnis als Entwurf im CMS oder im Projektwerkzeug liegt.\n- Technische Trennung der Kunden. Eine Agentur muss zeigen können, dass Material von Kunde A nie für Kunde B verwendet wird.\n- Protokollierung von Eingaben, Ausgaben und Kosten je Kunde oder Projekt.\n- Ein festgelegtes Verhalten im Fehlerfall: Was geschieht, wenn der KI-Dienst ausfällt, Unsinn liefert oder ein Budget überschritten wird?\n\n## Worauf diese Hinweise beruhen\n\nWir haben eine Multi-Agenten-Plattform gebaut, die aus einer Beschreibung im Chat WordPress-Themes und Laravel-Anwendungen erzeugt. Die Erkenntnis daraus gilt für Marketingaufgaben genauso: Eine einzelne Anweisung macht aus einer losen Beschreibung kein brauchbares Ergebnis. Spezialisierte Agenten, die je einen Teil übernehmen und in fester Reihenfolge übergeben, schaffen das.\n\n## Fragen an Anbieter\n\n- Mit welcher einzelnen Aufgabe schlagen Sie den Einstieg vor, und woran messen wir den Erfolg?\n- Wohin fließen unsere Daten, welcher Modellanbieter verarbeitet sie, und werden sie zum Training verwendet?\n- Wie werden Kunden oder Marken technisch voneinander getrennt?\n- Was sieht die prüfende Person vor der Freigabe, und lässt sich eine Aussage bis zur Quelle zurückverfolgen?\n- Welche laufenden Kosten entstehen je Arbeitseinheit, und welche Obergrenzen lassen sich setzen?\n- Lässt sich das Modell später wechseln, ohne alles neu zu bauen?\n- Wer pflegt Anweisungen und Regeln, wenn sich unsere Markenrichtlinien ändern?\n- Wie läuft die Arbeit weiter, wenn der KI-Dienst nicht erreichbar ist?\n\nWer darauf konkret antwortet, hat solche Systeme vermutlich schon gebaut. Wer stattdessen nur ein Chatfenster vorführt, eher nicht.\n\n## Ein sinnvoller erster Schritt\n\nWählen Sie die Aufgabe, die Ihr Team am häufigsten wiederholt und am wenigsten gern erledigt. Sammeln Sie zehn echte Beispiele mit Eingabe und dem Ergebnis, das Sie damals akzeptiert haben. Diese Sammlung ist Anforderung und Abnahmetest zugleich: Die Integration ist fertig, wenn sie für diese zehn Fälle annehmbare Entwürfe liefert und die Prüfung deutlich weniger Zeit kostet als das Schreiben von Grund auf. Fragen zur Auftragsverarbeitung und zur Kennzeichnung KI-erzeugter Inhalte klären Sie vor dem Start mit Ihrer Datenschutzbeauftragten oder einer Anwaltskanzlei.",
+  "personas": [
+    {
+      "key": "marketing_lead",
+      "text": "Sie können einschätzen, welche wiederkehrenden Aufgaben Ihres Teams sich für eine KI-Anbindung lohnen, was weiterhin geprüft werden muss und wie Markenton und freigegebene Aussagen über alle Beteiligten hinweg einheitlich bleiben."
+    },
+    {
+      "key": "agency_owner",
+      "text": "Sie sehen, was Kundentrennung, Kostenzuordnung je Etat und eine nachvollziehbare Freigabe technisch voraussetzen, damit Sie KI-gestützte Leistungen anbieten können, ohne Kundenmaterial zu vermischen oder die Marge aus dem Blick zu verlieren."
+    },
+    {
+      "key": "project_manager",
+      "text": "Sie erhalten einen Fragenkatalog für Anbietergespräche und einen einfachen Abnahmetest aus zehn echten Beispielen, mit dem Sie ein erstes Vorhaben abgrenzen und sachlich entscheiden können, ob es fertig ist."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Mit welcher Marketingaufgabe sollten wir bei der KI-Integration beginnen?",
+      "a": "Mit einer Aufgabe, die wöchentlich anfällt, eine klare Eingabe hat und deren Ergebnis sich schnell prüfen lässt. Typisch sind Entwürfe aus Briefings, Textvarianten mit festen Längen, Berichtszusammenfassungen und Verschlagwortung. Ungeeignet für den Einstieg ist alles, bei dem niemand sagen kann, wie ein gutes Ergebnis aussieht."
+    },
+    {
+      "q": "Kann eine Agentur ein KI-System für mehrere Kunden gleichzeitig einsetzen?",
+      "a": "Ja, wenn die Trennung technisch umgesetzt und nicht nur angenommen wird. Jeder Kunde braucht eigenen Kontext, eigene Ablage und eigene Protokolle, und für einen Auftrag darf nur dessen Material geladen werden. Lassen Sie sich zeigen, wie das erzwungen wird. Vertragliche Fragen zur Datenverarbeitung klären Sie mit Ihrer Datenschutzbeauftragten oder einer Anwaltskanzlei."
+    },
+    {
+      "q": "Ersetzt die KI-Integration die Prüfung vor der Veröffentlichung?",
+      "a": "Nein. Die Arbeit verlagert sich vom Schreiben zum Prüfen. Eine gute Integration beschleunigt das Prüfen, indem sie Quellen neben dem Entwurf zeigt und Länge, unerwünschte Formulierungen und fehlende Fakten vorab automatisch kontrolliert. Die Verantwortung für das Veröffentlichte bleibt bei einem Menschen."
+    }
+  ],
+  "meta_description": "KI-Integration für Marketing-Teams und Agenturen: typische Probleme, Bausteine einer belastbaren Lösung und Fragen an Anbieter.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.498Z",
+  "updated_at": "2026-10-01T18:58:05.140Z"
+}

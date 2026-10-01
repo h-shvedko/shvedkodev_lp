@@ -1,0 +1,41 @@
+{
+  "axis": "products",
+  "entity_a": "craftly",
+  "entity_b": "laravel",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "What belongs in the description of a Laravel application, what the generated project is, and how a developer carries it forward.",
+  "overview": "A Laravel application is more than a set of pages. It stores records, tells users apart and applies rules. That makes the description you give Craftly more important here than for a website theme: a multi-agent system writes the PHP code from what you say in the conversation, and whatever you leave out has to be guessed or left out.\n\n## What to describe\n\nWrite the description down before you start the conversation. Plain language is enough, but five things should be in it. The examples below use an invented room booking tool as an illustration.\n\n- The things the application manages: rooms, bookings, customers. For each one, the fields it has and which of them are mandatory.\n- The people who use it. List the roles and what each role may see, create, change and delete.\n- The processes, step by step: what happens when a booking is requested, confirmed or cancelled, and who is notified at each step.\n- The rules. A room cannot be booked twice for the same time. A customer sees only their own bookings. Write rules as sentences that are either true or false.\n- The exceptions: a wrong entry, a missing permission, an empty list, a record that someone else has just deleted.\n\nIf a Figma design of the screens exists, Craftly can start from it. A design shows what a screen looks like. It does not say which rules apply behind it, so the written description is still needed.\n\nA simple test: give the text to a colleague who does not know the project. Every question they ask marks a gap.\n\n## What you get\n\nThe result is a Laravel application as ordinary PHP code, not a configuration stored inside a builder. The owner can keep it and edit it. In practice that means the project can go into version control, and a developer who knows Laravel can read and change it with the usual tools.\n\nWhat a generated project contains in detail and how it is handed over is described on the Craftly product site. Check that before you set a schedule.\n\n## The first review\n\nTest the application against your description before anyone builds on it.\n\n- Walk through every process once per role, including a role that should be refused.\n- Try to break each rule on purpose: book the same room twice, open another customer's record.\n- Fill forms with nonsense, leave mandatory fields empty, submit twice.\n- Ask a developer to look at how the data is structured. This is the part that is most expensive to change once real records exist.\n\nNote every deviation with the screen, the role and what you expected. That list is either the input for a more precise description or the task list for a developer.\n\n## Continuing development\n\nFrom here the project behaves like any other Laravel project, and it needs the same care.\n\n- Put the code into version control on the first day, so every later change can be traced and undone.\n- Keep a test environment separate from the live one. Changes go to test first.\n- Before real data goes in, have a developer review everything around login, permissions, personal data and payments.\n- Plan connections to systems you already use, such as accounting, email delivery or a payment provider, as separate developer work.\n- Agree who applies updates. Laravel and the packages it depends on receive new versions regularly, and someone has to install and test them.\n- Have data protection and contract questions checked by a lawyer.\n\nIf you want to keep generating and also edit by hand, find out on the product site how the two fit together before you mix them.\n\n## When it fits\n\nGeneration works best where the rules can be stated: internal tools, customer portals, a first version of a product that people need to click through. If the rules are still being argued about, settle them first. A generator cannot make that decision, and neither can a developer.",
+  "personas": [
+    {
+      "key": "founder",
+      "text": "You get a checklist for describing your product idea as records, roles, processes and rules, and a realistic picture of the review and maintenance work that follows once the Laravel code exists."
+    },
+    {
+      "key": "operations_lead",
+      "text": "You see how to put an internal process, with its roles, steps and exceptions, into words precise enough to generate a tool from, and how to test the result against the way your team actually works."
+    },
+    {
+      "key": "cto",
+      "text": "You learn what arrives on your desk: ordinary Laravel code that goes into version control, needs a security and data structure review, and is then maintained and updated like any other project."
+    }
+  ],
+  "faq": [
+    {
+      "q": "How detailed does my description of the Laravel application have to be?",
+      "a": "Detailed enough that a colleague who does not know the project has no questions left. Name the records and their fields, the roles and their permissions, each process step by step, the rules, and what happens when something goes wrong. Technical terms are not needed. Missing rules are the usual reason a generated application behaves differently from what was expected."
+    },
+    {
+      "q": "Can my own developers keep working on a generated Laravel application?",
+      "a": "Yes. The project is ordinary PHP code that the owner can keep and edit, so a developer who knows Laravel works on it with the usual tools. Put it into version control straight away and let the developer review data structure, login and permissions before real data is entered."
+    },
+    {
+      "q": "Does Craftly connect the application to our existing systems?",
+      "a": "This page makes no claim about connections to particular third-party systems, so do not plan on them. Treat links to accounting, payment or email systems as separate developer work on the generated code, and check the Craftly product site for the current scope."
+    }
+  ],
+  "meta_description": "Craftly for Laravel: what to describe before generating, what kind of code project you receive, and how development continues afterwards.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.619Z",
+  "updated_at": "2026-10-01T18:58:05.145Z"
+}

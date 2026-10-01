@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    //= layout/head.html
+    <title>Individuelle Softwarelösungen · ShvedkoDev</title>
+    <meta name="description" content="Individuelle Software für Ihr Unternehmen: maßgeschneiderte Webanwendungen, Integrationen und Automatisierung statt Kompromissen von der Stange.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Individuelle Softwarelösungen · ShvedkoDev">
+    <meta property="og:description" content="Individuelle Software für Ihr Unternehmen: maßgeschneiderte Webanwendungen, Integrationen und Automatisierung statt Kompromissen von der Stange.">
+    <meta property="og:url" content="https://shvedko.dev/de/custom-solution.html">
+    <meta property="og:site_name" content="ShvedkoDev">
+    <meta property="og:locale" content="de_DE">
+    <link rel="alternate" hreflang="en" href="https://shvedko.dev/custom-solution.html">
+    <link rel="alternate" hreflang="de" href="https://shvedko.dev/de/custom-solution.html">
+    <link rel="alternate" hreflang="x-default" href="https://shvedko.dev/custom-solution.html">
+    <link rel="canonical" href="https://shvedko.dev/de/custom-solution.html">
+    <style>
+        .list {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+        }
+
+        .list.show {
+            max-height: 500px;
+            /* Adjust based on the content height */
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+        //= layout/header.de.html
+        <main role="main" id="main">
+            <section class="section">
+                <div class="container">
+                    <div class="services-tabs">
+                        <ul class="services-tabset d-none servicesTabset animate-on-scroll">
+                            <li><a href="#tab2-1" class="active">Individuelle Lösungen</a></li>
+                        </ul>
+                        <div class="services-content">
+                            <div id="tab2-1" class="row-holder">
+                                <div class="col-6 animate-on-scroll">
+                                    <div class="text-holder">
+                                        <h1>Individuelle Lösungen</h1>
+                                        <h3 class="button toggle" onclick="toggleList(this)">Softwareentwicklung <i class=".icon icon-arrow_drop_down"></i></h3>
+                                        <ul class="list">
+                                            <li>Maßgeschneiderte Software für Ihre spezifischen geschäftlichen Herausforderungen.</li>
+                                            <li>Mit neuesten Technologien entwickelt – für optimale Performance.</li>
+                                            <li>Skalierbare Lösungen, die mit Ihrem Unternehmen wachsen.</li>
+                                        </ul>
+                                        <h3 class="button toggle" onclick="toggleList(this)">Systemintegration <i class=".icon icon-arrow_drop_down"></i></h3>
+                                        <ul class="list">
+                                            <li>Reibungsloser Betrieb über alle Ihre Unternehmenssysteme hinweg.</li>
+                                            <li>Integration in bestehende und neue Softwareplattformen.</li>
+                                            <li>Verschlankte Prozesse für mehr Effizienz.</li>
+                                        </ul>
+                                        <h3 class="button toggle" onclick="toggleList(this)">Beratung <i class=".icon icon-arrow_drop_down"></i></h3>
+                                        <ul class="list">
+                                            <li>Fachkundige Beratung, damit Sie Technologie für Ihr Wachstum nutzen können.</li>
+                                            <li>Individuelle Strategien, mit denen Sie Ihre Geschäftsziele erreichen.</li>
+                                            <li>Unterstützung bei Initiativen zur digitalen Transformation.</li>
+                                        </ul>
+                                        <h3 class="button toggle" onclick="toggleList(this)">Laufender Support <i class=".icon icon-arrow_drop_down"></i></h3>
+                                        <ul class="list">
+                                            <li>Kontinuierliche Verbesserung und Betreuung, damit Ihre Lösungen wirksam bleiben.</li>
+                                            <li>Proaktive Wartung, um Problemen vorzubeugen.</li>
+                                            <li>Support rund um die Uhr (24/7) zur Sicherung Ihres Geschäftsbetriebs.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-6 bounce-in-right">
+                                    <div class="img-holder">
+                                        <img src="/images/custom.png" alt="Individuelle Lösungen">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+        //= layout/footer.de.html
+    </div>
+
+    <script>
+        function toggleList(element) {
+            const list = element.nextElementSibling;
+            if (list.classList.contains('show')) {
+                list.classList.remove('show');
+            } else {
+                list.classList.add('show');
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+{
+  "axis": "services",
+  "entity_a": "api-integration",
+  "entity_b": "hr",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "What it takes to connect job sources, applicant data and notification channels, and how to judge a provider's proposal.",
+  "overview": "Recruiting work is spread over many systems: job boards and marketplaces, an applicant tracking system, calendars, the HR system that takes over after a hire, and the channels where people actually read messages. API integration connects these systems so that data moves without someone copying it by hand.\n\n## Typical problems\n\n- The same vacancy is maintained in several places, and the versions drift apart. A salary range or closing date is corrected on one board and stays wrong on another.\n- Candidates arrive through different sources and end up as duplicates, or with the source missing, so nobody can say which channel produced the hire.\n- New applications or matching jobs are noticed late because the alert goes to a shared inbox nobody watches. In recruiting, a day of delay can decide whether a candidate is still available.\n- Exports and imports by spreadsheet. They work until a column changes, and they leave copies of personal data on laptops.\n- An integration that was built once and then silently stopped: an access token expired, the external API changed a field, and nobody was told.\n\n## What a good solution includes\n\n- A written data map. For every field it says which system is the source of truth, which direction it travels and what happens on a conflict.\n- Respect for the limits of the external API. Job platforms restrict how often you may query them and what you may do with the data. The integration should follow the platform's terms, stay within rate limits and fetch only the fields it needs. GraphQL interfaces help here, because the query names exactly the fields that are returned.\n- Deduplication with a stable identifier, so a retry or a second run does not create a second record or a second message.\n- Notifications that people can steer. Each recipient chooses channel and threshold, for example urgent items by messenger and the rest as a daily email digest. Too many alerts get ignored, and the important one is missed with them.\n- Retries, a log and an alarm. When a delivery fails or a token expires, a named person hears about it the same day.\n- Data protection built in from the start: minimal data, access roles, deletion periods for rejected applicants and a clear list of every service that receives personal data. Messaging services are part of that list. Have your data protection officer or a lawyer review it; a developer can describe the data flows but cannot give the legal assessment.\n\n## From practice\n\nOne project of ours combined both halves of this picture: an integration with the GraphQL API of a job marketplace on the intake side, and notification delivery through email, Slack, WhatsApp and browser push on the output side. The general lesson for HR work is that each channel has its own rules. Email needs a correctly configured sending domain, some messenger services require approved message templates and the recipient's consent, and browser push only works after the user has allowed it in the browser. Plan these as separate pieces of work, not as one line in an estimate.\n\n## What to ask a provider\n\n- Which official interfaces will you use, and what do their terms allow? Be wary of anyone who proposes reading a platform through unofficial means.\n- What happens when the external API changes or is unavailable for an hour?\n- How do we see that the integration ran, and who is alerted when it did not?\n- Where is applicant data stored, for how long, and how is it deleted?\n- Can we add a channel or a job source later without a rebuild?\n- What do we receive at the end: source code, documentation, access to all accounts and keys?\n\n## How to start\n\nPick the one handover that costs the most time or causes the most errors today, and automate that first. A narrow first integration that runs reliably tells you more about the provider and about your own data than a large concept that tries to connect everything at once.",
+  "personas": [
+    {
+      "key": "hr_lead",
+      "text": "You see which recurring recruiting problems come from disconnected systems, what an integration can realistically take over and which data protection questions you need answered before work starts."
+    },
+    {
+      "key": "it_manager",
+      "text": "You get a checklist for the technical side: data map, rate limits, deduplication, monitoring and token handling, plus the questions that show whether a provider plans for failures."
+    },
+    {
+      "key": "operations_lead",
+      "text": "You learn how to choose the first handover worth automating and how to set up notifications so that urgent items reach the right person without flooding everyone else."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Can any job board or marketplace be connected through an API?",
+      "a": "No. It depends on whether the platform offers an official interface and what its terms permit. Some provide full APIs, some only feeds or partner access, some nothing. A serious provider checks this first and tells you when a source cannot be connected in a permitted way."
+    },
+    {
+      "q": "Which notification channel should we use for recruiting alerts?",
+      "a": "Use the channel each recipient already reads, and let them choose. A common split is a messenger or push for time-critical items and email digests for the rest. Some messenger services need approved templates and consent, and browser push needs the user's permission, so plan setup time for each channel."
+    },
+    {
+      "q": "Is it allowed to send applicant data through messaging services?",
+      "a": "That is a legal question which depends on your setup, the service, its contract terms and where data is processed. A practical approach is to keep personal details out of the message and link to the secured system instead. Have your data protection officer or a lawyer confirm the design before launch."
+    }
+  ],
+  "meta_description": "API Integration for HR and Recruiting: typical data and notification problems, what a sound setup includes, what to ask a provider.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.621Z",
+  "updated_at": "2026-10-01T18:58:05.147Z"
+}

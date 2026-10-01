@@ -1,0 +1,41 @@
+{
+  "axis": "services",
+  "entity_a": "laravel-development",
+  "entity_b": "education",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "What an education platform needs beyond content: a structured catalogue, clear roles, a usable admin area and upkeep you can afford.",
+  "overview": "Schools, training providers and course businesses rarely fail at producing content. They struggle with everything around it: who may see which material, how teachers find it again, and who keeps the catalogue tidy once the project team has moved on. Laravel, a PHP framework for custom web applications, suits this kind of work because the hard parts of an education platform are rules and data structures rather than page layouts.\n\n## Typical problems in education projects\n\n- Materials are scattered across shared drives, email attachments and old learning platforms. There is no single catalogue, and the same worksheet exists in several versions.\n- Roles are more varied than on a normal website. Learners, teachers, school administrators, authors and editors need different views and rights, often per school or per class.\n- Usage is uneven. A platform is quiet during holidays and busy at the start of a lesson, when a whole class signs in within the same minute.\n- Many users are minors, so data protection has to be part of the first data model and cannot be added at the end.\n- Licences restrict who may use a material, for how long, and whether it may be downloaded.\n- Budgets are often tied to funding periods. Afterwards a small team has to keep the platform running.\n\n## What a good solution includes\n\nA catalogue with a clear structure. Subject, grade level, material type, language and licence should be real data fields instead of free text, so that search and filters work reliably. Search should tolerate typing errors and show results a teacher can judge at a glance.\n\nAn admin area that non-technical staff can use. Editors need to upload, tag, review and withdraw materials without asking a developer. Bulk import matters when an existing collection has to be brought in.\n\nRoles and permissions that are modelled explicitly. You should be able to say in one sentence who may see a given file, and the system has to enforce that for the download itself, not only for the page that links to it.\n\nSign-in that fits the institution. Many schools already run an identity system, and connecting to it avoids one more password. Where that is not possible, accounts created by a school administrator are usually a better choice than open self-registration.\n\nAccessibility and speed. Pages should work with a keyboard and a screen reader, and load on older classroom devices and weak school networks.\n\nData minimisation. Collect only what is needed, define deletion periods, and document the hosting location and every service that receives user data. Have your data protection officer or a lawyer assess the legal side. A developer can implement requirements but should not be the one who judges them.\n\n## Experience behind this page\n\nWe have built a digital library platform for schools on Laravel, with a catalogue of teaching materials and an admin area for maintaining it. That is the kind of project this page has in mind: the catalogue structure and the admin workflows deserve as much attention as the pages visitors see.\n\n## What to ask a provider\n\n- How will the catalogue be structured, and can we change categories ourselves later?\n- Which roles exist, and how are permissions tested?\n- How do existing materials get into the system, and who cleans the data beforehand?\n- Where is the platform hosted, and which third-party services receive user data?\n- What happens after launch: updates, backups, response times and yearly cost?\n- Do we receive the source code and documentation, so that another team could take over?\n- How is accessibility checked, and against which standard?\n\n## How to start\n\nBegin with a small, real slice: one subject, a limited set of materials, and a few teachers who use it for actual lesson preparation. Their feedback on search and tagging tells you more than a long specification. Extend the platform once that slice works.",
+  "personas": [
+    {
+      "key": "educator",
+      "text": "You see which features decide whether teachers will actually use a platform: a catalogue structured by subject and grade level, forgiving search, and an admin area your colleagues can maintain without technical help."
+    },
+    {
+      "key": "it_manager",
+      "text": "You get a checklist for the technical side of a school or training platform: roles and permissions, sign-in through an existing identity system, hosting location, backups, and what to require for handover and maintenance."
+    },
+    {
+      "key": "project_manager",
+      "text": "You get a list of questions to put to providers and a way to cut the first release down to a small slice that real teachers can test, so that scope and funding period stay aligned."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Why build a custom Laravel platform instead of using an existing learning management system?",
+      "a": "An existing system is the better choice when your needs match what it offers: courses, quizzes, grades. A custom Laravel application makes sense when your core is something those systems handle poorly, for example a searchable library of materials with its own licence rules, roles per school, or an editorial workflow. Write down your three most important processes and check them against a ready-made product first."
+    },
+    {
+      "q": "Can a Laravel platform connect to systems a school already uses?",
+      "a": "Usually yes, provided the other system offers an interface. Common cases are single sign-on through an existing identity system, importing user and class lists, and linking materials from a learning platform. Ask the provider early which interfaces your existing systems expose, because that decides how much work an integration is."
+    },
+    {
+      "q": "How do we handle personal data of pupils on such a platform?",
+      "a": "Collect as little as possible, separate roles strictly, define when accounts and logs are deleted, and document where data is hosted and which services process it. These are design decisions a developer can implement. Whether your setup meets the legal requirements is a question for your data protection officer or a lawyer, and it should be clarified before development starts."
+    }
+  ],
+  "meta_description": "Laravel Development for Education and E-Learning: typical problems, what a solid platform includes and what to ask a provider.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:01:27.222Z",
+  "updated_at": "2026-10-01T18:58:05.147Z"
+}

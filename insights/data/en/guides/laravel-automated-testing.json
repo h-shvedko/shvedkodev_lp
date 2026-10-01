@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "laravel-automated-testing",
+  "entity_b": "",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "Know which tests a Laravel project should include, what each kind catches, and what keeping them up to date costs you over the years.",
+  "overview": "Automated tests are small programs that check the application every time the code changes. For a client they matter for one reason: they let a developer change something in month eighteen without breaking what was built in month two. Tests are invisible in the finished product, so they are the first thing cut when a budget is tight. This page explains what a reasonable Laravel project contains, so you can ask for it and check that you received it.\n\n## Unit tests\n\nA unit test checks one piece of logic in isolation, without database or browser. Typical subjects are price and tax calculation, discount rules, date logic and the conversion of imported data. Hundreds of them run in seconds. They catch calculation errors and forgotten special cases. Maintenance is low as long as they test rules of the business and not internal details of the code.\n\n## Feature tests\n\nThis is the layer where Laravel is strongest and where most of the value lies. A feature test sends a request to the application the way a browser or an API client would, with a test database behind it, and checks the response and the stored data. Examples: a customer may see only their own invoices, a form with a missing mandatory field is rejected, placing an order creates the order, reduces stock and queues a confirmation email. External services such as payment or email are replaced by stand-ins. Feature tests catch broken permissions, validation gaps and side effects of changes elsewhere. They need updating when behaviour changes on purpose: moderate, predictable work.\n\n## Browser end-to-end tests with Playwright\n\nPlaywright drives a real browser: it clicks, types and waits like a user. Only this layer notices that a button no longer reacts because of a JavaScript error, or that a multi-step checkout loses its data on step three. These tests are slow and the most sensitive to change, because a redesigned page can break them without any real defect. Keep them few and aimed at the journeys that cost money when they fail: registration, login, checkout, the central workflow of the application. As an illustration, a mid-sized application is often well served by ten to twenty such journeys rather than hundreds.\n\n## Continuous integration\n\nTests are useless if they only run when someone remembers. Continuous integration, CI for short, runs the whole suite automatically on every code change and blocks the change if anything fails. It usually also runs static analysis, which finds certain mistakes without executing the code. Expect CI to be set up in the first week of a project, not shortly before launch.\n\n## What coverage to expect\n\nA percentage is a poor target, because a high figure can be reached with tests that check nothing important. Ask instead which risks are covered:\n\n- everything involving money: prices, payments, invoices\n- permissions: who may see and change what\n- imports, exports and interfaces to other systems\n- the main user journeys, in a browser\n- every bug that was fixed, with a test that reproduces it\n\n## What it costs\n\nWriting tests is part of developing a feature and adds noticeably to its effort; the exact share depends on the feature and the team, so have it shown in the estimate rather than hidden. Tests are code and have to be maintained: when a feature changes, its tests change with it. A suite that is frequently red for no reason, or takes so long that people skip it, has lost its value and needs repair.\n\n## What tests do not catch\n\nTests confirm that the software does what the developer understood. They do not notice a misunderstood requirement, a confusing screen, a wrong production setting or an external system that behaves differently from its stand-in. Acceptance by real users and monitoring after launch remain necessary.\n\n## How to verify\n\nAsk to see the test run in CI for the latest change, the number of tests per layer, and how long the suite takes. Agree in the contract that tests are delivered in the repository together with the code.",
+  "personas": [
+    {
+      "key": "founder",
+      "text": "You learn what you are paying for when an estimate contains a line for tests, which parts of your product need them most, and how to check without technical knowledge that they exist and actually run."
+    },
+    {
+      "key": "project_manager",
+      "text": "You get a risk-based checklist for acceptance: money, permissions, interfaces, main journeys and fixed bugs. You also see why manual testing before a release shrinks but does not vanish."
+    },
+    {
+      "key": "procurement",
+      "text": "You can compare offers on a like-for-like basis by asking each vendor which test layers are included, whether continuous integration is set up from the start, and whether tests are delivered with the source code."
+    }
+  ],
+  "faq": [
+    {
+      "q": "What percentage of test coverage should a Laravel project have?",
+      "a": "There is no figure that guarantees quality. Coverage measures which lines were executed during tests, not whether anything meaningful was checked. It is more useful to agree which areas must be tested: payments, permissions, interfaces and the main user journeys. A coverage figure can serve as a warning sign when it drops sharply, but not as a goal."
+    },
+    {
+      "q": "Can tests be added later to an existing Laravel application?",
+      "a": "Yes, and it rarely makes sense to do it for everything at once. The usual approach is to start with feature tests for the most critical processes, add a test for every bug that gets fixed, and cover each area before it is changed. Older code sometimes has to be restructured slightly before it can be tested, which should be planned as part of the work."
+    },
+    {
+      "q": "Do automated tests replace manual testing before a release?",
+      "a": "No. They take over the repetitive part: checking that everything that worked yesterday still works today. People are still needed to judge whether a new feature is understandable, looks right on different devices and matches what the business intended. With a good suite, manual testing concentrates on what is new."
+    }
+  ],
+  "meta_description": "Automated Testing in Laravel: which unit, feature and browser tests a client should expect, what each layer catches and what upkeep costs.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.510Z",
+  "updated_at": "2026-10-01T18:58:05.144Z"
+}

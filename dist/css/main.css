@@ -3432,6 +3432,14 @@ header.shrink {
   opacity: 0;
 }
 
+.lang-switch img {
+  display: block;
+  width: 24px;
+  height: 16px;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+
 #wrapper {
   display: flex;
   flex-direction: column;
@@ -5358,4 +5366,220 @@ p-6 .list li::before {
   font-size: 12px;
   color: #71717A;
   text-align: center;
+}
+
+#main.insight-main {
+  overflow: visible;
+}
+
+.insight {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+  padding: 20px 0 60px;
+}
+@media (max-width: 767px) {
+  .insight {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+}
+.insight__aside {
+  position: sticky;
+  top: 100px;
+  font-size: 17px;
+}
+@media (max-width: 767px) {
+  .insight__aside {
+    position: static;
+  }
+}
+.insight__aside h2 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #888;
+  margin: 0 0 8px;
+}
+.insight__aside ul,
+.insight__aside ol {
+  margin: 0 0 28px;
+  padding: 0;
+  list-style: none;
+}
+.insight__aside ol {
+  counter-reset: toc;
+}
+.insight__aside ol li {
+  counter-increment: toc;
+}
+.insight__aside ol li::before {
+  content: counter(toc);
+  display: inline-block;
+  width: 1.4em;
+  color: #888;
+}
+.insight__aside li {
+  padding: 4px 0;
+}
+.insight__aside a {
+  color: inherit;
+  text-decoration: none;
+}
+.insight__aside a:hover, .insight__aside a[aria-current] {
+  color: var(--primary-color);
+}
+.insight__aside a[aria-current] {
+  font-weight: 600;
+}
+.insight__body {
+  max-width: 780px;
+}
+.insight__header {
+  padding-bottom: 24px;
+  border-bottom: 2px solid var(--secondary-color);
+  margin-bottom: 12px;
+}
+.insight__header h1 {
+  margin: 8px 0 14px;
+  line-height: 1.2;
+}
+.insight__crumbs {
+  font-size: 15px;
+  margin: 0;
+}
+.insight__crumbs a {
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+.insight__crumbs a:hover {
+  text-decoration: underline;
+}
+.insight__subtitle {
+  font-size: 24px;
+  line-height: 1.35;
+  margin: 0;
+}
+.insight__parent {
+  margin: 14px 0 0;
+}
+.insight__section {
+  padding-top: 12px;
+  scroll-margin-top: 100px;
+}
+.insight__section h2 {
+  font-size: 32px;
+  margin: 28px 0 12px;
+  line-height: 1.2;
+}
+.insight__section h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+.insight__section h2 a:hover {
+  color: var(--primary-color);
+}
+.insight__section h3 {
+  font-size: 24px;
+  line-height: 1.25;
+  margin: 24px 0 8px;
+}
+.insight__section p {
+  margin: 0 0 16px;
+}
+.insight__section ul {
+  margin: 0 0 16px;
+  padding-left: 1.2em;
+}
+.insight__num {
+  display: inline-block;
+  min-width: 1.6em;
+  color: var(--primary-color);
+}
+.insight__example {
+  padding: 20px 24px;
+  background: #fff;
+  border: 1px solid #e8edf5;
+  border-left: 4px solid var(--primary-color);
+  border-radius: 8px;
+}
+.insight__example h3:first-child {
+  margin-top: 0;
+}
+.insight__personas {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+@media (max-width: 767px) {
+  .insight__personas {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.insight__persona {
+  padding: 16px 18px;
+  background: #fff;
+  border: 1px solid #e8edf5;
+  border-radius: 8px;
+}
+.insight__persona h3 {
+  font-size: 22px;
+  margin: 0 0 8px;
+}
+.insight__persona p {
+  margin: 0;
+  font-size: 18px;
+}
+.insight__cta {
+  margin-top: 40px;
+  padding: 28px;
+  background: var(--secondary-color);
+  border-radius: 12px;
+}
+.insight__cta h2 {
+  font-size: 32px;
+  margin: 0 0 8px;
+}
+.insight__cta p {
+  margin: 0 0 16px;
+}
+.insight__cta p:last-child {
+  margin-bottom: 0;
+}
+.insight__cta .button + .button {
+  margin-left: 12px;
+}
+.insight__note {
+  margin-top: 32px;
+  font-size: 15px;
+  color: #666;
+}
+.insight__note p {
+  margin: 0 0 6px;
+}
+
+.insight-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.insight-list li {
+  padding: 16px 0;
+  border-bottom: 1px solid #e8edf5;
+}
+.insight-list li:last-child {
+  border-bottom: none;
+}
+.insight-list a {
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+.insight-list a:hover {
+  text-decoration: underline;
+}
+.insight-list p {
+  margin: 4px 0 0;
 }

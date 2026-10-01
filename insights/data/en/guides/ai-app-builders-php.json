@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "ai-app-builders-php",
+  "entity_b": "",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "A sober look at what generated Laravel and WordPress code is good for, what it leaves out, and how to check it before it goes live.",
+  "overview": "Tools that write code from a description come in two kinds: assistants that work inside an existing codebase alongside a developer, and builders that generate a whole application from a prompt. Both can produce Laravel and WordPress code that runs. What they deliver is a draft from an author who has read a great deal of public code and knows nothing about your business, your server or your users.\n\n## Where it saves time\n\n- scaffolding in Laravel: migrations, models, controllers, form validation, simple create-and-edit screens, admin lists\n- routine WordPress work: custom post types, block registration, small plugins, template files\n- tests for existing code, seed data, documentation\n- conversion tasks: a CSV import, an API client written from the documentation\n- explaining unfamiliar or inherited code\n- clickable prototypes to show an idea to stakeholders\n\nWhat these have in common: well-known patterns with many public examples, and results that can be checked quickly.\n\n## Where a developer is still needed\n\n- Deciding what to build. The data model, the boundaries between parts, and the question of whether an existing plugin or package is the better answer.\n- Security. Generated code often covers the normal case and omits the check that stops one customer from opening another customer's invoice. Authorisation, file uploads and the handling of secrets need a person who looks for what is missing.\n- Fitting into what exists. Your conventions, your installed plugins, your PHP version and your hosting limits are unknown to the tool unless someone supplies them.\n- Behaviour with real data. A query that is fine with ten rows can be slow with a hundred thousand.\n- Outdated suggestions. Tools propose functions and packages that are outdated or, occasionally, do not exist.\n- Operation. Deployment, backups, updates, monitoring and changes to a live database.\n- Responsibility. When something breaks, someone has to understand the code well enough to fix it.\n\n## How to review generated code\n\nTreat it like code from an unknown contractor.\n\n- Run it with wrong input, empty input and a user who lacks permission, not only with the expected case.\n- Read every line that touches access and data. In Laravel: policies, validation, mass assignment, raw queries. In WordPress: nonces, capability checks, sanitised input, escaped output, prepared database statements.\n- Check each added package or plugin: does it exist, is it maintained, does the licence fit.\n- Look for what is absent: tests, error handling, logging, limits on size and frequency.\n- Check that it fits the project: naming, structure, no second version of a helper that already exists.\n- Keep changes small. A change of two hundred lines gets read. One of five thousand gets waved through.\n\nBefore pasting code, customer data or access keys into any tool, find out where that data is processed. This is a data protection question. Involve your data protection officer if personal data is concerned.\n\n## What this means when you buy a project\n\nA prototype from a builder is a good way to clarify requirements. It is not a product: it usually lacks roles, error handling, tests and a deployment path, and turning it into one can cost more than building on a clean base with the prototype as the specification.\n\nQuestions worth asking a provider who works with these tools:\n\n- Who reviews generated code, and against which checklist?\n- Are there automated tests, and do they run on every change?\n- Who owns the code, and can another developer take it over?\n- Which data leaves your systems during development?\n\nThe saving sits in the routine parts. Specification, review, integration and testing remain, so a project does not get cheaper in proportion to how fast code is typed.\n\n## A reasonable way to start\n\nPick a task with clear limits and low risk, such as an internal report or an import. Have it generated, reviewed and tested, and compare the effort with the usual way. That tells you more about your own project than any general claim.",
+  "personas": [
+    {
+      "key": "founder",
+      "text": "You can judge whether a prototype from an AI builder is a basis for your product or only a way to clarify requirements, and what it still takes to get from one to the other."
+    },
+    {
+      "key": "cto",
+      "text": "You get a review checklist for generated Laravel and WordPress code and a list of the areas, from authorisation to operations, that stay with your developers."
+    },
+    {
+      "key": "agency_owner",
+      "text": "You see which parts of a project realistically get faster with code generation and which do not, which helps when setting estimates and answering client questions about AI."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Can I build a complete Laravel application with an AI builder and no developer?",
+      "a": "You can get a running prototype. For an application with real users you still need someone who checks access rules, sets up deployment and backups, writes tests and can fix faults. Without that person the risk is not that the tool fails, but that nobody notices what it left out until a user does."
+    },
+    {
+      "q": "Is AI-generated code less secure than code written by hand?",
+      "a": "Not by nature, but it fails in a typical way: it handles the expected case and leaves out checks nobody asked for, such as whether the logged-in user may see this particular record. Hand-written code has the same weakness when nobody reviews it. The safeguard is the same in both cases: a review focused on access and input, plus tests."
+    },
+    {
+      "q": "How much cheaper does a web project become with AI code generation?",
+      "a": "There is no reliable general figure, and you should be sceptical of anyone who offers one. Routine coding gets faster. Clarifying requirements, design decisions, review, integration with existing systems and testing take about as long as before, and in many projects they are the larger share. A small pilot task in your own project gives a better answer."
+    }
+  ],
+  "meta_description": "What AI App Builders for PHP can do in Laravel and WordPress projects, where a developer is still needed, and how to review the code.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.498Z",
+  "updated_at": "2026-10-01T18:58:05.143Z"
+}

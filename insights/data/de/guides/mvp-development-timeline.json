@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "mvp-development-timeline",
+  "entity_b": "",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Von der Idee zur ersten Version: was hineingehört, was warten kann und wo die Wochen üblicherweise verloren gehen.",
+  "overview": "Ein MVP ist die kleinste Fassung eines Produkts, mit der echte Nutzer eine wertvolle Aufgabe von Anfang bis Ende erledigen können, damit Sie erfahren, ob die Idee trägt. Wie lange der Weg dorthin dauert, entscheidet sich weit mehr über das Weglassen als über das Entwicklungstempo.\n\n## Was in ein MVP gehört\n\n- Eine Nutzergruppe und eine Hauptaufgabe, vollständig vom ersten bis zum letzten Schritt.\n- Registrierung und Anmeldung in der einfachsten tauglichen Form.\n- Das Nötigste für den Betrieb: Sie sehen, wer sich angemeldet hat, können Daten korrigieren und eine Supportanfrage beantworten.\n- Bezahlung nur, wenn das MVP gerade die Zahlungsbereitschaft prüfen soll.\n- Die rechtlichen Grundlagen für Ihren Markt, etwa Impressum und Datenschutzhinweise. Was genau für Sie gilt, klärt ein Anwalt.\n\n## Was Sie streichen\n\n- Weitere Nutzerrollen und Berechtigungssysteme.\n- Einen komfortablen Verwaltungsbereich. Für die ersten Nutzer kann ein Entwickler Korrekturen direkt vornehmen.\n- Automatisierung von Dingen, die Sie für zwanzig Kunden von Hand erledigen können, etwa Einrichtung oder Rechnungsstellung.\n- Native Apps, wenn eine Webanwendung für das Smartphone dieselbe Frage beantwortet.\n- Schnittstellen, nach denen kein früher Nutzer gefragt hat, Mehrsprachigkeit, ausführliche Auswertungen, Einstellungsseiten.\n\nEine brauchbare Probe für jede Funktion: Könnten die ersten Nutzer die Hauptaufgabe auch dann erledigen, wenn sie am Starttag fehlte? Falls ja, kommt sie auf die Liste für später.\n\n## Die Phasen\n\nAbgrenzung. Sie beschreiben die Hauptaufgabe als Schrittfolge, legen fest, was nicht dazugehört, und vereinbaren, woran Sie Erfolg erkennen. Ergebnis sind ein kurzer schriftlicher Umfang und eine priorisierte Funktionsliste.\n\nDesign. Zuerst einfache Skizzen aller Masken des Hauptablaufs, danach die Gestaltung nur dieser Masken. Ein klickbarer Entwurf, mit drei bis fünf Personen aus der Zielgruppe getestet, kostet an dieser Stelle wenig und macht ganze Funktionen überflüssig.\n\nUmsetzung. Gearbeitet wird in kurzen Zyklen. Jeder endet mit einem Stand, den Sie auf einem Testsystem durchklicken können. Rückmeldung geben Sie in jedem Zyklus, nicht erst am Ende.\n\nTest. Automatisierte Tests für den Hauptablauf, Prüfung von Hand auf echten Geräten und eine Runde mit einigen externen Nutzern.\n\nStart. Livesystem, Domain, E-Mail-Versand, Datensicherung, Überwachung und eine erste, gezielt eingeladene Nutzergruppe statt einer öffentlichen Ankündigung.\n\n## Beispielzeitpläne (Illustrationen mit erfundenen Zahlen)\n\nDie folgenden Angaben sind Illustrationen, keine Angebote und keine Durchschnittswerte.\n\n- Ein Buchungswerkzeug mit einer Nutzerrolle und ohne Bezahlung: Abgrenzung 1 Woche, Design 2 Wochen, Umsetzung 5 Wochen, Test 1 Woche, Start 1 Woche. Zusammen zehn Wochen.\n- Eine Plattform mit Anbietern, Kunden und Onlinezahlung: Abgrenzung 2 Wochen, Design 3 Wochen, Umsetzung 10 Wochen, Test 2 Wochen, Start 1 Woche. Zusammen achtzehn Wochen.\n\nDas zweite Beispiel dauert vor allem wegen der zweiten Nutzergruppe und der Zahlung länger, nicht wegen der Zahl der Masken. Jede zusätzliche Rolle vervielfacht Abläufe und Testfälle.\n\n## Was ein MVP üblicherweise verzögert\n\n- Entscheidungen, die liegen bleiben. Rückmeldung nach einer Woche statt nach einem Tag dehnt jeden Zyklus.\n- Zusätzlicher Umfang während der Umsetzung, ohne dass etwas anderes entfällt.\n- Fehlende Inhalte: Texte, Bilder, Preise und Rechtstexte, für die niemand zuständig war.\n- Dritte: Prüfung durch den Zahlungsanbieter, Freigabe im App-Store, Zugang zur Schnittstelle eines anderen Unternehmens. Stellen Sie diese Anträge schon in der Abgrenzungsphase.\n- Mehrere Beteiligte mit Mitspracherecht und niemand, der entscheidet.\n- Designänderungen nach Beginn der Umsetzung.\n- Perfektionismus vor dem Start, obwohl es um das Lernen aus echter Nutzung geht.\n\n## So halten Sie den Termin\n\nBenennen Sie eine Person, die entscheidet. Legen Sie den Starttermin fest und behandeln Sie den Umfang als veränderliche Größe: Dauert etwas länger, wandert etwas anderes auf die Liste für später. Sehen Sie sich alle ein bis zwei Wochen einen lauffähigen Stand an. Halten Sie die Liste sichtbar, dann wird aus Streichen ein Verschieben, und genau das ist es.",
+  "personas": [
+    {
+      "key": "founder",
+      "text": "Sie erhalten eine Methode, um zu entscheiden, was in die erste Version gehört und was wartet, und ein realistisches Bild der Phasen und der Verzögerungen, die Sie selbst in der Hand haben."
+    },
+    {
+      "key": "product_manager",
+      "text": "Sie erhalten eine Phasenstruktur mit Ergebnissen je Phase, eine Probe zum Streichen von Funktionen und die typischen Ursachen für Verzug, die sich vor der Umsetzung ausräumen lassen."
+    },
+    {
+      "key": "project_manager",
+      "text": "Sie erhalten die Abhängigkeiten, die früh angestoßen werden müssen, etwa Zahlungsanbieter und Inhalte, und ein Vorgehen, mit dem der Termin über den Umfang gehalten wird."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Wie lange dauert die Entwicklung eines MVP?",
+      "a": "Das hängt stärker von der Zahl der Nutzerrollen, von Bezahlung und Schnittstellen ab als von der Zahl der Masken. Die Zeitpläne auf dieser Seite, zehn und achtzehn Wochen, sind erfundene Illustrationen, keine Durchschnittswerte. Eine belastbare Angabe für Ihr Produkt entsteht in der Abgrenzungsphase, sobald Hauptablauf und Ausschlüsse schriftlich vorliegen."
+    },
+    {
+      "q": "Womit lässt sich der Zeitplan am wirksamsten verkürzen?",
+      "a": "Mit weniger Umfang, nicht mit weniger Tests. Beschränken Sie sich auf eine Nutzergruppe und eine Hauptaufgabe, erledigen Sie für die ersten Kunden von Hand, was von Hand geht, und verzichten Sie auf Komfort in der Verwaltung. Mehr Entwickler helfen einem kleinen Projekt selten, weil der Abstimmungsaufwand schneller wächst als das Ergebnis."
+    },
+    {
+      "q": "Muss das MVP schon für späteres Wachstum ausgelegt sein?",
+      "a": "Bauen Sie sauber, aber nicht für eine Last, die Sie noch nicht haben. Ein tragfähiges Datenmodell, automatisierte Tests für den Hauptablauf und ein verbreitetes Framework genügen, um später zu erweitern. Infrastruktur für sehr hohe Zugriffszahlen, feine Berechtigungen und umfangreiche Einstellmöglichkeiten können warten, bis die Nutzung den Bedarf zeigt."
+    }
+  ],
+  "meta_description": "Zeitplan für die MVP-Entwicklung: was in die erste Version gehört, was Sie streichen, die fünf Phasen und typische Verzögerungen.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.493Z",
+  "updated_at": "2026-10-01T18:58:05.137Z"
+}

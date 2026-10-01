@@ -1,0 +1,41 @@
+{
+  "axis": "services",
+  "entity_a": "laravel-development",
+  "entity_b": "ecommerce",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Wann sich eigene Laravel-Software neben dem Shopsystem lohnt, worauf es im Handel technisch ankommt und was Sie Anbieter fragen sollten.",
+  "overview": "Die meisten Onlineshops sind mit einem Standard-Shopsystem gut bedient. Individuelle Entwicklung mit Laravel, einem PHP-Framework für Webanwendungen, wird dann interessant, wenn Ihr Geschäft Regeln hat, die das Shopsystem nicht abbildet: Gutscheine oder Tickets, die an einer Stelle ausgegeben und an anderer eingelöst werden, Preise je Kundengruppe, ein gemeinsamer Bestand für Filialen und Webshop oder Abläufe, die Kasse, Lager und Standorte verbinden. Laravel steht dann meist neben dem Shop und ist der Ort für Ihre eigene Geschäftslogik.\n\n## Typische Probleme\n\n- Etwas wird doppelt verwendet. Ein Gutschein, ein Ticket oder der letzte Artikel wird von zwei Anfragen in derselben Sekunde beansprucht, weil zwei Kassen oder zwei Browserfenster gleichzeitig handeln.\n- Plugins häufen sich. Jedes löst ein Detail, zusammen machen sie den Shop langsam und fallen bei Updates aus.\n- Filiale und Onlinekanal widersprechen sich. Bestand, Preise und Kundendaten werden getrennt gepflegt und laufen auseinander.\n- Vorgänge lassen sich nicht nachvollziehen. Bestreitet eine Kundin eine Einlösung oder Erstattung, fehlt ein verlässlicher Nachweis.\n- Spitzenzeiten führen zu Ausfällen. Aktionen und Saisongeschäft erzeugen Last, die eine normale Woche nie zeigt.\n\n## Was eine gute Lösung enthält\n\nDie zentrale Anforderung an Handelssoftware lautet: Was nur einmal geschehen darf, geschieht genau einmal. Technisch heißt das atomare Verarbeitung. Die Prüfung, ob ein Ticket oder Artikel noch verfügbar ist, und das Markieren als verbraucht sind ein einziger, unteilbarer Datenbankvorgang. Treffen zwei Anfragen zugleich ein, hat eine Erfolg, die andere erhält eine eindeutige Ablehnung. Verlangen Sie das ausdrücklich, denn von selbst entsteht es nicht.\n\nDarüber hinaus gehört zu einer soliden Laravel-Anwendung im Handel:\n\n- Ein Protokoll aller relevanten Ereignisse, zum Beispiel jedes Prüfversuchs eines Codes mit Zeitpunkt, Ort und Ergebnis, auch der fehlgeschlagenen. Es klärt Streitfälle und macht Missbrauch sichtbar.\n- Warteschlangen für langsame Aufgaben wie E-Mails, Exporte und den Abgleich mit anderen Systemen, damit Kasse und Checkout nicht warten.\n- Sicherer Umgang mit wiederholten Nachrichten. Zahlungs- und Versanddienste melden Ereignisse mehrfach; das System muss Wiederholungen erkennen.\n- Rollen und Rechte, die zu Ihrer Organisation passen: Zentrale, Filialleitung, Kassenpersonal.\n- Automatisierte Tests für alle Abläufe, in denen es um Geld geht, und eine Testumgebung, in der Sie Änderungen vor dem Livegang ausprobieren.\n- Codes, die im Alltag bestehen. QR-Codes sollten nicht zu erraten, schnell zu scannen und nach dem Verbrauch wertlos sein.\n\n## Was Sie vorbereiten sollten\n\nHalten Sie die Regeln in einfachen Sätzen fest, bevor Sie Angebote einholen: Wer darf was ausgeben, wie oft darf etwas genutzt werden, wann verfällt es, und was tut das Personal, wenn das Netz ausfällt. Diese Regeln sind die Spezifikation. Lücken darin werden später zu den teuren Änderungen.\n\n## Fragen an den Anbieter\n\n- Wie verhindern Sie, dass dasselbe Ticket oder derselbe Bestandsartikel bei gleichzeitigen Anfragen zweimal verwendet wird, und wie wird das getestet?\n- Was wird protokolliert, wie lange wird es aufbewahrt, und können wir selbst darin suchen?\n- Wie wird das System an Shop, Kasse und Warenwirtschaft angebunden?\n- Was geschieht in der Filiale, wenn die Verbindung abbricht?\n- Welche Laravel-Version wird eingesetzt, und wer kümmert sich nach dem Start um Sicherheitsupdates?\n- Erhalten wir Quellcode und Dokumentation?\n\n## Erfahrung hinter dieser Seite\n\nShvedkoDev hat ein System mit Laravel 11 gebaut, das QR-Ausfahrtickets für Geschäfte ausgibt, mit atomarem Verbrauch der Tickets und Protokollierung der Prüfungen. Die Hinweise zu einmaliger Verwendung und nachvollziehbaren Aufzeichnungen stammen unmittelbar aus dieser Art von System.",
+  "personas": [
+    {
+      "key": "ecommerce_manager",
+      "text": "Sie können einschätzen, ob Ihre Anforderung ins Shopsystem oder in eigene Software gehört, und erhalten eine Liste der Regeln zu Ausgabe, Nutzung und Verfall, die Sie vor der ersten Angebotsanfrage aufschreiben sollten."
+    },
+    {
+      "key": "cto",
+      "text": "Sie erhalten die technischen Anforderungen für ein Lastenheft: atomarer Verbrauch einmalig nutzbarer Einheiten, Protokollierung von Prüfungen, Warteschlangen, Umgang mit wiederholten Meldungen, Tests der Zahlungswege und ein Updateplan."
+    },
+    {
+      "key": "operations_lead",
+      "text": "Sie sehen, wie sich die Software im Filialalltag auswirkt: was das Personal erlebt, wenn ein Code bereits verbraucht ist, wie Streitfälle anhand des Protokolls geklärt werden und welche Fragen zum Netzausfall früh auf den Tisch gehören."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Brauchen wir Laravel, wenn wir bereits ein Shopsystem nutzen?",
+      "a": "Häufig nicht. Decken das Shopsystem und einige gut gepflegte Erweiterungen Ihren Bedarf, bleiben Sie dabei. Eigene Laravel-Software lohnt sich, wenn Sie Regeln haben, die mehrere Systeme oder Standorte betreffen, etwa online ausgegebene Tickets oder Gutscheine, die in Filialen eingelöst werden. Sie läuft dann neben dem Shop und tauscht Daten mit ihm aus."
+    },
+    {
+      "q": "Was bedeutet atomarer Ticketverbrauch in der Praxis?",
+      "a": "Prüfen und Entwerten eines Tickets lassen sich nicht voneinander trennen. Lesen zwei Scanner denselben QR-Code im selben Augenblick, lässt die Datenbank genau einen Vorgang zu, der andere erhält die Meldung, dass das Ticket bereits verbraucht ist. Ohne diese Absicherung könnten beide akzeptiert werden, und so entstehen doppelte Einlösungen."
+    },
+    {
+      "q": "Wie lange dauert die Entwicklung einer individuellen Handelsanwendung?",
+      "a": "Das hängt von der Zahl der Regeln, Rollen und angebundenen Systeme ab, eine seriöse Antwort setzt also Ihre Anforderungen voraus. Als Faustregel gilt: Eine eng gefasste erste Version mit einem Kernprozess ist deutlich früher einsatzbereit als ein System, das jeden Sonderfall abdeckt. Bitten Sie Anbieter um eine Schätzung je Funktion und um die Angabe, was sie zurückstellen würden."
+    }
+  ],
+  "meta_description": "Laravel-Entwicklung für E-Commerce und Einzelhandel: wann sich Individualsoftware lohnt, was dazugehört und was Sie Anbieter fragen.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.610Z",
+  "updated_at": "2026-10-01T18:58:05.141Z"
+}

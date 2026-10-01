@@ -1,0 +1,41 @@
+{
+  "axis": "services",
+  "entity_a": "ai-integration",
+  "entity_b": "hr",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "Where language models help in recruiting, how to check their output against real data, and which questions to put to a provider.",
+  "overview": "Recruiting involves a great deal of text: job postings, CVs, cover letters, interview notes, emails. Language models read and draft text well, which makes HR an obvious place to use them. It is also a field where mistakes affect people's careers. The useful question is therefore not whether a model can do a task, but how you check that it did the task correctly.\n\n## Typical problems in HR and recruiting\n\n- Volume. Reading and comparing many postings or applications by hand is slow, and attention drops as the pile grows.\n- Inconsistency. Two people rate the same posting or profile differently, and the criteria are rarely written down.\n- Repetitive writing. Postings, replies and cover letters are rewritten each time although most of the content repeats.\n- Scattered tools. Applicant tracking, email, spreadsheets and job boards do not share data.\n- Plausible but wrong output. A model can state a requirement, a salary range or a qualification that does not appear in the source text.\n- Sensitive data and fairness. Applicant data is personal, and automated ratings can disadvantage groups of people without anyone noticing.\n\n## Where AI fits and where it does not\n\nGood uses are tasks with a text as input and a checkable result: turning a posting into fields such as tasks, requirements, location and contract type, scoring a text against written criteria, summarising, and preparing drafts. Poor uses are final decisions about people, any step without human review, and questions whose answer is not contained in the input.\n\n## What a good solution includes\n\n- Written criteria for each category, with a separate score and a short reason per category instead of one overall number.\n- Structured output with fixed fields and allowed value ranges. Program code checks every answer, and invalid answers are rejected or requested again.\n- Validation against real data. Model output is compared with the source text and with a set of cases your own team has rated. The comparison is repeated whenever the prompt or the model changes.\n- Drafts that stay drafts. Generated text uses only the data supplied, and a person edits and sends it.\n- A record of input, model version and output, so that a result can be explained later.\n- Data minimisation. Only the fields needed for the task are sent to the model, and it is clear where they are processed and whether the model provider stores them.\n- A fallback for the times when the model service is unavailable.\n\n## Experience behind this page\n\nWe have built AI scoring of job postings across several categories, with validation of the model output against real data, and the generation of draft cover letters. The emphasis on validation on this page comes from that kind of work: a score is only useful if it has been checked against something real.\n\n## What to ask a provider\n\n- How do you test the output, and against which data?\n- What happens when the model returns something invalid or contradictory?\n- Which data leaves our systems, where does it go, and how long is it kept?\n- Can we change criteria and prompts ourselves?\n- How are the running costs calculated, and what drives them?\n- What changes for us if the model is replaced by another one?\n- At which points does a person review the result?\n\n## Legal points\n\nAutomated evaluation in hiring touches data protection, anti-discrimination rules, the regulation of AI systems and, where they exist, the rights of employee representatives. This page is not legal advice. Involve a lawyer and your data protection officer before a system goes live.\n\n## How to start\n\nPick one narrow task, for example structuring and scoring postings. Have your team rate a set of real cases by hand, run the same cases through the model and compare. Extend the system only when the differences are understood.",
+  "personas": [
+    {
+      "key": "hr_lead",
+      "text": "You learn which recruiting tasks suit a language model, which should stay with people, and what to demand so that scores and drafts can be explained: written criteria, a reason per category and a human review step."
+    },
+    {
+      "key": "cto",
+      "text": "You get the technical requirements that separate a usable integration from a demo: structured output checked by code, validation against a hand-rated set of real cases, logging of model versions and a fallback when the service fails."
+    },
+    {
+      "key": "founder",
+      "text": "You get a way to start small: pick one narrow task, compare model results with your team's own ratings, and use the list of provider questions to judge offers and running costs before committing to more."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Can AI decide which applicants we invite to an interview?",
+      "a": "It should not decide alone. A model can structure information, score text against written criteria and point out gaps, but the decision about a person should be made by a person who can see the reasons behind a score. Fully automated decisions in hiring are also legally sensitive. Ask a lawyer how the rules apply to your process before you use scores for selection."
+    },
+    {
+      "q": "How do we know whether the AI scores are reliable?",
+      "a": "By testing them against real data. Have your team rate a set of real postings or profiles by hand, run the same cases through the model and compare the results per category. Check as well that every stated fact appears in the source text. Repeat the test when you change the prompt, the criteria or the model, because each of these can shift the results."
+    },
+    {
+      "q": "What happens to applicant data that is sent to an AI model?",
+      "a": "That depends on the model provider and the contract. Clarify where the data is processed, whether it is stored, for how long, and whether it is used for training. Send only the fields the task needs and remove names and contact details where the task works without them. Have your data protection officer review the setup before real applicant data is used."
+    }
+  ],
+  "meta_description": "AI Integration for HR and Recruiting: where it helps, how to validate model output and what to ask a provider before you start.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:01:27.222Z",
+  "updated_at": "2026-10-01T18:58:05.146Z"
+}

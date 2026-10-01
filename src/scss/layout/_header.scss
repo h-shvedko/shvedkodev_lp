@@ -141,3 +141,14 @@ header.shrink {
     left: -9999px;
     opacity: 0;
 }
+
+// Language link in the navigation: a flag instead of a label.
+.lang-switch {
+    img {
+        display: block;
+        width: 24px;
+        height: 16px;
+        border-radius: 2px;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+    }
+}

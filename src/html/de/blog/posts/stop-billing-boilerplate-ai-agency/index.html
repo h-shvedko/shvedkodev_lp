@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    //= layout/head.html
+    <link rel="alternate" hreflang="en" href="https://shvedko.dev/blog/posts/stop-billing-boilerplate-ai-agency/">
+    <link rel="alternate" hreflang="de" href="https://shvedko.dev/de/blog/posts/stop-billing-boilerplate-ai-agency/">
+    <link rel="alternate" hreflang="x-default" href="https://shvedko.dev/blog/posts/stop-billing-boilerplate-ai-agency/">
+    <title>Boilerplate-Steuer: 40 Stunden mit KI zurückgewinnen · ShvedkoDev Blog</title>
+    <meta name="description" content="Die versteckte Boilerplate-Steuer: rund 2.000 $ und 20–40 Senior-Stunden für Auth, CRUD und Migrationen. So holt eine KI-Pipeline aus 9 Agenten sie zurück.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Boilerplate-Steuer: 40 Stunden mit KI zurückgewinnen · ShvedkoDev Blog">
+    <meta property="og:description" content="Die versteckte Boilerplate-Steuer: rund 2.000 $ und 20–40 Senior-Stunden für Auth, CRUD und Migrationen. So holt eine KI-Pipeline aus 9 Agenten sie zurück.">
+    <meta property="og:url" content="https://shvedko.dev/de/blog/posts/stop-billing-boilerplate-ai-agency/">
+    <meta property="og:site_name" content="ShvedkoDev">
+    <meta property="og:locale" content="de_DE">
+    <link rel="canonical" href="https://shvedko.dev/de/blog/posts/stop-billing-boilerplate-ai-agency/">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+        //= layout/header.de.html
+        <main role="main" id="main">
+            <div class="container">
+                <article class="blog-post">
+                    <header class="blog-post__header animate-on-scroll fade-in">
+                        <div class="blog-post__meta">
+                            <a href="/de/blog/" class="blog-post__back">← Blog</a>
+                            <time datetime="2026-04-19">19. April 2026</time>
+                        </div>
+                        <h1>Schluss mit dem Abrechnen von Boilerplate: 40 nicht abrechenbare Stunden mit KI zurückgewinnen</h1>
+                        <div class="blog-post__tags">
+                            <span class="tag">Agentur</span>
+                            <span class="tag">Laravel</span>
+                            <span class="tag">PHP</span>
+                            <span class="tag">KI</span>
+                            <span class="tag">Produktivität</span>
+                        </div>
+                    </header>
+
+                    <div class="blog-post__body animate-on-scroll fade-in">
+                        <p><strong>TL;DR:</strong> Jedes neue Webprojekt trägt eine versteckte „Boilerplate-Steuer“. Agenturen verlieren rund <strong>2.000 $ – etwa 20 bis 40 Stunden erfahrener Entwickler</strong> – für manuelles Setup (Auth, CRUD-Controller, Datenbankmigrationen, erste Blade-Strukturen), bevor auch nur eine Zeile Geschäftslogik geschrieben ist. Wir testen eine 9-Agenten-KI-Pipeline, die diese Schwerarbeit an der Infrastruktur übernimmt, damit sich Senior-Entwickler auf die Arbeit konzentrieren können, für die Kunden tatsächlich bezahlen.</p>
+
+                        <h2>Die Boilerplate-Steuer</h2>
+                        <p>Sehen Sie sich die erste Rechnung einer beliebigen Agentur für ein neues Projekt an. Ein beträchtlicher Teil dieser Stunden ist keine Feature-Arbeit. Es ist Klempnerarbeit – dieselben Leitungen, die jedes Projekt braucht und die jedes Mal von Grund auf neu verlegt werden:</p>
+                        <ul>
+                            <li>Authentifizierung und Passwort-Resets</li>
+                            <li>Rollenbasierte Zugriffskontrolle</li>
+                            <li>CRUD-Controller, Requests und Resource-Routen</li>
+                            <li>Datenbankmigrationen, Factories, Seeder</li>
+                            <li>Erste Blade-Layouts, Navigation, Formulargerüste</li>
+                            <li>Serialisierung von API-Ressourcen</li>
+                        </ul>
+                        <p>Zwanzig bis vierzig Senior-Stunden sind eine konservative Schätzung. Bei einem Stundensatz von 100 € sind das 2.000–4.000 € Kapazität pro Projekt, die in Arbeit fließen, die in den meisten Laravel-Anwendungen identisch ist. Multiplizieren Sie das mit einem Portfolio von 10 aktiven Projekten pro Jahr, und die Zahl ist kein Rundungsfehler mehr – sie wird zu einem echten Margenproblem.</p>
+
+                        <h2>Die 9-Agenten-Pipeline</h2>
+                        <p>Wir testen eine Pipeline aus neun spezialisierten KI-Agenten, die ein Projektbriefing in Alltagssprache entgegennehmen und eine lauffähige Laravel-Anwendung ausgeben, noch bevor ein Entwickler einen Editor öffnet. Die Agenten sind auf Rollen spezialisiert, weil ein generalistischer Prompt generalistischen Code erzeugt:</p>
+
+                        <h3>Master Architect</h3>
+                        <p>Liest das Projektbriefing, entscheidet über Entitäten und Beziehungen, wählt die passenden Framework-Konventionen aus und legt sich auf ein Schema fest. Dies ist die einzige Stufe, in der das Modell starkes Reasoning braucht – sie läuft auf Sonnet 4.6.</p>
+
+                        <h3>Forge Workers</h3>
+                        <p>Erhalten die Architektur und geben Dateien aus: Migrationen, Models, Factories, Seeder, Controller, Form Requests, Blade-Views, Routendateien und Konfigurationsanpassungen. Eine typische kleine bis mittelgroße App umfasst <strong>56+ Dateien</strong>. Die Worker laufen auf Haiku 4.5, weil die schwere Denkarbeit zu diesem Zeitpunkt bereits erledigt ist – sie müssen der Architektur nur präzise folgen. Hier zeigen sich die Kosteneinsparungen.</p>
+
+                        <h3>Validator</h3>
+                        <p>Prüft das Ergebnis: Kompiliert der generierte Code, passen die Beziehungen zum Schema, lassen sich die Routen auflösen, funktioniert das Auth-Gerüst tatsächlich? Er fängt die ~5 % der Edge Cases ab, bei denen die Worker danebenliegen, und stößt gezielte Patches statt vollständiger Neugenerierungen an.</p>
+
+                        <h2>Worum es strategisch geht</h2>
+                        <p>Das Ziel ist nicht „KI schreibt den Code“. Das können bereits viele Tools. Das Ziel ist, erfahrene Entwickler von repetitivem Setup abzuziehen und auf die Features anzusetzen, die das Produkt eines Kunden tatsächlich von anderen abheben. Die Infrastruktur ist für das Framework wichtig. Die Features sind für den Kunden wichtig. Beides gleich zu bepreisen – genau das ist der Fehler im System.</p>
+
+                        <p>Für eine kleine Agentur oder ein Freelancer-Team summiert sich der Effekt:</p>
+                        <ul>
+                            <li><strong>Schnellere Projektstarts</strong> – ein lauffähiges Grundgerüst steht am ersten Tag statt nach der ersten Woche</li>
+                            <li><strong>Höhere Auslastung</strong> – abrechenbare Stunden fließen in Feature-Arbeit statt in Klempnerarbeit</li>
+                            <li><strong>Output skalieren, nicht die Mitarbeiterzahl</strong> – das Team kann mehr Aufträge annehmen, ohne neu einzustellen</li>
+                            <li><strong>Bessere Qualitätsbasis</strong> – jedes Projekt startet auf demselben geprüften, validierten Fundament und nicht auf dem, woran der Lead-Entwickler an diesem Morgen gerade gedacht hat</li>
+                        </ul>
+
+                        <h2>Wo wir stehen</h2>
+                        <p>Die Pipeline ist heute für Laravel 12 / PHP 8.4 live, der WordPress-Generator folgt dicht dahinter. Erste Generierungen liegen bei <strong>unter 2 Minuten Laufzeit und rund 0,19 $ Modellkosten pro vollständiger App</strong>. Verglichen mit 20–40 Stunden Senior-Zeit spricht die Wirtschaftlichkeit pro Projekt für sich.</p>
+
+                        <p>Wenn Sie eine Agentur oder ein kleines Entwicklungsstudio führen und Ihnen das Problem der Boilerplate-Steuer bekannt vorkommt, freuen wir uns auf ein Gespräch.</p>
+
+                        <p><a href="/craftly/">Mehr über Craftly erfahren →</a> · <a href="/de/contact/">Kontakt aufnehmen →</a></p>
+                    </div>
+
+                    <footer class="blog-post__footer animate-on-scroll fade-in">
+                        <p>Verfasst von <a href="/de/about/">ShvedkoDev</a> · <a href="/de/contact/">Kontakt aufnehmen</a></p>
+                        <a href="/de/blog/" class="button outline">← Zurück zum Blog</a>
+                    </footer>
+                </article>
+            </div>
+        </main>
+        //= layout/footer.de.html
+    </div>
+</body>
+
+</html>

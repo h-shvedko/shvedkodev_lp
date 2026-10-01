@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+<link rel="shortcut icon" href="/images/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="ShvedkoDev" />
+<link rel="manifest" href="/site.webmanifest" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+<link href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.min.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="/js/jquery.main.js"></script>
+<link rel="preconnect" href="//fonts.googleapis.com">
+<link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+
+<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css'>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jQuery-viewport-checker/1.8.8/jquery.viewportchecker.min.js" integrity="sha512-FRX6MYITclzDyyMmSQLgZoZTfE+GLzAQpjs15adVZMY6AqhsrBLx8UZwp4FoqrrRFWY9TiaPwja7EY5fk309vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
+
+<link href="//fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500;700&family=Saira+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+    // Google Analytics loads only after the visitor accepts cookies in the banner (footer partial).
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    function loadAnalytics() {
+        if (window.analyticsLoaded) return;
+        window.analyticsLoaded = true;
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-FY5NWV7102';
+        document.head.appendChild(script);
+        gtag('js', new Date());
+        gtag('config', 'G-FY5NWV7102');
+    }
+    try {
+        if (localStorage.getItem('cookieConsent') === 'accepted') loadAnalytics();
+    } catch (e) {}
+</script>
+<title>KI-Integration für HR und Recruiting · ShvedkoDev</title>
+<meta name="description" content="KI-Integration für HR und Recruiting: sinnvolle Einsatzfelder, Prüfung der Modellausgaben und Fragen an Anbieter vor dem Start.">
+<link rel="canonical" href="https://shvedko.dev/de/insights/services/ai-integration-for-hr/">
+<link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/services/ai-integration-for-hr/">
+<link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/services/ai-integration-for-hr/">
+<link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/services/ai-integration-for-hr/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Darf eine KI entscheiden, wen wir zum Vorstellungsgespräch einladen?","acceptedAnswer":{"@type":"Answer","text":"Allein sollte sie das nicht. Ein Modell kann Informationen ordnen, Texte nach schriftlichen Kriterien bewerten und auf Lücken hinweisen. Die Entscheidung über einen Menschen sollte aber eine Person treffen, die die Gründe hinter einer Punktzahl sieht. Vollautomatische Entscheidungen im Einstellungsverfahren sind zudem rechtlich heikel. Klären Sie mit einer Anwaltskanzlei, wie die Regeln für Ihren Ablauf gelten, bevor Sie Punktzahlen zur Auswahl nutzen."}},{"@type":"Question","name":"Woran erkennen wir, ob die KI-Bewertungen verlässlich sind?","acceptedAnswer":{"@type":"Answer","text":"Am Test mit echten Daten. Lassen Sie Ihr Team eine Reihe echter Anzeigen oder Profile von Hand bewerten, schicken Sie dieselben Fälle durch das Modell und vergleichen Sie die Ergebnisse je Kategorie. Prüfen Sie außerdem, ob jede genannte Tatsache im Ausgangstext steht. Wiederholen Sie den Test, wenn Sie Prompt, Kriterien oder Modell ändern, denn jede dieser Änderungen kann die Ergebnisse verschieben."}},{"@type":"Question","name":"Was geschieht mit Bewerberdaten, die an ein KI-Modell gesendet werden?","acceptedAnswer":{"@type":"Answer","text":"Das hängt vom Modellanbieter und vom Vertrag ab. Klären Sie, wo die Daten verarbeitet werden, ob und wie lange sie gespeichert bleiben und ob sie zum Training dienen. Senden Sie nur die Felder, die die Aufgabe braucht, und entfernen Sie Namen und Kontaktdaten, wo es ohne sie geht. Lassen Sie den Aufbau von Ihrer oder Ihrem Datenschutzbeauftragten prüfen, bevor echte Bewerberdaten fließen."}}]}</script>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+<header id="header">
+    <div class="container">
+        <div class="logo">
+            <a href="/de/"><img src="/images/Logo.png" alt=""></a>
+        </div>
+        <input type="checkbox" id="burger-trigger" class="burger-trigger">
+        <label class="nav-opener" for="burger-trigger">Menü</label>
+        <div class="menu-holder">
+            <nav>
+                <ul id="nav" class="nav">
+                    <li><a href="/de/">Start</a></li>
+                    <li><a href="/de/about/">Über uns</a></li>
+                    <li><a href="/de/services/">Leistungen</a></li>
+                    <li><a href="/de/portfolio/">Portfolio</a></li>
+                    <li><a href="/de/blog/">Blog</a></li>
+                    <li><a href="/de/insights/">Insights</a></li>
+                    <li><a href="/de/contact/">Kontakt</a></li>
+                    <li class="lang-switch"><a href="/insights/services/ai-integration-for-hr/" hreflang="en" lang="en" title="English" data-lang-fixed><img src="/images/flag-en.svg" alt="English" width="24" height="16"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+        <main role="main" id="main" class="insight-main">
+            <div class="container">
+<div class="insight">
+<aside class="insight__aside"><nav class="insight__nav" aria-label="Bereiche"><h2>Bereiche</h2><ul><li><a href="/de/insights/">Alle Seiten</a></li><li><a href="/de/insights/guides/">Leitfäden</a></li><li><a href="/de/insights/examples/">Beispiele</a></li><li><a href="/de/insights/services/" aria-current="page">Leistungen nach Branche</a></li><li><a href="/de/insights/products/">Produkte</a></li></ul></nav><nav class="insight__toc" aria-label="Auf dieser Seite"><h2>Auf dieser Seite</h2><ol><li><a href="#overview">Überblick</a></li><li><a href="#personas">Für wen das relevant ist</a></li><li><a href="#faq">Fragen und Antworten</a></li><li><a href="#related">Verwandte Seiten</a></li></ol></nav></aside>
+<article class="insight__body">
+<header class="insight__header">
+<p class="insight__crumbs"><a href="/de/insights/">Insights</a> / <a href="/de/insights/services/">Leistungen nach Branche</a></p>
+<h1>KI-Integration für HR und Recruiting</h1>
+<p class="insight__subtitle">Wo Sprachmodelle im Recruiting helfen, wie Sie deren Ergebnisse an echten Daten prüfen und welche Fragen Sie einem Anbieter stellen sollten.</p>
+</header>
+<section class="insight__section" id="overview"><h2><span class="insight__num">1</span> Überblick</h2><p>Im Recruiting fällt viel Text an: Stellenanzeigen, Lebensläufe, Anschreiben, Gesprächsnotizen, E-Mails. Sprachmodelle können Texte gut lesen und entwerfen, deshalb liegt ihr Einsatz im Personalbereich nahe. Zugleich betreffen Fehler hier den Berufsweg von Menschen. Die entscheidende Frage lautet daher nicht, ob ein Modell eine Aufgabe erledigen kann, sondern wie Sie prüfen, ob es sie richtig erledigt hat.</p>
+<h3>Typische Probleme in HR und Recruiting</h3>
+<ul><li>Menge. Viele Anzeigen oder Bewerbungen von Hand zu lesen und zu vergleichen dauert lange, und die Aufmerksamkeit lässt mit jedem weiteren Dokument nach.</li><li>Uneinheitlichkeit. Zwei Personen bewerten dieselbe Anzeige oder dasselbe Profil unterschiedlich, und die Kriterien stehen selten irgendwo geschrieben.</li><li>Wiederkehrende Schreibarbeit. Anzeigen, Antworten und Anschreiben entstehen jedes Mal neu, obwohl sich der größte Teil wiederholt.</li><li>Verstreute Werkzeuge. Bewerbermanagement, E-Mail, Tabellen und Stellenbörsen tauschen keine Daten aus.</li><li>Plausible, aber falsche Ausgaben. Ein Modell kann eine Anforderung, eine Gehaltsspanne oder eine Qualifikation nennen, die im Ausgangstext gar nicht vorkommt.</li><li>Sensible Daten und Fairness. Bewerberdaten sind personenbezogen, und automatische Bewertungen können Personengruppen benachteiligen, ohne dass es jemand bemerkt.</li></ul>
+<h3>Wo KI passt und wo nicht</h3>
+<p>Gut geeignet sind Aufgaben mit einem Text als Eingabe und einem überprüfbaren Ergebnis: eine Anzeige in Felder wie Aufgaben, Anforderungen, Ort und Vertragsart zerlegen, einen Text nach schriftlichen Kriterien bewerten, zusammenfassen, Entwürfe vorbereiten. Ungeeignet sind abschließende Entscheidungen über Menschen, Schritte ohne menschliche Kontrolle und Fragen, deren Antwort nicht in der Eingabe steht.</p>
+<h3>Was eine gute Lösung enthält</h3>
+<ul><li>Schriftliche Kriterien je Kategorie, dazu eine eigene Punktzahl und eine kurze Begründung pro Kategorie statt einer einzigen Gesamtzahl.</li><li>Strukturierte Ausgaben mit festen Feldern und erlaubten Wertebereichen. Programmcode prüft jede Antwort; ungültige Antworten werden verworfen oder neu angefordert.</li><li>Validierung an echten Daten. Die Modellausgabe wird mit dem Ausgangstext verglichen und mit einer Reihe von Fällen, die Ihr Team selbst bewertet hat. Der Vergleich wird wiederholt, sobald sich Prompt oder Modell ändern.</li><li>Entwürfe bleiben Entwürfe. Der erzeugte Text verwendet nur die übergebenen Daten, und ein Mensch überarbeitet und versendet ihn.</li><li>Ein Protokoll von Eingabe, Modellversion und Ausgabe, damit sich ein Ergebnis später erklären lässt.</li><li>Datensparsamkeit. An das Modell gehen nur die Felder, die die Aufgabe braucht, und es ist geklärt, wo sie verarbeitet werden und ob der Modellanbieter sie speichert.</li><li>Ein Ersatzweg für den Fall, dass der Modelldienst nicht erreichbar ist.</li></ul>
+<h3>Erfahrung hinter dieser Seite</h3>
+<p>Wir haben eine KI-Bewertung von Stellenanzeigen über mehrere Kategorien gebaut, mit einer Validierung der Modellausgabe an echten Daten, sowie die Erstellung von Anschreiben-Entwürfen. Daher rührt das Gewicht, das diese Seite auf die Validierung legt: Eine Punktzahl nützt nur, wenn sie an etwas Echtem geprüft wurde.</p>
+<h3>Fragen an einen Anbieter</h3>
+<ul><li>Wie testen Sie die Ausgaben, und an welchen Daten?</li><li>Was geschieht, wenn das Modell etwas Ungültiges oder Widersprüchliches liefert?</li><li>Welche Daten verlassen unsere Systeme, wohin gehen sie, und wie lange bleiben sie gespeichert?</li><li>Können wir Kriterien und Prompts selbst ändern?</li><li>Wie berechnen sich die laufenden Kosten, und wovon hängen sie ab?</li><li>Was ändert sich für uns, wenn das Modell durch ein anderes ersetzt wird?</li><li>An welchen Stellen prüft ein Mensch das Ergebnis?</li></ul>
+<h3>Rechtliche Punkte</h3>
+<p>Automatische Bewertungen im Einstellungsverfahren berühren den Datenschutz, das Gleichbehandlungsrecht, die Regulierung von KI-Systemen und, wo vorhanden, die Mitbestimmung des Betriebsrats. Diese Seite ist keine Rechtsberatung. Ziehen Sie eine Anwaltskanzlei und Ihre Datenschutzbeauftragte oder Ihren Datenschutzbeauftragten hinzu, bevor ein System in Betrieb geht.</p>
+<h3>So fangen Sie an</h3>
+<p>Wählen Sie eine eng umrissene Aufgabe, zum Beispiel das Strukturieren und Bewerten von Anzeigen. Lassen Sie Ihr Team eine Reihe echter Fälle von Hand bewerten, schicken Sie dieselben Fälle durch das Modell und vergleichen Sie. Erweitern Sie das System erst, wenn Sie die Abweichungen verstanden haben.</p></section>
+<section class="insight__section" id="personas"><h2><span class="insight__num">2</span> Für wen das relevant ist</h2><div class="insight__personas"><div class="insight__persona"><h3>HR-Leitung</h3><p>Sie erfahren, welche Aufgaben im Recruiting sich für ein Sprachmodell eignen, welche bei Menschen bleiben sollten und was Sie verlangen müssen, damit Bewertungen erklärbar sind: schriftliche Kriterien, eine Begründung je Kategorie und eine menschliche Prüfung.</p></div><div class="insight__persona"><h3>CTO oder Tech Lead</h3><p>Sie erhalten die technischen Anforderungen, die eine brauchbare Integration von einer Demo unterscheiden: per Code geprüfte strukturierte Ausgaben, Validierung an von Hand bewerteten echten Fällen, Protokollierung der Modellversion und ein Ersatzweg bei Ausfall.</p></div><div class="insight__persona"><h3>Gründerinnen und Gründer</h3><p>Sie bekommen einen Weg für einen kleinen Einstieg: eine eng umrissene Aufgabe wählen, Modellergebnisse mit den Bewertungen des eigenen Teams vergleichen und Angebote sowie laufende Kosten anhand der Anbieterfragen beurteilen.</p></div></div></section>
+<section class="insight__section" id="faq"><h2><span class="insight__num">3</span> Fragen und Antworten</h2><h3>Darf eine KI entscheiden, wen wir zum Vorstellungsgespräch einladen?</h3><p>Allein sollte sie das nicht. Ein Modell kann Informationen ordnen, Texte nach schriftlichen Kriterien bewerten und auf Lücken hinweisen. Die Entscheidung über einen Menschen sollte aber eine Person treffen, die die Gründe hinter einer Punktzahl sieht. Vollautomatische Entscheidungen im Einstellungsverfahren sind zudem rechtlich heikel. Klären Sie mit einer Anwaltskanzlei, wie die Regeln für Ihren Ablauf gelten, bevor Sie Punktzahlen zur Auswahl nutzen.</p><h3>Woran erkennen wir, ob die KI-Bewertungen verlässlich sind?</h3><p>Am Test mit echten Daten. Lassen Sie Ihr Team eine Reihe echter Anzeigen oder Profile von Hand bewerten, schicken Sie dieselben Fälle durch das Modell und vergleichen Sie die Ergebnisse je Kategorie. Prüfen Sie außerdem, ob jede genannte Tatsache im Ausgangstext steht. Wiederholen Sie den Test, wenn Sie Prompt, Kriterien oder Modell ändern, denn jede dieser Änderungen kann die Ergebnisse verschieben.</p><h3>Was geschieht mit Bewerberdaten, die an ein KI-Modell gesendet werden?</h3><p>Das hängt vom Modellanbieter und vom Vertrag ab. Klären Sie, wo die Daten verarbeitet werden, ob und wie lange sie gespeichert bleiben und ob sie zum Training dienen. Senden Sie nur die Felder, die die Aufgabe braucht, und entfernen Sie Namen und Kontaktdaten, wo es ohne sie geht. Lassen Sie den Aufbau von Ihrer oder Ihrem Datenschutzbeauftragten prüfen, bevor echte Bewerberdaten fließen.</p></section>
+<section class="insight__section" id="related"><h2><span class="insight__num">4</span> Verwandte Seiten</h2><ul class="insight-list"><li><a href="/de/insights/services/ai-integration-for-education/">KI-Integration für Bildung und E-Learning</a><p>Wo KI in Kurserstellung und Prüfungswesen verlässlich entlastet, wo Fachleute entscheiden müssen und was Sie Anbieter fragen sollten.</p></li><li><a href="/de/insights/services/ai-integration-for-marketing/">KI-Integration für Marketing-Teams und Agenturen</a><p>Welche Aufgaben sich für KI im Marketing eignen, was eine belastbare Integration braucht und was Sie Anbieter fragen sollten.</p></li><li><a href="/de/insights/services/api-integration-for-hr/">API-Integration für HR und Recruiting</a><p>Was es braucht, um Stellenquellen, Bewerberdaten und Benachrichtigungen zu verbinden, und woran Sie ein gutes Angebot erkennen.</p></li><li><a href="/de/insights/services/n8n-automation-for-hr/">Workflow-Automatisierung mit n8n für HR und Recruiting</a><p>Welche Recruiting-Schritte n8n Ihrem Team abnimmt, was ein verlässlicher Workflow braucht und wo ein Mensch zuständig bleibt.</p></li><li><a href="/de/insights/services/saas-development-for-hr/">SaaS-Entwicklung für HR und Recruiting</a><p>Was ein SaaS-Produkt für HR und Recruiting von der ersten Version an leisten muss: Datentrennung, erklärbare Bewertung, menschliche Entscheidung.</p></li><li><a href="/de/insights/services/api-integration-for-ecommerce/">API-Integration für E-Commerce und Einzelhandel</a><p>So verbinden Sie Shop, Kasse, Lager und Partnersysteme, ohne dass Bestellungen, Bestände oder Gutscheine doppelt oder falsch verbucht werden.</p></li></ul></section>
+<section class="insight__cta"><h2>Sie planen ein ähnliches Projekt?</h2><p>Schildern Sie uns Ihr Vorhaben. Sie erhalten eine klare Einschätzung zu Umfang, Vorgehen und Aufwand.</p><p><a href="/de/contact/" class="button">Kontakt aufnehmen</a></p></section>
+<footer class="insight__note"><p>Grundlage ist unsere eigene Projektarbeit. Kunden werden nicht genannt.</p><p>Aktualisiert: <time datetime="2026-10-01">2026-10-01</time></p></footer>
+</article>
+</div>
+            </div>
+        </main>
+<div id="footer">
+    <div class="container">
+        <div class="row-holder">
+            <div class="col-4 m-order-1">
+                <div class="logotype">
+                    <a href="/de/"><img src="/images/Logo.png" alt=""></a>
+                </div>
+                <ul class="contacts-list">
+                    <li><a href="/de/imprint/" style="width: 100px;display: block;">Impressum</a></li>
+                    <li><a href="/de/data-protection/" style="width: 200px;display: block;"> Datenschutz</a></li>
+                    <li><a href="/de/insights/" style="width: 100px;display: block;">Insights</a></li>
+                </ul>
+            </div>
+            <div class="col-4 m-order-3">
+                <h3>Kontakt</h3>
+                <ul class="contacts-list">
+                    <li>
+                        <i class="icon icon-location2"></i>
+                        <address>Göttingen, Deutschland</address>
+                    </li>
+                    <li>
+                        <i class="icon icon-mail"></i>
+                        <a href="mailto:info@shvedko.dev">info@shvedko.dev</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-4 m-order-1">
+                <h3>Folgen Sie uns:</h3>
+                <ul class="social-network">
+                    <li class="col">
+                        <a href="https://www.facebook.com/people/ShvedkoDev/61574820107319/" target="_blank" class="link-social-network"> <i class="icon icon-facebook1"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://x.com/ShvedkoDev" target="_blank" class="link-social-network"> <i class="icon icon-xtwitter"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://www.upwork.com/agencies/1749148191404584960/" target="_blank" class="link-social-network"> <i class="icon icon-upwork"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://www.linkedin.com/company/shvedkodev/" target="_blank" class="link-social-network"> <i class="icon icon-linkedin-square"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://www.instagram.com/shvedkodev/" target="_blank" class="link-social-network"> <i class="icon icon-instagram"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<footer class="copy">
+    <div class="container">
+        <p>&copy; ShvedkoDev 2026. Alle Rechte vorbehalten.</p>
+    </div>
+</footer>
+<!-- Cookie Banner -->
+<div id="cookie-banner" style="
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #222;
+  color: #fff;
+  padding: 16px;
+  text-align: center;
+  font-size: 14px;
+  z-index: 1000;">
+    Diese Website verwendet Cookies für Statistiken, und nur mit Ihrer Einwilligung.
+    <a href="/de/data-protection/" style="color: #4caf50; text-decoration: underline; margin-left: 8px;" target="_blank">
+        Mehr erfahren
+    </a>
+    <button id="cookie-accept" style="
+    margin-left: 16px;
+    background: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;">
+        Akzeptieren
+    </button>
+    <button id="cookie-decline" style="
+    margin-left: 8px;
+    background: transparent;
+    color: white;
+    border: 1px solid #888;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;">
+        Ablehnen
+    </button>
+</div>
+
+<script>
+    // The banner stays until the visitor decides. Analytics starts only on "accept".
+    (function () {
+        var banner = document.getElementById('cookie-banner');
+        var choice = null;
+        try { choice = localStorage.getItem('cookieConsent'); } catch (e) {}
+        if (choice) banner.style.display = 'none';
+        function decide(value) {
+            try { localStorage.setItem('cookieConsent', value); } catch (e) {}
+            banner.style.display = 'none';
+            if (value === 'accepted') loadAnalytics();
+        }
+        document.getElementById('cookie-accept').addEventListener('click', function () { decide('accepted'); });
+        document.getElementById('cookie-decline').addEventListener('click', function () { decide('declined'); });
+    })();
+</script>
+
+</body>
+</html>

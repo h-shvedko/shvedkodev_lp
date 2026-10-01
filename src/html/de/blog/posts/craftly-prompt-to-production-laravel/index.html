@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    //= layout/head.html
+    <link rel="alternate" hreflang="en" href="https://shvedko.dev/blog/posts/craftly-prompt-to-production-laravel/">
+    <link rel="alternate" hreflang="de" href="https://shvedko.dev/de/blog/posts/craftly-prompt-to-production-laravel/">
+    <link rel="alternate" hreflang="x-default" href="https://shvedko.dev/blog/posts/craftly-prompt-to-production-laravel/">
+    <title>Vom Prompt zur Produktion: Laravel-App in unter 2 Minuten · ShvedkoDev Blog</title>
+    <meta name="description" content="Ein Rundgang durch Craftlys Laravel-Pipeline: vom Prompt in Alltagssprache zur laufenden Laravel-Sail-App mit 56 Dateien und 15 CRUD-Views.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Vom Prompt zur Produktion: Laravel-App in unter 2 Minuten · ShvedkoDev Blog">
+    <meta property="og:description" content="Ein Rundgang durch Craftlys Laravel-Pipeline: vom Prompt in Alltagssprache zur laufenden Laravel-Sail-App mit 56 Dateien und 15 CRUD-Views.">
+    <meta property="og:url" content="https://shvedko.dev/de/blog/posts/craftly-prompt-to-production-laravel/">
+    <meta property="og:site_name" content="ShvedkoDev">
+    <meta property="og:locale" content="de_DE">
+    <link rel="canonical" href="https://shvedko.dev/de/blog/posts/craftly-prompt-to-production-laravel/">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+        //= layout/header.de.html
+        <main role="main" id="main">
+            <div class="container">
+                <article class="blog-post">
+                    <header class="blog-post__header animate-on-scroll fade-in">
+                        <div class="blog-post__meta">
+                            <a href="/de/blog/" class="blog-post__back">← Blog</a>
+                            <time datetime="2026-04-19">19. April 2026</time>
+                        </div>
+                        <h1>Vom Prompt zur Produktion: Wie Craftly in unter 2 Minuten eine vollständige Laravel-App generiert</h1>
+                        <div class="blog-post__tags">
+                            <span class="tag">KI</span>
+                            <span class="tag">Laravel</span>
+                            <span class="tag">Produkt</span>
+                            <span class="tag">PHP</span>
+                            <span class="tag">Demo</span>
+                        </div>
+                    </header>
+
+                    <div class="blog-post__body animate-on-scroll fade-in">
+                        <p>Die meisten KI-Coding-Demos enden bei einer einzelnen Datei oder einer Funktion. Craftly geht weiter: Aus einem einzigen Prompt in Alltagssprache entsteht eine vollständige, lauffähige Laravel-Anwendung – Routen, Models, Migrationen, Controller, Views – samt Live-Vorschau in Laravel Sail. In unter zwei Minuten. Für etwa 19 Cent.</p>
+
+                        <p>So läuft eine einzelne Generierung tatsächlich ab.</p>
+
+                        <h2>Schritt 1 – Der Prompt</h2>
+                        <p>Ein Kunde tippt zum Beispiel Folgendes ein:</p>
+
+                        <p><em>„Eine kleine Event-Buchungs-App für ein Yogastudio. Kursleiter können Kurse anlegen, Teilnehmer können sich anmelden, der Admin sieht die Buchungen pro Kurs.“</em></p>
+
+                        <p>Das ist die gesamte Eingabe. Kein Schema, keine Wireframes, keine Framework-Flags. Der Prompt landet beim <strong>RequirementsEngineer</strong>-Agenten von Craftly, der ihn zu einer strukturierten Spezifikation erweitert: Entitäten (Instructor, Class, Booking, Student), Beziehungen, Rollen und das Minimum an Seiten, das nötig ist, um die beschriebenen Abläufe abzudecken.</p>
+
+                        <h2>Schritt 2 – Architektur</h2>
+                        <p>Die strukturierte Spezifikation geht an den <strong>MasterArchitect</strong>, der die Anwendung plant: Laravel 12 auf PHP 8.4, Breeze für die Authentifizierung, Eloquent-Models mit den richtigen Beziehungen und eine Routenübersicht, die zu den User Stories passt. Diese Stufe läuft auf Sonnet 4.6 – hier zählt das Reasoning mehr als die reine Ausgabegeschwindigkeit.</p>
+
+                        <h2>Schritt 3 – Die Forge</h2>
+                        <p>Der Plan fließt in den <strong>LaravelForge</strong>-Worker, der die Dateien eine nach der anderen ausgibt. Eine typische kleine App umfasst rund 56 Dateien: Migrationen, Models, Factories, Seeder, Controller, Form Requests, Blade-Views (15 CRUD-Ansichten sind üblich), Routendateien und Konfigurationsanpassungen. Jede Datei wird in den Browser gestreamt, während sie geschrieben wird – der Kunde sieht also in Echtzeit, wie die Codebasis Gestalt annimmt, statt auf ein fertiges Paket zu warten.</p>
+
+                        <p>Diese Phase läuft auf Haiku 4.5 – klein, schnell, günstig –, weil die schwere Denkarbeit zu diesem Zeitpunkt bereits erledigt ist. Der Worker muss der Architektur nur präzise folgen.</p>
+
+                        <h2>Schritt 4 – Live-Vorschau</h2>
+                        <p>Die generierte Codebasis startet in Laravel Sail. Der Kunde kann sich durch die echte App klicken, sich einloggen, einen Kurs anlegen, ihn buchen und zusehen, wie echte Daten durch echte Migrationen fließen. Wenn etwas nicht passt – Farben, Texte, ein fehlendes Feld –, nimmt der <strong>Iteration</strong>-Agent einen Folge-Prompt entgegen und erzeugt präzise Patches, statt die gesamte App neu zu generieren.</p>
+
+                        <h2>Die Zahlen</h2>
+                        <p>Im Durchschnitt ergibt eine kleine bis mittelgroße Laravel-Generierung:</p>
+                        <ul>
+                            <li>~56 geschriebene Dateien</li>
+                            <li>~15 gerenderte CRUD-Views</li>
+                            <li>Unter 2 Minuten Laufzeit</li>
+                            <li>~0,19 $ Kosten beim Modellanbieter pro vollständiger Generierung</li>
+                        </ul>
+
+                        <p>Die Kosten überraschen die meisten. Die Kombination aus Sonnet für die Architektur und Haiku für den Großteil der Arbeit auf Dateiebene hält die Rechnung niedrig und bewahrt die Qualität dort, wo es wirklich darauf ankommt.</p>
+
+                        <h2>Warum das für Laravel-Teams wichtig ist</h2>
+                        <p>Für freiberufliche Entwickler oder eine kleine Agentur ist das Interessante nicht „KI hat den Code geschrieben“, sondern dass die generierte App ein vernünftiger Ausgangspunkt auf Basis von Laravel 12 ist – Konventionen eingehalten, Migrationen sauber, keine exotischen Pakete –, sodass Sie sie klonen, in Ihrem Editor öffnen und weiterarbeiten können. Craftly ist eine Forge, keine Blackbox.</p>
+
+                        <p>Wir haben die Pipeline gezielt für das PHP-Ökosystem gebaut, weil die 77 % des Webs, die mit PHP laufen, dieselbe Qualität an KI-Tooling verdienen, die die JavaScript-Welt seit zwei Jahren genießt.</p>
+
+                        <h2>Probieren Sie es aus</h2>
+                        <p>Die Laravel-Pipeline von Craftly ist live, und wir nehmen jetzt die ersten Nutzer auf. Wenn Sie sehen möchten, wie aus Ihrem eigenen Prompt eine laufende App wird: Die Warteliste ist geöffnet.</p>
+
+                        <p><a href="/craftly/">Live-Demo ausprobieren →</a></p>
+                    </div>
+
+                    <footer class="blog-post__footer animate-on-scroll fade-in">
+                        <p>Verfasst von <a href="/de/about/">ShvedkoDev</a> · <a href="/de/contact/">Kontakt aufnehmen</a></p>
+                        <a href="/de/blog/" class="button outline">← Zurück zum Blog</a>
+                    </footer>
+                </article>
+            </div>
+        </main>
+        //= layout/footer.de.html
+    </div>
+</body>
+
+</html>

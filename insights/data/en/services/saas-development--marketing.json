@@ -1,0 +1,41 @@
+{
+  "axis": "services",
+  "entity_a": "saas-development",
+  "entity_b": "marketing",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "What a marketing SaaS needs under the surface: client separation, roles, approvals and scheduled jobs that run on time and fail visibly.",
+  "overview": "Marketing teams and agencies build their own software for two reasons. Either an internal tool has outgrown its spreadsheets and should serve several teams or clients, or the agency wants to turn a repeatable service into a product that customers subscribe to. In both cases the result is a SaaS: one application, used by many separate accounts, running all the time.\n\n## Typical problems for marketing teams and agencies\n\n- Client data must not mix. An agency employee who works for five clients needs access to exactly those five, and a client must never see another client's drafts, figures or connected accounts.\n- Approval is part of the work. Content passes from author to reviewer to client before it goes out, and email threads lose track of which version was approved.\n- Much of the work happens later: posts are scheduled, reports are generated overnight, campaigns start on a date. If the scheduled step fails silently, nobody notices until the client asks.\n- The product depends on external platforms such as social networks, advertising and mailing services. Their interfaces change, limit the number of requests, and withdraw access tokens.\n- Time zones: a post scheduled for nine in the morning must mean nine for the audience, not for the server.\n- A first version built for one client has that client's assumptions baked in and is hard to open to a second.\n\n## What a good solution includes\n\n- Multi-tenancy from the first day. Every record belongs to a workspace, and the separation is enforced in one central place in the code, not remembered in each screen. This is far cheaper to build in at the start than to add later.\n- Workspaces and roles. A user can belong to several workspaces with a different role in each: owner, editor, reviewer, client with read or approve rights. Invitations and removal of access are simple and logged.\n- An approval flow with clear states, such as draft, in review, approved, scheduled, published, failed, and a history of who changed what.\n- Scheduling backed by a background job worker. Publishing, imports and reports run as queued jobs outside the web request, with retries, a limit on attempts, and a visible list of failed jobs. The user sees the failure and its reason and can try again.\n- Integration handling that expects trouble: expired tokens lead to a clear prompt to reconnect, request limits are respected, and each external platform is wrapped so a change there touches one part of the code.\n- Subscription billing through a payment provider, with plans and limits per workspace, if the product is sold.\n- Operations: monitoring, backups, a data export per workspace, and deletion of a workspace on request. Data processing agreements and privacy terms need a lawyer.\n\n## A sensible first version\n\nCut features, not foundations. One external platform instead of five and one report instead of ten are fine. Tenant separation, roles and the job queue are not the place to save, because every later feature rests on them.\n\n## Questions to ask a provider\n\n- How is data of different clients separated, and how is that tested?\n- What happens when a scheduled job fails at three in the morning, and who finds out?\n- How do you handle changes and request limits of the external platforms we depend on?\n- Can one user work in several workspaces with different roles?\n- What does the first version leave out, and what will it cost to add later?\n- Who owns the code, and how are hosting, monitoring and backups set up?\n\n## Experience behind this page\n\nShvedkoDev has built a multi-tenant social media management platform with workspaces, roles, scheduling and a background job worker. The points above about separation, roles and queued jobs come from that kind of system.",
+  "personas": [
+    {
+      "key": "agency_owner",
+      "text": "You see what turning a repeatable service into a subscription product involves, especially keeping clients apart, giving them approval rights and making scheduled work dependable."
+    },
+    {
+      "key": "product_manager",
+      "text": "You get a way to cut a first version: which features can wait, and which foundations such as tenant separation, roles and the job queue should be in from the start."
+    },
+    {
+      "key": "cto",
+      "text": "You get the architectural points to check in a proposal: central enforcement of tenant boundaries, queued jobs with retries and visible failures, and isolation of external platform integrations."
+    }
+  ],
+  "faq": [
+    {
+      "q": "What does multi-tenant mean, and why does it matter for an agency tool?",
+      "a": "Multi-tenant means one running application serves many separate accounts, here called workspaces, and each sees only its own data. For an agency that is the basic promise to every client: their drafts, reports and connected accounts stay theirs. The separation should be enforced centrally in the code and covered by tests, because a single missed check is enough to show one client another's data."
+    },
+    {
+      "q": "Why does a scheduling feature need a background job worker?",
+      "a": "A scheduled post or a nightly report has to run when no user has the page open. A background worker is a separate process that picks up such tasks from a queue at the right time, retries them when an external service is briefly unavailable, and records those that finally fail. Without it, scheduled work depends on someone visiting the site, and failures go unnoticed."
+    },
+    {
+      "q": "Should we build our own SaaS or use an existing tool?",
+      "a": "If an existing tool covers your process, use it; running your own software is a lasting commitment. Building makes sense when your workflow is the thing you sell, when existing tools cannot model your approval steps or client structure, or when you want to offer the tool to customers under your own name. Write down the three things existing tools cannot do for you. If the list is weak, do not build."
+    }
+  ],
+  "meta_description": "SaaS Development for Marketing Teams and Agencies: tenant separation, roles, scheduling and the questions to ask a provider.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.624Z",
+  "updated_at": "2026-10-01T18:58:05.147Z"
+}

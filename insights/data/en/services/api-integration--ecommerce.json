@@ -1,0 +1,41 @@
+{
+  "axis": "services",
+  "entity_a": "api-integration",
+  "entity_b": "ecommerce",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "How to connect shop, till, warehouse and partner systems so that orders, stock and vouchers stay correct, and what to demand from a provider.",
+  "overview": "A retail business rarely runs on one system. The web shop, the tills, inventory, payment, shipping, marketplaces and the accounting software each hold part of the truth. An API, a defined interface through which programs exchange data, is how these parts stay in agreement. API integration means either connecting your systems to interfaces that others offer, or building an interface of your own so that partners and store systems can work with your data.\n\n## Typical problems\n\n- Stock shown online differs from stock on the shelf because synchronisation runs once a night or fails silently.\n- An order or a redemption is created twice. The connection timed out, the sending system tried again, and the receiver treated the retry as a new request.\n- Data is moved by file export and e-mail. It works until a column changes.\n- Every partner shares the same access key. Nobody can tell who sent a request, and withdrawing access from one partner means changing it for all.\n- The interface exists only in the head of whoever built it, so each new connection starts with guesswork.\n- Failures go unnoticed until a customer complains.\n\n## What a good solution includes\n\nAuthentication that proves both who is calling and that the message is unchanged. A common method is an HMAC signature: each partner system receives its own secret key and uses it to compute a signature over every request. The receiver recomputes it and rejects anything that does not match. A timestamp inside the signed data stops an intercepted request from being replayed later. Keys are issued per system and can be withdrawn individually.\n\nSafe repetition. Requests that create or consume something carry a unique reference, so a retry returns the original result instead of acting again. This single measure removes most duplicate orders and double redemptions.\n\nDocumentation that machines and people can read. OpenAPI is a standard format for describing an interface: which addresses exist, which fields they expect and which answers and errors they return. Partner developers can generate test requests from it, and the description doubles as the contract between both sides.\n\nFurther parts worth insisting on:\n\n- Clear error messages with stable codes, so the calling system can react correctly.\n- A test environment with test keys, separate from live data.\n- Versioning, so changes do not break existing connections.\n- Limits on request frequency per key and alerts when error rates rise.\n- A log of requests with key, time and result for support and disputes.\n\n## Before you commission anything\n\nList every system involved, which one is authoritative for each kind of data, for instance stock, prices and customer records, and how current the data must be. Real-time is not always needed, and it costs more to run than a sync every few minutes.\n\n## Questions to ask a provider\n\n- How does each connected system authenticate, and how is a key withdrawn?\n- What happens if the same request arrives twice?\n- Is there an OpenAPI description, and is it kept in step with the code?\n- How do we find out that a connection has failed?\n- How are changes to the interface announced and versioned?\n- What can partners test without touching live data?\n\n## Experience behind this page\n\nShvedkoDev has built an HMAC-signed API that lets external store systems issue and validate tickets, documented with OpenAPI. The emphasis here on per-system keys, safe retries and a written interface description comes from that type of work.",
+  "personas": [
+    {
+      "key": "ecommerce_manager",
+      "text": "You understand why stock and orders drift apart between systems, which questions decide whether an integration is dependable, and what to clarify internally, such as which system is authoritative for which data."
+    },
+    {
+      "key": "developer",
+      "text": "You get a compact checklist for an interface that partners can connect to without hand-holding: per-system HMAC keys, replay protection, idempotent write requests, stable error codes, versioning and an OpenAPI description."
+    },
+    {
+      "key": "it_manager",
+      "text": "You find the operational requirements to write into a contract: individually revocable keys, request logs, rate limits, alerts on rising error rates, a separate test environment and announced interface changes."
+    }
+  ],
+  "faq": [
+    {
+      "q": "What is an HMAC signature, in plain terms?",
+      "a": "It is a checksum computed from the request and a secret key that only the two parties know. The receiver calculates the same checksum and compares. If the request was altered on the way or sent by someone without the key, the values differ and the request is refused. Unlike a simple password in the request, the secret itself is never transmitted."
+    },
+    {
+      "q": "Why does an interface need OpenAPI documentation?",
+      "a": "Because every system that connects needs to know exactly which requests are possible and what comes back. An OpenAPI description states this in a standard format that tools can read, so partner developers can test and build against it without long explanations. It also reduces dependence on the original developer when the interface is extended later."
+    },
+    {
+      "q": "Do all our systems need to be synchronised in real time?",
+      "a": "No. Decide per kind of data. The redemption of a voucher or ticket must be checked immediately, since a delay allows double use. Product descriptions or accounting exports can be transferred at intervals. Real-time connections are more demanding to operate, so reserve them for cases where outdated data causes actual damage."
+    }
+  ],
+  "meta_description": "API Integration for E-Commerce and Retail: connect shop, till and partner systems safely, with signed requests and clear documentation.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.621Z",
+  "updated_at": "2026-10-01T18:58:05.146Z"
+}

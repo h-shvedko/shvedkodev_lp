@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "gdpr-website-development",
+  "entity_b": "",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Welche technischen Maßnahmen ein Entwickler für den Datenschutz umsetzt und wie Sie prüfen, ob sie wirklich vorhanden sind.",
+  "overview": "Diese Seite beschreibt die technische Seite des Datenschutzes in einem Webprojekt: was ein Entwickler umsetzt und was Sie selbst nachprüfen können. Sie ist eine technische Orientierung und keine Rechtsberatung. Ob eine konkrete Lösung zulässig ist, welche Rechtsgrundlage gilt und was in Ihrer Datenschutzerklärung stehen muss, klären Sie mit Ihrem Datenschutzbeauftragten oder einer spezialisierten Anwaltskanzlei.\n\n## Einwilligung, bevor etwas lädt\n\nEin Consent-Banner erfüllt seinen Zweck nur, wenn es die Skripte tatsächlich steuert. Analyse, Marketing-Tags, eingebettete Videos, Karten und Chat-Widgets bleiben blockiert, bis der Besucher zustimmt, und bleiben es nach einer Ablehnung.\n\n- Ablehnen ist so einfach wie Zustimmen, ohne vorangekreuzte Felder\n- Die Auswahl wird gespeichert und lässt sich über einen Link auf jeder Seite ändern\n- Kategorien können einzeln gewählt werden\n- Jeder Dienst ist mit Zweck und Anbieter aufgeführt\n\nDas können Sie selbst testen: Öffnen Sie die Website in einem privaten Browserfenster, rufen Sie in den Entwicklerwerkzeugen die Netzwerkansicht auf und laden Sie neu. Bevor Sie etwas anklicken, darf keine Anfrage an fremde Analyse- oder Werbedomains gehen.\n\n## Ressourcen von Drittanbietern\n\nViele Datenübertragungen entstehen, ohne dass jemand sie beschlossen hat: Schriften, Icon-Sammlungen und Skriptbibliotheken von fremden Servern übermitteln die IP-Adresse des Besuchers an den jeweiligen Anbieter. Ein Entwickler legt diese Dateien auf Ihrem eigenen Server ab. Videos und Karten werden durch einen Platzhalter ersetzt, der den fremden Inhalt erst nach einem Klick lädt.\n\n## Datensparsamkeit\n\nErhoben wird nur, was der Zweck erfordert, und nur so lange wie nötig.\n\n- Formulare fragen die Felder ab, die wirklich gebraucht werden; freiwillige Angaben sind gekennzeichnet\n- Formulareingaben bleiben nicht unbegrenzt in der CMS-Datenbank\n- Serverprotokolle werden gekürzt oder nach einer festen Frist gelöscht\n- Löschfristen laufen als automatische Aufgaben und stehen nicht nur in einem Dokument\n- Test- und Staging-Systeme arbeiten mit anonymisierten Daten statt mit einer Kopie echter Kundendaten\n\n## Hosting und Auftragsverarbeiter\n\nEin Serverstandort in der EU ist ein guter Anfang, betrifft aber nur das Hosting. Es zählt jeder Dienst, der personenbezogene Daten berührt: E-Mail-Versand, Newsletter-Werkzeug, Fehlerüberwachung, Backup-Speicher, Formulardienste, Zahlungsabwicklung, KI-Schnittstellen. Der Entwickler liefert eine vollständige Liste mit Zweck, betroffenen Daten und Standort. Mit Diensten, die Daten in Ihrem Auftrag verarbeiten, schließt Ihr Unternehmen in der Regel einen Vertrag zur Auftragsverarbeitung, meist über das Kundenkonto des Anbieters. Welche Dienste das betrifft, klärt Ihre Rechtsberatung. Dienste außerhalb der EU brauchen eine rechtliche Prüfung, bevor sie eingebaut werden.\n\n## Löschung und Auskunft\n\nBetroffene können erfahren wollen, was Sie über sie speichern, und die Löschung verlangen. Die Anwendung muss das leisten können:\n\n- Alle Daten einer Person finden, über Tabellen, Uploads und angebundene Systeme hinweg\n- Sie in einem gängigen maschinenlesbaren Format ausgeben\n- Sie löschen oder anonymisieren, auch im Newsletter-Werkzeug und im CRM\n- Backups durch Rotation auslaufen lassen, damit gelöschte Daten nicht jahrelang weiterbestehen\n\nIm Datenmodell eingeplant ist das deutlich günstiger als nachträglich eingebaut. Wo Aufbewahrungspflichten einer Löschung entgegenstehen, etwa bei Rechnungen, entscheidet die Rechtsberatung, was wie lange bleibt; der Entwickler setzt dann eine Sperrung statt einer Löschung um.\n\n## Grundlagen der Sicherheit\n\nDurchgehend verschlüsselte Übertragung, Passwörter nur als Hash, Zugriffsrechte nach Rollen, verschlüsselte Backups, zeitnahe Updates und ein Protokoll der Administratorzugriffe. Personenbezogene Daten gehören weder in URLs noch in Fehlermeldungen, die an externe Werkzeuge gehen.\n\n## Was der Entwickler übergibt\n\nAm Projektende sollten Sie eine Dokumentation erhalten, mit der Ihre Rechtsberatung arbeiten kann:\n\n- Alle Cookies und Einträge im lokalen Speicher mit Zweck und Laufzeit\n- Alle externen Dienste und die Daten, die sie erhalten\n- Wo welche personenbezogenen Daten liegen und wann sie gelöscht werden\n- Wie eine Auskunfts- oder Löschanfrage Schritt für Schritt bearbeitet wird\n\nDas sind die Grundlagen für Datenschutzerklärung und Verzeichnis der Verarbeitungstätigkeiten. Diese Texte zu verfassen und zu bewerten ist juristische Arbeit.",
+  "personas": [
+    {
+      "key": "marketing_lead",
+      "text": "Sie sehen, was Analyse und Marketing-Tags technisch voraussetzen, und wie Sie im Browser prüfen, ob Ihr Consent-Banner sie bis zur Zustimmung des Besuchers tatsächlich blockiert."
+    },
+    {
+      "key": "founder",
+      "text": "Sie wissen, welche technischen Maßnahmen Sie vom Entwickler verlangen, welche Dokumentation Sie bei der Übergabe erwarten können und an welchen Stellen stattdessen eine Rechtsberatung nötig ist."
+    },
+    {
+      "key": "developer",
+      "text": "Sie erhalten eine Arbeitsliste für das Projekt: Skriptblockierung nach Einwilligung, lokal eingebundene Ressourcen, Löschaufgaben, Export- und Löschwege, Dienstverzeichnis und Übergabedokumentation."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Reicht ein Cookie-Banner, damit eine Website DSGVO-konform ist?",
+      "a": "Nein. Das Banner ist eine Maßnahme, und nur dann, wenn es Skripte bis zur Einwilligung technisch blockiert. Datenschutz betrifft außerdem Formulare, Serverprotokolle, extern geladene Schriften und Medien, die Dienste, die Daten für Sie verarbeiten, Löschfristen sowie Auskunft und Löschung. Ob die Gesamtlösung den rechtlichen Anforderungen genügt, beurteilt ein Datenschutzbeauftragter oder eine Anwaltskanzlei."
+    },
+    {
+      "q": "Ist mit einem Hosting in der EU die Frage der Datenübermittlung erledigt?",
+      "a": "Nur für das Hosting selbst. E-Mail-Versand, Newsletter-Werkzeug, Fehlerüberwachung, eingebettete Medien, Zahlungsabwicklung und KI-Dienste können weiterhin Daten an andere Orte senden. Ein Entwickler kann jeden Dienst mit Standort und übermittelten Daten auflisten. Ob eine Übermittlung außerhalb der EU zulässig ist, ist eine Rechtsfrage, die vor dem Einbau geklärt wird."
+    },
+    {
+      "q": "Wer ist für den Datenschutz verantwortlich, der Entwickler oder der Betreiber?",
+      "a": "Gegenüber Besuchern und Behörden steht das Unternehmen ein, das die Website betreibt. Der Entwickler setzt die technischen Maßnahmen um, weist auf Risiken hin und dokumentiert die Datenflüsse, ersetzt aber keine Rechtsberatung. Wie Verantwortung und Haftung zwischen Ihnen und dem Entwickler verteilt sind, gehört in den Vertrag und sollte anwaltlich geprüft werden."
+    }
+  ],
+  "meta_description": "DSGVO-konforme Website-Entwicklung: Einwilligung, Datensparsamkeit, EU-Hosting, Löschung. Technische Orientierung, keine Rechtsberatung.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.485Z",
+  "updated_at": "2026-10-01T18:58:05.135Z"
+}

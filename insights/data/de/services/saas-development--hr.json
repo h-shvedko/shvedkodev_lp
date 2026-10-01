@@ -1,0 +1,41 @@
+{
+  "axis": "services",
+  "entity_a": "saas-development",
+  "entity_b": "hr",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Was ein SaaS-Produkt für HR und Recruiting von der ersten Version an leisten muss: Datentrennung, erklärbare Bewertung, menschliche Entscheidung.",
+  "overview": "Wer Software für Personalarbeit baut, hat es mit zwei Besonderheiten zu tun. Verarbeitet werden Daten von Menschen, die sich das Produkt nicht ausgesucht haben, nämlich Bewerberinnen und Bewerber. Und die Software bereitet Entscheidungen vor, die über Einkommen und Laufbahn mitbestimmen. Bei einem SaaS-Produkt, also gemieteter Software im Browser für viele Kunden zugleich, gehören beide Punkte in den ersten Entwurf. Später lassen sie sich nur mit großem Aufwand nachrüsten.\n\n## Typische Probleme in HR und Recruiting\n\n- Ausschreibungen, Bewerbungen und Notizen liegen verteilt in Jobbörsen, Postfächern und Tabellen. Dieselben Angaben werden mehrfach erfasst.\n- Die Vorauswahl ist eintönig und langsam. Passende Personen oder passende Aufträge gehen verloren, weil niemand rechtzeitig hingesehen hat.\n- Allgemeine Bewerbermanagementsysteme passen nicht zu einer Nische, etwa Freelancer-Vermittlung, Schichtarbeit oder einer einzelnen Berufsgruppe.\n- Die Regeln für die Passung stecken in den Köpfen einzelner Recruiter und lassen sich weder prüfen noch verbessern.\n- Kunden fragen, wo Bewerberdaten liegen, wer sie sieht und wann sie gelöscht werden, und das Produkt gibt darauf keine klare Antwort.\n- Externe Quellen wie Jobbörsen ändern ihr Format oder beschränken den Zugriff, und das Produkt fällt ohne Vorwarnung aus.\n\n## Was eine gute Lösung enthält\n\n- Strikte Trennung der Kunden. Bewerber, Ausschreibungen und Einstellungen eines Kunden sind für alle anderen unsichtbar, durchgesetzt in der Datenschicht und durch Tests abgesichert.\n- Rollen und Rechte nach der tatsächlichen Arbeit: Recruiting, Fachabteilung, Administration, externe Gutachter.\n- Aufbewahrung und Löschung als Funktion: einstellbare Fristen, Löschung auf Anfrage, Export der Daten einer Person.\n- Ein Protokoll, wer einen Datensatz angesehen oder geändert hat.\n- Erklärbare Bewertung. Ordnet das Produkt Ausschreibungen oder Personen nach Punkten, zeigt es die Kriterien dahinter, und der Kunde kann sie anpassen.\n- Entwürfe statt selbsttätiger Aktionen. Erzeugte Texte für Bewerbung, Absage oder Ansprache sind Vorschläge, die ein Mensch liest, überarbeitet und selbst versendet.\n- Zuverlässiger Abruf externer Daten mit Überwachung, die Änderungen einer Quelle meldet, und unter Beachtung der Nutzungsbedingungen jeder Quelle.\n- Abrechnung im Abonnement, Einrichtung ohne Handarbeit des Anbieters, Nutzungsgrenzen je Tarif.\n- Anbindung an Kalender, E-Mail und vorhandene HR-Systeme über dokumentierte Schnittstellen.\n\n## Worauf diese Hinweise beruhen\n\nWir haben ein SaaS-Produkt gebaut, das Ausschreibungen für Freelancer beobachtet, bewertet und Bewerbungen entwirft. Die drei Schritte sammeln, bewerten, entwerfen bilden ein Muster, das zu vielen Recruiting-Produkten passt, auf Bewerberseite wie auf Arbeitgeberseite. Die Hinweise zur erklärbaren Bewertung und zu Entwürfen, die ein Mensch versendet, stammen aus dieser Art von Produkt.\n\n## Fragen an Anbieter\n\n- Wie werden die Daten eines Kunden von denen der anderen getrennt, und wie wird das getestet?\n- Wo wird das Produkt betrieben, und welche Unterauftragnehmer sehen personenbezogene Daten?\n- Wie sind Löschfristen und Löschanfragen umgesetzt?\n- Falls KI bewertet oder Texte schreibt: Welche Daten gehen an welchen Modellanbieter, und kann ein Kunde die Funktion abschalten?\n- Wie erkennt eine Nutzerin, warum eine Ausschreibung oder eine Person eine bestimmte Punktzahl erhalten hat?\n- Was geschieht, wenn eine externe Datenquelle sich ändert oder den Zugriff sperrt?\n- Welche kleinste Version können wir zahlenden Kunden vorlegen, und was lassen wir bewusst weg?\n- Wem gehören Code und Datenmodell, und kann ein anderes Team übernehmen?\n\n## Die erste Version planen\n\nEntscheiden Sie sich für eine Nutzergruppe und einen Ablauf, und bauen Sie diesen vollständig: Daten kommen herein, werden eingeschätzt, führen zu einer Handlung und werden abgerechnet. Nehmen Sie keine zweite Nutzergruppe hinzu, bevor die erste zahlt. Halten Sie früh schriftlich fest, welche Daten Sie über welche Personen zu welchem Zweck speichern. Diese Liste ist Grundlage für Ihre Datenschutzdokumentation und für viele Architekturentscheidungen.\n\nRecruiting-Software berührt Datenschutzrecht, Gleichbehandlungsrecht und, sobald Menschen automatisiert bewertet werden, die Regulierung von KI-Systemen. Welche Pflichten gelten, hängt von Produkt und Markt ab. Lassen Sie das vor dem Start von einer spezialisierten Kanzlei prüfen. Die Entwicklung setzt Anforderungen um, sie legt sie nicht fest.",
+  "personas": [
+    {
+      "key": "founder",
+      "text": "Sie erhalten eine Liste dessen, was ein HR-SaaS-Produkt über die Kernidee hinaus braucht, darunter Kundentrennung, Löschung und erklärbare Bewertung, und ein Vorgehen, um die erste Version auf eine Nutzergruppe und einen vollständigen Ablauf zu begrenzen."
+    },
+    {
+      "key": "hr_lead",
+      "text": "Sie erfahren, worauf es ankommt, wenn ein Werkzeug Personen oder Ausschreibungen bewertet und Nachrichten entwirft: sichtbare Kriterien, ein Mensch, der entscheidet und versendet, und klare Antworten zu Speicherort, Zugriff und Löschung von Bewerberdaten."
+    },
+    {
+      "key": "cto",
+      "text": "Sie finden die Anforderungen an die Architektur, die sich später nur teuer nachrüsten lassen, etwa Mandantentrennung, Protokollierung, Aufbewahrungsregeln und Überwachung externer Quellen, sowie Fragen zur Beurteilung eines externen Entwicklungspartners."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Darf ein Recruiting-Produkt Bewerberinnen und Bewerber automatisch bewerten?",
+      "a": "Technisch ja, und zum Ordnen langer Listen kann das nützlich sein. Ob und wie es zulässig ist, hängt vom Rechtsraum ab und davon, wie stark die Bewertung die Entscheidung bestimmt. Bauen Sie es so, dass Kriterien sichtbar sind, ein Mensch entscheidet und die Funktion abschaltbar ist. Lassen Sie Ihren konkreten Fall anwaltlich prüfen."
+    },
+    {
+      "q": "Was gehört in die erste Version eines SaaS-Produkts für HR?",
+      "a": "Ein Ablauf für eine Nutzergruppe, vollständig vom Dateneingang bis zur Abrechnung. Kundentrennung, Rechte, Löschung und Protokollierung gehören von Beginn an dazu, weil ihr Nachrüsten einem Umbau gleichkommt. Schnittstellen, Auswertungen und weitere Nutzergruppen können warten, bis die ersten Kunden zahlen."
+    },
+    {
+      "q": "Wie riskant ist es, Jobbörsen als Datenquelle zu verwenden?",
+      "a": "Es ist eine echte Abhängigkeit. Quellen ändern ihren Aufbau, beschränken den Zugriff oder untersagen automatisierten Abruf in ihren Bedingungen. Nutzen Sie offizielle Schnittstellen und Feeds, wo es sie gibt, lesen Sie die Bedingungen jeder Quelle, überwachen Sie jede Quelle und bauen Sie so, dass der Ausfall einer Quelle das Produkt nicht stilllegt."
+    }
+  ],
+  "meta_description": "SaaS-Entwicklung für HR und Recruiting: Datentrennung, erklärbare Bewertung, menschliche Freigabe und Fragen an Ihren Anbieter.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.612Z",
+  "updated_at": "2026-10-01T18:58:05.142Z"
+}

@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "mvp-development-timeline",
+  "entity_b": "",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "Plan the route from idea to first release: what goes in, what waits, and where the weeks are usually lost.",
+  "overview": "An MVP is the smallest version of a product that lets real users complete one valuable task from start to finish, so that you learn whether the idea holds. Its timeline is determined far more by what you leave out than by how fast anyone builds.\n\n## What fits in an MVP\n\n- One user group and one main task, complete from beginning to end.\n- Registration and login in the simplest workable form.\n- The minimum needed to operate: you can see who signed up, correct data and answer a support request.\n- Payment only if testing willingness to pay is the purpose of the MVP.\n- The legal basics for your market, such as imprint and privacy information. Have a lawyer confirm what applies to you.\n\n## What to cut\n\n- Additional user roles and permission systems.\n- An admin area with comfort features. For the first users, a developer can make corrections directly.\n- Automation of things you can do by hand for twenty customers, such as onboarding or invoicing.\n- Native mobile apps when a responsive web application answers the same question.\n- Integrations that no early user has asked for, multiple languages, detailed reporting, settings pages.\n\nA useful test for each feature: if it were missing on launch day, would the first users be unable to complete the main task? If not, it goes on the list for later.\n\n## The phases\n\nScoping. You describe the main task as a sequence of steps, decide what is out, and agree how you will recognise success. The result is a short written scope and a prioritised feature list.\n\nDesign. Simple wireframes of every screen in the main flow first, then visual design for those screens only. Testing a clickable draft with three to five people from the target group at this point is cheap and often removes whole features.\n\nBuild. Work proceeds in short cycles, each ending with something you can click through on a test system. You give feedback every cycle rather than at the end.\n\nTest. Automated tests for the main flow, manual checks on real devices, and a round with a few outside users.\n\nLaunch. Production environment, domain, email delivery, backups, monitoring, and a first group of users invited deliberately rather than a public announcement.\n\n## Example timelines (illustrations with invented numbers)\n\nThese are illustrations, not quotes or averages.\n\n- A booking tool with one user role and no payment: scoping 1 week, design 2 weeks, build 5 weeks, test 1 week, launch 1 week. Ten weeks.\n- A two-sided platform with providers, customers and online payment: scoping 2 weeks, design 3 weeks, build 10 weeks, test 2 weeks, launch 1 week. Eighteen weeks.\n\nThe second example is longer mainly because of the second user group and payment, not because of screen count. Each extra role multiplies flows and test cases.\n\n## What usually delays an MVP\n\n- Decisions that wait. Feedback that takes a week instead of a day stretches every cycle.\n- Scope added during the build without removing something else.\n- Missing content: texts, images, prices and legal pages that nobody was assigned to write.\n- Third parties: payment provider verification, app store review, access to another company's interface. Start these applications in the scoping phase.\n- Several people with a say and no single person who decides.\n- Design changes after the build has started.\n- Perfectionism before launch, when the purpose is to learn from real use.\n\n## How to keep the date\n\nName one decision-maker. Fix the launch date and treat scope as the variable: when something takes longer, something else moves to the list for later. Review a working version every week or two. Keep that list visible, so that cutting a feature feels like postponing it, which is what it is.",
+  "personas": [
+    {
+      "key": "founder",
+      "text": "You get a way to decide what belongs in the first release and what waits, plus a realistic picture of the phases and the delays that you yourself control."
+    },
+    {
+      "key": "product_manager",
+      "text": "You get a phase structure with outputs per phase, a test for cutting features, and the typical causes of slippage to address before the build starts."
+    },
+    {
+      "key": "project_manager",
+      "text": "You get the dependencies to start early, such as payment provider checks and content, and a method for holding a date by adjusting scope instead of deadline."
+    }
+  ],
+  "faq": [
+    {
+      "q": "How long does it take to build an MVP?",
+      "a": "It depends on the number of user roles, on payment and on integrations more than on the number of screens. The timelines on this page, ten and eighteen weeks, are invented illustrations, not averages. A reliable figure for your product comes out of the scoping phase, once the main flow and the excluded features are written down."
+    },
+    {
+      "q": "What is the fastest way to shorten an MVP timeline?",
+      "a": "Cut scope, not testing. Reduce to one user group and one main task, do by hand what you can do by hand for the first customers, and drop the admin comfort features. Adding more developers rarely helps a small project, because coordination grows faster than output."
+    },
+    {
+      "q": "Should the MVP be built so that it can grow later?",
+      "a": "Build it cleanly, but do not build for scale you do not have. A sound data model, automated tests for the main flow and a standard framework are enough to extend the product later. Infrastructure for very high load, complex permissions and configurable everything can wait until real usage shows what is needed."
+    }
+  ],
+  "meta_description": "MVP Development Timeline from idea to first release: what to build, what to cut, the five phases and what usually delays them.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.512Z",
+  "updated_at": "2026-10-01T18:58:05.145Z"
+}

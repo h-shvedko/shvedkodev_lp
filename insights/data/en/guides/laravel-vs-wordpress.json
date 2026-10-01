@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "laravel-vs-wordpress",
+  "entity_b": "",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "A plain comparison that shows which of the two fits your project, what each one costs to keep running, and when using both is the better answer.",
+  "overview": "WordPress and Laravel are often compared as if they were two brands of the same thing. They are not. WordPress is a finished content management system: you install it and editors can publish pages the same day. Laravel is a framework: a set of tested building blocks that developers use to build an application that does not exist yet. The choice follows from what your project mainly is.\n\n## When WordPress fits\n\nChoose WordPress when the project is led by content and the people who maintain it are editors, not developers. Typical cases are company websites, blogs, magazines, landing pages and small shops with a standard checkout. Editors get a familiar interface, drafts, media handling and a revision history, and none of it has to be built for you. A large supply of themes and plugins covers common needs such as forms, multilingual content and search engine settings.\n\nThe limit is reached when plugins have to be bent into doing something they were not designed for. If your site needs its own data structures with rules between them, for example contracts that belong to customers who have several locations with different prices, you end up building an application inside a system that was designed for posts and pages.\n\n## When Laravel fits\n\nChoose Laravel when the core of the project is business logic and a data model of its own: customer portals, booking and ordering systems, internal tools, software sold by subscription, or anything with several user roles, approval steps and connections to other systems. Nothing is in your way, and nothing is there by default. Every screen, including the admin area, has to be built or assembled from packages.\n\n## The trade-offs\n\n- Cost to build: for a content site WordPress is cheaper to start, because most of it already exists. For custom logic the relation reverses. Working around the limits of plugins often takes longer than building the function cleanly in Laravel.\n- Maintenance: WordPress needs frequent updates of the core, the theme and every plugin, and an update to one plugin can break another. Laravel has fewer third-party parts that move, but upgrades between major versions are developer work that you have to budget.\n- Security updates: WordPress is a frequent target of automated attacks because it is so widely used, and outdated plugins are the usual way in. Updates can be applied automatically, which helps as long as someone checks the result. A Laravel application is a less uniform target, but nobody patches it for you. It stays secure only if someone is responsible for updates.\n- Hiring: people who can work with WordPress are easy to find, although their skill levels vary widely. The pool of Laravel developers is smaller, but the framework's conventions make it easier for a new developer to take over an existing project.\n- Dependence: with many plugins you depend on the continued support and licence terms of each vendor. With Laravel you depend on whoever knows your code, so insist on documentation and automated tests.\n\n## When combining both makes sense\n\nMany businesses need both: a marketing site that editors change every week, and an application that customers log in to. Splitting the two is often cleaner than forcing one tool to do both jobs. A common arrangement is WordPress on the main domain for pages and blog, and a Laravel application on a subdomain for the portal, with a shared design and, where needed, a shared login. Another is to keep WordPress as the editing interface and let a Laravel application fetch the content from it.\n\nThe price is two systems to host, update and monitor. That pays off when the content side and the application side change at different speeds and are run by different people.\n\n## A quick test\n\nAnswer three questions. Who changes the site most often, editors or developers? Does the data consist of pages and posts, or of records with rules between them? Will the project grow by adding content, or by adding functions? If you mostly chose the first option, that points to WordPress. If you mostly chose the second, it points to Laravel. A clear mix points to a combination.",
+  "personas": [
+    {
+      "key": "founder",
+      "text": "You get three questions that sort your project into WordPress, Laravel or a combination, and you see which choice keeps the first version cheap and which keeps later changes cheap."
+    },
+    {
+      "key": "marketing_lead",
+      "text": "You see what editors get out of the box with WordPress, where that comfort ends, and how a marketing site can stay under your control even when a customer portal is built next to it."
+    },
+    {
+      "key": "cto",
+      "text": "You get the trade-offs in maintenance, security updates, hiring and vendor dependence side by side, plus two workable ways to run WordPress and Laravel together and what that split costs in operations."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Can WordPress handle custom business logic with plugins?",
+      "a": "Up to a point. Forms, memberships and simple shops are covered well. It becomes costly when you need your own data structures, several user roles with different rights, or rules that span more than one plugin. Then each change means working around code you do not control, and every update is a risk. If that describes the core of your project, Laravel is the more economical base."
+    },
+    {
+      "q": "Can we start with WordPress and move to Laravel later?",
+      "a": "For content, yes: pages, posts and media can be exported and moved. Logic that lives in plugins cannot be moved. It has to be rebuilt. If you already know that an application part is coming, keep it separate from the start: content in WordPress, the application in Laravel. Then nothing has to be migrated later and each part can grow at its own pace."
+    },
+    {
+      "q": "Which is more secure, Laravel or WordPress?",
+      "a": "Neither is secure or insecure by itself. A WordPress site with few, well-maintained plugins and prompt updates is safe to run. A Laravel application that nobody has updated for years is not. What decides it is whether someone is responsible for updates, backups and monitoring. Settle that responsibility in writing before launch, whichever system you choose."
+    }
+  ],
+  "meta_description": "Laravel vs WordPress for buyers: which fits content sites, which fits custom business logic, and when combining the two pays off.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:01:27.221Z",
+  "updated_at": "2026-10-01T18:58:05.145Z"
+}

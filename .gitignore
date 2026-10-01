@@ -31,3 +31,9 @@ add-files
 .ftp-deploy-sync-state.json
 .sftp-deploy-sync-state.json
 
+# Generator answers waiting for validation
+/insights/inbox
+
+# Playwright output
+/e2e/.results
+/e2e/screenshots

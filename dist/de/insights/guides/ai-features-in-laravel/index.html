@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+<link rel="shortcut icon" href="/images/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="ShvedkoDev" />
+<link rel="manifest" href="/site.webmanifest" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+<link href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.min.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="/js/jquery.main.js"></script>
+<link rel="preconnect" href="//fonts.googleapis.com">
+<link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+
+<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css'>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jQuery-viewport-checker/1.8.8/jquery.viewportchecker.min.js" integrity="sha512-FRX6MYITclzDyyMmSQLgZoZTfE+GLzAQpjs15adVZMY6AqhsrBLx8UZwp4FoqrrRFWY9TiaPwja7EY5fk309vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
+
+<link href="//fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500;700&family=Saira+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+    // Google Analytics loads only after the visitor accepts cookies in the banner (footer partial).
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    function loadAnalytics() {
+        if (window.analyticsLoaded) return;
+        window.analyticsLoaded = true;
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-FY5NWV7102';
+        document.head.appendChild(script);
+        gtag('js', new Date());
+        gtag('config', 'G-FY5NWV7102');
+    }
+    try {
+        if (localStorage.getItem('cookieConsent') === 'accepted') loadAnalytics();
+    } catch (e) {}
+</script>
+<title>KI-Funktionen in Laravel · ShvedkoDev</title>
+<meta name="description" content="KI-Funktionen in Laravel sauber einbauen: Anbieter-Abstraktion, Prompts in der Konfiguration, Queues, Kostenkontrolle, Fallbacks.">
+<link rel="canonical" href="https://shvedko.dev/de/insights/guides/ai-features-in-laravel/">
+<link rel="alternate" hreflang="en" href="https://shvedko.dev/insights/guides/ai-features-in-laravel/">
+<link rel="alternate" hreflang="de" href="https://shvedko.dev/de/insights/guides/ai-features-in-laravel/">
+<link rel="alternate" hreflang="x-default" href="https://shvedko.dev/insights/guides/ai-features-in-laravel/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Müssen wir unsere Laravel-Anwendung umbauen, um eine KI-Funktion zu ergänzen?","acceptedAnswer":{"@type":"Answer","text":"Nein. Eine Modell-Funktion wird wie jede Anbindung an einen externen Dienst ergänzt: eine Service-Schicht, Jobs in der Warteschlange, einige Tabellen für Ergebnisse und Verbrauch sowie Konfiguration. Die bestehende Anwendung bleibt, wie sie ist. Nötig sind eine funktionierende Queue-Einrichtung und ein klarer Ort in der Oberfläche, an dem Ergebnisse erscheinen und korrigiert werden können."}},{"@type":"Question","name":"Wie bleiben die laufenden Kosten einer KI-Funktion planbar?","acceptedAnswer":{"@type":"Answer","text":"Protokollieren Sie Tokens und Kosten vom ersten Tag an für jeden Aufruf, setzen Sie Grenzen je Nutzer und Tag und legen Sie ein Monatsbudget mit Warnung fest. Automatische Auslöser wie Importe oder geplante Aufgaben brauchen eine harte Obergrenze, weil sie unbemerkt Menge erzeugen. Nutzen Sie das kleinste Modell, das Ihre Testfälle besteht, und speichern Sie wiederholte Anfragen zwischen."}},{"@type":"Question","name":"Was geschieht, wenn das Modell falsche oder fehlerhaft formatierte Ausgaben liefert?","acceptedAnswer":{"@type":"Answer","text":"Fehlerhaft formatierte Ausgaben fängt die Validierung ab, bevor etwas gespeichert wird: Der Job wiederholt einmal und markiert den Fall dann zur manuellen Bearbeitung. Inhaltlich falsche, aber korrekt formatierte Ausgaben erkennt eine Formatprüfung nicht. Dafür brauchen Sie Plausibilitätsregeln, wo möglich, und einen Menschen, der folgenreiche Ergebnisse vorab bestätigt."}}]}</script>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+<header id="header">
+    <div class="container">
+        <div class="logo">
+            <a href="/de/"><img src="/images/Logo.png" alt=""></a>
+        </div>
+        <input type="checkbox" id="burger-trigger" class="burger-trigger">
+        <label class="nav-opener" for="burger-trigger">Menü</label>
+        <div class="menu-holder">
+            <nav>
+                <ul id="nav" class="nav">
+                    <li><a href="/de/">Start</a></li>
+                    <li><a href="/de/about/">Über uns</a></li>
+                    <li><a href="/de/services/">Leistungen</a></li>
+                    <li><a href="/de/portfolio/">Portfolio</a></li>
+                    <li><a href="/de/blog/">Blog</a></li>
+                    <li><a href="/de/insights/">Insights</a></li>
+                    <li><a href="/de/contact/">Kontakt</a></li>
+                    <li class="lang-switch"><a href="/insights/guides/ai-features-in-laravel/" hreflang="en" lang="en" title="English" data-lang-fixed><img src="/images/flag-en.svg" alt="English" width="24" height="16"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+        <main role="main" id="main" class="insight-main">
+            <div class="container">
+<div class="insight">
+<aside class="insight__aside"><nav class="insight__nav" aria-label="Bereiche"><h2>Bereiche</h2><ul><li><a href="/de/insights/">Alle Seiten</a></li><li><a href="/de/insights/guides/" aria-current="page">Leitfäden</a></li><li><a href="/de/insights/examples/">Beispiele</a></li><li><a href="/de/insights/services/">Leistungen nach Branche</a></li><li><a href="/de/insights/products/">Produkte</a></li></ul></nav><nav class="insight__toc" aria-label="Auf dieser Seite"><h2>Auf dieser Seite</h2><ol><li><a href="#overview">Überblick</a></li><li><a href="#personas">Für wen das relevant ist</a></li><li><a href="#faq">Fragen und Antworten</a></li><li><a href="#related">Verwandte Seiten</a></li></ol></nav></aside>
+<article class="insight__body">
+<header class="insight__header">
+<p class="insight__crumbs"><a href="/de/insights/">Insights</a> / <a href="/de/insights/guides/">Leitfäden</a></p>
+<h1>KI-Funktionen in Laravel</h1>
+<p class="insight__subtitle">Sechs Entwurfsentscheidungen, mit denen eine Sprachmodell-Funktion in einer bestehenden Laravel-Anwendung zuverlässig und bezahlbar bleibt.</p>
+</header>
+<section class="insight__section" id="overview"><h2><span class="insight__num">1</span> Überblick</h2><p>Zusammenfassungen, Einordnung von Anfragen, Antwortentwürfe, Daten aus Dokumenten, Suche in eigenen Inhalten: Bei einer solchen Funktion in einer bestehenden Laravel-Anwendung ist der Aufruf des Modells der kleinste Teil. Er umfasst wenige Zeilen. Die eigentlichen Fragen lauten, was geschieht, wenn er langsam, falsch, teuer oder nicht erreichbar ist.</p>
+<h3>Abstraktion des Anbieters</h3>
+<p>Rufen Sie die Schnittstelle eines Anbieters nicht direkt aus Controllern auf. Legen Sie eine Schicht dazwischen: Die Anwendung verlangt eine Aufgabe, etwa einen Text zusammenzufassen, und eine einzige Klasse weiß, welcher Anbieter und welches Modell sie erledigt. Laravel-Pakete bieten eine einheitliche Schnittstelle über mehrere Anbieter, eine schlanke eigene Schicht tut es ebenfalls. Der Nutzen ist praktisch: Ein Modellwechsel bei geänderten Preisen oder besserer Qualität wird zur Konfigurationsänderung, Tests laufen gegen eine Attrappe statt gegen einen kostenpflichtigen Dienst, und ein zweiter Anbieter kann als Ersatz einspringen.</p>
+<h3>Prompts in der Konfiguration</h3>
+<p>Prompts bestimmen das Verhalten und ändern sich oft. Halten Sie sie in Konfigurationsdateien oder in der Datenbank, nicht als verstreute Zeichenketten im Code. Jeder Prompt erhält einen Namen, eine Version, das Modell, mit dem er getestet wurde, und eine Liste seiner Variablen. Speichern Sie zu jedem Ergebnis, welche Prompt-Version es erzeugt hat. Führen Sie einen kleinen Satz Testeingaben mit erwarteten Ergebnissen und lassen Sie ihn bei jeder Änderung von Prompt oder Modell erneut laufen.</p>
+<h3>Queues</h3>
+<p>Modellaufrufe dauern Sekunden und schlagen gelegentlich fehl. Führen Sie sie als Jobs in einer Warteschlange aus: Die Person erhält sofort eine Rückmeldung, das Ergebnis erscheint, sobald es vorliegt. Jeder Job braucht ein Zeitlimit, eine begrenzte Zahl von Wiederholungen mit wachsenden Pausen und einen Schutz vor Dubletten, damit eine Wiederholung keine zwei Datensätze anlegt. Eine Mengenbegrenzung der Warteschlange hält Sie innerhalb der Limits des Anbieters.</p>
+<h3>Kostenkontrolle</h3>
+<p>Die Kosten hängen von der Menge des gesendeten und empfangenen Textes ab. Wirksam sind:</p>
+<ul><li>Tokens und Kosten je Aufruf, je Funktion und je Nutzer oder Kundenkonto protokollieren</li><li>Grenzen je Nutzer und Tag setzen, dazu ein Monatsbudget mit Warnung</li><li>das kleinste Modell nehmen, das Ihre Testfälle besteht</li><li>Eingabe- und Ausgabelänge begrenzen</li><li>Ergebnisse identischer Anfragen zwischenspeichern</li><li>nur die Daten senden, die die Aufgabe braucht</li></ul>
+<p>Ein Rechenbeispiel mit erfundenen Zahlen: Eine Funktion, die 0,4 Cent je Aufruf kostet, wirkt kostenlos. Wird sie bei einem Import automatisch für jeden von 50.000 Datensätzen ausgelöst, kostet sie an einem Nachmittag 200 Euro. Automatische Auslöser brauchen eine Grenze dringender als Schaltflächen.</p>
+<h3>Ausgaben prüfen, bevor sie gespeichert werden</h3>
+<p>Behandeln Sie die Ausgabe des Modells wie eine ungeprüfte Eingabe. Verlangen Sie eine strukturierte Ausgabe in einem festgelegten Format und prüfen Sie sie mit den Validierungsregeln von Laravel wie ein abgesendetes Formular: Typen, erlaubte Werte, Längen und die Existenz referenzierter Datensätze. Scheitert die Prüfung, wiederholen Sie einmal und markieren den Fall danach zur manuellen Bearbeitung. Führen Sie Ausgaben nie aus und lassen Sie sie nie ungeprüft über Datensatzkennungen oder Berechtigungen entscheiden. Maskieren Sie sie bei der Anzeige.</p>
+<p>Texte von Nutzern oder aus hochgeladenen Dokumenten können Anweisungen an das Modell enthalten. Die Funktion darf deshalb nie mehr Rechte haben als die Person, die sie ausgelöst hat. Hat ein Ergebnis Folgen, etwa eine E-Mail an einen Kunden oder ein geänderter Preis, bestätigt es zuvor ein Mensch.</p>
+<h3>Fallbacks</h3>
+<p>Legen Sie je Funktion fest, was geschieht, wenn der Anbieter ausfällt, langsam ist oder Unbrauchbares liefert: ein zweiter Anbieter, ein Weg ohne Modell wie ein von Hand ausgefülltes Feld oder ein klarer Hinweis, dass die Funktion gerade nicht verfügbar ist. Der Kern der Anwendung muss ohne die Funktion arbeiten. Ein Schalter, der sie ohne neue Auslieferung abstellt, gehört zum Entwurf.</p>
+<h3>Datenschutz</h3>
+<p>Klären Sie, welche Daten an den Anbieter gehen, wo sie verarbeitet werden und auf welcher Vertragsgrundlage. Bei personenbezogenen Daten ist das eine Rechtsfrage für Ihre Datenschutzbeauftragte oder Ihren Datenschutzbeauftragten oder für eine Anwaltskanzlei. Technisch gilt: entfernen, was die Aufgabe nicht braucht, und vollständige Prompts mit personenbezogenen Daten nicht unbegrenzt in Protokollen aufbewahren.</p>
+<h3>Eine sinnvolle Reihenfolge</h3>
+<p>Beginnen Sie mit einer eng umrissenen Funktion, deren Fehler harmlos und sichtbar sind, etwa einem Zusammenfassungsvorschlag, den ein Mensch freigibt. Bauen Sie dafür Schicht, Warteschlange, Kostenprotokoll und Prüfung. Die zweite Funktion nutzt alle vier wieder.</p></section>
+<section class="insight__section" id="personas"><h2><span class="insight__num">2</span> Für wen das relevant ist</h2><div class="insight__personas"><div class="insight__persona"><h3>CTO oder Tech Lead</h3><p>Sie erhalten einen Architekturumriss für Modell-Funktionen in bestehendem Laravel-Code: eine Anbieterschicht, versionierte Prompts, Aufrufe über Queues, geprüfte Ausgaben und ein Fallback je Funktion.</p></div><div class="insight__persona"><h3>Produktmanagement</h3><p>Sie erfahren, welche Entscheidungen je Funktion bei Ihnen liegen, bevor das Team schätzen kann: Grenzen, Verhalten bei Ausfall des Modells und die Stellen, an denen ein Mensch bestätigt.</p></div><div class="insight__persona"><h3>IT-Leitung</h3><p>Sie sehen, was der Betrieb einer solchen Funktion verlangt: Budgets und Warnungen, einen Ausschalter, die Abhängigkeit von einem externen Anbieter und die vorab zu klärenden Datenschutzfragen.</p></div></div></section>
+<section class="insight__section" id="faq"><h2><span class="insight__num">3</span> Fragen und Antworten</h2><h3>Müssen wir unsere Laravel-Anwendung umbauen, um eine KI-Funktion zu ergänzen?</h3><p>Nein. Eine Modell-Funktion wird wie jede Anbindung an einen externen Dienst ergänzt: eine Service-Schicht, Jobs in der Warteschlange, einige Tabellen für Ergebnisse und Verbrauch sowie Konfiguration. Die bestehende Anwendung bleibt, wie sie ist. Nötig sind eine funktionierende Queue-Einrichtung und ein klarer Ort in der Oberfläche, an dem Ergebnisse erscheinen und korrigiert werden können.</p><h3>Wie bleiben die laufenden Kosten einer KI-Funktion planbar?</h3><p>Protokollieren Sie Tokens und Kosten vom ersten Tag an für jeden Aufruf, setzen Sie Grenzen je Nutzer und Tag und legen Sie ein Monatsbudget mit Warnung fest. Automatische Auslöser wie Importe oder geplante Aufgaben brauchen eine harte Obergrenze, weil sie unbemerkt Menge erzeugen. Nutzen Sie das kleinste Modell, das Ihre Testfälle besteht, und speichern Sie wiederholte Anfragen zwischen.</p><h3>Was geschieht, wenn das Modell falsche oder fehlerhaft formatierte Ausgaben liefert?</h3><p>Fehlerhaft formatierte Ausgaben fängt die Validierung ab, bevor etwas gespeichert wird: Der Job wiederholt einmal und markiert den Fall dann zur manuellen Bearbeitung. Inhaltlich falsche, aber korrekt formatierte Ausgaben erkennt eine Formatprüfung nicht. Dafür brauchen Sie Plausibilitätsregeln, wo möglich, und einen Menschen, der folgenreiche Ergebnisse vorab bestätigt.</p></section>
+<section class="insight__section" id="related"><h2><span class="insight__num">4</span> Verwandte Seiten</h2><ul class="insight-list"><li><a href="/de/insights/guides/ai-app-builders-php/">KI-App-Builder für PHP</a><p>Nüchtern betrachtet: wofür generierter Laravel- und WordPress-Code taugt, was ihm fehlt und wie Sie ihn vor dem Livegang prüfen.</p></li><li><a href="/de/insights/guides/api-integration-guide/">Leitfaden zur API-Integration</a><p>So planen Sie die Anbindung an ERP, CRM oder Zahlungsanbieter, dass Ausfälle, Zeitüberschreitungen und doppelte Meldungen keinen Schaden anrichten.</p></li><li><a href="/de/insights/guides/figma-to-laravel/">Von Figma zu Laravel</a><p>Was ein Anwendungsdesign über das Bild hinaus festlegen muss: Zustände, Formularregeln, Rollen und der richtige Einsatz von Livewire.</p></li><li><a href="/de/insights/guides/figma-to-wordpress/">Von Figma zu WordPress</a><p>Was zwischen fertiger Figma-Datei und einem WordPress-Theme geklärt sein muss, damit die Redaktion das Design nicht versehentlich zerlegt.</p></li><li><a href="/de/insights/guides/fixed-price-vs-time-and-materials/">Festpreis vs. Abrechnung nach Aufwand</a><p>So wählen Sie das Vertragsmodell für Ihr Webprojekt: Wer trägt welches Risiko, und wie werden Änderungen bezahlt?</p></li><li><a href="/de/insights/guides/gdpr-website-development/">DSGVO-konforme Website-Entwicklung</a><p>Welche technischen Maßnahmen ein Entwickler für den Datenschutz umsetzt und wie Sie prüfen, ob sie wirklich vorhanden sind.</p></li></ul></section>
+<section class="insight__cta"><h2>Sie planen ein ähnliches Projekt?</h2><p>Schildern Sie uns Ihr Vorhaben. Sie erhalten eine klare Einschätzung zu Umfang, Vorgehen und Aufwand.</p><p><a href="/de/contact/" class="button">Kontakt aufnehmen</a></p></section>
+<footer class="insight__note"><p>Diese Seite beruht auf unserer eigenen Projekterfahrung. Sie ist eine allgemeine Orientierung und keine Beratung zu Ihrem konkreten Vertrag oder Ihrer Rechtslage.</p><p>Aktualisiert: <time datetime="2026-10-01">2026-10-01</time></p></footer>
+</article>
+</div>
+            </div>
+        </main>
+<div id="footer">
+    <div class="container">
+        <div class="row-holder">
+            <div class="col-4 m-order-1">
+                <div class="logotype">
+                    <a href="/de/"><img src="/images/Logo.png" alt=""></a>
+                </div>
+                <ul class="contacts-list">
+                    <li><a href="/de/imprint/" style="width: 100px;display: block;">Impressum</a></li>
+                    <li><a href="/de/data-protection/" style="width: 200px;display: block;"> Datenschutz</a></li>
+                    <li><a href="/de/insights/" style="width: 100px;display: block;">Insights</a></li>
+                </ul>
+            </div>
+            <div class="col-4 m-order-3">
+                <h3>Kontakt</h3>
+                <ul class="contacts-list">
+                    <li>
+                        <i class="icon icon-location2"></i>
+                        <address>Göttingen, Deutschland</address>
+                    </li>
+                    <li>
+                        <i class="icon icon-mail"></i>
+                        <a href="mailto:info@shvedko.dev">info@shvedko.dev</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-4 m-order-1">
+                <h3>Folgen Sie uns:</h3>
+                <ul class="social-network">
+                    <li class="col">
+                        <a href="https://www.facebook.com/people/ShvedkoDev/61574820107319/" target="_blank" class="link-social-network"> <i class="icon icon-facebook1"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://x.com/ShvedkoDev" target="_blank" class="link-social-network"> <i class="icon icon-xtwitter"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://www.upwork.com/agencies/1749148191404584960/" target="_blank" class="link-social-network"> <i class="icon icon-upwork"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://www.linkedin.com/company/shvedkodev/" target="_blank" class="link-social-network"> <i class="icon icon-linkedin-square"></i></a>
+                    </li>
+                    <li class="col">
+                        <a href="https://www.instagram.com/shvedkodev/" target="_blank" class="link-social-network"> <i class="icon icon-instagram"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<footer class="copy">
+    <div class="container">
+        <p>&copy; ShvedkoDev 2026. Alle Rechte vorbehalten.</p>
+    </div>
+</footer>
+<!-- Cookie Banner -->
+<div id="cookie-banner" style="
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #222;
+  color: #fff;
+  padding: 16px;
+  text-align: center;
+  font-size: 14px;
+  z-index: 1000;">
+    Diese Website verwendet Cookies für Statistiken, und nur mit Ihrer Einwilligung.
+    <a href="/de/data-protection/" style="color: #4caf50; text-decoration: underline; margin-left: 8px;" target="_blank">
+        Mehr erfahren
+    </a>
+    <button id="cookie-accept" style="
+    margin-left: 16px;
+    background: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;">
+        Akzeptieren
+    </button>
+    <button id="cookie-decline" style="
+    margin-left: 8px;
+    background: transparent;
+    color: white;
+    border: 1px solid #888;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;">
+        Ablehnen
+    </button>
+</div>
+
+<script>
+    // The banner stays until the visitor decides. Analytics starts only on "accept".
+    (function () {
+        var banner = document.getElementById('cookie-banner');
+        var choice = null;
+        try { choice = localStorage.getItem('cookieConsent'); } catch (e) {}
+        if (choice) banner.style.display = 'none';
+        function decide(value) {
+            try { localStorage.setItem('cookieConsent', value); } catch (e) {}
+            banner.style.display = 'none';
+            if (value === 'accepted') loadAnalytics();
+        }
+        document.getElementById('cookie-accept').addEventListener('click', function () { decide('accepted'); });
+        document.getElementById('cookie-decline').addEventListener('click', function () { decide('declined'); });
+    })();
+</script>
+
+</body>
+</html>

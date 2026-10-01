@@ -1,0 +1,41 @@
+{
+  "axis": "services",
+  "entity_a": "n8n-automation",
+  "entity_b": "hr",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "Which recruiting steps n8n can take off your team's desk, what a reliable workflow needs, and where a person must stay in charge.",
+  "overview": "Recruiting consists of a few decisions and a great deal of administration around them. Someone copies an application from the mailbox into a tracker, sends a confirmation, asks a hiring manager for feedback, proposes interview slots, reminds people, updates a status, and repeats this for every candidate and every role. Each step is small. Together they decide how long a candidate waits for an answer.\n\nn8n is a workflow automation tool: it connects applications through their interfaces and runs defined steps when something happens, for example when a form is submitted or a status changes. It can be run on your own server, which matters when applicant data is involved.\n\n## Typical problems in HR and recruiting\n\n- Applications arrive through several channels and are entered by hand into a tracker or board.\n- Candidates wait for confirmations and updates because sending them depends on someone remembering.\n- Feedback from hiring managers is requested by email and gets lost.\n- The status in the board does not match reality, so nobody trusts the overview.\n- Onboarding tasks such as accounts, equipment and documents are started late because the handover from recruiting is informal.\n- Applicant data sits in mailboxes and spreadsheets long after the role is filled.\n\n## What a good solution includes\n\n- One system as the source of truth, usually the board or tracker the team already uses. Workflows read from and write to it rather than creating a parallel record.\n- Intake from every channel into that system, with duplicate detection.\n- Automatic messages only where the content is fixed: confirmation of receipt, interview details, reminders. Rejections and offers are prepared by the workflow and sent by a person.\n- Status changes as triggers. Moving a card to the interview stage notifies the hiring manager, creates the feedback request and sets a reminder.\n- Deadlines and escalation: if feedback is missing after an agreed period, the workflow reminds and then informs the recruiter.\n- Error handling. Every workflow needs a defined path for failures and an alert to a named person, so that a failed step does not leave a candidate without an answer.\n- Scheduled deletion or anonymisation of applicant data after the retention period you have defined.\n- Access control and credentials stored in the automation tool, not in individual steps.\n- Documentation of each workflow in plain language, so the HR team knows what happens automatically.\n\n## Experience this guidance is based on\n\nWe built n8n workflows for recruitment steps and integrated them with a work management board. The point about one source of truth comes from that kind of setup: the board stays the place where the team works, and the automation moves information to and from it.\n\n## What to ask a provider\n\n- Which of our current steps would you automate first, and which would you leave manual?\n- Where does n8n run, who has access to it, and where is applicant data stored during a workflow?\n- What happens when a connected service is unavailable or a step fails?\n- How do we see what a workflow did for a specific candidate?\n- How is deletion after the retention period implemented and verified?\n- Can our team change message texts and deadlines without a developer?\n- Who maintains the workflows when our board or a connected tool changes its interface?\n- How are workflows tested before they touch real applications?\n\n## How to start\n\nWrite down one hiring process from application to first working day, step by step, with who does what and in which tool. Mark each step as decision or administration. The administrative steps with a fixed trigger and a fixed outcome are the candidates for automation. Begin with intake and confirmation, because they affect every applicant and are easy to check, then add feedback requests and reminders.\n\nAutomated processing of applicant data raises questions of data protection and, in companies with employee representation, of co-determination. Clarify these with your data protection officer and, where needed, a lawyer before going live.",
+  "personas": [
+    {
+      "key": "hr_lead",
+      "text": "You get a method for sorting your hiring process into decisions and administration, a list of steps that are safe to automate, and the points where a person should still write or approve the message."
+    },
+    {
+      "key": "operations_lead",
+      "text": "You see how to keep one board as the source of truth while n8n moves data between tools, and what error handling, alerts and documentation a workflow needs so that it can be relied on in daily operation."
+    },
+    {
+      "key": "it_manager",
+      "text": "You find the questions that matter for running n8n with applicant data: hosting, access, credential storage, logging per candidate, deletion after retention periods and maintenance when connected tools change."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Which recruiting steps are suitable for automation with n8n?",
+      "a": "Steps with a clear trigger and a fixed result: transferring applications into the tracker, confirmations of receipt, feedback requests to hiring managers, reminders, interview details, status updates and handover to onboarding. Assessing a candidate and communicating a rejection or offer should remain with a person."
+    },
+    {
+      "q": "Do we have to replace our existing board or applicant tracker?",
+      "a": "Usually not. n8n connects to existing tools through their interfaces, so the team keeps working where it already does. The precondition is that the tool offers an interface for reading and writing data. Check this first; it determines what can be automated and with how much effort."
+    },
+    {
+      "q": "What happens if a workflow fails in the middle of a hiring process?",
+      "a": "A well-built workflow has an error path: it records the failure, alerts a named person and leaves the record in a state from which it can be resumed. Without this, a failed step goes unnoticed and a candidate hears nothing. Ask to see the error handling before accepting a workflow."
+    }
+  ],
+  "meta_description": "n8n Workflow Automation for HR and Recruiting: steps worth automating, what a reliable workflow needs and provider questions.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.623Z",
+  "updated_at": "2026-10-01T18:58:05.147Z"
+}

@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "php-legacy-modernization",
+  "entity_b": "",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Eine alte PHP- oder Laravel-Anwendung in kleinen, sicheren Schritten erneuern, während der Betrieb weiterläuft.",
+  "overview": "Eine alte PHP-Anwendung erledigt ihre Aufgabe meist noch. Schwierig ist das Drumherum: Die PHP-Version erhält keine Sicherheitsupdates mehr, der Hoster kündigt eine Umstellung an, an das Rechnungsmodul traut sich niemand heran, und jede neue Funktion dauert länger als die vorige. Der Reflex lautet: alles neu schreiben. Meist ist das der teurere und riskantere Weg. Eine schrittweise Modernisierung hält den Betrieb aufrecht und liefert unterwegs Verbesserungen.\n\n## Schritt 1: Bestandsaufnahme\n\nBevor jemand Code ändert, wird festgestellt, was vorhanden ist. Ein brauchbares Audit beantwortet:\n\n- Welche PHP-Version, welche Framework-Version und welche Bibliotheken sind im Einsatz, und welche werden nicht mehr gepflegt?\n- Welche Teile der Anwendung werden täglich genutzt, welche selten, welche gar nicht?\n- Wo spricht das System nach außen: Zahlung, E-Mail, Exporte, Schnittstellen zu anderer Software, zeitgesteuerte Aufgaben?\n- Wie wird heute veröffentlicht, und gibt es eine Datensicherung, die schon einmal tatsächlich zurückgespielt wurde?\n- Welches Wissen steckt nur im Kopf einer einzigen Person?\n\nDas Ergebnis ist eine kurze schriftliche Risikoliste nach Dringlichkeit, kein hundertseitiger Bericht. Ungenutzte Funktionen, die hier auffallen, werden gelöscht statt migriert. Das ist oft die günstigste Einsparung im ganzen Vorhaben.\n\n## Schritt 2: Tests um das bestehende Verhalten\n\nAlter Code hat selten Tests, und sein Verhalten ist die einzige verlässliche Spezifikation. Deshalb wird vor jeder Änderung festgehalten, was das System heute tut: bei dieser Eingabe diese Seite, dieser Rechnungsbetrag, diese Exportdatei. Solche Tests bewerten nicht, ob das Verhalten gut ist. Sie schlagen nur Alarm, wenn es sich ändert. Begonnen wird bei den Abläufen, die Geld bringen oder bei Fehlern Schaden anrichten.\n\n## Schritt 3: Eine Umgebung in Containern\n\nViele Altsysteme laufen auf genau einem Server, den niemand nachbauen kann. Wird die Umgebung in Containern beschrieben, mit exakter PHP-Version, Erweiterungen und Datenbank, arbeiten alle Entwickler mit demselben Stand. Eine neuere PHP-Version lässt sich neben der alten ausprobieren, ohne das Livesystem anzufassen. Die Abhängigkeit von einer von Hand eingerichteten Maschine endet.\n\n## Schritt 4: Stück für Stück ersetzen\n\nMit Tests und reproduzierbarer Umgebung wird die Arbeit zur Routine:\n\n- PHP- und Framework-Version jeweils um eine Hauptversion anheben und nach jedem Schritt beheben, was die Tests melden.\n- Nicht mehr gepflegte Bibliotheken einzeln austauschen.\n- Einen Bereich nach dem anderen in eine saubere Struktur überführen, zum Beispiel indem neue oder überarbeitete Seiten über ein aktuelles Framework laufen, während alte Seiten weiter vom alten Code ausgeliefert werden.\n- Nach jedem Schritt veröffentlichen. Kleine Veröffentlichungen machen Fehler leicht auffindbar und lassen sich leicht zurücknehmen.\n\nEin Rechenbeispiel mit erfundenen Zahlen: Bei einer Anwendung mit vierzig Masken könnten fünf pro Monat umziehen, während die normale Weiterentwicklung läuft, statt ein Jahr lang keine neuen Funktionen zu bekommen.\n\n## Wann eine Neuentwicklung gerechtfertigt ist\n\n- Der Geschäftsprozess hat sich so stark verändert, dass das alte Datenmodell nicht mehr passt.\n- Für die Technik gibt es keinen Upgrade-Pfad, oder sie hängt an einer Plattform, die abgeschaltet wird.\n- Die Anwendung ist so klein, dass der Neubau weniger kostet als das Verstehen.\n- Das Audit zeigt, dass der Großteil ungenutzt ist und der tatsächliche Umfang nur einen Bruchteil ausmacht.\n\n## Wann nicht\n\n- Der Code ist unschön, funktioniert aber, und die Kritik betrifft vor allem sein Innenleben.\n- Ein neues Team bevorzugt ein anderes Framework.\n- Niemand kann aufzählen, was das Altsystem tut. Dann übersieht eine Neuentwicklung Anforderungen, denn diese Liste braucht sie als Erstes.\n- Das Unternehmen kann nicht monatelang auf neue Funktionen verzichten.\n\nEin sinnvoller erster Auftrag ist das Audit allein, mit festem Umfang. Sie erhalten die Risikoliste und einen realistischen Plan und entscheiden über alles Weitere danach.",
+  "personas": [
+    {
+      "key": "it_manager",
+      "text": "Sie erhalten eine Reihenfolge, mit der sich das Risiko eines veralteten PHP-Systems senken lässt: Audit, absichernde Tests, reproduzierbare Umgebung, danach Versionssprünge in kleinen Veröffentlichungen."
+    },
+    {
+      "key": "cto",
+      "text": "Sie erhalten Kriterien für die Entscheidung zwischen Neuentwicklung und Modernisierung und ein Vorgehen, bei dem neue Funktionen weiter entstehen, während alter Code bereichsweise ersetzt wird."
+    },
+    {
+      "key": "operations_lead",
+      "text": "Sie sehen, wie die Software hinter Ihren täglichen Abläufen ohne Stillstand erneuert werden kann und welche Auskünfte das Audit von Ihrem Team braucht."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Wie lange dauert die Modernisierung einer alten PHP-Anwendung?",
+      "a": "Das hängt vom Umfang ab, vom Versionsrückstand und davon, wie viel ungenutzt ist. Vor einem Audit lässt sich keine seriöse Zahl nennen. Planbar ist die Reihenfolge: Das Audit hat einen kurzen, festen Rahmen, danach wird die Arbeit in Schritte geteilt, die jeweils mit einer Veröffentlichung enden. Nach jedem Schritt können Sie pausieren oder neu priorisieren."
+    },
+    {
+      "q": "Können während der Modernisierung weiter neue Funktionen entstehen?",
+      "a": "Ja, das ist der wesentliche Vorteil gegenüber einer Neuentwicklung. Alter und neuer Code laufen nebeneinander, und jeder Schritt wird einzeln veröffentlicht. Bewährt hat sich ein fester monatlicher Zeitanteil für die Modernisierung, damit sie nicht von dringenden Wünschen verdrängt wird."
+    },
+    {
+      "q": "Warum Tests für Code schreiben, der ohnehin ersetzt wird?",
+      "a": "Weil das alte Verhalten die einzige vollständige Beschreibung dessen ist, was das System leisten muss. Tests, die heutige Ergebnisse festhalten, zeigen sofort, wenn ein Upgrade oder ein neu gebautes Modul etwas verändert, etwa einen Rechnungsbetrag. Ohne sie finden Ihre Kunden die Abweichungen. Dieselben Tests gelten weiter, wenn der Code dahinter ersetzt ist."
+    }
+  ],
+  "meta_description": "PHP-Legacy-Modernisierung ohne Neuentwicklung: Audit, Tests für bestehendes Verhalten, Container und schrittweiser Austausch.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.494Z",
+  "updated_at": "2026-10-01T18:58:05.138Z"
+}

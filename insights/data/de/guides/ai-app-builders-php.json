@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "ai-app-builders-php",
+  "entity_b": "",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Nüchtern betrachtet: wofür generierter Laravel- und WordPress-Code taugt, was ihm fehlt und wie Sie ihn vor dem Livegang prüfen.",
+  "overview": "Werkzeuge, die Code aus einer Beschreibung erzeugen, gibt es in zwei Arten: Assistenten, die gemeinsam mit einem Entwickler in einer bestehenden Codebasis arbeiten, und Builder, die aus einer Eingabe eine ganze Anwendung generieren. Beide können lauffähigen Laravel- und WordPress-Code liefern. Was sie liefern, ist ein Entwurf von einem Autor, der sehr viel öffentlichen Code gelesen hat und nichts über Ihr Geschäft, Ihren Server und Ihre Nutzer weiß.\n\n## Wo es Zeit spart\n\n- Grundgerüste in Laravel: Migrationen, Modelle, Controller, Formularprüfung, einfache Anlege- und Bearbeitungsmasken, Verwaltungslisten\n- WordPress-Routine: eigene Inhaltstypen, Block-Registrierung, kleine Plugins, Template-Dateien\n- Tests für vorhandenen Code, Testdaten, Dokumentation\n- Umwandlungsaufgaben: ein CSV-Import, ein API-Client nach Dokumentation\n- Erklärung von fremdem oder übernommenem Code\n- klickbare Prototypen, um eine Idee im Unternehmen zu zeigen\n\nGemeinsam ist diesen Aufgaben: bekannte Muster mit vielen öffentlichen Beispielen und Ergebnisse, die sich schnell überprüfen lassen.\n\n## Wo ein Entwickler nötig bleibt\n\n- Entscheiden, was gebaut wird. Das Datenmodell, die Grenzen zwischen den Teilen und die Frage, ob ein vorhandenes Plugin oder Paket die bessere Antwort ist.\n- Sicherheit. Generierter Code deckt oft den Normalfall ab und lässt die Prüfung weg, die verhindert, dass ein Kunde die Rechnung eines anderen öffnet. Berechtigungen, Datei-Uploads und der Umgang mit Zugangsdaten brauchen jemanden, der nach dem Fehlenden sucht.\n- Einpassen in das Vorhandene. Ihre Konventionen, installierten Plugins, die PHP-Version und die Grenzen Ihres Hostings kennt das Werkzeug nur, wenn jemand sie mitgibt.\n- Verhalten mit echten Daten. Eine Abfrage, die mit zehn Zeilen funktioniert, kann mit hunderttausend langsam sein.\n- Aktualität. Die Werkzeuge schlagen Funktionen und Pakete vor, die veraltet sind oder gelegentlich gar nicht existieren.\n- Betrieb. Auslieferung, Backups, Updates, Überwachung und Änderungen an einer Datenbank im laufenden Betrieb.\n- Verantwortung. Wenn etwas ausfällt, muss jemand den Code gut genug verstehen, um ihn zu reparieren.\n\n## So prüfen Sie generierten Code\n\nBehandeln Sie ihn wie Code eines unbekannten Dienstleisters.\n\n- Führen Sie ihn mit falschen Eingaben, leeren Eingaben und einem Nutzer ohne Berechtigung aus, nicht nur mit dem erwarteten Fall.\n- Lesen Sie jede Zeile, die Zugriff und Daten berührt. In Laravel: Policies, Validierung, Massenzuweisung, rohe Datenbankabfragen. In WordPress: Nonces, Rechteprüfungen, bereinigte Eingaben, maskierte Ausgaben, vorbereitete Datenbankabfragen.\n- Prüfen Sie jedes hinzugefügte Paket oder Plugin: Gibt es das, wird es gepflegt, passt die Lizenz?\n- Suchen Sie nach dem, was fehlt: Tests, Fehlerbehandlung, Protokollierung, Grenzen für Größe und Häufigkeit.\n- Prüfen Sie, ob es zum Projekt passt: Benennung, Aufbau, keine zweite Fassung einer vorhandenen Hilfsfunktion.\n- Halten Sie Änderungen klein. Zweihundert Zeilen werden gelesen, fünftausend durchgewinkt.\n\nBevor Code, Kundendaten oder Zugangsschlüssel in ein Werkzeug eingegeben werden, klären Sie, wo diese Daten verarbeitet werden. Das ist eine Datenschutzfrage. Beziehen Sie Ihre Datenschutzbeauftragte oder Ihren Datenschutzbeauftragten ein, sobald personenbezogene Daten betroffen sind.\n\n## Was das beim Einkauf eines Projekts bedeutet\n\nEin Prototyp aus einem Builder eignet sich gut, um Anforderungen zu klären. Ein Produkt ist er nicht: Meist fehlen Rollen, Fehlerbehandlung, Tests und ein Weg in den Betrieb. Ihn dazu auszubauen kann teurer sein, als sauber neu zu beginnen und den Prototyp als Spezifikation zu nutzen.\n\nFragen an einen Anbieter, der mit solchen Werkzeugen arbeitet:\n\n- Wer prüft generierten Code, und nach welcher Liste?\n- Gibt es automatische Tests, und laufen sie bei jeder Änderung?\n- Wem gehört der Code, und kann ein anderer Entwickler ihn übernehmen?\n- Welche Daten verlassen während der Entwicklung Ihre Systeme?\n\nDie Ersparnis liegt in den Routineteilen. Spezifikation, Prüfung, Integration und Test bleiben. Ein Projekt wird deshalb nicht in dem Maß günstiger, in dem Code schneller getippt wird.\n\n## Ein vernünftiger Einstieg\n\nWählen Sie eine klar begrenzte Aufgabe mit geringem Risiko, etwa eine interne Auswertung oder einen Import. Lassen Sie sie generieren, prüfen und testen, und vergleichen Sie den Aufwand mit dem üblichen Weg. Das sagt mehr über Ihr eigenes Projekt als jede allgemeine Behauptung.",
+  "personas": [
+    {
+      "key": "founder",
+      "text": "Sie können einschätzen, ob ein Prototyp aus einem KI-Builder die Grundlage Ihres Produkts ist oder nur ein Mittel, Anforderungen zu klären, und was bis zum Produkt noch fehlt."
+    },
+    {
+      "key": "cto",
+      "text": "Sie erhalten eine Prüfliste für generierten Laravel- und WordPress-Code und eine Übersicht der Bereiche, von Berechtigungen bis Betrieb, die bei Ihren Entwicklern bleiben."
+    },
+    {
+      "key": "agency_owner",
+      "text": "Sie sehen, welche Teile eines Projekts durch Code-Generierung realistisch schneller werden und welche nicht. Das hilft bei Schätzungen und bei Kundenfragen zum Thema KI."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Kann ich eine vollständige Laravel-Anwendung mit einem KI-Builder ohne Entwickler bauen?",
+      "a": "Einen lauffähigen Prototyp erhalten Sie so. Für eine Anwendung mit echten Nutzern brauchen Sie weiterhin jemanden, der Zugriffsregeln prüft, Auslieferung und Backups einrichtet, Tests schreibt und Störungen beheben kann. Das Risiko ohne diese Person ist nicht, dass das Werkzeug versagt, sondern dass niemand bemerkt, was es weggelassen hat."
+    },
+    {
+      "q": "Ist KI-generierter Code unsicherer als von Hand geschriebener?",
+      "a": "Nicht grundsätzlich, aber er scheitert auf typische Weise: Er behandelt den erwarteten Fall und lässt Prüfungen weg, nach denen niemand gefragt hat, etwa ob die angemeldete Person genau diesen Datensatz sehen darf. Handgeschriebener Code hat dieselbe Schwäche, wenn ihn niemand prüft. Der Schutz ist in beiden Fällen ein Review mit Blick auf Zugriff und Eingaben sowie Tests."
+    },
+    {
+      "q": "Wie viel günstiger wird ein Webprojekt durch KI-Code-Generierung?",
+      "a": "Eine verlässliche allgemeine Zahl gibt es nicht, und wer eine nennt, verdient Skepsis. Routine-Programmierung wird schneller. Anforderungen klären, Entwurfsentscheidungen, Prüfung, Anbindung an bestehende Systeme und Tests dauern etwa so lange wie zuvor und sind in vielen Projekten der größere Teil. Eine kleine Pilotaufgabe im eigenen Projekt gibt die bessere Antwort."
+    }
+  ],
+  "meta_description": "Was KI-App-Builder für PHP in Laravel- und WordPress-Projekten leisten, wo Entwickler nötig bleiben und wie Sie generierten Code prüfen.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.475Z",
+  "updated_at": "2026-10-01T18:58:05.132Z"
+}

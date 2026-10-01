@@ -1,0 +1,41 @@
+{
+  "axis": "services",
+  "entity_a": "legacy-modernization",
+  "entity_b": "public-sector",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Wie langlebige Websites aus Forschung und Verwaltung ohne riskanten Neubau wieder sicher und wartbar werden.",
+  "overview": "Websites und Anwendungen in Forschung und Verwaltung leben meist länger als das Projekt, aus dem sie finanziert wurden. Ein Atlas, ein Datenportal oder ein Fachinformationsangebot entsteht in einer Förderphase, bleibt danach viele Jahre online, wird in Veröffentlichungen zitiert und von anderen Einrichtungen verlinkt. Legacy-Modernisierung heißt, ein solches System wieder sicher und wartbar zu machen, ohne seine Inhalte zu verlieren. Diese Seite beschreibt die typische Ausgangslage, die Bestandteile einer guten Lösung und die Fragen an einen Anbieter.\n\n## Typische Probleme\n\n- Die Website läuft auf einem einzigen Server, den niemand anfassen möchte. Er wurde vor Jahren von Hand eingerichtet, und die genaue Konfiguration ist nirgends festgehalten.\n- PHP-Version, Datenbank und Bibliotheken werden nicht mehr unterstützt. Sicherheitsupdates bleiben aus, und das Rechenzentrum oder der Hoster kündigt die Abschaltung der alten Version an.\n- Die Person, die das System gebaut hat, ist nicht mehr da. Mit befristeten Stellen ist das Wissen gegangen, die Dokumentation besteht bestenfalls aus einem Ordner mit Notizen.\n- Der Inhalt ist wertvoll und umfangreich: Hunderte handgeschriebene Seiten, Karten, Tabellen und Downloads. Ein Neubau würde bedeuten, alles zu übertragen, und dafür gibt es keinen Haushaltstitel.\n- Adressen dürfen sich nicht ändern. Seiten sind in Aufsätzen, Berichten und anderen Portalen referenziert, ein toter Link ist ein echter Verlust.\n- Seit dem Start sind Anforderungen hinzugekommen, etwa zur Barrierefreiheit und zum Datenschutz, die für öffentliche Stellen gelten.\n\n## Was eine gute Lösung enthält\n\n- Eine Bestandsaufnahme vor jeder Änderung: Seiten, Skripte, Datenbanktabellen, zeitgesteuerte Aufgaben, externe Dienste und eine Liste der Adressen, die erhalten bleiben müssen.\n- Alles in einer Versionsverwaltung, auch die Konfiguration. Ab diesem Zeitpunkt ist jede Änderung nachvollziehbar und umkehrbar.\n- Eine reproduzierbare Umgebung. Der Serveraufbau wird als Code in Containern beschrieben, sodass dasselbe System auf einem Entwicklungsrechner, einem Testserver und im Betrieb gestartet werden kann. Schon dieser Schritt löst die Abhängigkeit vom einen alten Server und macht spätere Upgrades prüfbar.\n- Upgrades in Stufen. Zuerst wird der heutige Zustand genau nachgebildet, danach werden Sprach- und Datenbankversion schrittweise angehoben und Fehler behoben, mit einem Vergleich der alten und neuen Ausgabe für eine festgelegte Auswahl von Seiten.\n- Eine Entscheidung je Bestandteil: behalten, reparieren, ersetzen oder stilllegen. Nicht alles muss neu gebaut werden. Statische Inhaltsseiten brauchen oft nur eine funktionierende, unterstützte Laufzeitumgebung.\n- Dokumentation und Übergabe, mit der eine Nachfolge arbeiten kann: wie das System gestartet, ausgeliefert und aus einer Sicherung wiederhergestellt wird.\n\n## Aus der Praxis\n\nWir haben Geodaten-Atlas-Websites mit mehr als 200 PHP-Inhaltsseiten in eine containerisierte, reproduzierbare Umgebung überführt. Das Vorgehen entspricht dem oben beschriebenen: den Bestand so erfassen, wie er ist, ihn aus einer schriftlichen Definition überall startbar machen und erst danach verändern. Bei Angeboten mit Karteninhalten verdienen externe Kartendienste und Datendateien besondere Aufmerksamkeit, denn sie sind Abhängigkeiten außerhalb des Codes.\n\n## Fragen an den Anbieter\n\n- Wie stellen Sie fest, was das System heute tut, bevor Sie es ändern?\n- Wie prüfen wir, dass die Seiten nach dem Umzug denselben Inhalt zeigen? Verlangen Sie ein konkretes Vergleichsverfahren, keine Zusicherung.\n- Welche Adressen ändern sich, und wie werden alte weitergeleitet?\n- Kann unser Rechenzentrum oder unsere IT-Abteilung das Ergebnis betreiben, und was braucht sie dafür?\n- Was wird am Ende übergeben: Repository, Container-Definitionen, Dokumentation, Sicherungen? Wer hält die Zugriffsrechte?\n- Welche Teile empfehlen Sie unverändert zu lassen, und warum?\n- Wie werden Anforderungen an Barrierefreiheit und Datenschutz behandelt, und was davon braucht eine fachliche oder juristische Prüfung?\n\n## Hinweise zur Planung\n\nTeilen Sie das Vorhaben so, dass die erste Stufe in ein kleines Budget passt und für sich ein nutzbares Ergebnis liefert: ein erfasstes, versioniertes System, das reproduzierbar läuft. Diese Stufe lässt sich häufig innerhalb eines Haushaltsjahres vergeben und abschließen, und sie macht die späteren Upgrade-Stufen kalkulierbar. Klären Sie früh, wer nach der Übergabe für den Betrieb zuständig ist. Ein modernisiertes System ohne Verantwortliche wird wieder zur Altlast.",
+  "personas": [
+    {
+      "key": "it_manager",
+      "text": "Sie erhalten ein gestuftes Vorgehen für Systeme, die an einem alten Server hängen: Bestandsaufnahme, Versionsverwaltung, reproduzierbare Container, danach Upgrades, mit klaren Kriterien, dass nichts verloren geht."
+    },
+    {
+      "key": "project_manager",
+      "text": "Sie sehen, wie sich eine Modernisierung in Stufen schneiden lässt, die jeweils ein nutzbares Ergebnis liefern und in Haushaltsjahre passen, und welche Zuständigkeiten vor der Übergabe feststehen müssen."
+    },
+    {
+      "key": "procurement",
+      "text": "Sie bekommen konkrete Fragen und Liefergegenstände für eine Leistungsbeschreibung, damit Angebote vergleichbar sind und das Ergebnis auch ohne den ursprünglichen Anbieter betrieben werden kann."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Müssen wir eine alte PHP-Website komplett neu bauen lassen?",
+      "a": "Meist nicht. Ist der Inhalt in Ordnung, wird das System zuerst so, wie es ist, in einer reproduzierbaren Umgebung erfasst und auf unterstützte Softwareversionen gebracht. Ein Neubau lohnt sich nur für Teile, deren Aufbau notwendige Änderungen verhindert. Die Entscheidung je Bestandteil hält Kosten und Risiko niedrig."
+    },
+    {
+      "q": "Was bringt uns eine containerisierte, reproduzierbare Umgebung?",
+      "a": "Der gesamte Serveraufbau ist als Code festgehalten und lässt sich überall identisch starten. Sie hängen nicht mehr an einer von Hand eingerichteten Maschine, Upgrades können vor der Freischaltung getestet werden, und eine neue Entwicklerin oder Ihre eigene IT kann das System anhand der Dokumentation übernehmen."
+    },
+    {
+      "q": "Funktionieren bestehende Links auf unsere Seiten danach weiter?",
+      "a": "Das sollten sie, und Sie sollten es schriftlich verlangen. Ein guter Anbieter erfasst die vorhandenen Adressen in der Bestandsaufnahme, lässt sie nach Möglichkeit unverändert und richtet Weiterleitungen für die übrigen ein. Fordern Sie einen Test, der die Adressliste nach dem Umzug prüft."
+    }
+  ],
+  "meta_description": "Legacy-Modernisierung für Forschung und öffentliche Hand: Risiken alter PHP-Websites, Vorgehen in Stufen, Fragen an Anbieter.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.611Z",
+  "updated_at": "2026-10-01T18:58:05.141Z"
+}

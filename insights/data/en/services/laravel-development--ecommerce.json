@@ -1,0 +1,41 @@
+{
+  "axis": "services",
+  "entity_a": "laravel-development",
+  "entity_b": "ecommerce",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "When custom Laravel software makes sense next to a shop system, what it must get right in retail, and how to question a provider.",
+  "overview": "Most online shops run well on a standard shop system. Custom development with Laravel, a PHP framework for web applications, becomes relevant when your business has rules the shop system does not model: vouchers and tickets that are issued in one place and redeemed in another, pricing per customer group, stock shared between stores and web shop, or processes that link checkout, warehouse and physical locations. In those cases Laravel usually sits beside the shop system as the place where your own business logic lives.\n\n## Typical problems\n\n- Something is used twice. A voucher, a ticket or the last item in stock is claimed by two requests in the same second, because two tills or two browser tabs acted at once.\n- Plugins pile up. Each one solves a detail; together they slow the shop down and break on updates.\n- Store and online data disagree. Stock, prices and customer records are maintained separately and drift apart.\n- Nobody can reconstruct what happened. When a customer disputes a redemption or a refund, there is no reliable record.\n- Peaks cause failures. Sales campaigns and seasonal business bring load that the normal week never shows.\n\n## What a good solution includes\n\nThe central requirement in retail software is that actions which must happen once happen exactly once. Technically this is called atomic processing: checking that a ticket or item is still available and marking it as used are a single, indivisible database operation. If two requests arrive together, one succeeds and the other gets a clear refusal. Ask for this explicitly; it is not automatic.\n\nBeyond that, a sound Laravel build for retail has:\n\n- A log of every relevant event, for example each attempt to validate a code, with time, location and result, including the failed attempts. This log settles disputes and reveals misuse.\n- Background queues for slow tasks such as e-mails, exports and synchronisation with other systems, so the till or checkout does not wait.\n- Safe handling of repeated messages. Payment and shipping services send notifications more than once; the system must recognise repeats.\n- Roles and permissions that match your organisation: head office, store manager, cashier.\n- Automated tests for the money-related paths and a staging environment where you can try changes before they go live.\n- Codes that hold up in practice. QR codes should be hard to guess, quick to scan and useless once consumed.\n\n## What you should prepare\n\nWrite down the rules in plain language before talking to providers: who may issue what, how often something may be used, when it expires, and what staff do when the network is down. These rules are the specification. Gaps in them turn into expensive changes later.\n\n## Questions to ask a provider\n\n- How do you prevent the same ticket or stock item being used twice under simultaneous requests, and how is that tested?\n- What is logged, how long is it kept, and can we search it ourselves?\n- How does the system connect to our shop, till and inventory systems?\n- What happens at a store when the connection drops?\n- Which Laravel version is used, and who handles security updates after launch?\n- Do we receive the source code and documentation?\n\n## Experience behind this page\n\nShvedkoDev has built a Laravel 11 system that issues QR exit tickets for stores, with atomic ticket consumption and logging of validations. The points above about one-time use and traceable records come directly from that type of system.",
+  "personas": [
+    {
+      "key": "ecommerce_manager",
+      "text": "You can judge whether your requirement belongs in the shop system or in custom software, and you get a list of rules to write down, such as issue, use and expiry, before requesting any quotes."
+    },
+    {
+      "key": "cto",
+      "text": "You get the technical requirements to put in a specification: atomic consumption of single-use items, validation logging, queues, handling of repeated notifications, tests on payment paths and a plan for updates."
+    },
+    {
+      "key": "operations_lead",
+      "text": "You see how software affects daily work in stores: what staff experience when a code was already used, how disputes are resolved from the log, and which questions about offline situations to raise early."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Do we need Laravel if we already use a shop system?",
+      "a": "Often not. If your needs are covered by the shop system and a few well-maintained extensions, stay with it. Custom Laravel software pays off when you have your own rules that span several systems or locations, for example tickets or vouchers issued online and redeemed in stores. It then runs alongside the shop and exchanges data with it."
+    },
+    {
+      "q": "What does atomic ticket consumption mean in practice?",
+      "a": "It means that checking a ticket and marking it as used cannot be separated. If two scanners read the same QR code at the same moment, the database lets exactly one of them succeed and the other receives the message that the ticket is already used. Without this safeguard, both could be accepted, which is how double redemptions arise."
+    },
+    {
+      "q": "How long does a custom retail application take to build?",
+      "a": "That depends on the number of rules, roles and connected systems, so a serious answer needs your requirements first. As a rule of thumb, a narrowly scoped first version with one core process can be delivered far sooner than a system that covers every exception. Ask providers for an estimate broken down by feature, and which parts they would postpone."
+    }
+  ],
+  "meta_description": "Laravel Development for E-Commerce and Retail: when custom code beats shop plugins, what it must include and how to brief a provider.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.622Z",
+  "updated_at": "2026-10-01T18:58:05.147Z"
+}

@@ -1,0 +1,41 @@
+{
+  "axis": "products",
+  "entity_a": "craftly",
+  "entity_b": "wordpress",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Wann sich ein generiertes eigenes Theme gegenüber einem angepassten Kauf-Theme lohnt, was Sie beschreiben und wer es später pflegt.",
+  "overview": "Viele WordPress-Websites beginnen mit einem gekauften Theme, das anschließend zurechtgebogen wird. Solange die Website nah an der Demo bleibt, geht das gut. Je weiter sie sich davon entfernt, desto mehr Zeit fließt in das Umgehen fremder Vorgaben. Diese Seite stellt dem den anderen Weg gegenüber: Craftly erzeugt ein Theme nach Ihrer Beschreibung.\n\n## Warum das Anpassen eines Kauf-Themes mühsam wird\n\nEin Kauf-Theme soll zu möglichst vielen Käufern passen. Daraus folgt:\n\n- Es bringt Einstellungen, Layouts und Skripte für Fälle mit, die bei Ihnen nie eintreten. Im Redaktionsalltag stehen Optionen bereit, die niemand im Haus erklären kann.\n- Der Aufbau ist vorgegeben. Eine Seite, die in keine der mitgelieferten Vorlagen passt, wird mit Überschreibungen hineingezwängt.\n- Ihre Anpassungen liegen auf fremdem Code. Nach einem Update des Herstellers müssen sie geprüft und gelegentlich repariert werden.\n- Manche Themes speichern Inhalte in eigenen Formaten. Ein späterer Wechsel wird dadurch aufwendig.\n\nDas ist kein Mangel, sondern die Folge eines Produkts für alle.\n\n## Was beim generierten Theme anders ist\n\nBei Craftly beschreiben Sie die Website im Gespräch, und ein Multi-Agenten-System schreibt den PHP-Code eines WordPress-Themes. Ein Baukasten zum Zusammenschieben von Blöcken ist das nicht. Das Theme ist gewöhnlicher Code, den der Eigentümer behalten und bearbeiten kann.\n\nDer Aufwand verlagert sich. Beim Kauf-Theme entfernen und überschreiben Sie. Beim generierten Theme beschreiben Sie vorher und prüfen nachher.\n\n## Was Sie beschreiben sollten\n\n- Die Seitentypen: Startseite, Leistungsseite, Beitrag, Kontakt, jeweils von oben nach unten.\n- Wiederkehrende Inhalte, die mehr sind als eine Seite: Teammitglieder, Referenzen, Termine, Stellenangebote, mit den Feldern eines Eintrags.\n- Was die Redaktion selbst ändern soll und was fest bleibt, damit das Layout nicht versehentlich zerstört wird.\n- Navigation, Fußbereich und das Verhalten des Menüs auf dem Smartphone.\n- Das Erscheinungsbild: Farben, Schriften, Abstände, Logo. Liegt ein Figma-Design vor, kann Craftly davon ausgehen.\n- Die Sprachen der Website.\n\n## Was ein Theme nicht erledigt\n\nEin Theme bestimmt Aussehen und Eingabe der Inhalte. Getrennt davon bleiben:\n\n- Texte und Bilder.\n- Funktionen, die üblicherweise Plugins übernehmen, zum Beispiel Shop, Formularversand oder Einstellungen für Suchmaschinen. Nennen Sie diese Plugins in der Beschreibung, damit das Theme zusammen mit ihnen geprüft werden kann.\n- Hosting, Datensicherung und Updates von WordPress selbst.\n- Impressum, Datenschutzerklärung und Einwilligungen. Dafür brauchen Sie rechtliche Beratung.\n\n## Wer das Theme pflegt\n\nDiesen Punkt übersehen viele. Für ein Kauf-Theme liefert der Hersteller Updates. Für ein eigenes Theme liefert sie niemand, wenn Sie es nicht regeln. Bestimmen Sie vor dem Start, wer das Theme nach WordPress-Updates prüft: jemand im Haus, eine freie Entwicklerin oder eine Agentur. Da es gewöhnlicher PHP-Code ist, kann das jede Person übernehmen, die WordPress kennt.\n\n## Wann ein Kauf-Theme die richtige Wahl bleibt\n\n- Die Website ist klein und üblich aufgebaut, und eine Demo sieht bereits so aus, wie Sie es möchten.\n- Niemand kann Verantwortung für Code übernehmen, weder jetzt noch später.\n- Die Website besteht nur vorübergehend, etwa für eine Aktion oder eine Veranstaltung.\n\n## Das generierte Theme prüfen\n\n- Lassen Sie die Person, die später Inhalte pflegt, von jedem Seitentyp eine Seite ohne Hilfe anlegen. Notieren Sie, wo sie hängen bleibt.\n- Öffnen Sie jeden Seitentyp auf dem Smartphone.\n- Geben Sie eine sehr lange Überschrift, einen Eintrag ohne Bild und eine leere Liste ein.\n- Aktivieren Sie die benötigten Plugins und sehen Sie sich deren Ausgabe im Theme an.\n- Lassen Sie den Code vor dem Start einmal von einer Entwicklerin oder einem Entwickler lesen.\n\nPreise, Tarife und die Art der Auslieferung finden Sie auf der Produktseite von Craftly.",
+  "personas": [
+    {
+      "key": "marketing_lead",
+      "text": "Sie können Kauf-Theme und generiertes Theme für Ihre Website gegeneinander abwägen und erhalten eine Liste der Angaben, mit denen Ihr Team Seiten später pflegen kann, ohne das Layout zu beschädigen."
+    },
+    {
+      "key": "founder",
+      "text": "Sie erkennen, ob Ihre Website üblich genug für ein Kauf-Theme oder eigen genug für ein eigenes Theme ist und welche Aufgaben, von Inhalten bis zu Rechtstexten, Ihnen kein Theme abnimmt."
+    },
+    {
+      "key": "freelancer",
+      "text": "Sie sehen, wo ein generiertes Theme Ihnen das Entkernen eines Kauf-Themes erspart und welche Pflegevereinbarung Sie anbieten sollten, weil bei einem eigenen Theme kein Hersteller Updates liefert."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Ist ein generiertes eigenes Theme immer besser als ein Kauf-Theme?",
+      "a": "Nein. Für eine kleine, üblich aufgebaute Website, bei der eine Demo bereits passt, für eine Website auf Zeit oder wenn niemand Verantwortung für Code übernehmen kann, ist ein Kauf-Theme vernünftig. Ein eigenes Theme lohnt sich, wenn die Website von der Demo abweicht, die Redaktion wenige klare Optionen braucht oder Sie Code besitzen möchten, der nur das Gewünschte enthält."
+    },
+    {
+      "q": "Wer aktualisiert ein WordPress-Theme, das Craftly erzeugt hat?",
+      "a": "Das regeln Sie selbst. Anders als beim Kauf-Theme gibt es keinen Hersteller, der Updates schickt. Benennen Sie eine Person oder einen Dienstleister, der das Theme nach WordPress-Updates prüft und bei Bedarf korrigiert. Weil das Theme gewöhnlicher PHP-Code ist, kann das jede Entwicklerin und jeder Entwickler mit WordPress-Kenntnissen übernehmen."
+    },
+    {
+      "q": "Kann ich meine bisherigen Plugins mit einem generierten Theme weiterverwenden?",
+      "a": "Theme und Plugins sind getrennte Teile einer WordPress-Website und arbeiten grundsätzlich nebeneinander. Eine Zusage für einzelne Plugins macht diese Seite aber nicht. Nennen Sie die Plugins, auf die Sie angewiesen sind, in der Beschreibung und prüfen Sie deren Ausgabe im fertigen Theme, bevor die Website online geht."
+    }
+  ],
+  "meta_description": "Craftly für WordPress im Vergleich zum Kauf-Theme: was Sie beschreiben, was Ihnen danach gehört und wann ein gekauftes Theme genügt.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.608Z",
+  "updated_at": "2026-10-01T18:58:05.139Z"
+}

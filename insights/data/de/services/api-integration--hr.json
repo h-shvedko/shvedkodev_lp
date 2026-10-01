@@ -1,0 +1,41 @@
+{
+  "axis": "services",
+  "entity_a": "api-integration",
+  "entity_b": "hr",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Was es braucht, um Stellenquellen, Bewerberdaten und Benachrichtigungen zu verbinden, und woran Sie ein gutes Angebot erkennen.",
+  "overview": "Im Recruiting verteilt sich die Arbeit auf viele Systeme: Stellenbörsen und Marktplätze, das Bewerbermanagement, Kalender, das Personalsystem nach der Einstellung und die Kanäle, in denen Nachrichten tatsächlich gelesen werden. Eine API-Integration verbindet diese Systeme, damit niemand Daten von Hand überträgt. Diese Seite zeigt, woran solche Vorhaben in HR und Recruiting typischerweise scheitern, was eine tragfähige Lösung enthält und welche Fragen Sie einem Anbieter stellen sollten.\n\n## Typische Probleme\n\n- Dieselbe Stelle wird an mehreren Orten gepflegt, und die Fassungen laufen auseinander. Eine korrigierte Gehaltsspanne oder Bewerbungsfrist steht auf einem Portal richtig und auf dem anderen falsch.\n- Bewerbungen kommen über verschiedene Quellen und landen als Dubletten im System, oder die Quelle fehlt. Dann lässt sich nicht mehr sagen, welcher Kanal zur Einstellung geführt hat.\n- Neue Bewerbungen oder passende Ausschreibungen werden zu spät bemerkt, weil der Hinweis in einem Sammelpostfach liegt. Im Recruiting entscheidet oft ein Tag darüber, ob jemand noch verfügbar ist.\n- Export und Import per Tabelle. Das funktioniert, bis sich eine Spalte ändert, und es hinterlässt Kopien personenbezogener Daten auf einzelnen Rechnern.\n- Eine Schnittstelle, die einmal gebaut wurde und unbemerkt stehen geblieben ist: Ein Zugangstoken ist abgelaufen, die fremde API hat ein Feld geändert, und niemand wurde informiert.\n\n## Was eine gute Lösung enthält\n\n- Eine schriftliche Datenlandkarte. Sie legt für jedes Feld fest, welches System führend ist, in welche Richtung die Daten fließen und was bei einem Konflikt gilt.\n- Rücksicht auf die Grenzen der fremden API. Stellenplattformen beschränken, wie oft abgefragt werden darf und wofür die Daten genutzt werden dürfen. Die Integration hält Nutzungsbedingungen und Abfragelimits ein und holt nur die Felder, die gebraucht werden. GraphQL-Schnittstellen kommen dem entgegen, weil die Abfrage genau die gewünschten Felder benennt.\n- Dublettenerkennung über eine stabile Kennung, damit eine Wiederholung keinen zweiten Datensatz und keine zweite Nachricht erzeugt.\n- Benachrichtigungen, die sich steuern lassen. Jede Person wählt Kanal und Schwelle, etwa Dringendes per Messenger und den Rest als tägliche Zusammenfassung per E-Mail. Zu viele Hinweise werden ebenso ignoriert wie zu wenige.\n- Wiederholungsversuche, Protokoll und Alarm. Scheitert eine Zustellung oder läuft ein Token ab, erfährt eine benannte Person das am selben Tag.\n- Datenschutz von Anfang an: Datensparsamkeit, Rollen und Rechte, Löschfristen für abgelehnte Bewerbungen und eine vollständige Liste aller Dienste, die personenbezogene Daten erhalten. Messenger-Dienste gehören auf diese Liste, und je nach Betrieb ist auch der Betriebsrat einzubinden. Lassen Sie das Konzept von Ihrer Datenschutzbeauftragten oder einer Anwaltskanzlei prüfen. Ein Entwickler kann die Datenflüsse beschreiben, die rechtliche Bewertung aber nicht ersetzen.\n\n## Aus der Praxis\n\nIn einem unserer Projekte kamen beide Seiten zusammen: auf der Eingangsseite die Anbindung an die GraphQL-API eines Job-Marktplatzes, auf der Ausgangsseite Benachrichtigungen per E-Mail, Slack, WhatsApp und Browser-Push. Allgemein lässt sich daraus für HR-Vorhaben ableiten, dass jeder Kanal eigene Regeln mitbringt. E-Mail braucht eine korrekt eingerichtete Absenderdomain, Messenger-Dienste verlangen für Unternehmensnachrichten häufig freigegebene Vorlagen und eine Einwilligung, und Browser-Push funktioniert erst, wenn die Person es im Browser erlaubt hat. Planen Sie diese Kanäle als getrennte Arbeitspakete und nicht als eine Zeile im Angebot.\n\n## Fragen an den Anbieter\n\n- Welche offiziellen Schnittstellen nutzen Sie, und was erlauben deren Bedingungen? Vorsicht bei Vorschlägen, eine Plattform auf inoffiziellem Weg auszulesen.\n- Was passiert, wenn die fremde API sich ändert oder eine Stunde nicht erreichbar ist?\n- Woran sehe ich, dass die Integration gelaufen ist, und wer wird informiert, wenn nicht?\n- Wo liegen Bewerberdaten, wie lange, und wie werden sie gelöscht?\n- Lässt sich später ein weiterer Kanal oder eine weitere Stellenquelle ergänzen, ohne neu zu bauen?\n- Was erhalten wir am Ende: Quellcode, Dokumentation, Zugriff auf alle Konten und Schlüssel?\n\n## So fangen Sie an\n\nWählen Sie die eine Übergabe, die heute am meisten Zeit kostet oder die meisten Fehler verursacht, und automatisieren Sie diese zuerst. Eine schmale erste Integration, die zuverlässig läuft, sagt Ihnen mehr über den Anbieter und über Ihre eigenen Daten als ein großes Konzept, das alles auf einmal verbinden will.",
+  "personas": [
+    {
+      "key": "hr_lead",
+      "text": "Sie erkennen, welche wiederkehrenden Probleme im Recruiting aus getrennten Systemen entstehen, was eine Integration realistisch übernehmen kann und welche Datenschutzfragen vor dem Start geklärt sein müssen."
+    },
+    {
+      "key": "it_manager",
+      "text": "Sie erhalten eine Prüfliste für die technische Seite: Datenlandkarte, Abfragelimits, Dublettenerkennung, Überwachung und Umgang mit Tokens, dazu Fragen, die zeigen, ob ein Anbieter Ausfälle einplant."
+    },
+    {
+      "key": "operations_lead",
+      "text": "Sie sehen, wie Sie die erste Übergabe auswählen, deren Automatisierung sich lohnt, und wie Benachrichtigungen so eingerichtet werden, dass Dringendes ankommt, ohne alle anderen zu überfluten."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Lässt sich jede Stellenbörse oder jeder Marktplatz per API anbinden?",
+      "a": "Nein. Entscheidend ist, ob die Plattform eine offizielle Schnittstelle anbietet und was ihre Bedingungen erlauben. Manche bieten vollständige APIs, manche nur Feeds oder Partnerzugänge, manche gar nichts. Ein seriöser Anbieter prüft das zuerst und sagt Ihnen, wenn eine Quelle nicht zulässig angebunden werden kann."
+    },
+    {
+      "q": "Welcher Kanal eignet sich für Benachrichtigungen im Recruiting?",
+      "a": "Der Kanal, den die jeweilige Person ohnehin liest, und zwar wählbar. Bewährt hat sich die Trennung in Messenger oder Push für Zeitkritisches und E-Mail-Zusammenfassungen für den Rest. Messenger-Dienste brauchen oft freigegebene Vorlagen und eine Einwilligung, Browser-Push eine Erlaubnis im Browser. Rechnen Sie pro Kanal mit eigenem Einrichtungsaufwand."
+    },
+    {
+      "q": "Dürfen Bewerberdaten über Messenger-Dienste verschickt werden?",
+      "a": "Das ist eine Rechtsfrage und hängt von Ihrem Aufbau, dem Dienst, den Vertragsbedingungen und dem Ort der Verarbeitung ab. Praktisch bewährt: keine personenbezogenen Details in die Nachricht schreiben, sondern auf das geschützte System verlinken. Lassen Sie den Entwurf vor dem Start von Ihrer Datenschutzbeauftragten oder einer Anwaltskanzlei prüfen."
+    }
+  ],
+  "meta_description": "API-Integration für HR und Recruiting: typische Daten- und Benachrichtigungsprobleme, Bausteine einer guten Lösung, Fragen an Anbieter.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.610Z",
+  "updated_at": "2026-10-01T18:58:05.141Z"
+}

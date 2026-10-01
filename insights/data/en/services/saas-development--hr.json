@@ -1,0 +1,41 @@
+{
+  "axis": "services",
+  "entity_a": "saas-development",
+  "entity_b": "hr",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "What an HR or recruiting SaaS product must get right from the first version: data handling, scoring you can explain, and human decisions.",
+  "overview": "Software for HR and recruiting handles two things that make it harder to build than most business software: personal data about people who did not choose your product, and decisions that affect their income. A SaaS product in this field, meaning software that customers rent and use in the browser, has to treat both as design requirements from the first version. Adding them later is expensive.\n\n## Typical problems in HR and recruiting\n\n- Postings, applications and candidate notes are spread across job boards, mailboxes and spreadsheets, so the same information is entered several times.\n- Screening is repetitive and slow. Good candidates or good assignments are lost because nobody looked in time.\n- Generic applicant tracking tools do not fit a niche, for example freelance placement, shift work or a single profession.\n- Matching rules live in the heads of individual recruiters and cannot be checked or improved.\n- Customers ask where candidate data is stored, who can see it and when it is deleted, and the product has no clear answer.\n- External sources such as job boards change their format or restrict access, and the product stops working without warning.\n\n## What a good solution includes\n\n- Strict separation between customers. Each customer's candidates, postings and settings must be invisible to every other customer, enforced in the data layer and covered by tests.\n- Roles and permissions that mirror real work: recruiter, hiring manager, administrator, external reviewer.\n- Retention and deletion built in: configurable periods, deletion on request, export of a person's data.\n- An audit trail of who viewed or changed a record.\n- Scoring that can be explained. If the product ranks postings or candidates, it should show which criteria led to the score, and the customer should be able to adjust them.\n- Drafts instead of automatic actions. Text generated for an application, a rejection or an outreach message is a suggestion that a person reads, edits and sends.\n- Reliable collection of external data, with monitoring that reports when a source changes, and respect for the terms of each source.\n- Subscription billing, onboarding without manual setup, and usage limits per plan.\n- Integrations with calendar, email and existing HR systems through documented interfaces.\n\n## Experience this guidance is based on\n\nWe built a SaaS product that monitors freelance job postings, scores them and drafts applications. The three steps in that description, collect, score and draft, are a pattern that fits many recruiting products, on the side of the applicant as well as the employer. The guidance on explainable scoring and on drafts that a person sends comes from that kind of product.\n\n## What to ask a provider\n\n- How is one customer's data separated from another's, and how is that tested?\n- Where is the product hosted, and which subprocessors see personal data?\n- How are deletion periods and deletion requests implemented?\n- If AI is used for scoring or text, which data is sent to which model provider, and can a customer switch the feature off?\n- How can a user see why a posting or candidate received a certain score?\n- What happens when an external data source changes or blocks access?\n- What is the smallest version we can put in front of paying customers, and what is deliberately left out?\n- Who owns the code and the data model, and can another team take over?\n\n## Planning the first version\n\nChoose one user group and one workflow, and build it end to end: data comes in, is assessed, leads to an action, and is billed. Resist adding a second user group before the first one pays. Write down early which data you store about which people and why; this list is the basis for your privacy documentation and for many architectural decisions.\n\nRecruiting software touches data protection law, anti-discrimination law and, where automated assessment of people is involved, regulation of AI systems. Which obligations apply depends on your product and market. Have a specialised lawyer review this before launch; a developer can implement the requirements but should not define them.",
+  "personas": [
+    {
+      "key": "founder",
+      "text": "You get a list of what an HR SaaS product needs beyond its core idea, including customer separation, deletion and explainable scoring, and a way to cut the first version down to one user group and one complete workflow."
+    },
+    {
+      "key": "hr_lead",
+      "text": "You learn what to look for when a tool ranks candidates or postings and drafts messages: visible criteria, a person who decides and sends, and clear answers on storage, access and deletion of applicant data."
+    },
+    {
+      "key": "cto",
+      "text": "You find the architectural requirements that are costly to retrofit, such as tenant isolation, audit trail, retention rules and monitoring of external sources, together with questions to assess an external development partner."
+    }
+  ],
+  "faq": [
+    {
+      "q": "May a recruiting product score candidates automatically?",
+      "a": "Technically yes, and scoring can be useful for ordering a long list. Whether and how it is permitted depends on the jurisdiction and on how much the score influences the decision. Design it so that criteria are visible, a person makes the decision, and the feature can be disabled. Have a lawyer assess your specific case."
+    },
+    {
+      "q": "What belongs in the first version of an HR SaaS product?",
+      "a": "One workflow for one user group, complete from data intake to billing. Customer separation, permissions, deletion and logging belong in from the start because adding them later means rebuilding. Integrations, reports and further user groups can wait until the first customers pay."
+    },
+    {
+      "q": "How risky is it to rely on job boards as a data source?",
+      "a": "It is a real dependency. Sources change layouts, limit access or prohibit automated collection in their terms. Prefer official interfaces and feeds where they exist, read the terms of each source, monitor every source for changes, and design the product so that losing one source does not stop it."
+    }
+  ],
+  "meta_description": "SaaS Development for HR and Recruiting: data separation, explainable scoring, human review and questions for your provider.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.623Z",
+  "updated_at": "2026-10-01T18:58:05.147Z"
+}

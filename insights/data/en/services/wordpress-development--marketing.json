@@ -1,0 +1,41 @@
+{
+  "axis": "services",
+  "entity_a": "wordpress-development",
+  "entity_b": "marketing",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "What marketing teams and agencies should expect from a WordPress build so that editors can publish pages without waiting for a developer.",
+  "overview": "Marketing teams and agencies use WordPress for one reason above all: the people who own the message should be able to publish it themselves. Whether that works depends less on WordPress than on how the site was built. Two sites on the same software can differ completely in how fast a campaign page goes live and how often the layout breaks.\n\n## Typical problems for marketing teams and agencies\n\n- The approved design and the finished site drift apart. Spacing, type sizes and mobile layouts are close but not right, and review rounds eat the schedule.\n- Every new landing page needs a developer, because the theme offers fixed templates and nothing in between.\n- Or the opposite: a page builder allows everything, and after a year no two pages look alike and the site is slow.\n- Plugins were added for each small wish. Updates now break things, so they are postponed, which is a security risk.\n- Tracking, consent banner and form integrations were bolted on at the end and conflict with each other.\n- Agencies rebuild the same header, hero and contact section for every client and bill hours for work that adds nothing.\n- After handover the client cannot maintain the site, or the agency is tied to a setup only one developer understands.\n\n## What a good solution includes\n\nThe core is a custom theme built from a defined set of blocks that mirror the design system: hero, text with image, testimonial, pricing table, call to action, form. Editors combine these blocks freely, but colours, type and spacing are fixed inside each block. That gives freedom over content and protects the brand.\n\nA good build also includes:\n\n- Design values such as colours, type sizes and spacing kept in one place, so a rebrand is a change in one file rather than in fifty templates.\n- As few plugins as the job allows, each with a stated reason.\n- A staging copy of the site where updates and new pages are checked before going live.\n- Performance treated as a requirement: image sizes, loading behaviour, no unused scripts.\n- Search basics in the theme: clean headings, editable titles and descriptions, redirects, a sitemap.\n- Forms connected to your CRM or mailing tool, and tracking that loads only after consent. The legal assessment of consent and privacy texts belongs with a lawyer or data protection officer.\n- Roles for editors, a short written guide for the blocks, and version control for the code.\n\nFor agencies there is one more point: a handover that makes the client independent. That means documented blocks, the code in a repository the client can access, and no licence that ends with the contract.\n\n## Questions to ask a provider\n\n- Which pages will our editors be able to build without you, and can we try that on a test site before launch?\n- How do you make sure the result matches the design, and who checks it on mobile?\n- Which plugins will be installed, and why each one?\n- How do updates work after launch, and is there a staging site?\n- How are design changes handled later, for example a new brand colour?\n- For agencies: do you work white-label, and what do we receive at handover?\n- Where do you use automation or AI in the build, and who reviews its output?\n\n## Experience behind this page\n\nShvedkoDev has built a pipeline that turns Figma designs and plain-language briefs into WordPress themes. The advice above reflects that kind of work: the handoff between design and code is where detail is most easily lost, so the design values and the list of blocks should be agreed before a line of the theme is written.",
+  "personas": [
+    {
+      "key": "marketing_lead",
+      "text": "You see what makes the difference between a site your team can publish on freely and one that needs a developer for every campaign page, and what to demand before launch."
+    },
+    {
+      "key": "agency_owner",
+      "text": "You get a view of where build hours are lost on repeated work, what a clean client handover contains, and what to clarify with a white-label development partner."
+    },
+    {
+      "key": "project_manager",
+      "text": "You get a list of deliverables to write into the scope: block set, staging site, plugin list, editor guide and handover, plus questions that reduce review rounds between design and build."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Should we use a page builder or a custom block theme?",
+      "a": "A page builder is quick to start with and suits small sites that one person maintains. For a team that publishes often, a custom theme with a fixed set of blocks usually serves better: editors still assemble pages themselves, but the design stays consistent and pages usually load faster because only the code that is needed is delivered. Ask a provider to show both approaches on one of your real pages."
+    },
+    {
+      "q": "How do we keep the built site faithful to the Figma design?",
+      "a": "Agree the design values first: colours, type sizes, spacing and breakpoints, taken from the design file and stored in one place in the theme. Then agree the list of blocks and their variants. Review each block on desktop and mobile before whole pages are assembled. Corrections at block level are cheap; corrections on finished pages multiply."
+    },
+    {
+      "q": "What should an agency receive when a WordPress project is handed over?",
+      "a": "Access to the code repository, the list of plugins with licences and who holds them, admin and hosting credentials, a short guide to the blocks for editors, and notes on how updates and deployments are done. With these, the client or another developer can maintain the site. If any part depends on a licence or account that ends with the contract, that should be stated in writing beforehand."
+    }
+  ],
+  "meta_description": "WordPress Development for Marketing Teams and Agencies: what a build should include so editors publish without a developer.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.624Z",
+  "updated_at": "2026-10-01T18:58:05.148Z"
+}

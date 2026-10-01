@@ -1,0 +1,41 @@
+{
+  "axis": "services",
+  "entity_a": "legacy-modernization",
+  "entity_b": "public-sector",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "How to keep long-lived research and public websites running safely without a risky rewrite, and what to demand from a provider.",
+  "overview": "Websites and applications in research and public administration tend to outlive the project that paid for them. An atlas, a data portal or a specialist information site is built during a funded period, stays online for many years afterwards and is cited in publications and linked from other institutions. Legacy modernization is the work of making such a system safe and maintainable again without losing what it contains.\n\n## Typical problems\n\n- The site runs on one server that nobody dares to touch. It was configured by hand years ago, and the exact setup exists nowhere in writing.\n- The PHP version, the database and the libraries are no longer supported. Security updates stop, and the computing centre or hosting provider announces that the old version will be switched off.\n- The person who built it has left. Staff on fixed-term contracts took the knowledge with them, and the documentation is a folder of notes at best.\n- The content is valuable and large: hundreds of hand-written pages, maps, tables and downloads. A new build from scratch would mean migrating all of it, and there is no budget line for that.\n- Addresses must not change. Pages are referenced in papers, reports and other portals, so a broken link is a real loss.\n- Requirements have grown since launch, for example accessibility and data protection obligations that apply to public bodies.\n\n## What a good solution includes\n\n- An inventory before any change: pages, scripts, database tables, scheduled tasks, external services, and a list of the addresses that must keep working.\n- Everything in version control, including the configuration. From that point on, every change is traceable and reversible.\n- A reproducible environment. The server setup is described as code in containers, so the same system can be started on a developer machine, a test server and in production. This step alone removes the dependency on the one old server and makes later upgrades testable.\n- Upgrades in stages. First reproduce the current state exactly, then raise the language and database versions step by step and fix what breaks, with a comparison of old and new output for a defined set of pages.\n- A decision per component: keep, repair, replace or retire. Not everything needs rebuilding. Static content pages often only need a working, supported runtime.\n- Documentation and handover that a successor can use: how to start the system, how to deploy it, how to restore a backup.\n\n## From practice\n\nWe moved geospatial atlas websites with more than 200 PHP content pages into a containerised, reproducible environment. The approach is the general one described above: capture the existing system as it is, make it startable anywhere from a written definition, and only then begin to change it. For sites with map content, pay particular attention to external map services and data files, because they are dependencies that sit outside the code.\n\n## What to ask a provider\n\n- How do you establish what the system does today before you change it?\n- How will we verify that the pages show the same content after the move? Ask for a concrete comparison method, not a promise.\n- Which addresses change, and how are old ones redirected?\n- Can our computing centre or our IT department operate the result, and what do they need for it?\n- What is delivered in the end: repository, container definitions, documentation, backups? Who holds the access rights?\n- Which parts do you recommend leaving untouched, and why?\n- How are accessibility and data protection requirements handled, and which of them need a specialist or legal review?\n\n## Planning notes\n\nSplit the work so that the first stage fits into a small budget and delivers a usable result on its own: an inventoried, versioned system that runs reproducibly. That stage can often be awarded and finished within one budget year, and it turns the later upgrade stages into estimable work. Clarify early who is responsible for operation after the handover, because a modernised system without an owner becomes legacy again.",
+  "personas": [
+    {
+      "key": "it_manager",
+      "text": "You get a staged approach for systems that depend on one old server: inventory, version control, reproducible containers, then upgrades, with clear criteria for checking that nothing was lost."
+    },
+    {
+      "key": "project_manager",
+      "text": "You see how to cut modernization into stages that each deliver a usable result and fit budget years, and which responsibilities must be settled before the handover."
+    },
+    {
+      "key": "procurement",
+      "text": "You receive concrete questions and deliverables to put into a request for quotation, so that offers are comparable and the result can be operated without the original provider."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Do we have to rebuild an old PHP website from scratch?",
+      "a": "Usually not. If the content is sound, the first step is to capture the system as it is in a reproducible environment and bring it onto supported software versions. A rebuild is only worth it for parts whose structure blocks necessary changes. Deciding per component keeps cost and risk down."
+    },
+    {
+      "q": "What does a containerised, reproducible environment give us?",
+      "a": "The complete server setup is written down as code and can be started identically anywhere. You are no longer dependent on one hand-configured machine, upgrades can be tested before they go live, and a new developer or your own IT can take over the system with the documentation instead of guesswork."
+    },
+    {
+      "q": "Will existing links to our pages still work afterwards?",
+      "a": "They should, and you should make it a written requirement. A good provider collects the existing addresses during the inventory, keeps them unchanged where possible and sets up redirects for any that must change. Ask for a test that checks the list of addresses after the move."
+    }
+  ],
+  "meta_description": "Legacy Modernization for Research and the Public Sector: typical risks of old PHP sites, a staged approach and questions for providers.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:22:29.623Z",
+  "updated_at": "2026-10-01T18:58:05.147Z"
+}

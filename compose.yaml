@@ -14,3 +14,19 @@ services:
       - "9001:9001"   # site with live reload
       - "3001:3001"   # BrowserSync UI
     restart: unless-stopped
+
+  # Browser tests against the dev server: docker compose run --rm e2e
+  e2e:
+    image: mcr.microsoft.com/playwright:v1.63.0-noble
+    profiles: ["e2e"]
+    working_dir: /app
+    user: "1000:1000"
+    environment:
+      - HOME=/tmp
+      # Not http://dev: browsers force HTTPS on the .dev top-level domain.
+      - BASE_URL=http://site:9001
+    command: npx playwright test
+    volumes:
+      - ./:/app
+    links:
+      - "dev:site"

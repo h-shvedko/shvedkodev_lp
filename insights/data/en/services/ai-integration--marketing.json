@@ -1,0 +1,41 @@
+{
+  "axis": "services",
+  "entity_a": "ai-integration",
+  "entity_b": "marketing",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "Where AI saves a marketing team real hours, what a dependable integration needs, and what to ask before you sign.",
+  "overview": "Marketing teams and agencies rarely lack access to AI. Most people already have a chat window open. What is missing is a connection between that chat window and the work: the brand guidelines, the client brief, the content management system, the approval chain. As long as someone copies text in and out by hand, AI saves minutes per task and adds a new source of inconsistency.\n\n## Typical problems in marketing and agency work\n\n- Output that sounds generic because the model never saw the brand voice, the product facts or the last campaign.\n- Every team member prompts differently, so quality depends on who was on shift.\n- Client data pasted into consumer tools without anyone having decided whether that is allowed.\n- Drafts that still need the same amount of formatting, tagging and uploading as before.\n- No record of what was generated, by whom, from which source, and who approved it.\n- Costs that nobody can attribute to a client or a campaign.\n\n## What a good solution includes\n\nA useful integration starts from one repeatable task, not from a general assistant. Good candidates are tasks with a clear input and a checkable output: turning a brief into a landing page draft, producing variants of ad copy within character limits, summarising campaign reports, tagging incoming assets, or drafting first versions of pages from a structured description.\n\nAround that task, a sound integration has these parts:\n\n- Context that is supplied automatically: brand voice, approved claims, product data and forbidden wording are loaded by the system, not typed by the user.\n- Separate steps instead of one large prompt. One step plans, one writes, one checks against the rules. Splitting the work makes mistakes visible and each step replaceable.\n- A human approval point before anything is published or sent to a client, with the draft shown next to its sources.\n- Output in the format of the target system, so the result lands as a draft in the CMS or the project tool and not in a text file.\n- Separation between clients. An agency must be able to show that client A's material is never used for client B.\n- Logging of inputs, outputs and cost per client or project.\n- A defined behaviour for failure: what happens when the model is unavailable, returns nonsense or exceeds a budget.\n\n## Experience this guidance is based on\n\nWe built a multi-agent platform that generates WordPress themes and Laravel applications from a chat description. The lesson that carries over to marketing work is structural: a single prompt does not produce a usable result from a loose description. Specialised agents that each handle one part of the job, and hand over in a fixed order, do.\n\n## What to ask a provider\n\n- Which single task do you propose to start with, and how will we measure whether it works?\n- Where does our data go, which model provider processes it, and is it used for training?\n- How are clients or brands kept apart technically?\n- What does a reviewer see before approving, and can they trace a claim back to its source?\n- What are the running costs per unit of work, and what limits can we set?\n- Can the model be exchanged later without rebuilding everything?\n- Who maintains prompts and rules when our brand guidelines change?\n- What happens to the workflow when the AI service is down?\n\nA provider who answers these in concrete terms has probably built such systems before. One who answers with a demo of a chat window probably has not.\n\n## A sensible first step\n\nPick the task your team repeats most often and dislikes most. Collect ten real examples of input and the output you accepted. That set is both the specification and the test: an integration is ready when it produces acceptable drafts for those ten cases, and a reviewer needs clearly less time than writing from scratch. Questions about data protection agreements and the labelling of AI-generated content belong with your data protection officer or a lawyer before launch.",
+  "personas": [
+    {
+      "key": "marketing_lead",
+      "text": "You get a way to judge which of your team's recurring tasks are worth connecting to AI, what a reviewer must still check, and how to keep brand voice and approved claims consistent across everyone who uses the system."
+    },
+    {
+      "key": "agency_owner",
+      "text": "You see what client separation, cost attribution per account and an approval trail require technically, so you can offer AI-supported delivery without mixing client material or losing track of margins."
+    },
+    {
+      "key": "project_manager",
+      "text": "You get a list of provider questions and a practical acceptance test based on ten real examples, which lets you scope a first integration and decide objectively whether it is finished."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Which marketing task should we integrate AI into first?",
+      "a": "Choose a task that recurs weekly, has a clear input and an output someone can check quickly. Brief-to-draft, copy variants within fixed limits, report summaries and asset tagging are typical. Avoid starting with strategy or anything where nobody can say what a good result looks like."
+    },
+    {
+      "q": "Can an agency use one AI system for several clients safely?",
+      "a": "Yes, if separation is built in rather than assumed. Each client needs its own context, storage and logs, and the system must load only that client's material for a given job. Ask the provider to show how this is enforced. Contractual questions about data processing should go to your data protection officer or lawyer."
+    },
+    {
+      "q": "Does AI integration replace the review step before publishing?",
+      "a": "No. It shifts the work from writing to checking. A good integration makes checking fast by showing sources next to the draft and by running automatic checks for length, forbidden wording and missing facts first. Final responsibility for what is published stays with a person."
+    }
+  ],
+  "meta_description": "AI Integration for Marketing Teams and Agencies: typical problems, the parts of a dependable setup and questions for providers.",
+  "example_body": null,
+  "generated_at": "2026-10-01T15:18:33.520Z",
+  "updated_at": "2026-10-01T18:58:05.146Z"
+}
