@@ -171,3 +171,23 @@ test('the portfolio gallery opens without script errors', async function({ page 
     await expect(page.locator('.fancybox-container')).toHaveCount(1);
     expect(errors).toEqual([]);
 });
+
+test('the language flag sits on the same line as the menu items', async function({ page }, info) {
+    test.skip(info.project.name === 'mobile', 'the menu is a vertical list on small screens');
+    await page.goto('/', { waitUntil: 'load' });
+    var mid = function(box) { return box.y + box.height / 2; };
+    var text = await page.locator('#nav li a').first().boundingBox();
+    var flag = await page.locator('.lang-switch img').boundingBox();
+    expect(Math.abs(mid(text) - mid(flag))).toBeLessThan(3);
+});
+
+test('background shapes stay inside the page width', async function({ page }) {
+    await page.goto('/', { waitUntil: 'load' });
+    var worst = await page.evaluate(function() {
+        var limit = document.documentElement.clientWidth;
+        return Math.max.apply(null, [].map.call(document.querySelectorAll('.shape'), function(s) {
+            return s.getBoundingClientRect().right - limit;
+        }));
+    });
+    expect(worst).toBeLessThanOrEqual(0);
+});

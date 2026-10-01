@@ -145,7 +145,10 @@ header.shrink {
 // Language link in the navigation: a flag instead of a label.
 .lang-switch {
     img {
-        display: block;
+        display: inline-block;
+        vertical-align: middle;
+        // Sits on the text line of the other menu items.
+        margin-top: -3px;
         width: 24px;
         height: 16px;
         border-radius: 2px;

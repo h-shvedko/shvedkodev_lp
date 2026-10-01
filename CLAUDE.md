@@ -11,7 +11,7 @@ src/                 # Source files (edit these)
 ├── js/              # Top-level *.js are entry points; nested files are includes
 ├── sourceimages/    # Images copied to dist/images/
 └── fonts/
-dist/                # Build output — do not edit
+dist/                # Build output — do not edit, not tracked in git
 gulpfile.js
 ```
 

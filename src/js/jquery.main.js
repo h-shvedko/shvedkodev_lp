@@ -90,7 +90,8 @@ function initMainAnimation() {
             shape.style.height = `${size}px`;
             shape.style.top = `${Math.random() * 100}vh`;
 
-            const maxX = window.innerWidth - size;
+            // clientWidth leaves out the scrollbar; innerWidth let shapes stick out past the page edge.
+            const maxX = document.documentElement.clientWidth - size;
             shape.style.left = `${Math.random() * maxX}px`;
 
             if (Math.random() > 0.5) {
@@ -107,7 +108,8 @@ function initMainAnimation() {
     function updateShapePositions() {
         shapes.forEach(shape => {
             const size = parseFloat(shape.style.width);
-            const maxX = window.innerWidth - size;
+            // clientWidth leaves out the scrollbar; innerWidth let shapes stick out past the page edge.
+            const maxX = document.documentElement.clientWidth - size;
             shape.style.left = `${Math.random() * maxX}px`;
         });
     }
