@@ -1,0 +1,16 @@
+# Local development of shvedkodev_lp on docker-server: gulp build + BrowserSync (live reload) on port 9001.
+# Start: docker compose up -d   Logs: docker compose logs -f   Stop: docker compose down
+services:
+  dev:
+    image: node:20-bookworm
+    working_dir: /app
+    user: "1000:1000"
+    environment:
+      - HOME=/tmp
+    command: sh -c "npm ci --no-audit --no-fund && npx gulp"
+    volumes:
+      - ./:/app
+    ports:
+      - "9001:9001"   # site with live reload
+      - "3001:3001"   # BrowserSync UI
+    restart: unless-stopped
