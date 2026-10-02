@@ -632,6 +632,8 @@ function initGA4Tracking() {
 
     // Contact form submission
     $(document).on('submit', 'form[action*="formspree.io"]', function() {
+        // A filled honeypot field means a bot: Formspree discards it, so do not count it either.
+        if ($(this).find('[name="_gotcha"]').val()) return;
         var formAction = $(this).attr('action') || '';
         var isNewsletter = formAction.indexOf('mrbqworr') !== -1;
         gtag('event', isNewsletter ? 'newsletter_signup' : 'contact_form_submit', {

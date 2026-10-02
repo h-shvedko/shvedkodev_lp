@@ -133,6 +133,20 @@
     </url>
 
 
+    <!-- Service pages -->
+    <url>
+        <loc>https://shvedko.dev/custom-solution.html</loc>
+        <lastmod>2026-10-02</lastmod>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/design.html</loc>
+        <lastmod>2026-10-02</lastmod>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/web-development.html</loc>
+        <lastmod>2026-10-02</lastmod>
+    </url>
+
     <!-- German pages -->
     <url>
         <loc>https://shvedko.dev/de/</loc>
