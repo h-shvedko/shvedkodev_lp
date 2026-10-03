@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """SEO report for shvedko.dev from Search Console and GA4.
 
-Usage: python3 scripts/seo-report.py [days]        (default 28)
+Usage: python3 scripts/seo-report.py [days] [--no-index]     (default 28 days)
+
+--no-index skips the URL inspection of every sitemap URL (about two minutes).
+Each run saves a summary to ~/.local/state/shvedkodev-seo/<date>.json and prints the
+change against the previous saved run.
 
 Needs Google user credentials with read access to both, saved by
 `gcloud auth application-default login` with the scopes analytics.readonly and
@@ -31,7 +35,11 @@ HOME_MARKET = ['Germany', 'Austria', 'Switzerland']
 # GA's automatic form_submit also counts spam bots and is not used here.
 LEAD_EVENTS = ['contact_form_submit', 'newsletter_signup']
 
-DAYS = int(sys.argv[1]) if len(sys.argv) > 1 else 28
+ARGS = [a for a in sys.argv[1:] if not a.startswith('--')]
+DAYS = int(ARGS[0]) if ARGS else 28
+INDEX = '--no-index' not in sys.argv
+STATE_DIR = os.path.expanduser('~/.local/state/shvedkodev-seo')
+summary = {'date': str(datetime.date.today()), 'days': DAYS}
 
 
 def token():
@@ -107,33 +115,44 @@ def section(url):
 print('== Search Console, last %d days ==' % DAYS)
 for row in search([]):
     print(search_line(row))
+    summary.update(clicks=row['clicks'], impressions=row['impressions'], position=round(row['position'], 1))
+dates = [row['keys'][0] for row in search(['date'], 500)]
+print('latest day with data: %s (Search Console lags 2-3 days)' % (max(dates) if dates else '-'))
 for dimensions, limit in ((['query'], 30), (['page'], 30), (['country'], 8)):
     print('-- by ' + dimensions[0])
     for row in search(dimensions, limit):
         print('  ' + search_line(row))
 
-print('\n== Index coverage of the sitemap ==')
-urls = set()
-for name in SITEMAPS:
-    urls.update(re.findall(r'<loc>([^<]+)</loc>', urllib.request.urlopen(BASE + '/' + name).read().decode()))
-with concurrent.futures.ThreadPoolExecutor(6) as pool:
-    states = list(pool.map(inspect, sorted(urls)))
-table = collections.defaultdict(collections.Counter)
-for url, state in states:
-    table[section(url)][state] += 1
-print('%d URLs: %s' % (len(states), dict(collections.Counter(state for _, state in states))))
-for name in sorted(table):
-    print('  %-12s %s' % (name, dict(table[name])))
-print('-- not indexed')
-for url, state in states:
-    if state != 'Submitted and indexed':
-        print('  %-36s %s' % (state, url.replace(BASE, '')))
+def index_coverage():
+    urls = set()
+    print('\n== Index coverage of the sitemap ==')
+    for name in SITEMAPS:
+        urls.update(re.findall(r'<loc>([^<]+)</loc>', urllib.request.urlopen(BASE + '/' + name).read().decode()))
+    with concurrent.futures.ThreadPoolExecutor(6) as pool:
+        states = list(pool.map(inspect, sorted(urls)))
+    table = collections.defaultdict(collections.Counter)
+    for url, state in states:
+        table[section(url)][state] += 1
+    print('%d URLs: %s' % (len(states), dict(collections.Counter(state for _, state in states))))
+    for name in sorted(table):
+        print('  %-12s %s' % (name, dict(table[name])))
+    print('-- not indexed')
+    for url, state in states:
+        if state != 'Submitted and indexed':
+            print('  %-36s %s' % (state, url.replace(BASE, '')))
+    summary['indexed'] = sum(1 for _, state in states if state == 'Submitted and indexed')
+    summary['sitemap_urls'] = len(states)
+
+
+if INDEX:
+    index_coverage()
 
 METRICS = ['sessions', 'engagementRate', 'averageSessionDuration']
 for title, home_only in (('all countries', False), (', '.join(HOME_MARKET), True)):
     print('\n== GA4, last %d days, %s ==' % (DAYS, title))
     for row in analytics([], METRICS, home_only=home_only):
         print(sessions_line(row))
+        summary['sessions_home' if home_only else 'sessions_all'] = int(row['metricValues'][0]['value'])
     for dimension in ('sessionDefaultChannelGroup', 'landingPage'):
         print('-- by ' + dimension)
         for row in analytics([dimension], METRICS, home_only=home_only):
@@ -142,3 +161,20 @@ for title, home_only in (('all countries', False), (', '.join(HOME_MARKET), True
 print('\n== Form submissions counted by the site, last %d days ==' % DAYS)
 for row in analytics(['eventName', 'country'], ['eventCount'], limit=20, events=LEAD_EVENTS):
     print('  %4s  %s' % (row['metricValues'][0]['value'], ' | '.join(v['value'] for v in row['dimensionValues'])))
+
+leads = sum(int(row['metricValues'][0]['value']) for row in analytics(['eventName'], ['eventCount'], events=LEAD_EVENTS, home_only=True))
+summary['leads_home'] = leads
+
+print('\n== Change since the previous saved run ==')
+os.makedirs(STATE_DIR, exist_ok=True)
+previous = sorted(f for f in os.listdir(STATE_DIR) if f.endswith('.json') and f[:-5] != summary['date'])
+if previous:
+    before = json.load(open(os.path.join(STATE_DIR, previous[-1])))
+    print('compared with %s (%s days):' % (before['date'], before.get('days')))
+    for key in ('clicks', 'impressions', 'position', 'indexed', 'sitemap_urls', 'sessions_all', 'sessions_home', 'leads_home'):
+        if key in summary and key in before:
+            print('  %-14s %8s -> %s' % (key, before[key], summary[key]))
+else:
+    print('no previous run saved')
+json.dump(summary, open(os.path.join(STATE_DIR, summary['date'] + '.json'), 'w'), indent=2)
+
