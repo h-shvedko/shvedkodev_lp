@@ -150,6 +150,20 @@ function related(ctx, page) {
     }).slice(0, 6).map(function(r) { return r.page; });
 }
 
+// Blog posts on the page topic, in the page language, with the post's own h1 as link text.
+function blogPosts(opts, page) {
+    var html = path.dirname(opts.layoutDir);
+    var prefix = page.locale === locales.DEFAULT_LOCALE ? '' : page.locale + '/';
+    return taxonomy.blog(page.axis, page.entity_a).map(function(slug) {
+        var file = path.join(html, prefix, 'blog', 'posts', slug, 'index.html');
+        if (!fs.existsSync(file)) return null;
+        var h1 = fs.readFileSync(file, 'utf8').match(/<h1[^>]*>([\s\S]*?)<\/h1>/);
+        if (!h1) return null;
+        var text = h1[1].replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
+        return { url: '/' + prefix + 'blog/posts/' + slug + '/', title: text };
+    }).filter(Boolean);
+}
+
 function ctaBlock(page) {
     var kind = taxonomy.cta(page.axis, page.entity_a), l = page.locale;
     var contact = (l === locales.DEFAULT_LOCALE ? '' : '/' + l) + '/contact/';
@@ -191,6 +205,10 @@ function renderPage(opts, ctx, page) {
     });
     var rel = related(ctx, page);
     if (rel.length) sections.push({ id: 'related', title: i18n.t(l, 'ui.related'), html: pageList(rel) });
+    var posts = blogPosts(opts, page);
+    if (posts.length) sections.push({ id: 'blog', title: i18n.t(l, 'ui.blog'), html: '<ul class="insight-list">' + posts.map(function(p) {
+        return '<li><a href="' + p.url + '">' + e(p.title) + '</a></li>';
+    }).join('') + '</ul>' });
 
     // Section numbers come from the position in this list, which the contents list shares.
     var toc = '<nav class="insight__toc" aria-label="' + e(i18n.t(l, 'ui.contents')) + '"><h2>' + e(i18n.t(l, 'ui.contents')) + '</h2><ol>' +

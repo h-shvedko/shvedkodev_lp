@@ -191,3 +191,13 @@ test('background shapes stay inside the page width', async function({ page }) {
     });
     expect(worst).toBeLessThanOrEqual(0);
 });
+
+test('insight pages link to blog posts on the same topic, in their own language', async function({ page }) {
+    for (var [url, prefix] of [['/insights/guides/figma-to-wordpress/', '/blog/posts/'], ['/de/insights/guides/figma-to-wordpress/', '/de/blog/posts/']]) {
+        await page.goto(url, { waitUntil: 'load' });
+        var links = await page.locator('#blog a').evaluateAll(function(as) { return as.map(function(a) { return a.getAttribute('href'); }); });
+        expect(links.length).toBeGreaterThan(0);
+        links.forEach(function(href) { expect(href.indexOf(prefix)).toBe(0); });
+        await expect(page.locator('.insight__toc a[href="#blog"]')).toHaveCount(1);
+    }
+});

@@ -88,7 +88,7 @@ var EXAMPLES = {
         brief: 'A short project brief a client sends to a web developer: goals, audience, scope, constraints, budget frame, timeline.'
     },
     'requirements-specification': {
-        en: 'Requirements Specification Example', de: 'Lastenheft-Beispiel',
+        en: 'Requirements Specification Example', de: 'Lastenheft: Beispiel und Vorlage',
         brief: 'A requirements specification (German: Lastenheft) for a small web application: context, functional requirements, non-functional requirements, acceptance criteria.'
     },
     'web-development-rfp': {
@@ -261,7 +261,29 @@ function productUrl(key) {
     return PRODUCTS[key].url;
 }
 
+// Blog posts on the same topic, linked from insight pages (slugs under /blog/posts/).
+var BLOG = {
+    'guides figma-to-wordpress': ['figma-to-php-lossy-handoff', 'figma-to-wordpress-ai-agent-pipeline'],
+    'guides figma-to-laravel': ['figma-to-php-lossy-handoff', 'figma-to-wordpress-ai-agent-pipeline'],
+    'guides ai-app-builders-php': ['craftly-ki-plattform-laravel', 'craftly-prompt-to-production-laravel'],
+    'guides ai-features-in-laravel': ['craftly-prism-php-ai-orchestration'],
+    'guides laravel-development-cost': ['stop-billing-boilerplate-ai-agency'],
+    'guides fixed-price-vs-time-and-materials': ['stop-billing-boilerplate-ai-agency'],
+    'guides hire-laravel-developer': ['freelance-php-entwickler-goettingen'],
+    'guides laravel-saas-development': ['craftly-prompt-to-production-laravel'],
+    'guides mvp-development-timeline': ['craftly-prompt-to-production-laravel'],
+    'services laravel-development': ['fsm-bildungsplattform-laravel'],
+    'services wordpress-development': ['figma-to-wordpress-ai-agent-pipeline'],
+    'services ai-integration': ['craftly-prism-php-ai-orchestration'],
+    'products craftly': ['craftly-ki-plattform-laravel', 'craftly-prompt-to-production-laravel', 'figma-to-wordpress-ai-agent-pipeline']
+};
+
+function blog(axis, a) {
+    return BLOG[axis + ' ' + a] || [];
+}
+
 module.exports = {
+    blog: blog,
     AXES: AXES, PERSONA_KEYS: PERSONA_KEYS, SERVICES: SERVICES, INDUSTRIES: INDUSTRIES,
     entries: entries, has: has, label: label, slugFor: slugFor, brief: brief, cta: cta,
     parent: parent, productUrl: productUrl
