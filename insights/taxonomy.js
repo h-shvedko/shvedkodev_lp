@@ -84,7 +84,7 @@ var GUIDES = {
 // Every example page shows an invented, fictional document.
 var EXAMPLES = {
     'web-project-brief': {
-        en: 'Web Project Brief Example', de: 'Beispiel für ein Website-Briefing',
+        en: 'Web Project Brief Example', de: 'Website-Briefing: Beispiel und Vorlage',
         brief: 'A short project brief a client sends to a web developer: goals, audience, scope, constraints, budget frame, timeline.'
     },
     'requirements-specification': {
@@ -92,7 +92,7 @@ var EXAMPLES = {
         brief: 'A requirements specification (German: Lastenheft) for a small web application: context, functional requirements, non-functional requirements, acceptance criteria.'
     },
     'web-development-rfp': {
-        en: 'Web Development RFP Example', de: 'Beispiel für eine Ausschreibung zur Webentwicklung',
+        en: 'Web Development RFP Example', de: 'Ausschreibung Webentwicklung: Beispiel und Vorlage',
         brief: 'A request for proposal sent to several web development providers: background, scope, required response format, evaluation criteria, deadlines.'
     },
     'user-story': {
