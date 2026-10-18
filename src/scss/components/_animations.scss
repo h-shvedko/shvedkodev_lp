@@ -48,3 +48,24 @@
         transform: translateX(0);
     }
 }
+
+// Without JavaScript nothing reveals scroll-animated content, so it is shown in place.
+html:not(.js) {
+    .animate-on-scroll,
+    .fade,
+    .fade-in,
+    .slide-in-left,
+    .slide-in-right,
+    .slide-in-top,
+    .slide-in-bottom,
+    .zoom-in,
+    .rotate-in {
+        opacity: 1;
+        transform: none;
+    }
+
+    .loader-holder {
+        display: none;
+    }
+}
+

@@ -1,3 +1,14 @@
+<script>
+    // Loader and scroll animations apply only when JavaScript runs (class "js"), so the
+    // page stays readable without it. The loader goes as soon as the HTML is ready, with a
+    // fallback in case that event is missed.
+    (function (html) {
+        html.className += ' js';
+        function ready() { html.className += ' loaded'; }
+        document.addEventListener('DOMContentLoaded', ready);
+        setTimeout(ready, 3000);
+    })(document.documentElement);
+</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 

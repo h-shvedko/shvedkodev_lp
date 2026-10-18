@@ -76,3 +76,29 @@
         order: initial;
     }
 }
+// Links to blog posts, so every page links to them.
+.footer-blog {
+    margin-top: 20px;
+
+    &__list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        columns: 2;
+        column-gap: 30px;
+        font-size: 16px;
+
+        @include media("<=tablet") {
+            columns: 1;
+        }
+
+        li {
+            break-inside: avoid;
+            margin-bottom: 8px;
+        }
+
+        a {
+            color: inherit;
+        }
+    }
+}

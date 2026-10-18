@@ -1,3 +1,9 @@
+// Scroll animations start as soon as the HTML is ready, so text above the fold does not
+// wait for every image to load.
+jQuery(function() {
+    animateOnScroll();
+});
+
 jQuery(window).on('load', function() {
 
     initLogoGallery();
@@ -8,7 +14,6 @@ jQuery(window).on('load', function() {
     initDatePicker();
     initAnchors();
     initMainAnimation();
-    animateOnScroll();
     initHeader();
     initActiveNav();
     initGA4Tracking();

@@ -201,3 +201,37 @@ test('insight pages link to blog posts on the same topic, in their own language'
         await expect(page.locator('.insight__toc a[href="#blog"]')).toHaveCount(1);
     }
 });
+
+test.describe('without JavaScript', function() {
+    test.use({ javaScriptEnabled: false });
+
+    test('pages show their content, not the loader', async function({ page }) {
+        for (var url of ['/', '/de/', '/services/', '/insights/guides/laravel-vs-wordpress/']) {
+            await page.goto(url, { waitUntil: 'load' });
+            await expect(page.locator('.loader-holder')).toBeHidden();
+            await expect(page.locator('h1').first()).toBeVisible();
+            var hidden = await page.locator('.animate-on-scroll').evaluateAll(function(els) {
+                return els.filter(function(el) { return getComputedStyle(el).opacity === '0'; }).length;
+            });
+            expect(hidden, url).toBe(0);
+        }
+    });
+});
+
+test('the loader goes as soon as the HTML is ready', async function({ page }) {
+    // Images never finish loading here, so the window load event does not fire.
+    await page.route(/\.(jpe?g|png|webp)$/, function() {});
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('.loader-holder')).toBeHidden({ timeout: 4000 });
+    await expect(page.locator('h1').first()).toBeVisible();
+});
+
+test('every page footer links to blog posts in the page language', async function({ request }) {
+    for (var [url, prefix] of [['/', '/blog/posts/'], ['/de/', '/de/blog/posts/'], ['/insights/', '/blog/posts/'], ['/de/insights/', '/de/blog/posts/']]) {
+        var html = await (await request.get(url)).text();
+        var footer = html.slice(html.indexOf('class="row-holder footer-blog"'));
+        var links = footer.match(/href="([^"]+)"/g).slice(0, 6);
+        expect(links.length, url).toBe(6);
+        links.forEach(function(l) { expect(l.indexOf('href="' + prefix), url).toBe(0); });
+    }
+});
