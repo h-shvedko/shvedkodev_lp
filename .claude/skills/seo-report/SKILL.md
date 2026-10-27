@@ -14,11 +14,13 @@ user's own Search Console and GA4, not from estimates or third-party SEO tools.
 Run on the host (not in the Docker container):
 
 ```bash
-python3 scripts/seo-report.py <days>
+python3 -u scripts/seo-report.py <days> > /tmp/seo-report.txt 2>&1
 ```
 
 - `<days>` is the argument of the command; use 28 when there is none.
-- The run takes about three minutes: it inspects every sitemap URL. Use a timeout of 300 s.
+- The run takes three to eight minutes: it inspects every sitemap URL and Google is sometimes slow.
+  Use a timeout of 600 s. Keep `-u` and the redirect to a file: without them, output is lost
+  when the run is stopped by a timeout.
 - Add `--no-index` only when the user asks for a quick check without index coverage.
 - The script reads the user's Google credentials at `~/.config/shvedkodev-ga.json`
   (read-only scopes analytics.readonly and webmasters.readonly). If the token request
