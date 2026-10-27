@@ -265,3 +265,14 @@
     max-width: 780px;
     padding: 20px 0 60px;
 }
+
+// Next-step line under the subtitle of an insight page.
+.insight__lead {
+    margin: 14px 0 0;
+    font-size: 18px;
+
+    a {
+        font-weight: 600;
+        color: $primary-color;
+    }
+}

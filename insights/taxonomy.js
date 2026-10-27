@@ -219,9 +219,16 @@ function pick(labels, locale) {
 }
 
 // The page title and the exact entity name the meta description must contain.
+// Service pages whose generated title misses the query people actually search for.
+var SERVICE_TITLES = {
+    'laravel-development education': { de: 'E-Learning-Plattform mit Laravel: Entwicklung für Bildung' }
+};
+
 function label(axis, a, b, locale) {
     if (axis === 'services') {
         if (!has(axis, a, b)) throw new Error('Not in taxonomy: ' + [axis, a, b].join('/'));
+        var own = SERVICE_TITLES[a + ' ' + b];
+        if (own && own[locale]) return own[locale];
         return pick(SERVICES[a], locale) + (locale === 'de' ? ' für ' : ' for ') + pick(INDUSTRIES[b], locale);
     }
     return pick(node(axis, a, b), locale);

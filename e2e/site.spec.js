@@ -235,3 +235,11 @@ test('every page footer links to blog posts in the page language', async functio
         links.forEach(function(l) { expect(l.indexOf('href="' + prefix), url).toBe(0); });
     }
 });
+
+test('insight pages offer the next step right under the subtitle, in their language', async function({ page }) {
+    for (var [url, prefix] of [['/insights/guides/figma-to-laravel/', ''], ['/de/insights/guides/figma-to-laravel/', '/de']]) {
+        await page.goto(url, { waitUntil: 'load' });
+        var links = await page.locator('.insight__header .insight__lead a').evaluateAll(function(as) { return as.map(function(a) { return a.getAttribute('href'); }); });
+        expect(links).toEqual([prefix + '/contact/', prefix + '/services/']);
+    }
+});

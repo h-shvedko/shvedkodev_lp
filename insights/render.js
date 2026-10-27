@@ -164,6 +164,13 @@ function blogPosts(opts, page) {
     }).filter(Boolean);
 }
 
+// One line under the subtitle with the next step, so readers do not need to reach the end.
+function leadLine(page) {
+    var l = page.locale, base = l === locales.DEFAULT_LOCALE ? '' : '/' + l;
+    return '<p class="insight__lead">' + e(i18n.t(l, 'lead.text')) + ' <a href="' + base + '/contact/">' + e(i18n.t(l, 'lead.contact')) + '</a> · ' +
+        '<a href="' + base + '/services/">' + e(i18n.t(l, 'lead.services')) + '</a></p>';
+}
+
 function ctaBlock(page) {
     var kind = taxonomy.cta(page.axis, page.entity_a), l = page.locale;
     var contact = (l === locales.DEFAULT_LOCALE ? '' : '/' + l) + '/contact/';
@@ -227,6 +234,7 @@ function renderPage(opts, ctx, page) {
             (hasHub ? '<a href="' + hubUrl(l, page.axis) + '">' + e(i18n.t(l, 'axis.' + page.axis)) + '</a>' : e(i18n.t(l, 'axis.' + page.axis))) + '</p>',
         '<h1>' + e(title(page)) + '</h1>',
         '<p class="insight__subtitle">' + e(page.subtitle) + '</p>',
+        leadLine(page),
         parent ? '<p class="insight__parent">' + e(i18n.t(l, 'ui.parent_note')) + ' <a href="' + urlFor(parent) + '">' + e(title(parent)) + '</a></p>' : '',
         '</header>',
         sections.map(function(s, i) {
