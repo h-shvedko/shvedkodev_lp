@@ -40,3 +40,6 @@ add-files
 
 # Build output: produced by gulp, built fresh on deploy
 /dist
+
+# Local secrets (API keys)
+.env

@@ -29,10 +29,62 @@ python3 -u scripts/seo-report.py <days> > /tmp/seo-report.txt 2>&1
   scopes and copy it to that path. Never print the file or ask for its content.
 - Each run saves a summary to `~/.local/state/shvedkodev-seo/<date>.json` and prints
   the change against the previous saved run. Use that block for the comparison section.
+  The script writes this summary itself and stores Google and GA4 numbers only; Bing
+  and manual-action results are not stored there, so compare them with the previous
+  report in the conversation if there is one.
 
 For a question the script does not answer (one query, one page, one event), call the
 same APIs with the token from the script's `token()` function. Search Console URL
 inspection allows 2,000 calls a day.
+
+## 1a. Manual actions and security issues (Google)
+
+The Search Console API does not expose these. Never infer them from traffic.
+If the user pasted them in this conversation, use that. Otherwise do not block
+the report: put both pages under «Действия» as a request to the user for
+`sc-domain:shvedko.dev`:
+
+- Search Console -> Security & Manual Actions -> **Manual actions**
+- Search Console -> Security & Manual Actions -> **Security issues**
+
+Report each as "No issues detected" or quote the action type, scope
+(site-wide / partial) and date. A manual action goes first in «Итог» and
+becomes action 1 (fix + reconsideration request). Ask for this check
+prominently whenever impressions fell by more than 50% against the previous run
+while the site answers 200 and robots/canonical are correct.
+
+## 1b. Bing Webmaster Tools
+
+A second, independent view. If Bing holds steady while Google drops, the cause
+is Google's assessment of the site, not its technique.
+
+```bash
+K=$(grep -m1 '^BING_API_KEY=' /srv/fast/projects/shvedkodev_lp/.env | cut -d= -f2- | tr -d '"'"'"'\r')
+B="https://ssl.bing.com/webmaster/api.svc/json"
+SITE="https%3A%2F%2Fshvedko.dev%2F"
+b(){ curl -s "$B/$1?siteUrl=$SITE&apikey=$K"; }
+```
+
+The key is `BING_API_KEY` in the project `.env` (git-ignored). Never print it,
+never put it in a commit or in the report.
+
+Every answer is `{"d": ...}`. Dates are `/Date(<ms>)/`: convert, keep the last
+N days. If the key is empty or an answer is 401, say so (the user generates a
+key in Bing Webmaster -> Settings -> API access and puts it in `.env`) and
+report on the rest.
+
+- `b GetRankAndTrafficStats`: one row per day, `Clicks`, `Impressions` -> the trend
+- `b GetQueryStats`: rows per query and period (`Query`, `Clicks`,
+  `Impressions`, `AvgImpressionPosition`). Sum per query across rows. Split
+  brand / non-brand with the brand regex `shvedko|craftly|jobhunter` (case-insensitive),
+  the same split as for Google queries. `AvgClickPosition = -1` means no clicks, not a position
+- `b GetPageStats`: same shape, the page URL is in the **`Query`** field.
+  Count `/insights/` and `/de/` pages, flag `www.` and `http://`
+- `b GetCrawlStats`: one row per day: `CrawledPages`, `InIndex`, `CrawlErrors`,
+  `Code4xx`, `Code5xx`, `InLinks`. Compare the first and the last row of the period
+- `b GetCrawlIssues`: URLs with crawl problems (empty list = none)
+
+Do not submit URLs through the API (`SubmitUrl*`, IndexNow) unless the user asks.
 
 ## 2. Read the data correctly
 
@@ -89,7 +141,17 @@ Structure:
 3. **Поиск** - clicks, impressions, CTR, position for the period; pages and queries with data; the latest day with data.
 4. **Посещаемость** - the DACH block first, then one line about the share of bot traffic.
 5. **Заявки** - counts of `contact_form_submit` and `newsletter_signup` from DACH.
-6. **Изменения** - the comparison block, with the dates of both runs.
-7. **Действия** - numbered instructions in imperative form. For each, say who does it: the agent (change in this repo) or the user (Google UI, Formspree, Google Ads). Do not change the site in this command; offer the changes.
+6. **Ручные меры и безопасность** - the result of step 1a, or the request to the user.
+7. **Bing** - clicks, impressions, brand vs non-brand, pages with impressions, in index and crawl per day, and one table next to Google:
+
+   | | Google | Bing |
+   |---|---|---|
+   | Клики / показы | | |
+   | Показы не по бренду | | |
+   | Страниц с показами | | |
+   | Обход в день (начало / конец периода) | | |
+   | В индексе | | |
+8. **Изменения** - the comparison block, with the dates of both runs.
+9. **Действия** - numbered instructions in imperative form. For each, say who does it: the agent (change in this repo) or the user (Google UI, Bing Webmaster, Formspree, Google Ads). Do not change the site in this command; offer the changes.
 
 Do not invent data. When a number is not available, write that it is not available and why.
