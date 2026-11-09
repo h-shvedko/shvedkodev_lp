@@ -38,7 +38,7 @@ var GUIDES = {
         brief: 'Turning a Figma design into a WordPress theme: design tokens, components to blocks, responsive behaviour, editor experience. Where detail is lost in the handoff and how to prevent it. Manual build versus AI-assisted generation.'
     },
     'figma-to-laravel': {
-        en: 'Figma to Laravel', de: 'Von Figma zu Laravel',
+        en: 'Figma vs Laravel: From Design to Laravel App', de: 'Figma vs. Laravel: Vom Design zur Laravel-App',
         parent: 'figma-to-wordpress', cta: 'craftly',
         brief: 'Turning a Figma design into a Laravel application front end with Blade or Livewire components. Focus on what differs from a WordPress theme: application state, forms, validation, authenticated areas. Do not repeat the general design handoff advice.'
     },
@@ -221,7 +221,8 @@ function pick(labels, locale) {
 // The page title and the exact entity name the meta description must contain.
 // Service pages whose generated title misses the query people actually search for.
 var SERVICE_TITLES = {
-    'laravel-development education': { de: 'E-Learning-Plattform mit Laravel: Entwicklung für Bildung' }
+    'laravel-development education': { de: 'E-Learning-Plattform mit Laravel: Entwicklung für Bildung' },
+    'test-automation ecommerce': { de: 'Automatisierte Testbestellungen im E-Commerce' }
 };
 
 function label(axis, a, b, locale) {
