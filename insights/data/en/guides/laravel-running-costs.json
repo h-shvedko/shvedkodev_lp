@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "laravel-running-costs",
+  "entity_b": "",
+  "locale": "en",
+  "status": "published",
+  "subtitle": "Know every yearly cost block of a live Laravel app, pick the right hosting type and set a budget you can defend.",
+  "overview": "Launch is not the end of spending. A Laravel application keeps costing money every year it is live, and most of that cost is predictable once you know the blocks. This guide lists them, compares the main hosting choices without quoting prices, and shows how to build a yearly budget.\n\n## The cost blocks of a live application\n\n- Hosting: the server or platform that runs the code. The size depends on traffic, background jobs and how much downtime you can accept.\n- Database: often part of the hosting, sometimes a separate managed service. Cost grows with data volume and the need for replicas.\n- Backups and storage: daily database backups, uploaded files and a copy kept in a second location. Restores must be tested, which takes time.\n- Monitoring: uptime checks, error tracking and log storage, so problems are found before users report them.\n- Email and third-party services: transactional email, SMS, maps, payment providers, search or AI APIs. Many bill by usage, so they grow with your user numbers.\n- Domains and certificates: small, but they must be renewed on time.\n- Security and framework updates: Laravel and its packages receive regular fixes. Someone has to apply them, run the tests and deploy.\n- PHP and Laravel version upgrades: each PHP and Laravel version has a fixed support period. Moving to a newer version is a planned project every year or two, not a quick update.\n- Support time and small changes: answering questions, fixing bugs, adding a field to a form. This block is usually underestimated.\n\n## Hosting choices and their trade-offs\n\nShared hosting is the cheapest entry point. You share a server with other customers, have little control over the PHP version, and usually cannot run queues or scheduled tasks reliably. It suits only very small, low-risk applications.\n\nA VPS (virtual private server) gives you a full server of your own. It is flexible and moderately priced, but someone must install, patch and watch the operating system. That work is a real cost, even if it does not appear on the hosting invoice.\n\nManaged Laravel platforms and PaaS (platform as a service) run the server layer for you: deployments, scaling, certificates and often databases are handled by the provider. The monthly fee is higher than a plain VPS, but you pay for less administration time. Watch for usage-based pricing that rises with traffic and for features that tie you to one provider.\n\nThe right choice depends on who does the operations work. If you have no one to maintain a server, a managed platform is often cheaper in total, even when its invoice is larger.\n\n## How to estimate a yearly budget\n\n1. List every service the application uses and its billing basis: flat fee or usage.\n2. Estimate usage for the next twelve months, including expected growth.\n3. Add maintenance hours: updates every month, plus one larger version upgrade if one is due.\n4. Add a block of support hours for small changes, based on the last months if you have data.\n5. Add a reserve of 10 to 20 percent for surprises such as a security issue or a sudden traffic peak.\n\n## Illustration with invented figures\n\nThe following budget is an illustration. All figures are invented and are not prices from any provider. A booking application for a mid-sized company, hosted on a managed platform:\n\n- Hosting and database: 2,400 euros\n- Backups, monitoring and logs: 600 euros\n- Email and other third-party services: 900 euros\n- Domains and certificates: 100 euros\n- Monthly updates, 3 hours per month: 36 hours\n- One PHP and Laravel upgrade: 24 hours\n- Support and small changes: 40 hours\n- Reserve: 15 percent of the total\n\nMultiply the hours by your developer's rate and add the reserve to get the yearly figure. Review it every year against the real invoices and hours.\n\nThe largest savings come from steady maintenance. An application that is updated every month is cheaper to keep than one that is left alone for three years and then needs an emergency upgrade.",
+  "personas": [
+    {
+      "key": "founder",
+      "text": "You get a clear list of what the product costs to keep alive each year, so you can plan cash flow after launch and avoid surprise invoices for hosting, services or upgrades."
+    },
+    {
+      "key": "it_manager",
+      "text": "You can compare shared hosting, a VPS and managed platforms by who does the operations work, and see which maintenance tasks your team must cover or buy in."
+    },
+    {
+      "key": "procurement",
+      "text": "You get a structure for comparing offers: which cost blocks must be named, which are billed by usage, and why a reserve and planned upgrade hours belong in every yearly budget."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Is managed Laravel hosting or PaaS worth the higher fee?",
+      "a": "Often yes, if no one on your side maintains servers. The platform takes over patching, deployments and certificates. Compare the fee with the hours a VPS would need, not only with the VPS invoice."
+    },
+    {
+      "q": "How often does a Laravel application need a larger upgrade?",
+      "a": "Plan for a PHP or Laravel version upgrade about every one to two years, when the version you use reaches the end of its security support. Regular small updates in between keep each upgrade smaller."
+    },
+    {
+      "q": "Which running cost is most often forgotten?",
+      "a": "Support time and small changes. After launch, users ask for adjustments and find bugs. Budget a fixed block of hours for this, and check it against real use after the first months."
+    }
+  ],
+  "meta_description": "Laravel App Running Costs After Launch: the yearly cost blocks, hosting choices from VPS to PaaS, and how to estimate a budget.",
+  "example_body": null,
+  "generated_at": "2026-11-22T12:15:17.851Z",
+  "updated_at": "2026-11-22T12:15:17.951Z"
+}

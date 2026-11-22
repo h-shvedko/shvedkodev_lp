@@ -241,5 +241,6 @@ test('insight pages offer the next step right under the subtitle, in their langu
         await page.goto(url, { waitUntil: 'load' });
         var links = await page.locator('.insight__header .insight__lead a').evaluateAll(function(as) { return as.map(function(a) { return a.getAttribute('href'); }); });
         expect(links).toEqual([prefix + '/contact/', prefix + '/services/']);
+        await expect(page.locator('#overview .insight__lead a').first()).toHaveAttribute('href', prefix + '/contact/');
     }
 });

@@ -1,0 +1,41 @@
+{
+  "axis": "guides",
+  "entity_a": "laravel-running-costs",
+  "entity_b": "",
+  "locale": "de",
+  "status": "published",
+  "subtitle": "Kennen Sie alle jährlichen Kostenblöcke Ihrer Laravel-Anwendung, wählen Sie das passende Hosting und planen Sie ein belastbares Budget.",
+  "overview": "Mit dem Launch enden die Ausgaben nicht. Eine Laravel-Anwendung verursacht jedes Jahr Kosten, solange sie läuft, und der größte Teil davon lässt sich gut vorhersagen, wenn man die einzelnen Blöcke kennt. Dieser Leitfaden zählt sie auf, vergleicht die wichtigsten Hosting-Varianten ohne Preisangaben und zeigt, wie Sie ein Jahresbudget aufstellen.\n\n## Die Kostenblöcke einer laufenden Anwendung\n\n- Hosting: der Server oder die Plattform, auf der der Code läuft. Die Größe hängt vom Traffic, von Hintergrundprozessen und davon ab, wie viel Ausfallzeit Sie hinnehmen können.\n- Datenbank: oft Teil des Hostings, manchmal ein eigener verwalteter Dienst. Die Kosten steigen mit der Datenmenge und dem Bedarf an Replikaten.\n- Backups und Speicher: tägliche Datenbank-Backups, hochgeladene Dateien und eine Kopie an einem zweiten Standort. Die Wiederherstellung muss getestet werden, und das kostet Zeit.\n- Monitoring: Verfügbarkeitsprüfungen, Fehlererfassung und Log-Speicher, damit Probleme auffallen, bevor Nutzer sie melden.\n- E-Mail und Drittanbieterdienste: Transaktions-E-Mails, SMS, Karten, Zahlungsanbieter, Suche oder KI-Schnittstellen. Viele rechnen nach Nutzung ab und wachsen daher mit Ihrer Nutzerzahl.\n- Domains und Zertifikate: kleine Posten, die aber rechtzeitig verlängert werden müssen.\n- Sicherheits- und Framework-Updates: Laravel und seine Pakete erhalten regelmäßig Korrekturen. Jemand muss sie einspielen, die Tests ausführen und ausrollen.\n- Upgrades von PHP- und Laravel-Versionen: Jede PHP- und Laravel-Version hat einen festen Supportzeitraum. Der Wechsel auf eine neuere Version ist alle ein bis zwei Jahre ein geplantes Projekt, kein schnelles Update.\n- Supportzeit und kleine Änderungen: Fragen beantworten, Fehler beheben, ein Feld in einem Formular ergänzen. Dieser Block wird meist unterschätzt.\n\n## Hosting-Varianten und ihre Vor- und Nachteile\n\nShared Hosting ist der günstigste Einstieg. Sie teilen sich einen Server mit anderen Kunden, haben kaum Einfluss auf die PHP-Version und können Queues oder geplante Aufgaben meist nicht zuverlässig betreiben. Es eignet sich nur für sehr kleine Anwendungen mit geringem Risiko.\n\nEin VPS (virtueller privater Server) gibt Ihnen einen eigenen Server. Er ist flexibel und preislich im Mittelfeld, aber jemand muss das Betriebssystem installieren, aktualisieren und überwachen. Diese Arbeit ist ein echter Kostenfaktor, auch wenn sie nicht auf der Hosting-Rechnung steht.\n\nVerwaltete Laravel-Plattformen und PaaS (Platform as a Service) übernehmen die Serverebene für Sie: Deployments, Skalierung, Zertifikate und oft auch Datenbanken betreut der Anbieter. Die monatliche Gebühr liegt über der eines einfachen VPS, dafür bezahlen Sie weniger Administrationszeit. Achten Sie auf nutzungsabhängige Preise, die mit dem Traffic steigen, und auf Funktionen, die Sie an einen Anbieter binden.\n\nWelche Variante passt, hängt davon ab, wer den Betrieb übernimmt. Wenn niemand einen Server pflegen kann, ist eine verwaltete Plattform in der Summe oft günstiger, auch wenn ihre Rechnung höher ausfällt.\n\n## So schätzen Sie ein Jahresbudget\n\n1. Listen Sie jeden Dienst auf, den die Anwendung nutzt, und seine Abrechnungsart: Pauschale oder Nutzung.\n2. Schätzen Sie die Nutzung für die nächsten zwölf Monate, einschließlich des erwarteten Wachstums.\n3. Rechnen Sie Wartungsstunden hinzu: monatliche Updates und, falls fällig, ein größeres Versions-Upgrade.\n4. Planen Sie ein Stundenkontingent für Support und kleine Änderungen ein, wenn möglich auf Basis der letzten Monate.\n5. Legen Sie eine Reserve von 10 bis 20 Prozent für Unvorhergesehenes an, etwa eine Sicherheitslücke oder eine plötzliche Lastspitze.\n\n## Veranschaulichung mit erfundenen Zahlen\n\nDas folgende Budget dient nur der Veranschaulichung. Alle Zahlen sind erfunden und keine Preise eines Anbieters. Eine Buchungsanwendung für ein mittelständisches Unternehmen auf einer verwalteten Plattform:\n\n- Hosting und Datenbank: 2.400 Euro\n- Backups, Monitoring und Logs: 600 Euro\n- E-Mail und weitere Drittanbieterdienste: 900 Euro\n- Domains und Zertifikate: 100 Euro\n- Monatliche Updates, 3 Stunden pro Monat: 36 Stunden\n- Ein PHP- und Laravel-Upgrade: 24 Stunden\n- Support und kleine Änderungen: 40 Stunden\n- Reserve: 15 Prozent der Gesamtsumme\n\nMultiplizieren Sie die Stunden mit dem Stundensatz Ihres Entwicklers und addieren Sie die Reserve, dann erhalten Sie den Jahresbetrag. Gleichen Sie ihn jedes Jahr mit den tatsächlichen Rechnungen und Stunden ab.\n\nAm meisten sparen Sie durch kontinuierliche Wartung. Eine Anwendung, die jeden Monat aktualisiert wird, ist günstiger im Unterhalt als eine, die drei Jahre liegen bleibt und dann ein Notfall-Upgrade braucht.",
+  "personas": [
+    {
+      "key": "founder",
+      "text": "Sie erhalten eine klare Liste dessen, was Ihr Produkt jedes Jahr im Betrieb kostet. So planen Sie die Liquidität nach dem Launch und vermeiden überraschende Rechnungen für Hosting, Dienste oder Upgrades."
+    },
+    {
+      "key": "it_manager",
+      "text": "Sie vergleichen Shared Hosting, VPS und verwaltete Plattformen danach, wer den Betrieb übernimmt, und sehen, welche Wartungsaufgaben Ihr Team abdecken oder einkaufen muss."
+    },
+    {
+      "key": "procurement",
+      "text": "Sie erhalten eine Struktur für den Angebotsvergleich: welche Kostenblöcke genannt sein müssen, welche nach Nutzung abgerechnet werden und warum Reserve und geplante Upgrade-Stunden in jedes Jahresbudget gehören."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Lohnt sich verwaltetes Laravel-Hosting oder PaaS trotz höherer Gebühr?",
+      "a": "Oft ja, wenn bei Ihnen niemand Server pflegt. Die Plattform übernimmt Updates des Systems, Deployments und Zertifikate. Vergleichen Sie die Gebühr mit den Stunden, die ein VPS bräuchte, nicht nur mit der VPS-Rechnung."
+    },
+    {
+      "q": "Wie oft braucht eine Laravel-Anwendung ein größeres Upgrade?",
+      "a": "Planen Sie etwa alle ein bis zwei Jahre ein Upgrade der PHP- oder Laravel-Version ein, wenn die genutzte Version keinen Sicherheitssupport mehr erhält. Regelmäßige kleine Updates dazwischen halten jedes Upgrade kleiner."
+    },
+    {
+      "q": "Welche laufenden Kosten werden am häufigsten vergessen?",
+      "a": "Supportzeit und kleine Änderungen. Nach dem Launch wünschen Nutzer Anpassungen und finden Fehler. Planen Sie dafür ein festes Stundenkontingent ein und prüfen Sie es nach den ersten Monaten anhand der tatsächlichen Nutzung."
+    }
+  ],
+  "meta_description": "Laufende Kosten einer Laravel-Anwendung: alle jährlichen Kostenblöcke, Hosting von VPS bis PaaS und ein planbares Jahresbudget.",
+  "example_body": null,
+  "generated_at": "2026-11-22T12:15:17.850Z",
+  "updated_at": "2026-11-22T12:15:17.951Z"
+}

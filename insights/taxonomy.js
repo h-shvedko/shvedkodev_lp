@@ -16,6 +16,10 @@ var GUIDES = {
         en: 'Laravel Development Cost', de: 'Kosten der Laravel-Entwicklung',
         brief: 'What drives the cost of a custom Laravel application: scope, integrations, data migration, testing, hosting and maintenance. Explain cost drivers and how to reduce them. Show scope tiers with invented scenarios; do not quote market rates or third-party figures.'
     },
+    'laravel-running-costs': {
+        en: 'Laravel App Running Costs After Launch', de: 'Laufende Kosten einer Laravel-Anwendung',
+        brief: 'What it costs each year to keep a Laravel application running after launch: hosting options (shared hosting, VPS, managed platforms and PaaS), database, backups, monitoring, email and other third-party services, security and framework updates, PHP version upgrades, support time and small changes. Explain what drives each cost and how to estimate a yearly budget. Use one invented example budget, clearly labelled as an illustration; quote no provider prices or market rates.'
+    },
     'hire-laravel-developer': {
         en: 'How to Hire a Laravel Developer', de: 'Laravel-Entwickler beauftragen',
         brief: 'Freelancer, agency or in-house hire: which fits which situation. What to check before signing: code samples, tests, communication, handover terms. Warning signs.'

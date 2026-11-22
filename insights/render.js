@@ -198,7 +198,8 @@ function pickerFor(ctx, hreflang) {
 
 function renderPage(opts, ctx, page) {
     var l = page.locale;
-    var sections = [{ id: 'overview', title: i18n.t(l, 'ui.overview'), html: blocks(page.overview) }];
+    // The next-step line repeats after the main text, where readers decide.
+    var sections = [{ id: 'overview', title: i18n.t(l, 'ui.overview'), html: blocks(page.overview) + leadLine(page) }];
     if (page.example_body) sections.push({ id: 'example', title: i18n.t(l, 'ui.example'), html: '<div class="insight__example">' + blocks(page.example_body) + '</div>' });
     sections.push({
         id: 'personas', title: i18n.t(l, 'ui.personas'),

@@ -16,6 +16,8 @@ var validate = require('../insights/validate');
 var pipeline = require('../insights/pipeline');
 var render = require('../insights/render');
 
+// Number of guides in the taxonomy.
+var GUIDES = require('../insights/taxonomy').entries().filter(function(e) { return e.axis === 'guides'; }).length;
 var LAYOUT_DIR = path.join(__dirname, '..', 'src', 'html', 'layout');
 
 function tmp() {
@@ -304,7 +306,7 @@ test('render: only published pages are built; preview adds unpublished ones as n
     assert.ok(!fs.existsSync(path.join(normal.out, 'sitemap.xml')));
 
     var preview = buildTo(dir, true);
-    assert.equal(preview.result.pages, 16);
+    assert.equal(preview.result.pages, GUIDES);
     assert.match(html(preview.out, 'insights/guides/laravel-vs-wordpress'), /<meta name="robots" content="noindex, nofollow">/);
     assert.ok(!fs.existsSync(path.join(preview.out, 'sitemap.xml')));
 
@@ -376,7 +378,7 @@ test('render: hubs carry subtitles and are built only with at least two pages', 
     });
     var out = buildTo(dir).out;
     var hub = html(out, 'insights/guides');
-    assert.equal(hub.match(/<ul class="insight-list">[\s\S]*?<\/ul>/)[0].match(/<li><a href=[^>]+>[^<]+<\/a><p>[^<]+<\/p><\/li>/g).length, 16);
+    assert.equal(hub.match(/<ul class="insight-list">[\s\S]*?<\/ul>/)[0].match(/<li><a href=[^>]+>[^<]+<\/a><p>[^<]+<\/p><\/li>/g).length, GUIDES);
     assert.ok(!fs.existsSync(path.join(out, 'insights/products/index.html')), 'a hub with one page is not built');
     var index = html(out, 'insights');
     assert.ok(index.indexOf('href="/insights/products/"') === -1, 'and not linked');
@@ -414,7 +416,7 @@ test('sitemap: an index, the site pages, and one file per locale with pages, hub
         assert.ok(fs.existsSync(path.join(built.out, name)), name);
     });
     var de = fs.readFileSync(path.join(built.out, 'sitemap-insights-de.xml'), 'utf8');
-    assert.equal(de.match(/<loc>/g).length, 16 + 2);
+    assert.equal(de.match(/<loc>/g).length, GUIDES + 2);
     assert.ok(de.indexOf('<loc>https://shvedko.dev/de/insights/</loc>') !== -1);
     assert.ok(de.indexOf('<loc>https://shvedko.dev/de/insights/guides/</loc>') !== -1);
     assert.ok(de.indexOf('hreflang="x-default" href="https://shvedko.dev/insights/guides/laravel-vs-wordpress/"') !== -1);
