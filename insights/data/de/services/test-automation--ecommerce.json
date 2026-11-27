@@ -34,7 +34,7 @@
       "a": "Zahlungsdienstleister bieten einen Testmodus mit Testzugängen und Testkarten. End-to-End-Tests nutzen ihn, um eine vollständige Bestellung zu durchlaufen. In schnelleren Tests wird der Dienstleister durch einen Ersatz vertreten, der vorbereitete Antworten liefert. So lassen sich auch seltene Fälle prüfen, etwa abgelehnte, verspätete oder doppelte Zahlungsmeldungen."
     }
   ],
-  "meta_description": "Automatisierte Testbestellungen im E-Commerce: Kasse, Zahlung und Versand vor jedem Update automatisch prüfen.",
+  "meta_description": "Testautomatisierung für E-Commerce und Einzelhandel: automatisierte Testbestellungen prüfen Kasse, Zahlung und Versand vor jedem Update.",
   "example_body": null,
   "generated_at": "2026-10-01T15:22:29.613Z",
   "updated_at": "2026-10-01T18:58:05.142Z"
