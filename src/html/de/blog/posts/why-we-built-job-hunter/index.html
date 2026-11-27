@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    //= layout/head.html
+    <link rel="alternate" hreflang="en" href="https://shvedko.dev/blog/posts/why-we-built-job-hunter/">
+    <link rel="alternate" hreflang="de" href="https://shvedko.dev/de/blog/posts/why-we-built-job-hunter/">
+    <link rel="alternate" hreflang="x-default" href="https://shvedko.dev/blog/posts/why-we-built-job-hunter/">
+    <title>Warum wir Job Hunter gebaut haben: Upwork-Jobs finden, die sich lohnen · ShvedkoDev Blog</title>
+    <meta name="description" content="Upwork-Jobs finden, die sich lohnen: Warum ein Job-Finder für Upwork Freelancern langes Scrollen erspart und was eine gute Bewerbungschance ausmacht.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Warum wir Job Hunter gebaut haben: Upwork-Jobs finden, die sich lohnen · ShvedkoDev Blog">
+    <meta property="og:description" content="Upwork-Jobs finden, die sich lohnen: Warum ein Job-Finder für Upwork Freelancern langes Scrollen erspart und was eine gute Bewerbungschance ausmacht.">
+    <meta property="og:url" content="https://shvedko.dev/de/blog/posts/why-we-built-job-hunter/">
+    <meta property="og:site_name" content="ShvedkoDev">
+    <meta property="og:locale" content="de_DE">
+    <link rel="canonical" href="https://shvedko.dev/de/blog/posts/why-we-built-job-hunter/">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+        //= layout/header.de.html
+        <main role="main" id="main">
+            <div class="container">
+                <article class="blog-post">
+                    <header class="blog-post__header animate-on-scroll fade-in">
+                        <div class="blog-post__meta">
+                            <a href="/de/blog/" class="blog-post__back">← Blog</a>
+                            <time datetime="2026-11-27">27. November 2026</time>
+                        </div>
+                        <h1>Warum wir Job Hunter gebaut haben: Upwork-Jobs finden, die sich lohnen</h1>
+                        <div class="blog-post__tags">
+                            <span class="tag">Job Hunter</span>
+                            <span class="tag">Upwork</span>
+                            <span class="tag">Freelancing</span>
+                            <span class="tag">Produkt</span>
+                        </div>
+                    </header>
+
+                    <nav class="blog-series" aria-label="Serie">
+                        <p class="blog-series__label">Teil 1 von 5: So bauen wir Job Hunter</p>
+                        <ol>
+                            <li><span aria-current="page">Warum wir Job Hunter gebaut haben: Upwork-Jobs finden, die sich lohnen</span></li>
+                            <li><a href="/de/blog/posts/ai-job-scoring-hard-filters-first/">Upwork-Jobs mit KI bewerten: erst harte Filter, dann das Modell</a></li>
+                            <li><a href="/de/blog/posts/ai-cover-letters-drafts-not-auto-submit/">KI-Anschreiben für Upwork: Entwürfe statt automatischer Bewerbung</a></li>
+                            <li><a href="/de/blog/posts/upwork-graphql-api-engineering-lessons/">Mit der Upwork-GraphQL-API bauen: Lehren aus der Entwicklung</a></li>
+                            <li><a href="/de/blog/posts/job-hunter-privacy-eu-hosting/">Datenschutz von Anfang an: EU-Hosting und die 24-Stunden-Regel</a></li>
+                        </ol>
+                    </nav>
+
+                    <div class="blog-post__body animate-on-scroll fade-in">
+
+                        <figure class="blog-post__figure">
+                            <img src="/images/blog/why-we-built-job-hunter-de.svg" alt="Diagramm: Neue Jobs aus Ihren gespeicherten Suchen durchlaufen vier Fragen (Budget, Kunde, Bewerber, Skills), nur passende Jobs landen mit Score und Entwurf auf einer kurzen Liste" width="880">
+                            <figcaption>Die Idee in einem Bild: vom langen Feed zur kurzen Liste. Der gezeigte Job ist ein fiktives Beispiel.</figcaption>
+                        </figure>
+
+                        <p>Wer auf Upwork arbeitet, kennt das Ritual. Morgens den Feed öffnen, scrollen, einen Job im neuen Tab öffnen, lesen, schließen, weiterscrollen. Eine Stunde später haben Sie viele Ausschreibungen gelesen und sich auf kaum eine beworben. Am nächsten Morgen geht es von vorne los. Wir haben das selbst jahrelang so gemacht. Irgendwann haben wir uns eine einfache Frage gestellt: Welcher Teil dieser Arbeit braucht eigentlich einen Menschen?</p>
+
+                        <p>Dieser Beitrag ist der Auftakt einer Serie darüber, wie wir <a href="https://jobhunter.works/">Job Hunter</a> entwickelt haben, unser Werkzeug für Upwork-Freelancer. Hier geht es um das Problem und um die Frage, was ein Job ist, für den sich eine Bewerbung lohnt. Die weiteren Teile behandeln die Technik: Bewertung, Anschreiben, API und Datenschutz.</p>
+
+                        <h2>Was das Scrollen wirklich kostet</h2>
+
+                        <p>Durch den Feed zu scrollen fühlt sich produktiv an, schließlich suchen Sie ja Arbeit. Doch der größte Teil dieser Zeit fließt in Jobs, auf die Sie sich nie bewerben werden. Sie öffnen eine Ausschreibung und sehen nach zehn Sekunden, dass das Budget viel zu niedrig ist. Beim nächsten Job hat der Kunde weder Historie noch hinterlegte Zahlungsmethode. Der dritte passt gut, hat aber schon eine lange Liste an Vorschlägen. Jede dieser Entscheidungen ist klein. Zusammen fressen sie den Vormittag.</p>
+
+                        <p>Dazu kommt ein zweiter Preis, den man leicht übersieht. Bewerbungen auf Upwork kosten Connects, und Connects kosten Geld. Wer sich auf einen Job bewirbt, der nie gepasst hat, verliert die Connects und die Zeit für das Anschreiben. Wer viel und ungefiltert bewirbt, zahlt also doppelt. Wie Sie hier gegensteuern, beschreiben wir ausführlich in unserem Leitfaden <a href="https://jobhunter.works/insights/guides/save-upwork-connects">Upwork-Connects gezielt einsetzen</a>.</p>
+
+                        <p>Der dritte Preis ist das Timing. Gute Jobs bekommen schnell Aufmerksamkeit. Wer den Feed zweimal am Tag prüft, findet den passenden Job oft erst, wenn sich dort schon viele beworben haben. Also schauen Freelancer häufiger nach, und damit sind wir wieder beim ersten Punkt.</p>
+
+                        <h2>Was ein Job ist, für den sich eine Bewerbung lohnt</h2>
+
+                        <p>Bevor wir eine Zeile Code geschrieben haben, mussten wir das Ziel festlegen. "Guter Job" ist zu vage, um darauf Software zu bauen. Als wir genauer hingeschaut haben, wie wir selbst entscheiden, wurden zwei Ebenen sichtbar.</p>
+
+                        <p>Die erste Ebene sind harte Fakten, also Fragen mit einer klaren Ja-oder-Nein-Antwort:</p>
+
+                        <ul>
+                            <li><strong>Budget.</strong> Liegt der Festpreis oder der Stundensatz in einem Bereich, der sich für Sie rechnet?</li>
+                            <li><strong>Kundenbewertung.</strong> Hat der Kunde eine Bewertung, mit der Sie leben können, oder gar keine?</li>
+                            <li><strong>Anzahl der Bewerber.</strong> Ist der Job noch offen genug, dass ein neuer Vorschlag gelesen wird?</li>
+                            <li><strong>Land.</strong> Sitzt der Kunde in einem Land, mit dem Sie arbeiten möchten, etwa wegen Zeitzone, Sprache oder Rechnungsstellung?</li>
+                        </ul>
+
+                        <p>Fällt ein Job bei einer dieser Prüfungen durch, gibt es keinen Grund, ihn zu lesen. Dafür braucht es keine Intelligenz, nur Regeln. Ein Computer wendet sie in Millisekunden an und wird am Ende einer langen Scroll-Runde nicht müde.</p>
+
+                        <p>Die zweite Ebene ist die inhaltliche Passung. Hier lesen Sie die Beschreibung und fragen sich: Ist das mein Projekt? Beschreibt der Kunde das Problem klar? Kenne ich diesen Stack? Hätte ich Freude an der Arbeit? Auf diese Fragen gibt es kein einfaches Ja oder Nein. Sie verlangen Urteilsvermögen, und genau hier kostet das Lesen Zeit.</p>
+
+                        <p>Ein fiktives Beispiel: "Laravel developer for a booking platform", Festpreis, Kunde in Deutschland. Die harten Fakten zeigen schnell, ob Budget und Kunde in Frage kommen. Ob es aber um einen sauberen Neubau oder um die Rettung einer alten Codebasis geht und ob das zu Ihnen passt, verrät erst die Beschreibung. Beides sind legitime Aufträge, nur eben nicht für jeden.</p>
+
+                        <p>Gerade für Freelancer im deutschsprachigen Raum spielt das Land oft eine besondere Rolle, etwa wegen Vertragssprache oder Rechnungsstellung. Dazu haben wir einen eigenen Leitfaden geschrieben: <a href="https://jobhunter.works/insights/guides/upwork-german-clients">deutsche Kunden auf Upwork finden</a>.</p>
+
+                        <h2>Warum ein Job-Finder und nicht einfach Benachrichtigungen</h2>
+
+                        <p>Upwork bietet bereits gespeicherte Suchen mit Benachrichtigungen. Das hilft beim Timing, aber nicht beim Lesen. Eine gespeicherte Suche nach "Laravel" liefert weiterhin jeden Laravel-Job, auch alle, die Sie nach zehn Sekunden wieder schließen würden. Mehr Benachrichtigungen ohne Filter verlagern das Scrollen nur vom Browser aufs Handy.</p>
+
+                        <p>Wir wollten deshalb ein Werkzeug, das drei Dinge nacheinander erledigt. Erstens holt es Jobs für Ihre eigenen gespeicherten Suchprofile mit den Stichwörtern, die Sie wählen, sodass Sie die volle Kontrolle darüber behalten, wonach gesucht wird. Zweitens wendet es harte Filter im Code an: eine Budgetuntergrenze und eine maximale Bewerberzahl, die Sie pro Profil festlegen, dazu feste Regeln für Kundenbewertung, Region des Kunden (Nordamerika oder Europa) und Alter des Jobs. Drittens schätzt es für die verbleibenden Jobs mit KI die Passung ein und vergibt einen Score von 0 bis 100. Erst dann kommt die Benachrichtigung, per E-Mail, Slack, Telegram oder Push.</p>
+
+                        <p>Die Reihenfolge ist entscheidend. Harte Filter sind günstig, exakt und leicht nachvollziehbar. KI ist nützlich, wo es um Urteilsvermögen geht, sollte aber nichts entscheiden, was eine einfache Regel entscheiden kann. Wie das im Detail aussieht, zeigen wir im nächsten Teil: <a href="/de/blog/posts/ai-job-scoring-hard-filters-first/">Upwork-Jobs mit KI bewerten: erst harte Filter, dann das Modell</a>.</p>
+
+                        <h2>Was wir bewusst nicht gebaut haben</h2>
+
+                        <p>Eine Entscheidung haben wir sehr früh getroffen, und sie prägt alles Weitere: Job Hunter bewirbt sich nicht für Sie. Das Werkzeug schreibt einen Entwurf für das Anschreiben und für die Antworten auf Screening-Fragen. Sie lesen ihn, passen ihn an und senden den Vorschlag selbst auf Upwork ab. Die Upwork-API erlaubt das Absenden von Vorschlägen nicht, und wir würden es auch sonst nicht tun. Ein Vorschlag ist Ihre Stimme und Ihr Ruf. Ein Werkzeug soll ihn vorbereiten, nicht verschicken.</p>
+
+                        <p>Damit ist auch klar, woran wir Erfolg messen. Nicht an der Zahl der versendeten Vorschläge, sondern daran, dass Sie weniger Zeit mit unpassenden Jobs verbringen und Ihre Connects und Ihre Aufmerksamkeit in die wenigen Jobs fließen, die wirklich passen.</p>
+
+                        <h2>Für wen Job Hunter gedacht ist</h2>
+
+                        <p>Job Hunter richtet sich an Freelancer, die schon wissen, was sie wollen: einen klaren Stack, einen Stundensatz, eine bestimmte Art von Kunden. Wer den Markt noch erkundet, lernt beim Scrollen durchaus etwas. Sobald Ihr Profil aber feststeht, ist das manuelle Lesen hunderter Ausschreibungen Arbeit, die eine Maschine übernehmen kann, zumindest den ersten, mechanischen Teil davon.</p>
+
+                        <p>Gebaut haben wir das Produkt mit den Werkzeugen, die wir auch in Kundenprojekten täglich einsetzen: Laravel 12, Filament, MySQL und Redis mit Horizon für die Queues sowie Modelle von OpenAI und Anthropic für Bewertung und Entwürfe. Gehostet wird bei Hetzner in Deutschland. Der Zugang erfolgt derzeit auf Einladung, anfragen können Sie ihn auf der Startseite.</p>
+
+                        <p>Im nächsten Teil zeigen wir, wie die Bewertung funktioniert: warum die harten Filter zuerst laufen, was das Modell zu sehen bekommt und was der Score von 0 bis 100 in der Praxis bedeutet. Weiter geht es mit <a href="/de/blog/posts/ai-job-scoring-hard-filters-first/">Teil 2</a>.</p>
+
+                        <p><em>Upwork ist eine Marke ihres Inhabers. Job Hunter ist ein unabhängiges Werkzeug für Upwork-Freelancer.</em></p>
+
+                    </div>
+
+                    <footer class="blog-post__footer animate-on-scroll fade-in">
+                        <p>Von <a href="/de/about/">Hennadii Shvedko</a>, ShvedkoDev · <a href="/de/contact/">Kontakt aufnehmen</a></p>
+                        <a href="/de/blog/" class="button outline">← Zurück zum Blog</a>
+                    </footer>
+                </article>
+            </div>
+        </main>
+        //= layout/footer.de.html
+    </div>
+</body>
+
+</html>

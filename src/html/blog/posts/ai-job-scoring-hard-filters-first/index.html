@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    //= layout/head.html
+    <link rel="alternate" hreflang="en" href="https://shvedko.dev/blog/posts/ai-job-scoring-hard-filters-first/">
+    <link rel="alternate" hreflang="de" href="https://shvedko.dev/de/blog/posts/ai-job-scoring-hard-filters-first/">
+    <link rel="alternate" hreflang="x-default" href="https://shvedko.dev/blog/posts/ai-job-scoring-hard-filters-first/">
+    <title>Scoring Upwork Jobs with AI: Hard Filters First, Then the Model · ShvedkoDev Blog</title>
+    <meta name="description" content="AI job scoring for Upwork in two stages: hard filters in code for budget, rating, applicants and country, then an explainable 0-100 model score.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Scoring Upwork Jobs with AI: Hard Filters First, Then the Model · ShvedkoDev Blog">
+    <meta property="og:description" content="AI job scoring for Upwork in two stages: hard filters in code for budget, rating, applicants and country, then an explainable 0-100 model score.">
+    <meta property="og:url" content="https://shvedko.dev/blog/posts/ai-job-scoring-hard-filters-first/">
+    <meta property="og:site_name" content="ShvedkoDev">
+    <meta property="og:locale" content="en_US">
+    <link rel="canonical" href="https://shvedko.dev/blog/posts/ai-job-scoring-hard-filters-first/">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+        //= layout/header.html
+        <main role="main" id="main">
+            <div class="container">
+                <article class="blog-post">
+                    <header class="blog-post__header animate-on-scroll fade-in">
+                        <div class="blog-post__meta">
+                            <a href="/blog/" class="blog-post__back">← Blog</a>
+                            <time datetime="2026-11-27">November 27, 2026</time>
+                        </div>
+                        <h1>Scoring Upwork Jobs with AI: Hard Filters First, Then the Model</h1>
+                        <div class="blog-post__tags">
+                            <span class="tag">Job Hunter</span>
+                            <span class="tag">Upwork</span>
+                            <span class="tag">AI</span>
+                            <span class="tag">Laravel</span>
+                        </div>
+                    </header>
+
+                    <nav class="blog-series" aria-label="Series">
+                        <p class="blog-series__label">Part 2 of 5: Building Job Hunter</p>
+                        <ol>
+                            <li><a href="/blog/posts/why-we-built-job-hunter/">Why We Built Job Hunter: Finding Upwork Jobs Worth Applying To</a></li>
+                            <li><span aria-current="page">Scoring Upwork Jobs with AI: Hard Filters First, Then the Model</span></li>
+                            <li><a href="/blog/posts/ai-cover-letters-drafts-not-auto-submit/">AI Cover Letters for Upwork: Drafts, Not Auto-Submit</a></li>
+                            <li><a href="/blog/posts/upwork-graphql-api-engineering-lessons/">Building on the Upwork GraphQL API: Engineering Lessons</a></li>
+                            <li><a href="/blog/posts/job-hunter-privacy-eu-hosting/">Privacy by Design: EU Hosting and the 24-Hour Data Rule</a></li>
+                        </ol>
+                    </nav>
+
+                    <div class="blog-post__body animate-on-scroll fade-in">
+
+                        <figure class="blog-post__figure">
+                            <img src="/images/blog/ai-job-scoring-hard-filters-first-en.svg" alt="Diagram: a job from a saved search passes hard filters in code (budget, client rating, applicants, country, posting age), then the AI model gives a score from 0 to 100 with reasons, then an alert is sent" width="880">
+                            <figcaption>Two stages: cheap, strict rules in code first; the model only sees jobs that passed. The job shown is an invented example.</figcaption>
+                        </figure>
+
+                        <p>In <a href="/blog/posts/why-we-built-job-hunter/">part 1</a> we explained why we built Job Hunter: a freelancer's real problem is not finding jobs, it is deciding quickly which few are worth a proposal. This post is about the part that makes that decision. When people ask us about AI job scoring for Upwork, they usually expect us to say "we send every job to a large language model and it tells you what is good". That is not what we do, and the reasons are worth explaining.</p>
+
+                        <p>Our pipeline has two stages. First, hard filters in plain code throw out every job that breaks a rule the freelancer has set. Second, a model scores only the jobs that survived, from 0 to 100, and it has to say why. The order matters, and so does the "why".</p>
+
+                        <h2>Why not let the model decide everything?</h2>
+
+                        <p>It is tempting. A model can read a job description, understand the client's tone, and guess whether the work fits your profile. So why not ask it about the budget and the client rating too?</p>
+
+                        <p>Because some questions have exact answers, and a model is the wrong tool for exact answers. If a freelancer says "no fixed-price jobs under a certain amount", that is a comparison of two numbers. If they say "skip jobs that already have more than a set number of applicants", that is another comparison. A model will get these right most of the time. Most of the time is not good enough for a rule the user wrote down explicitly. One job that slips through and breaks the user's own rule damages trust in every score that follows.</p>
+
+                        <p>There is also cost and speed. Every model call takes time and money. A saved search can return many jobs, and a large part of them fail a simple rule. Sending those to a model means paying to learn something a single <code>if</code> statement already knows.</p>
+
+                        <h2>Stage 1: hard filters in code</h2>
+
+                        <p>Job Hunter fetches jobs from the user's own saved searches through the Upwork GraphQL API. Each job then goes through a set of hard filters, all of them plain PHP in our Laravel 12 application:</p>
+
+                        <ul>
+                            <li><strong>Budget.</strong> The user sets a minimum for fixed-price jobs and a minimum hourly rate for hourly jobs. If the job is below the line, it stops here.</li>
+                            <li><strong>Client rating.</strong> A client with a rating below 4.0 is filtered out.</li>
+                            <li><strong>Number of applicants.</strong> The user sets a maximum. If a job already has more proposals than that, there is little point in scoring it.</li>
+                            <li><strong>Country.</strong> Clients must be in North America or Europe, for time zones, language and invoicing. This is a fixed list of regions, so it is a list lookup.</li>
+                            <li><strong>Posting age.</strong> A job that has been open for more than two weeks (the default) is skipped, because the client has usually hired or stopped reading.</li>
+                        </ul>
+
+                        <p>Each filter is deterministic. The same job with the same settings always gets the same result, and we can write a unit test for each rule. When a filter rejects a job, we keep a short record of it with the rule that rejected it, and the user can see that reason in the job list. That sounds like a small detail, but it is the first half of explainability: if a user asks "why did I never see that job?", the answer is a fact, not a guess.</p>
+
+                        <p>The filters run right after each fetch, before a job is even stored as a real posting. Only the jobs that pass are handed to queued jobs on Redis with Horizon for scoring, so the queue waits on the model in stage 2, and only for jobs that deserve it.</p>
+
+                        <p>If you want to set these rules up well, we wrote a separate <a href="https://jobhunter.works/insights/guides/upwork-job-filter">guide on filtering Upwork jobs by budget, rating and country</a>. It goes into which thresholds make sense and what to avoid.</p>
+
+                        <h2>Stage 2: the model scores what passed</h2>
+
+                        <p>Only the jobs that passed every filter reach the model. Here the questions are fuzzy, and a model is good at fuzzy questions: does this description match the freelancer's skills? Is the scope clear or vague? Does the client describe a real project or a wish list? Is this a job the freelancer could win and deliver well?</p>
+
+                        <p>The model returns a score from 0 to 100. We use OpenAI and Anthropic models behind one interface, so we can compare them and change them without touching the rest of the pipeline. The prompt gets the job text, the freelancer's profile and the basic job facts, such as budget and client details, because they are part of the fit. But the yes or no on the hard rules stays in code: if the model complains about a budget or a country that the filters already accepted, the code removes that complaint from the result. Those questions are closed.</p>
+
+                        <p>Take our invented demo job: "Laravel developer for a booking platform", fixed price, client in Germany. Germany is in the allowed regions, and assume the budget passes. The filters let it through. The model now reads the description against a profile that lists Laravel and booking systems, and it might give a high score with reasons like "core stack matches", "scope is described in concrete features" and "booking domain experience in profile". If the description were two lines with no details, the same job would score lower, and the reason would say so.</p>
+
+                        <h2>Why the score must be explainable</h2>
+
+                        <p>A number alone is not useful. If Job Hunter says "73" and nothing else, the freelancer has two options: trust it blindly or read the whole job anyway. In the second case, we saved them nothing.</p>
+
+                        <p>So every score comes with short reasons: what pushed it up, what pulled it down. We ask the model for a JSON answer: the score, a short summary, sub-scores for skills, budget, client and clarity, and two lists of reasons, positive ("green flags") and negative ("red flags"). If the answer cannot be parsed as JSON, the call fails and the queued job tries again later. The summary and the reasons are shown in the alert and in the dashboard next to the score.</p>
+
+                        <p>Explainable scores help in three ways:</p>
+
+                        <ul>
+                            <li><strong>The user can disagree quickly.</strong> If a reason is wrong ("no mobile experience", when the profile clearly lists it), the user sees it at once and can fix the profile or ignore the score.</li>
+                            <li><strong>We can debug the prompt.</strong> When scores look odd, the reasons show us what the model paid attention to. A bare number would give us nothing to work with.</li>
+                            <li><strong>Trust grows in the right direction.</strong> A freelancer should trust the score because the reasons keep making sense, not because a number looks precise.</li>
+                        </ul>
+
+                        <p>Explainability is also why the split between the two stages is so clean. Every "no" from stage 1 has an exact cause from code. Every score from stage 2 has reasons in words. There is no step where a job disappears and nobody can say why. We go deeper into how the score is built and how to read it in our <a href="https://jobhunter.works/insights/guides/upwork-job-scoring">guide to reading Upwork job scores</a>.</p>
+
+                        <h2>What we learned</h2>
+
+                        <p>A few lessons from building this:</p>
+
+                        <ul>
+                            <li><strong>Put every rule the user can state exactly into code.</strong> If a setting has a number or a list, it belongs in a filter, not in a prompt.</li>
+                            <li><strong>Keep the model's job narrow.</strong> The model answers "how well does this fit?", nothing else. A narrow question gives more stable scores.</li>
+                            <li><strong>Store the reason with the result.</strong> For filters, the rule that rejected the job. For scores, the reasons. Without them, support questions become guesswork.</li>
+                            <li><strong>A score is advice, not a decision.</strong> Job Hunter does not apply for anything. The user reads the job, the score and the reasons, and submits a proposal on Upwork by hand if they want to.</li>
+                        </ul>
+
+                        <p>That last point leads to the next stage. Once a job has a good score, Job Hunter writes a cover letter draft and answers to screening questions. How we keep those drafts useful and why we never submit them is the topic of <a href="/blog/posts/ai-cover-letters-drafts-not-auto-submit/">part 3: AI cover letters for Upwork</a>.</p>
+
+                        <p>Job Hunter is a tool for Upwork freelancers, built by us and not connected to Upwork; Upwork is a trademark of its owner. Access is by invitation, and you can request it on <a href="https://jobhunter.works/">jobhunter.works</a>.</p>
+
+                    </div>
+
+                    <footer class="blog-post__footer animate-on-scroll fade-in">
+                        <p>Written by <a href="/about/">Hennadii Shvedko</a>, ShvedkoDev · <a href="/contact/">Get in touch</a></p>
+                        <a href="/blog/" class="button outline">← Back to Blog</a>
+                    </footer>
+                </article>
+            </div>
+        </main>
+        //= layout/footer.html
+    </div>
+</body>
+
+</html>

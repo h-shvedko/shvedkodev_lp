@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    //= layout/head.html
+    <link rel="alternate" hreflang="en" href="https://shvedko.dev/blog/posts/ai-job-scoring-hard-filters-first/">
+    <link rel="alternate" hreflang="de" href="https://shvedko.dev/de/blog/posts/ai-job-scoring-hard-filters-first/">
+    <link rel="alternate" hreflang="x-default" href="https://shvedko.dev/blog/posts/ai-job-scoring-hard-filters-first/">
+    <title>Upwork-Jobs mit KI bewerten: erst harte Filter, dann das Modell · ShvedkoDev Blog</title>
+    <meta name="description" content="KI-Bewertung von Upwork-Jobs in zwei Stufen: harte Filter im Code für Budget, Bewertung und Bewerber, danach ein nachvollziehbarer Score von 0 bis 100.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Upwork-Jobs mit KI bewerten: erst harte Filter, dann das Modell · ShvedkoDev Blog">
+    <meta property="og:description" content="KI-Bewertung von Upwork-Jobs in zwei Stufen: harte Filter im Code für Budget, Bewertung und Bewerber, danach ein nachvollziehbarer Score von 0 bis 100.">
+    <meta property="og:url" content="https://shvedko.dev/de/blog/posts/ai-job-scoring-hard-filters-first/">
+    <meta property="og:site_name" content="ShvedkoDev">
+    <meta property="og:locale" content="de_DE">
+    <link rel="canonical" href="https://shvedko.dev/de/blog/posts/ai-job-scoring-hard-filters-first/">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+        //= layout/header.de.html
+        <main role="main" id="main">
+            <div class="container">
+                <article class="blog-post">
+                    <header class="blog-post__header animate-on-scroll fade-in">
+                        <div class="blog-post__meta">
+                            <a href="/de/blog/" class="blog-post__back">← Blog</a>
+                            <time datetime="2026-11-27">27. November 2026</time>
+                        </div>
+                        <h1>Upwork-Jobs mit KI bewerten: erst harte Filter, dann das Modell</h1>
+                        <div class="blog-post__tags">
+                            <span class="tag">Job Hunter</span>
+                            <span class="tag">Upwork</span>
+                            <span class="tag">KI</span>
+                            <span class="tag">Laravel</span>
+                        </div>
+                    </header>
+
+                    <nav class="blog-series" aria-label="Serie">
+                        <p class="blog-series__label">Teil 2 von 5: So bauen wir Job Hunter</p>
+                        <ol>
+                            <li><a href="/de/blog/posts/why-we-built-job-hunter/">Warum wir Job Hunter gebaut haben: Upwork-Jobs finden, die sich lohnen</a></li>
+                            <li><span aria-current="page">Upwork-Jobs mit KI bewerten: erst harte Filter, dann das Modell</span></li>
+                            <li><a href="/de/blog/posts/ai-cover-letters-drafts-not-auto-submit/">KI-Anschreiben für Upwork: Entwürfe statt automatischer Bewerbung</a></li>
+                            <li><a href="/de/blog/posts/upwork-graphql-api-engineering-lessons/">Mit der Upwork-GraphQL-API bauen: Lehren aus der Entwicklung</a></li>
+                            <li><a href="/de/blog/posts/job-hunter-privacy-eu-hosting/">Datenschutz von Anfang an: EU-Hosting und die 24-Stunden-Regel</a></li>
+                        </ol>
+                    </nav>
+
+                    <div class="blog-post__body animate-on-scroll fade-in">
+
+                        <figure class="blog-post__figure">
+                            <img src="/images/blog/ai-job-scoring-hard-filters-first-de.svg" alt="Diagramm: Ein Job aus einer gespeicherten Suche durchläuft harte Filter im Code (Budget, Kundenbewertung, Bewerber, Land, Alter der Ausschreibung), danach vergibt das KI-Modell einen Score von 0 bis 100 mit Begründung, dann folgt die Benachrichtigung" width="880">
+                            <figcaption>Zwei Stufen: zuerst günstige, strikte Regeln im Code, das Modell sieht nur Jobs, die bestanden haben. Der gezeigte Job ist ein erfundenes Beispiel.</figcaption>
+                        </figure>
+
+                        <p>In <a href="/de/blog/posts/why-we-built-job-hunter/">Teil 1</a> haben wir erklärt, warum wir Job Hunter gebaut haben: Das eigentliche Problem von Freelancern ist nicht, Jobs zu finden, sondern schnell zu entscheiden, welche wenigen ein Angebot wert sind. In diesem Beitrag geht es um den Teil, der diese Entscheidung vorbereitet. Wenn uns jemand nach der KI-Bewertung von Upwork-Jobs fragt, erwartet er meist die Antwort: "Wir schicken jeden Job an ein großes Sprachmodell, und das sagt Ihnen, was gut ist." Genau so machen wir es nicht, und die Gründe dafür lohnen sich.</p>
+
+                        <p>Unsere Pipeline hat zwei Stufen. Zuerst sortieren harte Filter in normalem Code jeden Job aus, der gegen eine Regel des Freelancers verstößt. Danach bewertet ein Modell nur die verbleibenden Jobs mit einem Score von 0 bis 100, und es muss begründen, warum. Die Reihenfolge ist wichtig, die Begründung ebenso.</p>
+
+                        <h2>Warum entscheidet nicht einfach das Modell über alles?</h2>
+
+                        <p>Die Versuchung ist groß. Ein Modell kann eine Jobbeschreibung lesen, den Ton des Kunden erfassen und einschätzen, ob die Aufgabe zu Ihrem Profil passt. Warum also nicht auch gleich Budget und Kundenbewertung prüfen lassen?</p>
+
+                        <p>Weil manche Fragen eine exakte Antwort haben, und dafür ist ein Modell das falsche Werkzeug. Wenn ein Freelancer sagt "keine Festpreis-Jobs unter einem bestimmten Betrag", ist das ein Vergleich zweier Zahlen. "Keine Jobs, die schon mehr als eine bestimmte Zahl an Bewerbern haben" ist ebenfalls ein Vergleich. Ein Modell liegt dabei meistens richtig. Meistens reicht aber nicht für eine Regel, die der Nutzer ausdrücklich festgelegt hat. Ein einziger Job, der durchrutscht und die eigene Regel bricht, beschädigt das Vertrauen in jeden folgenden Score.</p>
+
+                        <p>Dazu kommen Kosten und Geschwindigkeit. Jeder Modellaufruf kostet Zeit und Geld. Eine gespeicherte Suche liefert viele Jobs, und ein großer Teil davon scheitert an einer einfachen Regel. Diese Jobs an ein Modell zu schicken heißt, für etwas zu bezahlen, das eine einzige <code>if</code>-Abfrage bereits weiß.</p>
+
+                        <h2>Stufe 1: harte Filter im Code</h2>
+
+                        <p>Job Hunter holt Jobs aus den eigenen gespeicherten Suchen des Nutzers über die Upwork-GraphQL-API. Jeder Job durchläuft dann mehrere harte Filter, alle als einfacher PHP-Code in unserer Laravel-12-Anwendung:</p>
+
+                        <ul>
+                            <li><strong>Budget.</strong> Der Nutzer legt einen Mindestbetrag für Festpreis-Jobs und ein Mindeststundensatz für Stundenjobs. Liegt der Job darunter, endet sein Weg hier.</li>
+                            <li><strong>Kundenbewertung.</strong> Kunden mit einer Bewertung unter 4,0 werden aussortiert.</li>
+                            <li><strong>Anzahl der Bewerber.</strong> Der Nutzer legt ein Maximum fest. Hat ein Job schon mehr Angebote, lohnt sich eine Bewertung kaum.</li>
+                            <li><strong>Land.</strong> Kunden müssen in Nordamerika oder Europa sitzen, wegen Zeitzone, Sprache und Rechnungsstellung. Das ist eine feste Liste von Regionen, also eine einfache Prüfung gegen diese Liste.</li>
+                            <li><strong>Alter der Ausschreibung.</strong> Ein Job, der länger als zwei Wochen offen ist (der Standardwert), wird übersprungen, denn meist hat der Kunde dann schon jemanden gefunden oder liest nicht mehr mit.</li>
+                        </ul>
+
+                        <p>Jeder Filter ist deterministisch. Derselbe Job mit denselben Einstellungen bekommt immer dasselbe Ergebnis, und für jede Regel können wir einen Unit-Test schreiben. Lehnt ein Filter einen Job ab, behalten wir einen kurzen Eintrag mit der Regel, die ihn abgelehnt hat, und der Nutzer sieht diesen Grund in der Jobliste. Das klingt nach einem Detail, ist aber die erste Hälfte der Nachvollziehbarkeit: Fragt ein Nutzer "Warum habe ich diesen Job nie gesehen?", ist die Antwort eine Tatsache und keine Vermutung.</p>
+
+                        <p>Die Filter laufen direkt nach jedem Abruf, noch bevor ein Job als echte Ausschreibung gespeichert wird. Nur Jobs, die bestehen, gehen zur Bewertung in Queue-Jobs auf Redis mit Horizon. Die Queue wartet also auf das Modell in Stufe 2, und das nur bei Jobs, die es verdienen.</p>
+
+                        <p>Wenn Sie diese Regeln sinnvoll einstellen möchten: Wir haben eine eigene <a href="https://jobhunter.works/insights/guides/upwork-job-filter">Anleitung zum Filtern von Upwork-Jobs nach Budget, Bewertung und Land</a> geschrieben. Dort geht es darum, welche Schwellenwerte sinnvoll sind und was Sie vermeiden sollten.</p>
+
+                        <h2>Stufe 2: Das Modell bewertet, was übrig bleibt</h2>
+
+                        <p>Nur Jobs, die alle Filter bestanden haben, erreichen das Modell. Hier sind die Fragen unscharf, und unscharfe Fragen kann ein Modell gut beantworten: Passt die Beschreibung zu den Fähigkeiten des Freelancers? Ist der Umfang klar oder vage? Beschreibt der Kunde ein echtes Projekt oder eine Wunschliste? Kann der Freelancer diesen Auftrag gewinnen und gut umsetzen?</p>
+
+                        <p>Das Modell liefert einen Score von 0 bis 100. Wir nutzen Modelle von OpenAI und Anthropic hinter einer gemeinsamen Schnittstelle, sodass wir sie vergleichen und austauschen können, ohne den Rest der Pipeline anzufassen. Der Prompt enthält den Jobtext, das Profil des Freelancers und die wichtigsten Eckdaten wie Budget und Angaben zum Kunden, denn sie gehören zur Passung. Das Ja oder Nein zu den harten Regeln bleibt aber im Code: Bemängelt das Modell ein Budget oder ein Land, das die Filter bereits akzeptiert haben, entfernt der Code diesen Einwand aus dem Ergebnis. Diese Fragen sind abgeschlossen.</p>
+
+                        <p>Nehmen wir unseren erfundenen Beispieljob: "Laravel developer for a booking platform", Festpreis, Kunde in Deutschland. Deutschland liegt in den erlaubten Regionen, und angenommen, das Budget passt. Die Filter lassen den Job durch. Das Modell liest die Beschreibung nun gegen ein Profil mit Laravel und Buchungssystemen und vergibt vielleicht einen hohen Score mit Gründen wie "Kern-Stack passt", "Umfang ist mit konkreten Funktionen beschrieben" und "Erfahrung mit Buchungsplattformen im Profil". Bestünde die Beschreibung nur aus zwei Zeilen ohne Details, bekäme derselbe Job einen niedrigeren Score, und die Begründung würde genau das sagen.</p>
+
+                        <h2>Warum der Score nachvollziehbar sein muss</h2>
+
+                        <p>Eine Zahl allein hilft wenig. Zeigt Job Hunter nur "73" an, bleiben dem Freelancer zwei Möglichkeiten: blind vertrauen oder den ganzen Job trotzdem lesen. Im zweiten Fall haben wir ihm nichts erspart.</p>
+
+                        <p>Deshalb kommt jeder Score mit kurzen Begründungen: was ihn nach oben gebracht hat und was nach unten. Wir fordern vom Modell eine Antwort im JSON-Format: den Score, eine kurze Zusammenfassung, Teilscores für Fähigkeiten, Budget, Kunde und Klarheit sowie zwei Listen mit Gründen, positive ("Green Flags") und negative ("Red Flags"). Lässt sich die Antwort nicht als JSON lesen, schlägt der Aufruf fehl, und der Queue-Job versucht es später erneut. Zusammenfassung und Gründe erscheinen in der Benachrichtigung und im Dashboard direkt neben dem Score.</p>
+
+                        <p>Nachvollziehbare Scores helfen auf drei Arten:</p>
+
+                        <ul>
+                            <li><strong>Sie können schnell widersprechen.</strong> Ist ein Grund falsch ("keine Mobile-Erfahrung", obwohl das Profil sie klar nennt), sehen Sie es sofort und können das Profil anpassen oder den Score ignorieren.</li>
+                            <li><strong>Wir können den Prompt debuggen.</strong> Wirken Scores seltsam, zeigen die Gründe, worauf das Modell geachtet hat. Eine nackte Zahl gäbe uns keinen Ansatzpunkt.</li>
+                            <li><strong>Vertrauen entsteht aus den richtigen Gründen.</strong> Ein Freelancer soll dem Score trauen, weil die Begründungen immer wieder stimmen, nicht weil eine Zahl präzise aussieht.</li>
+                        </ul>
+
+                        <p>Die Nachvollziehbarkeit ist auch der Grund, warum die Trennung der beiden Stufen so klar ist. Jedes "Nein" aus Stufe 1 hat eine exakte Ursache im Code. Jeder Score aus Stufe 2 hat eine Begründung in Worten. Es gibt keinen Schritt, in dem ein Job verschwindet und niemand sagen kann, warum. Wie der Score genau entsteht und wie Sie ihn lesen, erklären wir ausführlich im <a href="https://jobhunter.works/insights/guides/upwork-job-scoring">Leitfaden zum Job-Scoring für Upwork</a>.</p>
+
+                        <h2>Was wir gelernt haben</h2>
+
+                        <p>Einige Erkenntnisse aus der Entwicklung:</p>
+
+                        <ul>
+                            <li><strong>Jede Regel, die der Nutzer exakt formulieren kann, gehört in den Code.</strong> Hat eine Einstellung eine Zahl oder eine Liste, ist sie ein Filter und kein Teil des Prompts.</li>
+                            <li><strong>Die Aufgabe des Modells eng halten.</strong> Das Modell beantwortet nur die Frage "Wie gut passt das?". Eine enge Frage ergibt stabilere Scores.</li>
+                            <li><strong>Den Grund zusammen mit dem Ergebnis speichern.</strong> Bei Filtern die Regel, die den Job abgelehnt hat, beim Score die Begründungen. Ohne sie werden Support-Anfragen zum Ratespiel.</li>
+                            <li><strong>Ein Score ist ein Rat, keine Entscheidung.</strong> Job Hunter bewirbt sich nirgendwo. Sie lesen Job, Score und Gründe und reichen ein Angebot selbst auf Upwork ein, wenn Sie möchten.</li>
+                        </ul>
+
+                        <p>Der letzte Punkt führt zur nächsten Stufe. Hat ein Job einen guten Score, schreibt Job Hunter einen Entwurf für das Anschreiben und Antworten auf die Screening-Fragen. Wie wir diese Entwürfe nützlich halten und warum wir sie nie selbst absenden, lesen Sie in <a href="/de/blog/posts/ai-cover-letters-drafts-not-auto-submit/">Teil 3: KI-Anschreiben für Upwork</a>.</p>
+
+                        <p>Job Hunter ist ein Werkzeug für Upwork-Freelancer, von uns entwickelt und nicht mit Upwork verbunden; Upwork ist eine Marke ihres Inhabers. Der Zugang erfolgt auf Einladung, anfragen können Sie ihn auf <a href="https://jobhunter.works/">jobhunter.works</a>.</p>
+
+                    </div>
+
+                    <footer class="blog-post__footer animate-on-scroll fade-in">
+                        <p>Von <a href="/de/about/">Hennadii Shvedko</a>, ShvedkoDev · <a href="/de/contact/">Kontakt aufnehmen</a></p>
+                        <a href="/de/blog/" class="button outline">← Zurück zum Blog</a>
+                    </footer>
+                </article>
+            </div>
+        </main>
+        //= layout/footer.de.html
+    </div>
+</body>
+
+</html>

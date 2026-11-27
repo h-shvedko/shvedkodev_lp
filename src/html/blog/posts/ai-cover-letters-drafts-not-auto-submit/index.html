@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    //= layout/head.html
+    <link rel="alternate" hreflang="en" href="https://shvedko.dev/blog/posts/ai-cover-letters-drafts-not-auto-submit/">
+    <link rel="alternate" hreflang="de" href="https://shvedko.dev/de/blog/posts/ai-cover-letters-drafts-not-auto-submit/">
+    <link rel="alternate" hreflang="x-default" href="https://shvedko.dev/blog/posts/ai-cover-letters-drafts-not-auto-submit/">
+    <title>AI Cover Letters for Upwork: Drafts, Not Auto-Submit · ShvedkoDev Blog</title>
+    <meta name="description" content="How we built an AI cover letter and proposal writer for Upwork freelancers: short drafts in five languages, screening answers, and you submit by hand.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AI Cover Letters for Upwork: Drafts, Not Auto-Submit · ShvedkoDev Blog">
+    <meta property="og:description" content="How we built an AI cover letter and proposal writer for Upwork freelancers: short drafts in five languages, screening answers, and you submit by hand.">
+    <meta property="og:url" content="https://shvedko.dev/blog/posts/ai-cover-letters-drafts-not-auto-submit/">
+    <meta property="og:site_name" content="ShvedkoDev">
+    <meta property="og:locale" content="en_US">
+    <link rel="canonical" href="https://shvedko.dev/blog/posts/ai-cover-letters-drafts-not-auto-submit/">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+        //= layout/header.html
+        <main role="main" id="main">
+            <div class="container">
+                <article class="blog-post">
+                    <header class="blog-post__header animate-on-scroll fade-in">
+                        <div class="blog-post__meta">
+                            <a href="/blog/" class="blog-post__back">← Blog</a>
+                            <time datetime="2026-11-27">November 27, 2026</time>
+                        </div>
+                        <h1>AI Cover Letters for Upwork: Drafts, Not Auto-Submit</h1>
+                        <div class="blog-post__tags">
+                            <span class="tag">Job Hunter</span>
+                            <span class="tag">Upwork</span>
+                            <span class="tag">AI</span>
+                            <span class="tag">Cover Letters</span>
+                        </div>
+                    </header>
+
+                    <nav class="blog-series" aria-label="Series">
+                        <p class="blog-series__label">Part 3 of 5: Building Job Hunter</p>
+                        <ol>
+                            <li><a href="/blog/posts/why-we-built-job-hunter/">Why We Built Job Hunter: Finding Upwork Jobs Worth Applying To</a></li>
+                            <li><a href="/blog/posts/ai-job-scoring-hard-filters-first/">Scoring Upwork Jobs with AI: Hard Filters First, Then the Model</a></li>
+                            <li><span aria-current="page">AI Cover Letters for Upwork: Drafts, Not Auto-Submit</span></li>
+                            <li><a href="/blog/posts/upwork-graphql-api-engineering-lessons/">Building on the Upwork GraphQL API: Engineering Lessons</a></li>
+                            <li><a href="/blog/posts/job-hunter-privacy-eu-hosting/">Privacy by Design: EU Hosting and the 24-Hour Data Rule</a></li>
+                        </ol>
+                    </nav>
+
+                    <div class="blog-post__body animate-on-scroll fade-in">
+
+                        <figure class="blog-post__figure">
+                            <img src="/images/blog/ai-cover-letters-drafts-not-auto-submit-en.svg" alt="Flow from a scored job to a language-aware draft cover letter and screening answers, which the freelancer reviews, edits and submits on Upwork by hand" width="880">
+                            <figcaption>From a scored job to a draft: the model writes, the freelancer decides and submits. The job shown is an invented example.</figcaption>
+                        </figure>
+
+                        <p>In the <a href="/blog/posts/ai-job-scoring-hard-filters-first/">previous part</a> we described how a job gets to a score: hard filters in code first, then a model that rates what is left from 0 to 100. A good score is only half of the work. The freelancer still has to write a proposal, and that is the step where most of the time goes. This part is about the AI cover letter and proposal writer inside our tool, and about the one decision we made early and never changed: it writes drafts, and a person submits.</p>
+
+                        <h2>What the writer produces</h2>
+                        <p>In <a href="https://jobhunter.works/">Job Hunter</a>, every job that scores at or above the freelancer's threshold gets a cover letter draft, and if the client asked screening questions, draft answers to them too. The alert for the job goes out by email, Slack, Telegram, WhatsApp or push, and when the draft is already finished, an excerpt of it travels with the alert. The full letter and the answers wait in the app, next to the job, the score and the reasons for the score.</p>
+                        <p>Let us take our invented demo job: "Laravel developer for a booking platform", fixed price, client in Germany. Nothing about it is real; it is only the example we use in diagrams. Because the client is in Germany, the draft comes in a German and an English version. For a job like this, the draft has three parts: one or two lines that show the freelancer understood the actual task, a short note on relevant experience taken from the freelancer's own profile, and a clear next step. That is all.</p>
+
+                        <h2>Language-aware letters: EN, DE, FR, ES, NL</h2>
+                        <p>Many freelancers work with clients in more than one country. A client who writes a job post in German often reads a German proposal more carefully than an English one, and the same is true for French, Spanish and Dutch. So the writer looks for these languages and, when one is needed, adds a version in it next to the English one.</p>
+                        <p>"Translate the English letter word for word" is the wrong approach. A literal translation keeps English sentence structure and English politeness, and it reads like a translation. So when the writer produces more than one version, the prompt names one as the primary letter and asks the model to adapt the others naturally, with tone and phrasing that feel native, not to translate them word for word. The freelancer's profile facts stay the same in every version; only the writing changes.</p>
+                        <p>The freelancer does not pick the language by hand; the tool decides it from signals in the job, before the model writes anything. A job post that asks for German, French, Spanish or Dutch gets a version in that language. The scoring step can also suggest a letter language, and a client in Germany, Austria or Switzerland gets a German version. English is always included as well, so the freelancer always has a version they can check easily and can choose which one to send.</p>
+
+                        <h2>Why drafts and not auto-submit</h2>
+                        <p>People sometimes ask why the tool stops before the last step. There are two reasons, and both are firm.</p>
+                        <p>The first reason is technical and contractual. The Upwork API does not allow submitting proposals, and Job Hunter never does it. We use the API to read jobs from the freelancer's own saved searches, and that is where it ends. There is no hidden browser automation and no "send" button that talks to Upwork. Upwork is a trademark of its owner, and Job Hunter is an independent tool for Upwork freelancers.</p>
+                        <p>The second reason is about quality, and we would keep the same design even if submitting were possible. A proposal is a promise in the freelancer's name. It mentions a timeline, a way of working, sometimes a price. A model can write a good first version, but it cannot know that the freelancer is busy next week, that they did a very similar project last month, or that the client's description hides a detail that changes everything. The person who will do the work must read the text before the client does.</p>
+                        <p>In practice the review is short. The draft is already in the language the job calls for and already short, so the freelancer usually changes a sentence or two, adds a link to a fitting portfolio piece and submits the proposal on Upwork by hand. The tool saves the writing time; it does not take the decision.</p>
+
+                        <h2>Why short beats long</h2>
+                        <p>Long letters look impressive and are a common failure of AI writers. They repeat the job description, list every technology in the profile and close with three paragraphs of enthusiasm. When you read them as a client would, the important sentence is somewhere in the middle and easy to miss.</p>
+                        <p>So the writer aims for a short letter: the prompt asks for 150 to 250 words per language version, the body only. The rules are simple:</p>
+                        <ul>
+                            <li><strong>Open with the client's project,</strong> with a specific reference to what they asked for.</li>
+                            <li><strong>Show relevant experience</strong> from the freelancer's own profile that matches the requirements.</li>
+                            <li><strong>No filler.</strong> No generic phrases like "I am excited to apply", and no greeting or sign-off.</li>
+                            <li><strong>End with a clear call to action</strong> that moves the conversation forward.</li>
+                            <li><strong>No invented facts.</strong> When there is no profile, the model is told not to invent a name, employers, clients, years of experience, ratings or credentials, and to work only from the job itself.</li>
+                        </ul>
+                        <p>The last rule matters most. A long letter gives a model more room to fill gaps with plausible inventions. A short letter built from known facts is easier to check, and the freelancer can see at a glance if something is wrong. Short is not only more readable for the client; it is also safer for the freelancer.</p>
+                        <p>If you want the practical side of this, our guide on <a href="https://jobhunter.works/insights/guides/upwork-proposal-writer-ai">how to use an AI proposal writer for Upwork</a> goes through the review step in more detail.</p>
+
+                        <h2>Screening answers</h2>
+                        <p>Many job posts include screening questions, and they are easy to answer badly. Copying a paragraph from the cover letter into every answer is the most common mistake, and clients notice it.</p>
+                        <p>The writer gets the questions, the job post and the freelancer's profile, and it produces a direct answer to each question, 50 to 150 words long. The rules for these answers are strict: draw only on the experience in the profile, never invent employers, clients, numbers, ratings or credentials, and be specific rather than generic. If the profile does not cover what a question asks, for example a specific past project or an availability date, that is exactly the spot the freelancer has to fill in before submitting. An honest gap is better than a confident invention.</p>
+                        <p>The answers are written in the primary language of the letter. Our separate guide explains <a href="https://jobhunter.works/insights/guides/upwork-screening-questions">how to answer Upwork screening questions</a> well, with or without AI.</p>
+
+                        <h2>How it fits together</h2>
+                        <p>Technically, the writer runs as a queued job in our Laravel 12 application, with Redis and Horizon handling the queue. We use models from OpenAI and Anthropic. The letter job is dispatched only when a job passed the hard filters and its score reached the freelancer's threshold, so we do not spend model calls on jobs the freelancer would never apply to. A daily limit per account caps the number of letters. After that, the draft follows the same data rules as everything else, which part 5 explains.</p>
+                        <p>The flow is always the same: fetch jobs for the freelancer's search profiles, filter in code, score with AI, write the draft and the screening answers, send the alert, and then the freelancer reviews and submits. Every step before the last one is automatic. The last one is human on purpose.</p>
+
+                        <h2>What comes next</h2>
+                        <p>None of this works without reliable job data. In the <a href="/blog/posts/upwork-graphql-api-engineering-lessons/">next part</a> we look at the Upwork GraphQL API, OAuth and what we learned while building on it.</p>
+
+                    </div>
+
+                    <footer class="blog-post__footer animate-on-scroll fade-in">
+                        <p>Written by <a href="/about/">Hennadii Shvedko</a>, ShvedkoDev · <a href="/contact/">Get in touch</a></p>
+                        <a href="/blog/" class="button outline">← Back to Blog</a>
+                    </footer>
+                </article>
+            </div>
+        </main>
+        //= layout/footer.html
+    </div>
+</body>
+
+</html>

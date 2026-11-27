@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    //= layout/head.html
+    <link rel="alternate" hreflang="en" href="https://shvedko.dev/blog/posts/upwork-graphql-api-engineering-lessons/">
+    <link rel="alternate" hreflang="de" href="https://shvedko.dev/de/blog/posts/upwork-graphql-api-engineering-lessons/">
+    <link rel="alternate" hreflang="x-default" href="https://shvedko.dev/blog/posts/upwork-graphql-api-engineering-lessons/">
+    <title>Mit der Upwork-GraphQL-API bauen: Lehren aus der Entwicklung · ShvedkoDev Blog</title>
+    <meta name="description" content="Upwork-GraphQL-API-Integration mit Laravel: unsere Lehren zu OAuth-Token, Rate Limits, Schema-Änderungen und dem Löschen von Jobdaten nach 24 Stunden.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Mit der Upwork-GraphQL-API bauen: Lehren aus der Entwicklung · ShvedkoDev Blog">
+    <meta property="og:description" content="Upwork-GraphQL-API-Integration mit Laravel: unsere Lehren zu OAuth-Token, Rate Limits, Schema-Änderungen und dem Löschen von Jobdaten nach 24 Stunden.">
+    <meta property="og:url" content="https://shvedko.dev/de/blog/posts/upwork-graphql-api-engineering-lessons/">
+    <meta property="og:site_name" content="ShvedkoDev">
+    <meta property="og:locale" content="de_DE">
+    <link rel="canonical" href="https://shvedko.dev/de/blog/posts/upwork-graphql-api-engineering-lessons/">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+        //= layout/header.de.html
+        <main role="main" id="main">
+            <div class="container">
+                <article class="blog-post">
+                    <header class="blog-post__header animate-on-scroll fade-in">
+                        <div class="blog-post__meta">
+                            <a href="/de/blog/" class="blog-post__back">← Blog</a>
+                            <time datetime="2026-11-27">27. November 2026</time>
+                        </div>
+                        <h1>Mit der Upwork-GraphQL-API bauen: Lehren aus der Entwicklung</h1>
+                        <div class="blog-post__tags">
+                            <span class="tag">Job Hunter</span>
+                            <span class="tag">Upwork</span>
+                            <span class="tag">GraphQL</span>
+                            <span class="tag">Laravel</span>
+                        </div>
+                    </header>
+
+                    <nav class="blog-series" aria-label="Serie">
+                        <p class="blog-series__label">Teil 4 von 5: So bauen wir Job Hunter</p>
+                        <ol>
+                            <li><a href="/de/blog/posts/why-we-built-job-hunter/">Warum wir Job Hunter gebaut haben: Upwork-Jobs finden, die sich lohnen</a></li>
+                            <li><a href="/de/blog/posts/ai-job-scoring-hard-filters-first/">Upwork-Jobs mit KI bewerten: erst harte Filter, dann das Modell</a></li>
+                            <li><a href="/de/blog/posts/ai-cover-letters-drafts-not-auto-submit/">KI-Anschreiben für Upwork: Entwürfe statt automatischer Bewerbung</a></li>
+                            <li><span aria-current="page">Mit der Upwork-GraphQL-API bauen: Lehren aus der Entwicklung</span></li>
+                            <li><a href="/de/blog/posts/job-hunter-privacy-eu-hosting/">Datenschutz von Anfang an: EU-Hosting und die 24-Stunden-Regel</a></li>
+                        </ol>
+                    </nav>
+
+                    <div class="blog-post__body animate-on-scroll fade-in">
+
+                        <figure class="blog-post__figure">
+                            <img src="/images/blog/upwork-graphql-api-engineering-lessons-de.svg" alt="Diagramm: Das Suchprofil eines Nutzers läuft über OAuth und einen Rate Limiter zur Upwork-GraphQL-API; der Job wird normalisiert, bewertet und gemeldet, nach 24 Stunden bleiben nur Hash, Score und Status" width="880">
+                            <figcaption>So läuft ein Abrufzyklus in Job Hunter. Der gezeigte Job ist ein erfundenes Beispiel.</figcaption>
+                        </figure>
+
+                        <p>Jede Funktion von Job Hunter beginnt mit demselben Schritt: Jobs von Upwork für die Suchprofile abrufen, die jeder Nutzer anlegt. Bewertung, Anschreiben und Benachrichtigungen hängen alle davon ab. Ist der Abruf langsam, fehlerhaft oder unzuverlässig, hilft der Rest wenig. In diesem Beitrag geht es um genau diesen ersten Schritt: was wir beim Bau einer produktiven Upwork-GraphQL-API-Integration mit Laravel gelernt haben und welche Entscheidungen wir wieder so treffen würden.</p>
+
+                        <p>Wir bleiben dabei bei der Technik. Sie finden hier keine API-Schlüssel, keine internen Endpunkte und keine Marktplatzdaten. Für Beispiele nutzen wir einen erfundenen Job: "Laravel-Entwickler für eine Buchungsplattform", Festpreis, Auftraggeber in Deutschland. Er ist fiktiv und zeigt nur die Form der Daten.</p>
+
+                        <h2>OAuth: Ein Token gehört einem Menschen, nicht der Konfiguration</h2>
+
+                        <p>Die Upwork-GraphQL-API arbeitet mit OAuth 2.0. Jeder Job-Hunter-Nutzer verbindet sein eigenes Upwork-Konto, und der Abruf für seine Suchprofile läuft mit seinem eigenen Token. Das klingt einfach, verändert aber den Blick auf Zugangsdaten. Ein Access Token ist kein Wert, den man in die <code>.env</code> schreibt. Er gehört einer Person, er läuft ab, und er kann jederzeit ungültig werden, etwa weil der Nutzer den Zugriff entzogen oder sein Passwort geändert hat.</p>
+
+                        <p>Deshalb behandeln wir Token als Daten mit Lebenszyklus. Für jeden Nutzer speichern wir einen verschlüsselten Access Token, einen verschlüsselten Refresh Token und den Ablaufzeitpunkt. Aus den ersten Wochen sind drei Regeln entstanden:</p>
+
+                        <ul>
+                            <li><strong>Früh erneuern.</strong> Ein Token gilt schon fünf Minuten vor seinem echten Ablauf als abgelaufen. So wird er erneuert, bevor ein Aufruf scheitert, nicht erst nach dem ersten 401. Zusätzlich geht ein geplanter Befehl alle verbundenen Nutzer durch und erneuert Token, die bald ablaufen. Wenn zwei Worker denselben Token gleichzeitig erneuern können, ist ein gängiger Ansatz ein Lock um die Erneuerung, damit der zweite Worker nur noch den neuen Token liest.</li>
+                            <li><strong>Eine fehlende Verbindung ist ein Nutzerereignis, kein Fehler.</strong> Einen Nutzer ohne Upwork-Verbindung überspringt der Abruf still, statt bei jedem Lauf einen Fehler zu loggen. Ein zahlender Nutzer, der einen Tag nach der Registrierung noch nicht verbunden ist, bekommt genau eine E-Mail mit der Bitte, Upwork zu verbinden. In den Einstellungen steht bei einem Token-Problem ein klarer Hinweis: Upwork neu verbinden.</li>
+                            <li><strong>Token gehören nie ins Log.</strong> Scheitert eine Erneuerung, loggen wir nur den HTTP-Status, nie den Inhalt der Antwort. Fehlerberichte laufen durch einen Filter, der <code>Bearer</code>-Token, Refresh Token und andere geheime Werte ersetzt, bevor sie den Server verlassen. Das vergisst man beim Debuggen leicht, deshalb steht es im Code und nicht auf einer Checkliste.</li>
+                        </ul>
+
+                        <h2>Rate Limits: an einer Stelle durchsetzen, nicht in jedem Aufruf</h2>
+
+                        <p>Eine API, die einen ganzen Marktplatz bedient, muss sich schützen, und die Upwork-API hat Rate Limits. Unser Abruf ist ein geplanter Befehl, der in festen Abständen läuft, die aktiven Suchprofile durchgeht und für jedes die API aufruft. Die Lehre: Die Limits müssen an einer Stelle durchgesetzt werden, durch die jeder Aufruf geht, nicht in jedem Aufrufer.</p>
+
+                        <p>Deshalb hat der GraphQL-Client einen Rate Limiter mit Redis-Zählern pro Nutzer: pro Sekunde, pro Minute und pro Tag. Vor jedem Aufruf prüft er die Zähler. Sind Sekunde oder Minute voll, wartet er; ist das Tageslimit erreicht, lehnt er den Aufruf ab, statt das Kontingent des ganzen Tages zu verbrauchen. Jeder echte HTTP-Versuch wird gezählt, auch Wiederholungen, damit die Zahlen bei schlechtem Netz stimmen. Die aufwendige Arbeit nach dem Abruf, etwa die KI-Bewertung, läuft in Laravel-Horizon-Queues mit festem Backoff zwischen den Versuchen.</p>
+
+                        <p>Zwei Details haben viel bewirkt. Erstens beachten wir bei einer 429-Antwort den <code>Retry-After</code>-Header der API; sonst wiederholt der Client mit wachsender Pause. Zweitens trennen wir Fehler, die sich lohnen zu wiederholen (Verbindungsfehler, Limits, Serverfehler, vorübergehende GraphQL-Fehler), von dauerhaften Fehlern (fehlende Berechtigungen, eine Abfrage, die nicht mehr zum Schema passt). Wer dauerhafte Fehler wiederholt, verbraucht nur das Kontingent, das andere Nutzer brauchen.</p>
+
+                        <h2>Schema-Änderungen: GraphQL ist typisiert, Ihre Annahmen sind es nicht</h2>
+
+                        <p>GraphQL liefert ein Schema, und man ist versucht, es als Vertrag zu sehen, der sich nie ändert. In der Praxis wird ein Feld plötzlich nullable, ein Enum bekommt einen neuen Wert, oder ein Feld wird zugunsten eines anderen als veraltet markiert. Für den Anbieter bricht dadurch nichts. Ihr Parser kann aber still und leise falsche Ergebnisse liefern.</p>
+
+                        <p>Wir schützen uns auf drei Ebenen:</p>
+
+                        <ul>
+                            <li><strong>Nur abfragen, was man nutzt.</strong> Unsere Abfragen holen nur die Felder, die das Produkt braucht. Weniger Felder bedeuten weniger Stellen, die sich ändern können, und weniger Daten, die später gelöscht werden müssen.</li>
+                            <li><strong>An der Grenze normalisieren.</strong> Ein Transformer macht aus jedem GraphQL-Knoten unsere eigenen Job-Attribute, mit einem Standardwert für jedes Feld, das fehlen kann: Ohne Titel wird daraus "Untitled", ein fehlender Betrag bedeutet kein Budget, und die Vertragsart wird aus den vorhandenen Feldern erkannt. Die harten Filter und das Bewertungsmodell aus <a href="/de/blog/posts/ai-job-scoring-hard-filters-first/">Teil 2</a> arbeiten mit diesen Attributen, nicht mit der Struktur der API.</li>
+                            <li><strong>Schemafehlern einen eigenen Typ geben.</strong> Meldet die API, dass unsere Abfrage nicht mehr zum aktuellen Schema passt (ein Feld wurde entfernt oder hat einen neuen Typ), wirft der Client eine eigene Schema-Exception. Der Job scheitert einmal, statt es immer wieder zu versuchen, und die Warnung nennt das betroffene Feld. Eine Teilantwort mit brauchbaren Daten wird angenommen und als Warnung geloggt. Tests arbeiten mit aufgezeichneten Fixtures statt mit der echten API.</li>
+                        </ul>
+
+                        <p>Die Lehre daraus: Eine typisierte API verschiebt das Risiko von "der Request scheitert" zu "der Request klappt, aber Sie lesen die Daten falsch". Prüfung an der Grenze ist günstiger, als eine Woche später eine falsche Bewertung zu debuggen.</p>
+
+                        <h2>Die 24-Stunden-Regel: Löschen als Funktion</h2>
+
+                        <p>Die wichtigste Entscheidung betraf gar nicht den Abruf, sondern die Frage, was wir behalten. Job Hunter braucht den Text eines Jobs nur kurz: zum Filtern, zum Bewerten, für den Anschreiben-Entwurf aus <a href="/de/blog/posts/ai-cover-letters-drafts-not-auto-submit/">Teil 3</a> und für die Benachrichtigung. Danach hat der vollständige Text für den Nutzer keinen Wert mehr, und ihn aufzubewahren wäre nur ein Risiko.</p>
+
+                        <p>Also steckt die 24-Stunden-Regel direkt im Datenmodell. Nach 24 Stunden bleiben pro Job nur drei Dinge: ein Hash der Job-ID, der Score und die Entscheidung des Nutzers (zum Beispiel "ausgeblendet"). Titel, Beschreibung und alle anderen Felder werden gelöscht. Über den Hash erkennen wir einen bereits verarbeiteten Job wieder, sodass derselbe Job nicht erneut als neu erscheint, ohne dass wir speichern, worum es ging.</p>
+
+                        <p>Im Code ist das ein geplanter Bereinigungsbefehl, der stündlich läuft und in Paketen löscht, damit er nie große Tabellen sperrt. Der Jobtext liegt in einer eigenen Tabelle, getrennt von Hash, Score und Status. So ist die Bereinigung ein einfaches Delete statt eines heiklen Updates vieler Spalten. Die 24 Stunden sind eine harte Obergrenze: Auch wenn ein Admin ein größeres Fenster einstellt, wird es auf 24 begrenzt. KI-Jobs in der Queue bekommen das Job-Modell, das Laravel als ID serialisiert, nicht als Jobtext. Wir testen die Regel wie jede andere Funktion: Tests legen alte und frische Einträge an, starten die Bereinigung und prüfen, dass nur die alten verschwinden und das Fenster nie über 24 Stunden steigen kann.</p>
+
+                        <p>Diese Regel macht auch das Thema EU-Hosting in <a href="/de/blog/posts/job-hunter-privacy-eu-hosting/">Teil 5</a> leicht erklärbar: Daten, die nicht mehr existieren, können nicht abfließen.</p>
+
+                        <h2>Was die API nicht kann</h2>
+
+                        <p>Eine Grenze hat das Produkt stärker geprägt als jede andere: Die Upwork-API erlaubt kein Einreichen von Bewerbungen. Job Hunter reicht nie etwas ein. Es findet, filtert, bewertet und schreibt Entwürfe, und die Bewerbung schicken Sie selbst auf Upwork ab. Wir halten das für richtig und nicht für eine Notlösung. Wer eine Bewerbung unterschreibt, sollte sie auch selbst abschicken.</p>
+
+                        <h2>Was wir anderen Teams raten würden</h2>
+
+                        <ul>
+                            <li>OAuth-Token als Nutzerdaten mit Lebenszyklus behandeln und vor dem Ablauf erneuern.</li>
+                            <li>Jeden externen Aufruf vom ersten Tag an hinter einen gemeinsamen Rate Limiter legen und Wiederholungen mitzählen.</li>
+                            <li>Die Antwort an der Grenze normalisieren und Schemafehlern einen eigenen Typ geben.</li>
+                            <li>Erst entscheiden, was gelöscht wird, dann, was gespeichert wird.</li>
+                        </ul>
+
+                        <p>Wie sich diese Pipeline aus Sicht der Nutzer anfühlt, zeigt unser <a href="https://jobhunter.works/insights/guides/upwork-job-alert-tool">Leitfaden zu Upwork-Job-Benachrichtigungen</a> mit Einrichtung und Alerts. Mehr erfahren Sie direkt bei <a href="https://jobhunter.works/">Job Hunter von ShvedkoDev</a>; der Zugang erfolgt per Einladung, die Sie auf der Startseite anfragen können. Upwork ist eine Marke ihres Inhabers; Job Hunter ist ein unabhängiges Werkzeug für Upwork-Freelancer.</p>
+
+                    </div>
+
+                    <footer class="blog-post__footer animate-on-scroll fade-in">
+                        <p>Von <a href="/de/about/">Hennadii Shvedko</a>, ShvedkoDev · <a href="/de/contact/">Kontakt aufnehmen</a></p>
+                        <a href="/de/blog/" class="button outline">← Zurück zum Blog</a>
+                    </footer>
+                </article>
+            </div>
+        </main>
+        //= layout/footer.de.html
+    </div>
+</body>
+
+</html>

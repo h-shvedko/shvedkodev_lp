@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="420" viewBox="0 0 880 420" font-family="Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0D4999"/></marker></defs>
+<rect width="880" height="420" fill="white"/>
+<text x="440" y="36" text-anchor="middle" font-size="20" font-weight="bold" fill="#222">Entwürfe statt automatischer Bewerbung</text>
+<rect x="20" y="70" width="190" height="110" rx="10" fill="#dde3fd" stroke="#0D4999" stroke-width="2"/>
+<text x="115" y="100" text-anchor="middle" font-size="15" font-weight="bold" fill="#0D4999">Bewerteter Job</text>
+<text x="115" y="125" text-anchor="middle" font-size="12" fill="#222">"Laravel developer for</text>
+<text x="115" y="141" text-anchor="middle" font-size="12" fill="#222">a booking platform"</text>
+<text x="115" y="162" text-anchor="middle" font-size="11" fill="#222">Beispiel: Festpreis, Kunde in DE</text>
+<line x1="210" y1="125" x2="268" y2="125" stroke="#0D4999" stroke-width="2" marker-end="url(#a)"/>
+<rect x="270" y="70" width="190" height="110" rx="10" fill="#0D4999"/>
+<text x="365" y="105" text-anchor="middle" font-size="15" font-weight="bold" fill="white">KI-Generator</text>
+<text x="365" y="130" text-anchor="middle" font-size="12" fill="white">EN · DE · FR · ES · NL</text>
+<text x="365" y="152" text-anchor="middle" font-size="12" fill="white">kurz, keine erfundenen Fakten</text>
+<line x1="460" y1="105" x2="518" y2="95" stroke="#0D4999" stroke-width="2" marker-end="url(#a)"/>
+<line x1="460" y1="150" x2="518" y2="165" stroke="#0D4999" stroke-width="2" marker-end="url(#a)"/>
+<rect x="520" y="62" width="160" height="56" rx="10" fill="#dde3fd" stroke="#0D4999" stroke-width="2"/>
+<text x="600" y="87" text-anchor="middle" font-size="14" font-weight="bold" fill="#0D4999">Anschreiben</text>
+<text x="600" y="106" text-anchor="middle" font-size="11" fill="#222">Entwurf, erkannte Sprache</text>
+<rect x="520" y="136" width="160" height="56" rx="10" fill="#dde3fd" stroke="#0D4999" stroke-width="2"/>
+<text x="600" y="161" text-anchor="middle" font-size="14" font-weight="bold" fill="#0D4999">Screening-Antworten</text>
+<text x="600" y="180" text-anchor="middle" font-size="11" fill="#222">eine pro Frage</text>
+<line x1="680" y1="127" x2="718" y2="127" stroke="#0D4999" stroke-width="2" marker-end="url(#a)"/>
+<rect x="720" y="70" width="140" height="110" rx="10" fill="white" stroke="#0D4999" stroke-width="3" stroke-dasharray="6 4"/>
+<text x="790" y="105" text-anchor="middle" font-size="15" font-weight="bold" fill="#0D4999">Freelancer</text>
+<text x="790" y="128" text-anchor="middle" font-size="12" fill="#222">prüft, ändert,</text>
+<text x="790" y="146" text-anchor="middle" font-size="12" fill="#222">sendet auf Upwork ab</text>
+<line x1="20" y1="232" x2="860" y2="232" stroke="#dde3fd" stroke-width="2"/>
+<rect x="20" y="250" width="410" height="140" rx="10" fill="white" stroke="#0D4999" stroke-width="2"/>
+<text x="40" y="278" font-size="15" font-weight="bold" fill="#0D4999">Aufbau eines kurzen Anschreibens</text>
+<text x="40" y="304" font-size="13" fill="#222">1. Das Problem des Kunden in 1-2 Sätzen</text>
+<text x="40" y="328" font-size="13" fill="#222">2. Passende Erfahrung aus dem Profil</text>
+<text x="40" y="352" font-size="13" fill="#222">3. Ein klarer nächster Schritt</text>
+<text x="40" y="376" font-size="13" fill="#222">Keine Floskeln, keine Anrede</text>
+<rect x="450" y="250" width="410" height="140" rx="10" fill="#0D4999"/>
+<text x="470" y="278" font-size="15" font-weight="bold" fill="white">Nie automatisch</text>
+<text x="470" y="304" font-size="13" fill="white">Die Upwork-API erlaubt kein Absenden.</text>
+<text x="470" y="328" font-size="13" fill="white">Job Hunter sendet nie Proposals ab.</text>
+<text x="470" y="352" font-size="13" fill="white">Ein Mensch liest jeden Entwurf zuerst</text>
+<text x="470" y="376" font-size="13" fill="white">und sendet selbst auf Upwork ab.</text>
+<text x="440" y="410" text-anchor="middle" font-size="11" fill="#222">Erfundener Beispieljob, nur zur Veranschaulichung.</text>
+</svg>
