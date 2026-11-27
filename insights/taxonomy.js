@@ -225,8 +225,7 @@ function pick(labels, locale) {
 // The page title and the exact entity name the meta description must contain.
 // Service pages whose generated title misses the query people actually search for.
 var SERVICE_TITLES = {
-    'laravel-development education': { de: 'E-Learning-Plattform mit Laravel: Entwicklung für Bildung' },
-    'test-automation ecommerce': { de: 'Automatisierte Testbestellungen im E-Commerce' }
+    'laravel-development education': { de: 'E-Learning-Plattform mit Laravel: Entwicklung für Bildung' }
 };
 
 function label(axis, a, b, locale) {
