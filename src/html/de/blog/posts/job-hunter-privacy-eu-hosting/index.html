@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    //= layout/head.html
+    <link rel="alternate" hreflang="en" href="https://shvedko.dev/blog/posts/job-hunter-privacy-eu-hosting/">
+    <link rel="alternate" hreflang="de" href="https://shvedko.dev/de/blog/posts/job-hunter-privacy-eu-hosting/">
+    <link rel="alternate" hreflang="x-default" href="https://shvedko.dev/blog/posts/job-hunter-privacy-eu-hosting/">
+    <title>Datenschutz von Anfang an: EU-Hosting und die 24-Stunden-Regel · ShvedkoDev Blog</title>
+    <meta name="description" content="DSGVO im Blick: So haben wir ein in der EU gehostetes Tool für Upwork-Freelancer gebaut. Hetzner in Deutschland, AV-Vertrag und 24-Stunden-Regel.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Datenschutz von Anfang an: EU-Hosting und die 24-Stunden-Regel · ShvedkoDev Blog">
+    <meta property="og:description" content="DSGVO im Blick: So haben wir ein in der EU gehostetes Tool für Upwork-Freelancer gebaut. Hetzner in Deutschland, AV-Vertrag und 24-Stunden-Regel.">
+    <meta property="og:url" content="https://shvedko.dev/de/blog/posts/job-hunter-privacy-eu-hosting/">
+    <meta property="og:site_name" content="ShvedkoDev">
+    <meta property="og:locale" content="de_DE">
+    <link rel="canonical" href="https://shvedko.dev/de/blog/posts/job-hunter-privacy-eu-hosting/">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+        //= layout/header.de.html
+        <main role="main" id="main">
+            <div class="container">
+                <article class="blog-post">
+                    <header class="blog-post__header animate-on-scroll fade-in">
+                        <div class="blog-post__meta">
+                            <a href="/de/blog/" class="blog-post__back">← Blog</a>
+                            <time datetime="2026-11-27">27. November 2026</time>
+                        </div>
+                        <h1>Datenschutz von Anfang an: EU-Hosting und die 24-Stunden-Regel</h1>
+                        <div class="blog-post__tags">
+                            <span class="tag">Job Hunter</span>
+                            <span class="tag">Upwork</span>
+                            <span class="tag">Datenschutz</span>
+                            <span class="tag">DSGVO</span>
+                        </div>
+                    </header>
+
+                    <nav class="blog-series" aria-label="Serie">
+                        <p class="blog-series__label">Teil 5 von 5: So bauen wir Job Hunter</p>
+                        <ol>
+                            <li><a href="/de/blog/posts/why-we-built-job-hunter/">Warum wir Job Hunter gebaut haben: Upwork-Jobs finden, die sich lohnen</a></li>
+                            <li><a href="/de/blog/posts/ai-job-scoring-hard-filters-first/">Upwork-Jobs mit KI bewerten: erst harte Filter, dann das Modell</a></li>
+                            <li><a href="/de/blog/posts/ai-cover-letters-drafts-not-auto-submit/">KI-Anschreiben für Upwork: Entwürfe statt automatischer Bewerbung</a></li>
+                            <li><a href="/de/blog/posts/upwork-graphql-api-engineering-lessons/">Mit der Upwork-GraphQL-API bauen: Lehren aus der Entwicklung</a></li>
+                            <li><span aria-current="page">Datenschutz von Anfang an: EU-Hosting und die 24-Stunden-Regel</span></li>
+                        </ol>
+                    </nav>
+
+                    <div class="blog-post__body animate-on-scroll fade-in">
+
+                        <figure class="blog-post__figure">
+                            <img src="/images/blog/job-hunter-privacy-eu-hosting-de.svg" alt="Lebenszyklus eines Jobs in Job Hunter: abrufen, filtern, bewerten, Entwurf und Benachrichtigung innerhalb von 24 Stunden auf Servern in Deutschland; danach bleiben nur Hash, Score und Status" width="880">
+                            <figcaption>Der Weg eines Jobs durch Job Hunter, gezeigt an einem erfundenen Beispieljob. Nach 24 Stunden bleiben nur Hash, Score und Status übrig.</figcaption>
+                        </figure>
+
+                        <p>Mit diesem Beitrag schließen wir unsere Serie über Job Hunter ab, unser SaaS-Tool für Upwork-Freelancer. Im <a href="/de/blog/posts/upwork-graphql-api-engineering-lessons/">vorherigen Teil</a> ging es um die Upwork-GraphQL-API, OAuth und die Technik hinter dem Abruf der Jobs. Heute geht es um eine Frage, die uns Freelancer aus Europa fast immer schon im ersten Gespräch stellen: Wo liegen meine Daten, und was speichern Sie davon?</p>
+
+                        <p>Die kurze Antwort: Die Server betreibt Hetzner in Deutschland, jedes Konto akzeptiert einen Auftragsverarbeitungsvertrag, bevor die App sich öffnet, und nach 24 Stunden wird der Jobtext gelöscht. Pro Job bleibt nur ein kleiner Datensatz: ein Hash, ein Score und Ihr Status. Im Folgenden erklären wir, wie wir dahin gekommen sind und warum für uns die Architektur wichtiger ist als der Text der Datenschutzerklärung.</p>
+
+                        <p>Vorab ein Hinweis: Dies ist eine technische Beschreibung unseres Systems, keine Rechtsberatung. Ob ein Tool zu Ihren eigenen Pflichten aus der DSGVO passt, klären Sie am besten mit Ihrem Datenschutzbeauftragten oder einer Anwältin. Unsere Unterlagen können dafür als Grundlage dienen.</p>
+
+                        <h2>Datenschutz als Anforderung, nicht als Häkchen</h2>
+
+                        <p>Viele der Freelancer, die nach Job Hunter gefragt haben, arbeiten aus der EU heraus, und ein großer Teil von ihnen hat Kunden in Deutschland, Österreich oder der Schweiz. Für sie ist die Frage nach DSGVO-Konformität ganz praktisch: Ihre Auftraggeber wollen wissen, wohin Daten fließen. Ein Tool, das darauf keine klare Antwort hat, wird zum Problem des Freelancers, nicht nur zu unserem.</p>
+
+                        <p>Dazu kam ein ganz nüchterner technischer Grund. Jedes gespeicherte Feld muss geschützt, gesichert, migriert und irgendwann gelöscht werden. Ein Tool für die Jobsuche braucht viele Daten für kurze Zeit und fast keine Daten auf Dauer. Also haben wir das Datenmodell früh genau danach ausgerichtet, statt alles zu speichern und später eine Löschrichtlinie nachzuschieben.</p>
+
+                        <h2>Hosting bei Hetzner in Deutschland</h2>
+
+                        <p>Job Hunter läuft auf Infrastruktur von Hetzner in Deutschland. Der Stack ist derselbe, den wir in den vorherigen Teilen beschrieben haben: Laravel 12 mit Filament für die Verwaltung, MySQL als zentrale Datenbank, Redis mit Horizon für die Queues, die Jobs abrufen, filtern und bewerten. All das läuft in derselben Hosting-Umgebung in Deutschland. Verschlüsselte Datenbank-Backups liegen in einer AWS-Region in der EU.</p>
+
+                        <p>Die Wahl eines deutschen Anbieters war Absicht. Bei einem Tool mit EU-Hosting prüfen die meisten zuerst, wo Datenbank und Worker stehen, und genau das lässt sich am einfachsten erklären: Ihre gespeicherten Suchen, Ihre Einstellungen und die Jobs, die wir für Sie verarbeiten, liegen auf Servern in Deutschland.</p>
+
+                        <p>Damit das Bild vollständig ist: Job Hunter spricht für seine Arbeit mit anderen Diensten. Jobs liest es über die Upwork-API mit dem OAuth-Zugriff, den Sie erteilen. Für Bewertung und Entwürfe sendet es den Jobtext zusammen mit Ihrer eigenen Profilbeschreibung an Modelle von OpenAI oder Anthropic. Benachrichtigungen gehen über die Kanäle, die Sie wählen, also E-Mail, Slack, Telegram, WhatsApp oder Web-Push. Diese Aufrufe verlassen naturgemäß unsere Server. Das verschweigen wir nicht, denn ein Datenschutz-Artikel, der etwas anderes behauptet, wäre schlechter als gar keiner. Was wir steuern: was wir senden, wie lange wir das Ergebnis behalten und wo unser eigener Speicher steht.</p>
+
+                        <h2>Ein Auftragsverarbeitungsvertrag für jedes Konto</h2>
+
+                        <p>Wenn Sie Job Hunter für Ihre Arbeit nutzen, verarbeiten wir Daten in Ihrem Auftrag. Das ist im Sinne der DSGVO der klassische Fall für einen Auftragsverarbeitungsvertrag (AVV, englisch DPA). Bei Job Hunter gehört der AVV zum Onboarding: Die App bleibt geschlossen, bis das Konto die aktuelle Fassung akzeptiert hat. Er beschreibt, was wir verarbeiten und zu welchem Zweck, und eine öffentliche Liste nennt die Unterauftragsverarbeiter, darunter OpenAI, Anthropic, Upwork, Stripe und den E-Mail-Anbieter.</p>
+
+                        <p>Wir erwähnen das ausdrücklich, weil viele Freelancer diesen Schritt bei ihren Tools überspringen und die Unterlagen erst zusammensuchen, wenn ein Kunde oder ein Prüfer danach fragt. Gerade wenn Sie für deutsche Auftraggeber arbeiten, lohnt es sich, jedes Tool vor der Verbindung mit Ihren Konten nach einem AVV zu fragen. Wie Sie gezielt solche Auftraggeber finden, zeigt unser Leitfaden <a href="https://jobhunter.works/insights/guides/upwork-german-clients">Upwork-Kunden aus Deutschland finden</a>.</p>
+
+                        <h2>Die 24-Stunden-Regel</h2>
+
+                        <p>Das ist der Kern des Designs. Ein Job durchläuft in Job Hunter ein kurzes, aber dichtes Leben. Nehmen wir unseren erfundenen Beispieljob: "Laravel developer for a booking platform", Festpreis, Kunde in Deutschland. Der Job ist fiktiv, der Ablauf ist echt:</p>
+
+                        <ol>
+                            <li>Der Job kommt aus einer Ihrer eigenen gespeicherten Suchen.</li>
+                            <li>Harte Filter im Code prüfen Budget, Kundenbewertung, Zahl der Bewerber und Land. Fällt er durch, endet es hier.</li>
+                            <li>Das KI-Modell bewertet den verbliebenen Job mit 0 bis 100 Punkten.</li>
+                            <li>Bei einem guten Score schreibt Job Hunter einen Entwurf für das Anschreiben und Antworten auf die Screening-Fragen.</li>
+                            <li>Sie erhalten eine Benachrichtigung, lesen den Entwurf und reichen das Angebot selbst auf Upwork ein. Job Hunter reicht nie für Sie ein, und die Upwork-API erlaubt das ohnehin nicht.</li>
+                        </ol>
+
+                        <p>Für all das braucht das System den vollständigen Jobtext, und all das passiert innerhalb von Minuten oder Stunden. Danach hat der Volltext für Sie keinen Nutzen mehr. Deshalb löscht ein Aufräumprozess nach 24 Stunden den Job-Datensatz samt Entwurf. Übrig bleibt ein separater kleiner Datensatz mit drei wesentlichen Feldern:</p>
+
+                        <ul>
+                            <li><strong>Ein Hash.</strong> Damit erkennt das System einen bereits verarbeiteten Job wieder, sodass derselbe Job keine zweite Benachrichtigung auslöst. Es ist ein SHA-256-Einweg-Hash aus Ihrer Nutzer-ID und der Upwork-Job-ID und enthält daher keinen Jobtext.</li>
+                            <li><strong>Ein Score.</strong> Die Zahl von 0 bis 100, die das Modell vergeben hat, damit Ihre Bewertungshistorie stimmig bleibt.</li>
+                            <li><strong>Ein Status.</strong> Ihre eigene Entscheidung zum Job: neu, angesehen, gemerkt, beworben oder ausgeblendet. Ein Job, den Sie ausgeblendet oder auf den Sie sich beworben haben, kommt nicht wieder als neu zurück und wird nicht erneut bewertet.</li>
+                        </ul>
+
+                        <p>Daneben enthält der Datensatz nur Zeitpunkte und einen Zähler der Benachrichtigungen. Kein Titel, keine Beschreibung, keine Kundendaten, kein Entwurf. Auch dieser kleine Datensatz bleibt nicht für immer: Er wird nach dem Aufbewahrungsfenster für Betriebsprotokolle (standardmäßig 30 Tage) gelöscht, sobald der Job nicht mehr in Ihren Suchen auftaucht. Wenn Sie einen Entwurf behalten möchten, übernehmen Sie ihn in Ihr Angebot auf Upwork, denn dort gehört er hin.</p>
+
+                        <h2>Wie wir das Aufräumen gebaut haben</h2>
+
+                        <p>Technisch ist die Regel ein Artisan-Befehl, <code>upwork:cleanup</code>, den der Laravel-Scheduler stündlich ausführt. Er löscht jeden Job-Datensatz, der in den letzten 24 Stunden nicht aktualisiert wurde, auch die von den harten Filtern abgelehnten Jobs, und die Entwürfe verschwinden über einen kaskadierenden Fremdschlüssel mit. Eine Wiederherstellung aus einem Backup führt denselben Befehl sofort aus, damit sie keinen alten Jobtext zurückbringt. Die Daten liegen in zwei Tabellen: die Job-Datensätze, die ablaufen, und ein kleines Register mit Hash, Score und Status. Dieses Register hatten wir am Anfang nicht. Wir haben es ergänzt, als wir sahen, dass ein Job, der wochenlang auf Upwork offen bleibt, nach jedem Löschlauf täglich wieder als "neu" auftauchte. Durch diese Trennung ist das Löschen langweilig geworden, und genau das will man von einem Löschprozess. Er muss den Inhalt nicht verstehen, er entfernt nur den ablaufenden Teil, sobald er älter als 24 Stunden ist.</p>
+
+                        <p>Ein angenehmer Nebeneffekt: Weil die Zeile im Register so klein ist, entsteht gar nicht erst die Versuchung, später Funktionen auf alten Jobtexten aufzubauen. Braucht eine Idee die Jobbeschreibungen vom letzten Monat, steht die Antwort schon im Schema: Wir haben sie nicht.</p>
+
+                        <h2>Was das für Sie als Freelancer bedeutet</h2>
+
+                        <p>Wenn Sie ein in der EU gehostetes Tool für Ihre Arbeit auf Upwork suchen, würden wir jedem Anbieter diese Fragen stellen, uns eingeschlossen:</p>
+
+                        <ul>
+                            <li>Wo laufen Datenbank und Worker?</li>
+                            <li>Gibt es einen Auftragsverarbeitungsvertrag, und welche Unterauftragsverarbeiter nennt er?</li>
+                            <li>Was genau wird nach der Verarbeitung gespeichert, und wie lange?</li>
+                            <li>Handelt das Tool selbstständig in Ihrem Konto, oder bleibt der letzte Schritt bei Ihnen?</li>
+                        </ul>
+
+                        <p>Für Job Hunter lauten die Antworten: Deutschland, ja, für jedes Konto, nach 24 Stunden nur Hash, Score und Status, und Sie reichen immer selbst ein.</p>
+
+                        <h2>Zum Abschluss der Serie</h2>
+
+                        <p>In fünf Teilen haben wir erzählt, warum wir Job Hunter gestartet haben, warum harte Filter vor dem Modell kommen, warum Anschreiben Entwürfe bleiben, was wir aus der Upwork-GraphQL-API gelernt haben und nun, wie wir den Datenbestand klein halten. Wenn Sie den Anfang verpasst haben: <a href="/de/blog/posts/why-we-built-job-hunter/">Teil eins</a> erklärt das Problem, das wir lösen wollten.</p>
+
+                        <p>Der Zugang erfolgt derzeit per Einladung. Sie können ihn über <a href="https://jobhunter.works/">die Website von Job Hunter</a> anfragen. Upwork ist eine Marke ihres Inhabers; Job Hunter ist ein unabhängiges Tool für Upwork-Freelancer.</p>
+
+                    </div>
+
+                    <footer class="blog-post__footer animate-on-scroll fade-in">
+                        <p>Von <a href="/de/about/">Hennadii Shvedko</a>, ShvedkoDev · <a href="/de/contact/">Kontakt aufnehmen</a></p>
+                        <a href="/de/blog/" class="button outline">← Zurück zum Blog</a>
+                    </footer>
+                </article>
+            </div>
+        </main>
+        //= layout/footer.de.html
+    </div>
+</body>
+
+</html>

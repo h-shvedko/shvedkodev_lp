@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    //= layout/head.html
+    <link rel="alternate" hreflang="en" href="https://shvedko.dev/blog/posts/why-we-built-job-hunter/">
+    <link rel="alternate" hreflang="de" href="https://shvedko.dev/de/blog/posts/why-we-built-job-hunter/">
+    <link rel="alternate" hreflang="x-default" href="https://shvedko.dev/blog/posts/why-we-built-job-hunter/">
+    <title>Why We Built Job Hunter: Finding Upwork Jobs Worth Applying To · ShvedkoDev Blog</title>
+    <meta name="description" content="Why use a job finder for Upwork? How we stopped scrolling the feed for hours and defined which Upwork jobs are worth applying to as a freelancer.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Why We Built Job Hunter: Finding Upwork Jobs Worth Applying To · ShvedkoDev Blog">
+    <meta property="og:description" content="Why use a job finder for Upwork? How we stopped scrolling the feed for hours and defined which Upwork jobs are worth applying to as a freelancer.">
+    <meta property="og:url" content="https://shvedko.dev/blog/posts/why-we-built-job-hunter/">
+    <meta property="og:site_name" content="ShvedkoDev">
+    <meta property="og:locale" content="en_US">
+    <link rel="canonical" href="https://shvedko.dev/blog/posts/why-we-built-job-hunter/">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+        //= layout/header.html
+        <main role="main" id="main">
+            <div class="container">
+                <article class="blog-post">
+                    <header class="blog-post__header animate-on-scroll fade-in">
+                        <div class="blog-post__meta">
+                            <a href="/blog/" class="blog-post__back">← Blog</a>
+                            <time datetime="2026-11-27">November 27, 2026</time>
+                        </div>
+                        <h1>Why We Built Job Hunter: Finding Upwork Jobs Worth Applying To</h1>
+                        <div class="blog-post__tags">
+                            <span class="tag">Job Hunter</span>
+                            <span class="tag">Upwork</span>
+                            <span class="tag">Freelancing</span>
+                            <span class="tag">Product</span>
+                        </div>
+                    </header>
+
+                    <nav class="blog-series" aria-label="Series">
+                        <p class="blog-series__label">Part 1 of 5: Building Job Hunter</p>
+                        <ol>
+                            <li><span aria-current="page">Why We Built Job Hunter: Finding Upwork Jobs Worth Applying To</span></li>
+                            <li><a href="/blog/posts/ai-job-scoring-hard-filters-first/">Scoring Upwork Jobs with AI: Hard Filters First, Then the Model</a></li>
+                            <li><a href="/blog/posts/ai-cover-letters-drafts-not-auto-submit/">AI Cover Letters for Upwork: Drafts, Not Auto-Submit</a></li>
+                            <li><a href="/blog/posts/upwork-graphql-api-engineering-lessons/">Building on the Upwork GraphQL API: Engineering Lessons</a></li>
+                            <li><a href="/blog/posts/job-hunter-privacy-eu-hosting/">Privacy by Design: EU Hosting and the 24-Hour Data Rule</a></li>
+                        </ol>
+                    </nav>
+
+                    <div class="blog-post__body animate-on-scroll fade-in">
+
+                        <figure class="blog-post__figure">
+                            <img src="/images/blog/why-we-built-job-hunter-en.svg" alt="Diagram: new jobs from your saved searches pass four questions (budget, client, applicants, skills) and only the jobs that pass reach a short list with a score and a draft letter" width="880">
+                            <figcaption>The idea in one picture: from a long feed to a short list. The job shown is a fictional example.</figcaption>
+                        </figure>
+
+                        <p>Every freelancer who works on Upwork knows the routine. You open the feed in the morning, scroll, open a job in a new tab, read it, close it, scroll again. An hour later you have read a lot of job posts and applied to very few. The next morning you do it again. We did this for years ourselves, and at some point we asked a simple question: which part of this work actually needs a human?</p>
+
+                        <p>This post is the first part of a series about how we built <a href="https://jobhunter.works/">Job Hunter</a>, our tool for Upwork freelancers. Here we explain the problem and what we mean by "a job worth applying to". The later parts go into the engineering: scoring, cover letters, the API and privacy.</p>
+
+                        <h2>The real cost of scrolling</h2>
+
+                        <p>Scrolling the feed feels productive, because you are looking for work. But most of that time goes into jobs you will never apply to. You open a post and see after ten seconds that the budget is far too low. You open the next one and the client has no history and no payment method. The third one is a good match, but it already has a long list of proposals. Each of these decisions is small, but together they eat the morning.</p>
+
+                        <p>There is a second cost that is easy to miss. Upwork proposals cost Connects, and Connects cost money. If you apply to a job that was never a good fit, you lose the Connects and the time you spent writing the proposal. Freelancers who apply a lot without a filter pay for it twice. We wrote a separate guide on <a href="https://jobhunter.works/insights/guides/save-upwork-connects">how to spend fewer Connects on the wrong jobs</a>, because this question comes up again and again.</p>
+
+                        <p>The third cost is timing. A good job gets attention fast. If you check the feed twice a day, you often find the right job when it is already crowded. So freelancers check more often, which brings us back to the first cost.</p>
+
+                        <h2>What "a job worth applying to" means</h2>
+
+                        <p>Before we wrote any code, we had to define the goal. "Good job" is too vague to build software on. When we looked at how we decided ourselves, we saw that the decision has two layers.</p>
+
+                        <p>The first layer is hard facts. These are questions with a clear yes or no answer:</p>
+
+                        <ul>
+                            <li><strong>Budget.</strong> Is the fixed price or hourly rate in a range that makes sense for you?</li>
+                            <li><strong>Client rating.</strong> Does the client have a rating you are comfortable with, or none at all?</li>
+                            <li><strong>Number of applicants.</strong> Is the job still open enough that a new proposal will be read?</li>
+                            <li><strong>Country.</strong> Is the client in a country you want to work with, for example because of time zone, language or invoicing?</li>
+                        </ul>
+
+                        <p>If a job fails one of these checks, there is no reason to read it. You do not need intelligence for that, only rules. A computer can apply them in milliseconds, and it never gets tired at the end of a long scroll.</p>
+
+                        <p>The second layer is fit. This is the part where you read the description and ask: is this my kind of project? Does the client describe the problem clearly? Do I have experience with this stack? Would I enjoy this work? These questions do not have a yes or no answer. They need judgement, and this is where reading takes time.</p>
+
+                        <p>Take a fictional example: "Laravel developer for a booking platform", fixed price, client in Germany. The hard facts tell you quickly if the budget and the client are acceptable. But only the description tells you if the project is a clean new build or a rescue of an old codebase, and if that matches what you want to do. Both are valid jobs. They are just not valid for every freelancer.</p>
+
+                        <h2>Why a job finder, and not just alerts</h2>
+
+                        <p>Upwork already lets you save searches and get notified about them. That helps with timing, but it does not help with the reading. A saved search for "Laravel" still brings you every Laravel job, including all the ones you would close after ten seconds. More notifications without a filter just move the scrolling from the browser to your phone.</p>
+
+                        <p>So we wanted a tool that does three things in order. First, it fetches jobs for your own saved search profiles, with the keywords you choose, so you keep full control over what you look for. Second, it applies hard filters in code: a budget floor and a maximum number of applicants that you can set per profile, plus fixed rules for client rating, client region (North America or Europe) and job age. Third, for the jobs that remain, it uses AI to estimate fit and gives each job a score from 0 to 100. Only then does it send you an alert, by email, Slack, Telegram or push. If you want to compare this approach with other options, our guide to <a href="https://jobhunter.works/insights/guides/upwork-job-alert-tool">choosing an Upwork job alert tool</a> goes through the criteria.</p>
+
+                        <p>The order matters. Hard filters are cheap, exact and easy to explain. AI is useful for judgement, but it should not decide things that a simple rule can decide. We explain this design in detail in the next part, <a href="/blog/posts/ai-job-scoring-hard-filters-first/">Scoring Upwork Jobs with AI: Hard Filters First, Then the Model</a>.</p>
+
+                        <h2>What we decided not to build</h2>
+
+                        <p>Early on, we made one decision that shaped everything else: Job Hunter does not apply for you. It writes a draft cover letter and draft answers to screening questions, but you read them, change them and submit the proposal on Upwork by hand. The Upwork API does not allow submitting proposals, and we would not do it even if it did. A proposal is your voice and your reputation. A tool should prepare it, not send it.</p>
+
+                        <p>This also defines what success means for us. Success is not "more proposals sent". Success is that you spend less time reading jobs that do not fit, and more of your Connects and attention go to the few jobs that do.</p>
+
+                        <h2>Who this is for</h2>
+
+                        <p>We built Job Hunter for freelancers who already know what they want: a clear stack, a rate, a type of client. If you are still exploring, scrolling the feed is a good way to learn the market. But once you know your profile, reading hundreds of posts by hand is work a machine can do for you, at least the first, mechanical part of it.</p>
+
+                        <p>We built the product with tools we use in client work every day: Laravel 12, Filament, MySQL and Redis with Horizon for the queues, and OpenAI and Anthropic models for scoring and drafts. It is hosted on Hetzner in Germany. Access is by invitation for now, and you can request it on the home page.</p>
+
+                        <p>In the next part we show how the scoring works: why the hard filters run first, what the model sees, and what the score from 0 to 100 means in practice. Continue with <a href="/blog/posts/ai-job-scoring-hard-filters-first/">part 2</a>.</p>
+
+                        <p><em>Upwork is a trademark of its owner. Job Hunter is an independent tool for Upwork freelancers.</em></p>
+
+                    </div>
+
+                    <footer class="blog-post__footer animate-on-scroll fade-in">
+                        <p>Written by <a href="/about/">Hennadii Shvedko</a>, ShvedkoDev · <a href="/contact/">Get in touch</a></p>
+                        <a href="/blog/" class="button outline">← Back to Blog</a>
+                    </footer>
+                </article>
+            </div>
+        </main>
+        //= layout/footer.html
+    </div>
+</body>
+
+</html>

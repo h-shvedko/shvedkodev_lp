@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    //= layout/head.html
+    <link rel="alternate" hreflang="en" href="https://shvedko.dev/blog/posts/job-hunter-privacy-eu-hosting/">
+    <link rel="alternate" hreflang="de" href="https://shvedko.dev/de/blog/posts/job-hunter-privacy-eu-hosting/">
+    <link rel="alternate" hreflang="x-default" href="https://shvedko.dev/blog/posts/job-hunter-privacy-eu-hosting/">
+    <title>Privacy by Design: EU Hosting and the 24-Hour Data Rule · ShvedkoDev Blog</title>
+    <meta name="description" content="How we built a GDPR-minded, EU-hosted tool for Upwork freelancers: Hetzner in Germany, a data processing agreement and a strict 24-hour data rule.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Privacy by Design: EU Hosting and the 24-Hour Data Rule · ShvedkoDev Blog">
+    <meta property="og:description" content="How we built a GDPR-minded, EU-hosted tool for Upwork freelancers: Hetzner in Germany, a data processing agreement and a strict 24-hour data rule.">
+    <meta property="og:url" content="https://shvedko.dev/blog/posts/job-hunter-privacy-eu-hosting/">
+    <meta property="og:site_name" content="ShvedkoDev">
+    <meta property="og:locale" content="en_US">
+    <link rel="canonical" href="https://shvedko.dev/blog/posts/job-hunter-privacy-eu-hosting/">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="loader-holder">
+            <div class="loader"></div>
+        </div>
+        //= layout/header.html
+        <main role="main" id="main">
+            <div class="container">
+                <article class="blog-post">
+                    <header class="blog-post__header animate-on-scroll fade-in">
+                        <div class="blog-post__meta">
+                            <a href="/blog/" class="blog-post__back">← Blog</a>
+                            <time datetime="2026-11-27">November 27, 2026</time>
+                        </div>
+                        <h1>Privacy by Design: EU Hosting and the 24-Hour Data Rule</h1>
+                        <div class="blog-post__tags">
+                            <span class="tag">Job Hunter</span>
+                            <span class="tag">Upwork</span>
+                            <span class="tag">Privacy</span>
+                            <span class="tag">GDPR</span>
+                        </div>
+                    </header>
+
+                    <nav class="blog-series" aria-label="Series">
+                        <p class="blog-series__label">Part 5 of 5: Building Job Hunter</p>
+                        <ol>
+                            <li><a href="/blog/posts/why-we-built-job-hunter/">Why We Built Job Hunter: Finding Upwork Jobs Worth Applying To</a></li>
+                            <li><a href="/blog/posts/ai-job-scoring-hard-filters-first/">Scoring Upwork Jobs with AI: Hard Filters First, Then the Model</a></li>
+                            <li><a href="/blog/posts/ai-cover-letters-drafts-not-auto-submit/">AI Cover Letters for Upwork: Drafts, Not Auto-Submit</a></li>
+                            <li><a href="/blog/posts/upwork-graphql-api-engineering-lessons/">Building on the Upwork GraphQL API: Engineering Lessons</a></li>
+                            <li><span aria-current="page">Privacy by Design: EU Hosting and the 24-Hour Data Rule</span></li>
+                        </ol>
+                    </nav>
+
+                    <div class="blog-post__body animate-on-scroll fade-in">
+
+                        <figure class="blog-post__figure">
+                            <img src="/images/blog/job-hunter-privacy-eu-hosting-en.svg" alt="Data lifecycle of one job in Job Hunter: fetched, filtered, scored, drafted and alerted within 24 hours on servers in Germany; afterwards only a hash, a score and a status remain" width="880">
+                            <figcaption>The life of one job inside Job Hunter, shown with an invented example job. After 24 hours only a hash, a score and a status are left.</figcaption>
+                        </figure>
+
+                        <p>This is the last part of our series about Job Hunter, our SaaS for Upwork freelancers. In the <a href="/blog/posts/upwork-graphql-api-engineering-lessons/">previous part</a> we wrote about the Upwork GraphQL API, OAuth and the engineering behind the fetch pipeline. This part is about a question we get early in almost every conversation with European freelancers: where does my data live, and what do you keep?</p>
+
+                        <p>The short answer: the servers are run by Hetzner in Germany, every account signs a data processing agreement before the app opens, and after 24 hours the job text is deleted. What stays is a small record per job: a hash, a score and your status. The rest of this post explains how we got there and why we think the design matters more than the policy text.</p>
+
+                        <p>One note before we start. This is a technical description of how we built the system. It is not legal advice. If you need to judge whether a tool fits your own GDPR obligations, talk to your data protection officer or a lawyer and use the documents we provide as input.</p>
+
+                        <h2>Why privacy was a design input, not a checkbox</h2>
+
+                        <p>Many of the freelancers who asked for Job Hunter work from the EU, and a good part of them work for clients in Germany, Austria and Switzerland. For them, "is this tool GDPR-compliant?" is not a theoretical question. Their own clients ask them where data goes, and a tool that cannot answer clearly becomes a problem for the freelancer, not only for us.</p>
+
+                        <p>We also had a simpler engineering reason. Every field you store is a field you must protect, back up, migrate and eventually delete. A job hunting tool needs a lot of data for a short time and almost nothing for a long time. So we decided early to design the data model around that fact, instead of storing everything and writing a deletion policy later.</p>
+
+                        <h2>Hosting: Hetzner in Germany</h2>
+
+                        <p>Job Hunter runs on Hetzner infrastructure in Germany. The application stack is the one we described in earlier parts: Laravel 12 with Filament for the admin side, MySQL as the main database, Redis with Horizon for the queues that fetch, filter and score jobs. All of these run in the same German hosting environment. Encrypted database backups are stored in an AWS region in the EU.</p>
+
+                        <p>We chose a German provider on purpose. For an EU-hosted tool the location of the primary database and the queue workers is the first thing people check, and it is the easiest thing to explain: your saved searches, your settings and the jobs we process for you sit on servers in Germany.</p>
+
+                        <p>To be precise about the boundaries: Job Hunter talks to other services to do its work. It reads jobs through the Upwork API with the OAuth access you grant, it sends the job text together with your own profile description to OpenAI or Anthropic models to score the job and write drafts, and it sends alerts through the channels you choose (email, Slack, Telegram, WhatsApp or web push). Those calls leave our servers by definition. We do not hide this, and we think a privacy post that pretends otherwise is worse than no post at all. What we control is what we send, how long we keep the result, and where our own storage lives.</p>
+
+                        <h2>A data processing agreement for every account</h2>
+
+                        <p>When a freelancer uses Job Hunter for client work, we process data on their behalf. In GDPR terms that is the classic case for a data processing agreement (DPA, in German "Auftragsverarbeitungsvertrag" or AVV). In Job Hunter the DPA is part of onboarding: the app stays closed until the account has accepted the current version. It describes what we process and for which purpose, and a public list names the subprocessors, among them OpenAI, Anthropic, Upwork, Stripe and the email provider.</p>
+
+                        <p>We mention this here because we often see freelancers skip this step with their tools, and then have to collect the documents later when a client or an auditor asks. If you work with German clients, it is worth asking every tool in your stack for a DPA before you connect it to your accounts.</p>
+
+                        <h2>The 24-hour rule</h2>
+
+                        <p>This is the core of the design. A job that arrives in Job Hunter goes through a short, busy life. Take our invented example job, "Laravel developer for a booking platform", fixed price, client in Germany. Everything about it is fictional, but the flow is real:</p>
+
+                        <ol>
+                            <li>The job is fetched from one of your own saved searches.</li>
+                            <li>Hard filters in code check budget, client rating, number of applicants and country. If it fails, it stops here.</li>
+                            <li>The AI model scores the remaining job from 0 to 100.</li>
+                            <li>For a good score, Job Hunter writes a draft cover letter and answers to the screening questions.</li>
+                            <li>You get an alert, read the draft, and submit the proposal on Upwork yourself. Job Hunter never submits for you, and the Upwork API does not allow it anyway.</li>
+                        </ol>
+
+                        <p>All of this needs the full job text, and all of it happens within minutes or hours. After that, the full text has no further use for you. So after 24 hours a cleanup deletes the job record with its draft letter. What remains is a separate small record with three main fields:</p>
+
+                        <ul>
+                            <li><strong>A hash.</strong> It lets the system recognise a job it has already seen, so the same job does not trigger a second alert. It is a one-way SHA-256 hash of your user id and the Upwork job id, so it does not contain the job text.</li>
+                            <li><strong>A score.</strong> The 0 to 100 number the model gave, so your history of scores stays consistent.</li>
+                            <li><strong>A status.</strong> Your own decision on the job: new, reviewed, bookmarked, applied or hidden. A job you hid or applied to does not come back as new, and it is not scored again.</li>
+                        </ul>
+
+                        <p>Next to these fields the record only holds alert timestamps and an alert counter. No title, no description, no client details, no draft letter. This small record is not kept forever either: it is deleted after the operational log window (30 days by default) once the job stops appearing in your searches. If you want to keep a draft, you copy it into your proposal on Upwork, which is where it belongs.</p>
+
+                        <h2>How we built the cleanup</h2>
+
+                        <p>In practice the rule is an Artisan command, <code>upwork:cleanup</code>, that the Laravel scheduler runs every hour. It deletes every job record that was not updated in the last 24 hours, including jobs the hard filters rejected, and the draft letters go with them through a cascading foreign key. A restore from a backup runs the same command right away, so a restore cannot bring old job text back. The data lives in two tables: the job records that expire, and a small ledger with the hash, the score and the status. We did not have the ledger at the start. We added it when we saw that a job that stays open on Upwork for weeks came back as "new" every day after the purge. That split made the cleanup boring, which is what you want from a deletion process. It does not need to understand the content, it only needs to remove the expiring part once it is older than 24 hours.</p>
+
+                        <p>Designing it this way also had a side effect we liked. Because the ledger row is so small, there is no temptation to build features on old job text later. If a feature idea needs last month's job descriptions, the answer is already in the schema: we do not have them.</p>
+
+                        <h2>What this means for you as a freelancer</h2>
+
+                        <p>If you are looking for an EU-hosted tool for your Upwork work, these are the questions we would ask any vendor, including us:</p>
+
+                        <ul>
+                            <li>Where are the database and the workers hosted?</li>
+                            <li>Is a data processing agreement available, and which subprocessors does it list?</li>
+                            <li>What exactly is stored after the job is processed, and for how long?</li>
+                            <li>Does the tool act on your account by itself, or does it leave the final action to you?</li>
+                        </ul>
+
+                        <p>For Job Hunter the answers are: Germany, yes and for every account, a hash plus a score plus a status after 24 hours, and you always submit by hand. If you want to see how the filters work before you sign up, our guide on <a href="https://jobhunter.works/insights/guides/upwork-job-filter">filtering Upwork jobs by budget, rating and competition</a> walks through the settings step by step.</p>
+
+                        <h2>Closing the series</h2>
+
+                        <p>Over five parts we covered why we started Job Hunter, how hard filters come before the model, why cover letters stay drafts, what we learned from the Upwork GraphQL API, and now how we keep the data footprint small. If you missed the start, <a href="/blog/posts/why-we-built-job-hunter/">part one</a> explains the problem we set out to solve.</p>
+
+                        <p>Access is currently by invitation. You can request access on <a href="https://jobhunter.works/">the Job Hunter website</a>. Upwork is a trademark of its owner; Job Hunter is an independent tool for Upwork freelancers.</p>
+
+                    </div>
+
+                    <footer class="blog-post__footer animate-on-scroll fade-in">
+                        <p>Written by <a href="/about/">Hennadii Shvedko</a>, ShvedkoDev · <a href="/contact/">Get in touch</a></p>
+                        <a href="/blog/" class="button outline">← Back to Blog</a>
+                    </footer>
+                </article>
+            </div>
+        </main>
+        //= layout/footer.html
+    </div>
+</body>
+
+</html>

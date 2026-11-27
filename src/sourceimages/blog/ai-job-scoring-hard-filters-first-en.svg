@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 380" width="880" height="380" font-family="Arial, sans-serif">
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0D4999"/></marker></defs>
+<rect width="880" height="380" fill="white"/>
+<rect x="190" y="16" width="500" height="58" rx="8" fill="#dde3fd" stroke="#0D4999"/><text x="440" y="40" text-anchor="middle" font-size="15" fill="#222" font-weight="bold">Example job (invented): Laravel developer for a booking platform</text><text x="440" y="61" text-anchor="middle" font-size="14" fill="#222">Fixed price, client in Germany</text>
+<line x1="440" y1="74" x2="440" y2="104" stroke="#0D4999" stroke-width="2" marker-end="url(#a)"/>
+<rect x="20" y="106" width="840" height="100" rx="10" fill="white" stroke="#0D4999" stroke-width="2"/><text x="40" y="130" font-size="16" font-weight="bold" fill="#0D4999">Stage 1: hard filters in code</text>
+<rect x="40" y="145" width="180" height="44" rx="6" fill="#0D4999"/><text x="130" y="173" text-anchor="middle" font-size="15" fill="white">Budget</text>
+<line x1="220" y1="167" x2="243" y2="167" stroke="#0D4999" stroke-width="2" marker-end="url(#a)"/>
+<rect x="245" y="145" width="180" height="44" rx="6" fill="#0D4999"/><text x="335" y="173" text-anchor="middle" font-size="15" fill="white">Client rating</text>
+<line x1="425" y1="167" x2="448" y2="167" stroke="#0D4999" stroke-width="2" marker-end="url(#a)"/>
+<rect x="450" y="145" width="180" height="44" rx="6" fill="#0D4999"/><text x="540" y="173" text-anchor="middle" font-size="15" fill="white">Applicants</text>
+<line x1="630" y1="167" x2="653" y2="167" stroke="#0D4999" stroke-width="2" marker-end="url(#a)"/>
+<rect x="655" y="145" width="180" height="44" rx="6" fill="#0D4999"/><text x="745" y="173" text-anchor="middle" font-size="15" fill="white">Country</text>
+<line x1="130" y1="206" x2="130" y2="246" stroke="#0D4999" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#a)"/>
+<rect x="30" y="248" width="300" height="44" rx="6" fill="#dde3fd" stroke="#0D4999" stroke-dasharray="5,4"/><text x="180" y="275" text-anchor="middle" font-size="13" fill="#222">Fails a rule: dropped, rule stored</text>
+<line x1="760" y1="206" x2="560" y2="246" stroke="#0D4999" stroke-width="2" marker-end="url(#a)"/>
+<rect x="420" y="248" width="230" height="62" rx="8" fill="#0D4999"/><text x="535" y="270" text-anchor="middle" font-size="15" font-weight="bold" fill="white">Stage 2: AI model</text><text x="535" y="288" text-anchor="middle" font-size="14" fill="white">Score 0-100</text><text x="535" y="304" text-anchor="middle" font-size="13" fill="white">plus reasons</text>
+<line x1="650" y1="279" x2="688" y2="279" stroke="#0D4999" stroke-width="2" marker-end="url(#a)"/>
+<rect x="690" y="248" width="170" height="62" rx="8" fill="#dde3fd" stroke="#0D4999"/><text x="775" y="270" text-anchor="middle" font-size="15" font-weight="bold" fill="#222">Alert</text><text x="775" y="288" text-anchor="middle" font-size="13" fill="#222">email, Slack,</text><text x="775" y="304" text-anchor="middle" font-size="13" fill="#222">Telegram, push</text>
+<text x="440" y="350" text-anchor="middle" font-size="14" fill="#222">Only jobs that pass every filter reach the model. You submit on Upwork by hand.</text></svg>

@@ -233,4 +233,46 @@
         <lastmod>2026-10-01</lastmod>
     </url>
 
+
+    <!-- Building Job Hunter series -->
+    <url>
+        <loc>https://shvedko.dev/blog/posts/why-we-built-job-hunter/</loc>
+        <lastmod>2026-11-27</lastmod>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/blog/posts/ai-job-scoring-hard-filters-first/</loc>
+        <lastmod>2026-11-27</lastmod>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/blog/posts/ai-cover-letters-drafts-not-auto-submit/</loc>
+        <lastmod>2026-11-27</lastmod>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/blog/posts/upwork-graphql-api-engineering-lessons/</loc>
+        <lastmod>2026-11-27</lastmod>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/blog/posts/job-hunter-privacy-eu-hosting/</loc>
+        <lastmod>2026-11-27</lastmod>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/de/blog/posts/why-we-built-job-hunter/</loc>
+        <lastmod>2026-11-27</lastmod>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/de/blog/posts/ai-job-scoring-hard-filters-first/</loc>
+        <lastmod>2026-11-27</lastmod>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/de/blog/posts/ai-cover-letters-drafts-not-auto-submit/</loc>
+        <lastmod>2026-11-27</lastmod>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/de/blog/posts/upwork-graphql-api-engineering-lessons/</loc>
+        <lastmod>2026-11-27</lastmod>
+    </url>
+    <url>
+        <loc>https://shvedko.dev/de/blog/posts/job-hunter-privacy-eu-hosting/</loc>
+        <lastmod>2026-11-27</lastmod>
+    </url>
 </urlset>

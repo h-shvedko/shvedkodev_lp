@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" width="880" height="400" font-family="Arial, sans-serif">
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0D4999"/></marker></defs>
+  <rect width="880" height="400" fill="white"/>
+  <text x="440" y="34" text-anchor="middle" font-size="20" font-weight="bold" fill="#222">Vom langen Feed zur kurzen Liste, die sich lohnt</text>
+  <rect x="20" y="70" width="240" height="220" rx="10" fill="#dde3fd" stroke="#0D4999"/>
+  <text x="140" y="104" text-anchor="middle" font-size="17" font-weight="bold" fill="#0D4999">1. Ihre Suchen</text>
+  <text x="140" y="140" text-anchor="middle" font-size="14" fill="#222">Neue Jobs kommen</text>
+  <text x="140" y="164" text-anchor="middle" font-size="14" fill="#222">den ganzen Tag</text>
+  <text x="140" y="188" text-anchor="middle" font-size="14" fill="#222">Die meisten passen nicht</text>
+  <text x="140" y="212" text-anchor="middle" font-size="14" fill="#222">Lesen kostet Zeit</text>
+  <rect x="320" y="70" width="240" height="220" rx="10" fill="white" stroke="#0D4999" stroke-width="2"/>
+  <text x="440" y="104" text-anchor="middle" font-size="17" font-weight="bold" fill="#0D4999">2. Lohnt es sich?</text>
+  <text x="440" y="140" text-anchor="middle" font-size="14" fill="#222">Passt das Budget?</text>
+  <text x="440" y="164" text-anchor="middle" font-size="14" fill="#222">Ist der Kunde seriös?</text>
+  <text x="440" y="188" text-anchor="middle" font-size="14" fill="#222">Nicht zu viele Bewerber?</text>
+  <text x="440" y="212" text-anchor="middle" font-size="14" fill="#222">Passt es zu Ihren Skills?</text>
+  <rect x="620" y="70" width="240" height="220" rx="10" fill="#0D4999"/>
+  <text x="740" y="104" text-anchor="middle" font-size="17" font-weight="bold" fill="white">3. Eine kurze Liste</text>
+  <text x="740" y="140" text-anchor="middle" font-size="14" fill="white">Nur passende Jobs</text>
+  <text x="740" y="164" text-anchor="middle" font-size="14" fill="white">Jeweils mit Score 0-100</text>
+  <text x="740" y="188" text-anchor="middle" font-size="14" fill="white">und einem Entwurf</text>
+  <text x="740" y="212" text-anchor="middle" font-size="14" fill="white">Sie entscheiden selbst</text>
+  <line x1="262" y1="180" x2="316" y2="180" stroke="#0D4999" stroke-width="3" marker-end="url(#a)"/>
+  <line x1="562" y1="180" x2="616" y2="180" stroke="#0D4999" stroke-width="3" marker-end="url(#a)"/>
+  <rect x="20" y="320" width="840" height="56" rx="8" fill="white" stroke="#0D4999" stroke-dasharray="5 4"/>
+  <text x="440" y="344" text-anchor="middle" font-size="14" fill="#222">Beispiel (fiktiv): Laravel developer for a booking platform, Festpreis, Kunde in Deutschland</text>
+  <text x="440" y="364" text-anchor="middle" font-size="13" fill="#0D4999">Job Hunter benachrichtigt Sie. Den Vorschlag senden Sie selbst auf Upwork ab.</text>
+</svg>

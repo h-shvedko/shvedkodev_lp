@@ -96,7 +96,9 @@ function document(opts, d) {
         '<link rel="canonical" href="' + SITE_URL + d.url + '">',
         links.join('\n'),
         opts.preview ? '<meta name="robots" content="noindex, nofollow">' : '',
-        d.jsonLd ? '<script type="application/ld+json">' + JSON.stringify(d.jsonLd).replace(/</g, '\\u003c') + '</script>' : '',
+        (d.jsonLd ? [].concat(d.jsonLd) : []).map(function(ld) {
+            return '<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>';
+        }).join('\n'),
         '</head>',
         '',
         '<body>',
@@ -164,6 +166,12 @@ function blogPosts(opts, page) {
     }).filter(Boolean);
 }
 
+// Job Hunter pages name the product once with a link to its site, in a sentence.
+function productLine(page) {
+    if (page.axis !== 'products' || page.entity_a !== 'jobhunter') return '';
+    return '<p>' + e(i18n.t(page.locale, 'product.jobhunter')) + ' <a href="https://jobhunter.works/">Job Hunter</a> (jobhunter.works).</p>';
+}
+
 // One line under the subtitle with the next step, so readers do not need to reach the end.
 function leadLine(page) {
     var l = page.locale, base = l === locales.DEFAULT_LOCALE ? '' : '/' + l;
@@ -199,7 +207,7 @@ function pickerFor(ctx, hreflang) {
 function renderPage(opts, ctx, page) {
     var l = page.locale;
     // The next-step line repeats after the main text, where readers decide.
-    var sections = [{ id: 'overview', title: i18n.t(l, 'ui.overview'), html: blocks(page.overview) + leadLine(page) }];
+    var sections = [{ id: 'overview', title: i18n.t(l, 'ui.overview'), html: blocks(page.overview) + productLine(page) + leadLine(page) }];
     if (page.example_body) sections.push({ id: 'example', title: i18n.t(l, 'ui.example'), html: '<div class="insight__example">' + blocks(page.example_body) + '</div>' });
     sections.push({
         id: 'personas', title: i18n.t(l, 'ui.personas'),
@@ -251,12 +259,17 @@ function renderPage(opts, ctx, page) {
     return document(opts, {
         locale: l, url: urlFor(page), title: title(page), description: page.meta_description,
         hreflang: hreflang, alternates: pickerFor(ctx, hreflang), body: body,
-        jsonLd: {
+        jsonLd: [{
             '@context': 'https://schema.org', '@type': 'FAQPage',
             mainEntity: page.faq.map(function(f) {
                 return { '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } };
             })
-        }
+        }].concat(page.axis === 'products' && page.entity_a === 'jobhunter' ? [{
+            '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'Job Hunter',
+            url: 'https://jobhunter.works', applicationCategory: 'BusinessApplication', operatingSystem: 'Web',
+            publisher: { '@type': 'Organization', name: 'ShvedkoDev', url: 'https://shvedko.dev/' },
+            sameAs: ['https://jobhunter.works']
+        }] : [])
     });
 }
 

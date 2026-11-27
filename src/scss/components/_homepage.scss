@@ -349,3 +349,44 @@
         border-radius: 2px;
     }
 }
+
+// Job Hunter, our second product, under the Craftly block on the home page.
+.jobhunter-banner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 16px;
+    margin-top: 24px;
+    padding: 20px 24px;
+    border: 2px solid $primary-color;
+    border-radius: 12px;
+    background: #fff;
+    color: inherit;
+    text-decoration: none;
+
+    &:hover .jobhunter-banner__cta {
+        text-decoration: underline;
+    }
+
+    &__badge {
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: $primary-color;
+    }
+
+    &__name {
+        font-size: 28px;
+        font-weight: 700;
+    }
+
+    &__text {
+        flex: 1 1 420px;
+        font-size: 18px;
+    }
+
+    &__cta {
+        font-weight: 700;
+        color: $primary-color;
+    }
+}

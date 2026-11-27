@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="520" viewBox="0 0 880 520" font-family="Arial, sans-serif">
+<defs><marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0D4999"/></marker></defs>
+<rect width="880" height="520" fill="#ffffff"/>
+<text x="440" y="36" text-anchor="middle" font-size="22" font-weight="bold" fill="#0D4999">One job in Job Hunter: the 24-hour data rule</text>
+<text x="440" y="62" text-anchor="middle" font-size="13" fill="#222">Example (invented): "Laravel developer for a booking platform", fixed price, client in Germany</text>
+<rect x="20" y="80" width="840" height="420" rx="14" fill="none" stroke="#0D4999" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="36" y="104" font-size="14" font-weight="bold" fill="#0D4999">Hetzner, Germany</text>
+<text x="440" y="134" text-anchor="middle" font-size="15" font-weight="bold" fill="#222">First 24 hours: full job data is used</text>
+<rect x="42.0" y="150" width="140" height="90" rx="10" fill="#dde3fd" stroke="#0D4999" stroke-width="1.5"/>
+<text x="112.0" y="182" text-anchor="middle" font-size="16" font-weight="bold" fill="#0D4999">Fetch</text>
+<text x="112.0" y="206" text-anchor="middle" font-size="12" fill="#222">your saved search</text>
+<text x="112.0" y="222" text-anchor="middle" font-size="12" fill="#222"></text>
+<line x1="184.0" y1="195" x2="202.0" y2="195" stroke="#0D4999" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="206.0" y="150" width="140" height="90" rx="10" fill="#dde3fd" stroke="#0D4999" stroke-width="1.5"/>
+<text x="276.0" y="182" text-anchor="middle" font-size="16" font-weight="bold" fill="#0D4999">Hard filters</text>
+<text x="276.0" y="206" text-anchor="middle" font-size="12" fill="#222">budget, rating,</text>
+<text x="276.0" y="222" text-anchor="middle" font-size="12" fill="#222">applicants, country</text>
+<line x1="348.0" y1="195" x2="366.0" y2="195" stroke="#0D4999" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="370.0" y="150" width="140" height="90" rx="10" fill="#dde3fd" stroke="#0D4999" stroke-width="1.5"/>
+<text x="440.0" y="182" text-anchor="middle" font-size="16" font-weight="bold" fill="#0D4999">AI score</text>
+<text x="440.0" y="206" text-anchor="middle" font-size="12" fill="#222">0 to 100</text>
+<text x="440.0" y="222" text-anchor="middle" font-size="12" fill="#222"></text>
+<line x1="512.0" y1="195" x2="530.0" y2="195" stroke="#0D4999" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="534.0" y="150" width="140" height="90" rx="10" fill="#dde3fd" stroke="#0D4999" stroke-width="1.5"/>
+<text x="604.0" y="182" text-anchor="middle" font-size="16" font-weight="bold" fill="#0D4999">Draft letter</text>
+<text x="604.0" y="206" text-anchor="middle" font-size="12" fill="#222">cover letter +</text>
+<text x="604.0" y="222" text-anchor="middle" font-size="12" fill="#222">screening answers</text>
+<line x1="676.0" y1="195" x2="694.0" y2="195" stroke="#0D4999" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="698.0" y="150" width="140" height="90" rx="10" fill="#dde3fd" stroke="#0D4999" stroke-width="1.5"/>
+<text x="768.0" y="182" text-anchor="middle" font-size="16" font-weight="bold" fill="#0D4999">Alert</text>
+<text x="768.0" y="206" text-anchor="middle" font-size="12" fill="#222">email, Slack,</text>
+<text x="768.0" y="222" text-anchor="middle" font-size="12" fill="#222">Telegram, web push</text>
+<line x1="440" y1="250" x2="440" y2="300" stroke="#0D4999" stroke-width="2" marker-end="url(#ar)"/>
+<text x="452" y="280" font-size="12" fill="#222">24 h</text>
+<text x="440" y="326" text-anchor="middle" font-size="15" font-weight="bold" fill="#222">After 24 hours: only three fields remain</text>
+<rect x="155.0" y="340" width="170" height="64" rx="10" fill="#0D4999"/>
+<text x="240.0" y="368" text-anchor="middle" font-size="17" font-weight="bold" fill="#ffffff">Hash</text>
+<text x="240.0" y="390" text-anchor="middle" font-size="12" fill="#ffffff">recognise a seen job</text>
+<rect x="355.0" y="340" width="170" height="64" rx="10" fill="#0D4999"/>
+<text x="440.0" y="368" text-anchor="middle" font-size="17" font-weight="bold" fill="#ffffff">Score</text>
+<text x="440.0" y="390" text-anchor="middle" font-size="12" fill="#ffffff">0 to 100</text>
+<rect x="555.0" y="340" width="170" height="64" rx="10" fill="#0D4999"/>
+<text x="640.0" y="368" text-anchor="middle" font-size="17" font-weight="bold" fill="#ffffff">Status</text>
+<text x="640.0" y="390" text-anchor="middle" font-size="12" fill="#ffffff">your decision</text>
+<text x="440" y="436" text-anchor="middle" font-size="13" fill="#222" text-decoration="line-through">Deleted: title, description, client details, draft letter</text>
+<rect x="230" y="452" width="420" height="34" rx="8" fill="#ffffff" stroke="#0D4999" stroke-width="1.5"/>
+<text x="440" y="474" text-anchor="middle" font-size="13" font-weight="bold" fill="#0D4999">You submit the proposal on Upwork by hand</text>
+</svg>
